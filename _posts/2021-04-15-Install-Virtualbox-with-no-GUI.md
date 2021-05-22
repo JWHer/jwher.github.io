@@ -2,14 +2,15 @@
 layout: post
 title: "Install Virtualbox with no GUI"
 subtitle: "linux 서버에 virtual box 환경 세팅하기"
-cover-img: /_posts/images/virtualbox.jpg
-thumbnail-img: /_posts/images/virtualbox.jpg
-date: 2021-04-15 11:50:00 
-categories: virtualbox, linux, rdp
+cover-img: /assets/img/cover.png
+thumbnail-img: /assets/img/Virtualbox.png
+tags: [virtualbox, linux, rdp]
+
+date: 2021-04-15 11:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.jpg "virtualbox")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.png "virtualbox")  
 *linux 서버에 virtual box 환경 세팅하기*  
 
 리눅스 서버에 virtualbox로 가상 환경을 구성해야 했다.  

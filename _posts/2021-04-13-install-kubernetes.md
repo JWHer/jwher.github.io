@@ -2,9 +2,9 @@
 layout: post
 title: "Install kubernetes"
 subtitle: "천리길도 한걸음씩"
-cover-img: /_posts/images/img.png
-thumbnail-img: /_posts/images/kubernetes.png
-categories: [kubernetes, docker]
+cover-img: /assets/img/cover.png
+thumbnail-img: /assets/img/Kubernetes.svg
+tags: [kubernetes, docker]
 
 date: 2021-04-13 11:50:00 
 ---
@@ -30,7 +30,7 @@ kubeadm을 사용하여 2개의 ubuntu vm간 클러스터를 구성하는 예제
 * 머신 전체 네트워크 연결
 
 #### Software setting  
-[▶도커 설치][docker-install]  
+▶ [도커 설치][docker-install]  
 
 <details>
 <summary>도커 데몬 드라이버 변경</summary>
@@ -67,8 +67,7 @@ $ sudo systemctl restart docker
 
 </details>
 
-<details>
-<summary>swap 비활성화(必) </summary>  
+▶ swap 비활성화(必)  
 
 linux 스왑 메모리를 비활성화 해준다.  
 
@@ -95,19 +94,14 @@ UUID=9AD5-66E5  /boot/efi       vfat    umask=0077      0       1
 #주석 /swapfile                                 none            swap    sw              0       0
 ```
 
-</details>
-
-<details>
-<summary>방화벽(必) (firewalld) </summary>  
+▶ 방화벽(必) (firewalld)  
 
 firewalld를 비활성화 시켜준다.  
 
 ```shell
 # firewalld의 종료 방법
 $ sudo systemctl stop firewalld
-```  
-
-</details>
+```
 
 <details>
 <summary>포트 개방 (iptables)</summary>  

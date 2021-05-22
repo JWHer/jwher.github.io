@@ -2,8 +2,8 @@
 layout: post
 title: "Install Docker"
 subtitle: "천리길도 한걸음씩"
-cover-img: /_posts/images/docker.png
-thumbnail-img: /_posts/images/docker.png
+cover-img: /assets/img/cover.png
+thumbnail-img: /assets/img/docker.svg
 tags: [kubernetes, docker]
 
 date: 2021-04-13 11:50:00 

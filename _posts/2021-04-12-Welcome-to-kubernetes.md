@@ -2,9 +2,9 @@
 layout: post
 title: "Welcome to kubernetes!"
 subtitle: "kubernetes의 세계에 오신 걸 환영합니다"
-cover-img: /_posts/images/img.png
-thumbnail-img: /_posts/images/kubernetes.png
-categories: [kubernetes, docker]
+cover-img: /assets/img/cover.png
+thumbnail-img: /assets/img/Kubernetes.svg
+tags: [kubernetes, docker]
 
 date: 2021-04-12 23:50:00 
 ---

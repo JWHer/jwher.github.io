@@ -1,9 +1,9 @@
 ---
 title: "Inatall tar.gz"
 subtitle: "가끔은 예측하지 못한 결과에 대비해야 할 수도..."
-cover-img: /_posts/images/prepared.jpg
-thumbnail-img: /_posts/images/gzip.png
-categories: [linux]
+cover-img: /assets/img/cover.png
+thumbnail-img: /assets/img/prepared.jpg
+tags: [linux]
 
 date: 2021-05-10 17:50:00 
 ---
