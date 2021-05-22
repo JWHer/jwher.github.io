@@ -2,7 +2,7 @@
 layout: post
 title: "Install kubernetes"
 subtitle: "천리길도 한걸음씩"
-cover-img: /assets/img/cover.png
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
 tags: [kubernetes, docker]
 
@@ -65,7 +65,8 @@ $ sudo mkdir -p /etc/systemd/system/docker.service.d
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```  
-
+.  
+  
 </div>
 </details>
 
@@ -97,7 +98,8 @@ UUID=f33b74a8-d88b-4e05-aa01-86d51a883c53 /               ext4    errors=remount
 UUID=9AD5-66E5  /boot/efi       vfat    umask=0077      0       1
 #주석 /swapfile                                 none            swap    sw              0       0
 ```
-
+.  
+  
 </div>
 </details>
 
@@ -111,7 +113,8 @@ firewalld를 비활성화 시켜준다.
 # firewalld의 종료 방법
 $ sudo systemctl stop firewalld
 ```
-
+.  
+  
 </div>
 </details>
 
@@ -132,7 +135,8 @@ $ sudo iptables -L
 $ sudo iptables -F
 
 ```  
-
+.  
+  
 </div>
 </details>
 

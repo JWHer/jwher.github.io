@@ -2,7 +2,7 @@
 layout: post
 title: "Install Virtualbox with no GUI"
 subtitle: "linux 서버에 virtual box 환경 세팅하기"
-cover-img: /assets/img/cover.png
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Virtualbox.png
 tags: [virtualbox, linux, rdp]
 

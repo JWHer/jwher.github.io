@@ -2,7 +2,7 @@
 layout: post
 title: "Install Docker"
 subtitle: "천리길도 한걸음씩"
-cover-img: /assets/img/cover.png
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/docker.svg
 tags: [kubernetes, docker]
 

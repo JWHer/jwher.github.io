@@ -2,15 +2,15 @@
 layout: post
 title: "좋은 제목"
 subtitle: "부제"
-cover-img: /_posts/images/img.png
-thumbnail-img: /_posts/images/img.png
+cover-img: /assets/img/cover.svg
+thumbnail-img: /assets/img/cover.svg
 share-img: /assets/img/path.jpg
 tags: [kubernetes, docker]
 
 date: 2021-04-13 11:50:00 
 ---
 
-<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
+<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](some-awesome-image.png "awesome")  
 *요약을 적어주자*  
 
