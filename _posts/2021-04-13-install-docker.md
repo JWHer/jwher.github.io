@@ -9,7 +9,7 @@ tags: [kubernetes, docker]
 date: 2021-04-13 11:50:00 
 ---
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/docker.png "docker")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker.png "docker")  
 *천리길도 한걸음씩*  
 
 # 목차

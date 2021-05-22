@@ -8,8 +8,8 @@ categories: [linux]
 date: 2021-05-10 17:50:00 
 ---
 
-<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/gzip.png "gnuzip")  
+<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/gzip.png "gnuzip")  
 *가끔은 예측하지 못한 결과에 대비해야 할 수도...*  
 
 # 목차
@@ -55,7 +55,7 @@ Jean-loup Gailly와 Mark Adler가 만들었다고 한다.
 1. node pakcage 리스트 확인  
     
    노드는 https://www.nodejs.org/download/release/ 에 패키지 다운로드 목록을 제공한다.
-   ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/packagelist_node.png "패키지 목록")
+   ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/packagelist_node.png "패키지 목록")
    
    <br/>
 
@@ -63,7 +63,7 @@ Jean-loup Gailly와 Mark Adler가 만들었다고 한다.
 
    설치파일을 받는 방법은 다양하겠으나(wget, scp, docker cp...) wget을 사용하였다.  
    필요한 다운로드 url을 복사하자  
-   ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/packagelinkcopy_node.png "패키지 목록")
+   ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/packagelinkcopy_node.png "패키지 목록")
    
    <br/>
    

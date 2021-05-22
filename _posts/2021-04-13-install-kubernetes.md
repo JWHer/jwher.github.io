@@ -9,7 +9,7 @@ categories: [kubernetes, docker]
 date: 2021-04-13 11:50:00 
 ---
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/kubernetes.png "docker")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "docker")  
 *천리길도 한걸음씩*  
 kubeadm을 사용하여 2개의 ubuntu vm간 클러스터를 구성하는 예제
 
@@ -34,6 +34,8 @@ kubeadm을 사용하여 2개의 ubuntu vm간 클러스터를 구성하는 예제
 
 <details>
 <summary>도커 데몬 드라이버 변경</summary>
+
+도커 데몬 드라이버를 systemd로 변경해 준다.  
 
 ```shell
 $ sudo vi /etc/docker/daemon.json
@@ -66,7 +68,9 @@ $ sudo systemctl restart docker
 </details>
 
 <details>
-<summary>swap 비활성화(必)</summary>  
+<summary>swap 비활성화(必) </summary>  
+
+linux 스왑 메모리를 비활성화 해준다.  
 
 ```shell
 $ sudo swapoff -a
@@ -89,12 +93,14 @@ UUID=f33b74a8-d88b-4e05-aa01-86d51a883c53 /               ext4    errors=remount
 # /boot/efi was on /dev/sda1 during installation
 UUID=9AD5-66E5  /boot/efi       vfat    umask=0077      0       1
 #주석 /swapfile                                 none            swap    sw              0       0
-```  
+```
 
 </details>
 
 <details>
-<summary>방화벽(必) (firewalld)</summary>  
+<summary>방화벽(必) (firewalld) </summary>  
+
+firewalld를 비활성화 시켜준다.  
 
 ```shell
 # firewalld의 종료 방법
@@ -105,6 +111,9 @@ $ sudo systemctl stop firewalld
 
 <details>
 <summary>포트 개방 (iptables)</summary>  
+
+간혹 iptables에 이전 rule들이 남아있어 문제가 생긴다.  
+(주로 kubernetes 재설치로 생긴 문제)  
 
 ```shell
 # kubeadm join이 안될 시 iptables를 확인해 본다.
@@ -180,7 +189,7 @@ $ sudo iptables -F
     
     쿠버네티스 ```apt``` 레포지토리를 추가한다.
     ```shell
-    $ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" \
+    $ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial master" \
    | sudo tee /etc/apt/sources.list.d/kubernetes.list
     ```
    <br/>
@@ -307,7 +316,7 @@ $ sudo iptables -F
 https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/  
 https://medium.com/finda-tech/overview-8d169b2a54ff  
 
-[docker-install]: https://jwher.github.io/kubernetes,/docker/install-docker/
+[docker-install]: https://jwher.github.io/2021-04-13-install-docker/
 [flannel-github]: https://github.com/flannel-io/flannel
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.

@@ -9,7 +9,7 @@ categories: virtualbox, linux, rdp
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/virtualbox.jpg "virtualbox")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.jpg "virtualbox")  
 *linux 서버에 virtual box 환경 세팅하기*  
 
 리눅스 서버에 virtualbox로 가상 환경을 구성해야 했다.  
@@ -180,13 +180,13 @@ $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapte
 ### RDP(remote desktop protocol) 사용
 *드디어 무중霧中을 빠져나와...*
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/mstsc.png "mstsc")    
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc.png "mstsc")    
 원격 데스크톱 연결을 연다
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/mstsc-connection.png "mstsc-connection")   
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-connection.png "mstsc-connection")   
 호스트 컴퓨터의 ip와 vm 설정에 사용한 GUI 포트를 입력한다
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/mstsc-ubuntu.png "mstsc-ubuntu")   
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-ubuntu.png "mstsc-ubuntu")   
 자! 이제 그리웠던 GUI가 돌아왔다!   
 
 <br/>

@@ -9,7 +9,7 @@ categories: [kubernetes, docker]
 date: 2021-04-12 23:50:00 
 ---
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/kubernetes.png "kubernetes")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "kubernetes")  
 *kubernetes의 세계에 오신 걸 환영합니다!*  
 
 # 목차
@@ -25,7 +25,7 @@ docker를 모르고 kubernetes를 먼저 알게 된 사람은 *<u>거의</u>* �
 *옛날 옛날에 ...*
 
 >
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/server.png "server")  
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server.png "server")  
 > 전공 지식과 열정만으로 사업을 시작한 당신. 자금 부족으로 서버 하나에 여러 어플리케이션을 동작시키고 있었다.  
 > 몇날 밤을 새며 까다로운 고객의 요구사항을 맞춘 당신. 두근거리는 마음으로 배포 버튼을 누르는데...  
 > 아뿔사! 서드파티 앱과 충돌을 일으키며 서버가 죽고 말았다.
@@ -40,14 +40,14 @@ docker를 모르고 kubernetes를 먼저 알게 된 사람은 *<u>거의</u>* �
 격리된 공간에서 프로세스가 동작하는 기술을 [container][container-definition], container의 실행 정보를 image라고 한다.  
 docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다는 장점이 있다.
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/container.png "container")
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container.png "container")
 <br/>  
 <br/>  
 
 ## kubernetes의 필요성
 
 >
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/server-multiple.png "multiple server")  
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server-multiple.png "multiple server")  
 > docker를 알게된 당신. 덕분에 사업은 번창해 수십대의 서버를 운영하게 되었다.  
 > 하지만 어느 날 서버 한대가 고장났고, 당신은 어쩔 수 없이 새벽에 회사에 출근하게 되었다.
 
@@ -58,7 +58,7 @@ docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다�
 <br/>  
 
 >
-> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/container-collapse.jpg" width="40%"/> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/container-good.jpg" width="50%"/>
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-collapse.jpg" width="40%"/> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-good.jpg" width="50%"/>
 > 
 > 어느 배에서 일해야 하는가?
 
