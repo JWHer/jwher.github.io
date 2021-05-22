@@ -172,8 +172,7 @@ Virtualbox/Vagrant를 사용하여 잘 구성된 kubeflow 클러스터 vm을 실
 
 ## Kind
 
-Kubernetes in Docker  
-https://kind.sigs.k8s.io/
+Kubernetes in Docker
 
 #### 준비물
 
@@ -252,9 +251,7 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
     Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
     ```
    
-3. Access Cluster
-
-    ![Alt]()
+3. Access Cluster  
 
     CLI에 접속한다.  
 
@@ -364,6 +361,8 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
 
 ### Reference  
 https://huyenchip.com/2020/06/22/mlops.html  
+https://v1-2-branch.kubeflow.org/docs/  
+https://kind.sigs.k8s.io/  
 
 [workflow]: https://www.datarevenue.com/en-blog/airflow-vs-luigi-vs-argo-vs-mlflow-vs-kubeflow
 

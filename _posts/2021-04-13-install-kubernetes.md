@@ -314,9 +314,9 @@ $ sudo iptables -F
    gpuadmin   Ready    <none>                 113s    v1.21.0
    ```
 
-<br/>
+<br/>  
 
-  #### Tips
+#### Tips  
   a. worker 노드에서 kubectl 사용  
   보안 문제로 권장하진 않으나 admin.config를 복사해 worker에서 kubectl을 사용할 수 있다.  
   ```shell

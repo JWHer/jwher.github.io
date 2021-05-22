@@ -135,7 +135,7 @@ $ vboxmanage storageattach "your awesome vm" --storagectl "IDE" --port 1 --devic
 
 ubuntu server버전으로 headless(No gui, console)로 할 수 있을까 생각해봤지만,  
 마침 이미지 버전도 GUI이고 화면을 사용해 install을 하기로 했다!  
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/honest.jepg "honest")  
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/honest.jpeg "honest")  
 
 <br/>
 GUI를 원격으로 보여주려면 virtualbox extension pack이 설치되어야 한다.
