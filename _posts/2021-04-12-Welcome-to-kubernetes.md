@@ -4,7 +4,8 @@ title: "Welcome to kubernetes!"
 subtitle: "kubernetes의 세계에 오신 걸 환영합니다"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
-tags: [kubernetes, docker]
+tags: [tech, kubernetes, docker]
+comments: true
 
 date: 2021-04-12 23:50:00 
 ---
@@ -38,9 +39,16 @@ docker를 모르고 kubernetes를 먼저 알게 된 사람은 *<u>거의</u>* �
 
 <!--실행 정보를 담고 있는 image, 실행중인 image instance를 container라 부른다.  -->
 격리된 공간에서 프로세스가 동작하는 기술을 [container][container-definition], container의 실행 정보를 image라고 한다.  
-docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다는 장점이 있다.
+docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다는 장점이 있다.  
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container_evolution.svg "container_evolution")
+> 이전에도 가상화 기술은 존재했다.  
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container.png "container")
+이렇게 여러 개발자 그룹, 혹은 오픈소스를 사용해 작은 서비스 어플리케이션으로 이루어진 아키텍처를
+Micro Service Architecture(MSA) 라고 한다. 이와 반대로 하나로 통합된 아키텍처를 Monolithic 아키텍처라 한다.
+
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container.png "container")  
+> 다양한 크기의 짐이 규격화된 container에 담겨 유통 혁명을 일으켰다.   
+
 <br/>  
 <br/>  
 
@@ -51,19 +59,17 @@ docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다�
 > docker를 알게된 당신. 덕분에 사업은 번창해 수십대의 서버를 운영하게 되었다.  
 > 하지만 어느 날 서버 한대가 고장났고, 당신은 어쩔 수 없이 새벽에 회사에 출근하게 되었다.
 
-운영자가 아무리 날고 기어도, *고장난* 서버가 스스로 고쳐지게 할 순 없다.  
+운영자(Engineer)가 아무리 날고 기어도, *고장난* 서버가 스스로 고쳐지게 할 순 없다.  
 하지만 실제 운영중에 소프트웨어, 커널 시스템, 물리적 오류로 서버는 빈번하게 고장난다.  
-또한, 다수 서버에서 배포작업은 *어렵고* 운영자가 단순 노동자로 변하게 한다.  
-
-<br/>  
-
->
-> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-collapse.jpg" width="40%"/> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-good.jpg" width="50%"/>
-> 
-> 어느 배에서 일해야 하는가?
+또한, 다수 서버에서 배포작업은 *어렵고* 운영자가 단순 노동자로 변하게 한다.
 
 하지만 운영자를 위한 개발자들이 있었으니,  
 kubernetes는 컨테이너화된 어플리케이션을 자동으로 배포, 스케일링 및 관리해주는 오픈소스 시스템이다.
+
+>
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-collapse.jpg" width="40%"/> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-good.jpg" width="40%"/>
+> 
+> 어느 배에서 일해야 하는가?
 
 ## kubernetes 개념
 
@@ -78,7 +84,6 @@ kubernetes는 구조화된 YAML, JSON 파일으로 운영자가 원하는 상태
 이전까지 운영자가 원하는 상태로 배포를 하기 위해서 여러 명령어를 작성했던 것과 대비된다. 
 
 <br/>
-
 학부에서 프로그래밍 언어 과목을 잘 들은 사람은,  
 haskell, Erlang과 같은 함수형, Prolog와 같은 논리형 언어의 패러다임을 선언적 언어라 부름을 기억할 것이다.  
 좀더 친숙한 C, Java, python이 명령적(imperative) 언어로 분류되는 것을 생각하면, 이해가 쉬울 것이다.  
@@ -92,13 +97,13 @@ haskell, Erlang과 같은 함수형, Prolog와 같은 논리형 언어의 패러
 일상속에서 접하기 쉬운 그룹은 *목록*으로 구성되어 있다.  
 > 카카오톡 채팅방은 정해진 목록으로 참가자 그룹을 인식한다.
 
-새롭게 보드게임 동아리 채팅방을 만들려고 하면 *목록*을 작성해 주어야 한다.  
+새롭게 채팅방을 만들려고 하면 참가자 *목록*을 작성해 주어야 한다.  
 이를 명시적/정적 그룹화라고 한다.
 <br/>
 
 다른 상황을 생각해 보자.  
 고등학교 체육시간, 갑작스럽게 축구를 하게 되어 반을 두 팀으로 나누게 되었다.
-> 출석번호 홀수는 왼쪽, 짝수는 오른쪽 팀이야!  
+> 출석번호 홀수는 왼쪽, 짝수는 오른쪽 팀이야!
 
 다른 반이 축구팀에 합류해도 어느 그룹에 들어갈지 알 수 있다!
 이를 암시적/동적 그룹화라고 한다.
@@ -117,14 +122,24 @@ kubernetes는 label을 사용하여 그룹을 암시적으로 표현한다.
 <br/>
 
 선언적 구성과 암시적/동적 그룹화라는 개념으로 설계된 쿠버네티스는 운영자에게 *유용한* 기능을 제공하게 된다.  
-(다음 시간에! architecture)
 
+<br/>
+
+## 그래서 어떻게 작동하는데?
+다음 글에서 kubernetes architecture를 설명한다.  
+
+<br/>
+
+## Tips
+kubernetes를 줄여 k8s라고 한다. 이유는 긴 단어를 줄일 때 글자의 개수를 적는 관례가 있었기 때문이라고 한다.  
+[(K8s as an abbreviation results from counting the eight letters between the "K" and the "s".)](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)  
+(직접 한번 세보자...)
 
 <br/>
 
 ### Reference  
 
-
+https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.

@@ -3,8 +3,10 @@ layout: post
 title: "Welcome to Jekyll!"
 subtitle: Jekyll 페이지
 cover-img: /assets/img/path.jpg
+tags: [blog, jekyll, update]
+comments: true
+
 date: 2021-04-11 11:50:00 -0400
-tags: jekyll update
 ---
 
 github.io 테스트 입니다!

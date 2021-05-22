@@ -4,7 +4,8 @@ title: "Install kubernetes"
 subtitle: "천리길도 한걸음씩"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
-tags: [kubernetes, docker]
+tags: [tech, kubernetes, docker, linux]
+comments: true
 
 date: 2021-04-13 11:50:00 
 ---
@@ -295,12 +296,10 @@ $ sudo iptables -F
          --discovery-token-ca-cert-hash sha256:dc525e7dfce2d699346d6898814936f8276b4b821afa41933f2036ca70f5a04f 
    ```
    
-   워커 노드에서 실행하면 join이 완료된다.  
-   (token 만료 문제는 다음에 작성)  
+   워커 노드에서 실행하면 join이 완료된다.
    <br/>
    
    마스터 노드에서 노드를 조회해 확인해 보자.  
-   (워커 노드에서 kubectl 사용은 다음에 작성)
    ```shell
    $ kubectl get node
    NAME       STATUS     ROLES                  AGE     VERSION
@@ -316,6 +315,48 @@ $ sudo iptables -F
    ```
 
 <br/>
+
+  #### Tips
+  a. worker 노드에서 kubectl 사용  
+  보안 문제로 권장하진 않으나 admin.config를 복사해 worker에서 kubectl을 사용할 수 있다.  
+  ```shell
+# 앞서 kubeadm init때 얼핏 보았을 명령어이다
+
+# worker 노드에서
+$ mkdir -p $HOME/.kube
+
+# master 노드에 다음 위치 파일을 worker 노드로 복사한다
+# scp를 사용한다면 master 노드에서
+$ scp /etc/kubernetes/admin.conf {user}@{ip}:{HOME}/.kube/config
+
+# 권한 설정을 해준다
+# worker 노드에서
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  ```
+
+  (인증서 발급으로 외부에서 API 서버 접속은 다음에 작성)
+
+<br/>
+  b. 토큰 재발급  
+  kubeadm에서 생성된 토큰은 만료기간이 하루이다.  
+  따라서 새롭게 노드를 추가할 상황이 온다면 토큰을 재발급 받아야 한다.  
+
+  ```shell
+# 토큰을 조회해 보자
+$ kubeadm token list
+
+TOKEN     TTL       EXPIRES   USAGES    DESCRIPTION      EXTRA GROUPS
+
+# 아무 것도 조회되지 않으면 새로 만들어 주어야 한다
+$ kubeadm token create
+
+# ca cert hash를 얻기 위해 다음 명령어를 사용한다
+$ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
+
+# 이제 TOKEN과 hash 값을 얻었으니 새롭게 노드를 join할 수 있다
+# 새 worker 노드에서
+$ kubeadm join {k8s API server ip}:{PORT 6443} --token {TOKEN} --discovery-token-ca-cert-hash sha256:{HASH}
+  ```
   
 ## 끝
 자, 이제 당신도 작고 귀여운 kubernetes를 가지고 있다.
@@ -323,6 +364,7 @@ $ sudo iptables -F
 ### Reference  
 https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/  
 https://medium.com/finda-tech/overview-8d169b2a54ff  
+https://sarc.io/index.php/cloud/1383-join-token  
 
 [docker-install]: https://jwher.github.io/2021-04-13-install-docker/
 [flannel-github]: https://github.com/flannel-io/flannel
@@ -331,7 +373,6 @@ https://medium.com/finda-tech/overview-8d169b2a54ff
 
 <!--
 update log
-gnu private guard
 
 trouble shoot
 node notready(firewalld)

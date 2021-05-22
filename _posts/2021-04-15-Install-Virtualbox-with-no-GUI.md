@@ -1,20 +1,22 @@
 ---
 layout: post
 title: "Install Virtualbox with no GUI"
-subtitle: "linux 서버에 virtual box 환경 세팅하기"
+subtitle: "linux 서버에 virtual machine 만들기"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Virtualbox.png
-tags: [virtualbox, linux, rdp]
+tags: [tech, virtualbox, linux]
+comments: true
 
 date: 2021-04-15 11:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.png "virtualbox")  
-*linux 서버에 virtual box 환경 세팅하기*  
+*linux 서버에 virtual machine 만들기*
 
 리눅스 서버에 virtualbox로 가상 환경을 구성해야 했다.  
 ssh console 명령어로 vm을 실행시켜 보자!
+(virtual box를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었다...)
 
 # 목차
 * [Preflight](#Preflight)
@@ -133,8 +135,9 @@ $ vboxmanage storageattach "your awesome vm" --storagectl "IDE" --port 1 --devic
 
 ubuntu server버전으로 headless(No gui, console)로 할 수 있을까 생각해봤지만,  
 마침 이미지 버전도 GUI이고 화면을 사용해 install을 하기로 했다!  
-(솔직이 GUI가 편하잖아)
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/honest.jepg "honest")  
 
+<br/>
 GUI를 원격으로 보여주려면 virtualbox extension pack이 설치되어야 한다.
 
 ```shell

@@ -4,7 +4,8 @@ title: "Install Docker"
 subtitle: "천리길도 한걸음씩"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/docker.svg
-tags: [kubernetes, docker]
+tags: [tech, kubernetes, docker, linux]
+comments: true
 
 date: 2021-04-13 11:50:00 
 ---

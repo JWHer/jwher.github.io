@@ -5,7 +5,8 @@ subtitle: "부제"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/cover.svg
 share-img: /assets/img/path.jpg
-tags: [kubernetes, docker]
+tags: [tech, blog]
+comments: true
 
 date: 2021-04-13 11:50:00 
 ---
