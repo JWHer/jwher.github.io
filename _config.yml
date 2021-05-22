@@ -6,7 +6,7 @@
 # --- Required options --- #
 
 # Name of website
-title: 항구
+title: JWHer's blog
 
 # Your name to show in the footer
 author: JWHer
@@ -14,11 +14,11 @@ author: JWHer
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  About Me: "멋진 사람이 되기 위해 노력중입니다"
+  About Me: "aboutme"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: " "
+  #Author's home: " "
 
 # --- Logo --- #
 
@@ -47,7 +47,7 @@ social-network-links:
   #youtube: c/daattali
 #  medium: yourname
 #  reddit: yourname
-  linkedin: https://www.linkedin.com/in/정원-허-1160b3193
+  linkedin: 정원-허-1160b3193
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
