@@ -34,6 +34,7 @@ kubeadm을 사용하여 2개의 ubuntu vm간 클러스터를 구성하는 예제
 
 <details>
 <summary>도커 데몬 드라이버 변경</summary>
+<div>
 
 도커 데몬 드라이버를 systemd로 변경해 준다.  
 
@@ -65,9 +66,12 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```  
 
+</div>
 </details>
 
-▶ swap 비활성화(必)  
+<details>
+<summary>swap 비활성화(必)</summary>
+<div>
 
 linux 스왑 메모리를 비활성화 해준다.  
 
@@ -94,7 +98,12 @@ UUID=9AD5-66E5  /boot/efi       vfat    umask=0077      0       1
 #주석 /swapfile                                 none            swap    sw              0       0
 ```
 
-▶ 방화벽(必) (firewalld)  
+</div>
+</details>
+
+<details>
+<summary>방화벽(必) (firewalld)</summary>
+<div>
 
 firewalld를 비활성화 시켜준다.  
 
@@ -103,8 +112,12 @@ firewalld를 비활성화 시켜준다.
 $ sudo systemctl stop firewalld
 ```
 
+</div>
+</details>
+
 <details>
 <summary>포트 개방 (iptables)</summary>  
+<div>
 
 간혹 iptables에 이전 rule들이 남아있어 문제가 생긴다.  
 (주로 kubernetes 재설치로 생긴 문제)  
@@ -120,6 +133,7 @@ $ sudo iptables -F
 
 ```  
 
+</div>
 </details>
 
 <br/>

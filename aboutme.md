@@ -9,7 +9,7 @@ My name is JeongWon Her. I have the following qualities:
 - kubernetes를 운영하고 있습니다
 - 리눅스 전반을 이해하고 있습니다
 - CS 전공자로 프로그래밍 언어, 컴퓨터 보안 조교를 했습니다
-- 인턴(블록체인, Spring-svn), 교육(AI보안), 현직(MLOPs, k8s pytorch)을 거치며 잔뼈가 많습니다
+- 인턴(블록체인, Spring-svn), 교육(AI보안), 현직(MLOPs, k8s pytorch)을 경험했습니다
 
 My Dream is:
 
