@@ -4,6 +4,7 @@ title: "Welcome to kubernetes!"
 subtitle: "kubernetes의 세계에 오신 걸 환영합니다"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
+share-img: /assets/img/Kubernetes.svg
 tags: [tech, kubernetes, docker]
 comments: true
 
@@ -139,7 +140,7 @@ kubernetes를 줄여 k8s라고 한다. 이유는 긴 단어를 줄일 때 글자
 
 ### Reference  
 
-https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
+[https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.

@@ -4,6 +4,7 @@ title: "Install Virtualbox with no GUI"
 subtitle: "linux 서버에 virtual machine 만들기"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Virtualbox.png
+share-img: /assets/img/Virtualbox.png
 tags: [tech, virtualbox, linux]
 comments: true
 
@@ -196,7 +197,7 @@ $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapte
 <br/>
 
 ### Reference  
-https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html
+[https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html](https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html)  
 
 
 ## - JWHer  

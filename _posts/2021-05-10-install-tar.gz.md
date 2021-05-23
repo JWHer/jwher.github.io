@@ -3,6 +3,7 @@ title: "Inatall tar.gz"
 subtitle: "가끔은 예측하지 못한 결과에 대비해야 할 수도..."
 cover-img: /assets/img/prepared.jpg
 thumbnail-img: /assets/img/gzip.png
+share-img: /assets/img/gzip.png
 tags: [tech, linux]
 comments: true
 
@@ -54,79 +55,79 @@ Jean-loup Gailly와 Mark Adler가 만들었다고 한다.
 여러가지 설치하려는 프로그램이 있겠으나 node를 예시로 한다.
 
 1. node pakcage 리스트 확인  
-    
-   노드는 https://www.nodejs.org/download/release/ 에 패키지 다운로드 목록을 제공한다.
-   ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/packagelist_node.png "패키지 목록")
-   
-   <br/>
+ 
+노드는 https://www.nodejs.org/download/release/ 에 패키지 다운로드 목록을 제공한다.
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/packagelist_node.png "패키지 목록")
+
+<br/>
 
 2. 파일 다운로드  
 
-   설치파일을 받는 방법은 다양하겠으나(wget, scp, docker cp...) wget을 사용하였다.  
-   필요한 다운로드 url을 복사하자  
-   ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/packagelinkcopy_node.png "패키지 목록")
-   
-   <br/>
-   
-   ```shell
-   # 복사한 링크를 붙여넣는다
-   $ wget https://nodejs.org/download/release/latest-v12.x/node-v12.22.1-linux-x64.tar.gz
-   
-   --2021-05-10 05:39:45--  https://nodejs.org/download/release/latest-v12.x/node-v12.22.1-linux-x64.tar.gz
-   Resolving nodejs.org (nodejs.org)... 104.20.22.46, 104.20.23.46, 2606:4700:10::6814:162e, ...
-   Connecting to nodejs.org (nodejs.org)|104.20.22.46|:443... connected.
-   HTTP request sent, awaiting response... 200 OK
-   Length: 23138380 (22M) [application/gzip]
-   Saving to: 'node-v12.22.1-linux-x64.tar.gz'
-   
-   node-v12.22.1-linux-x64.tar.gz                              100%[========================================================================================================================================>]  22.07M  7.88MB/s    in 2.8s
-   
-   2021-05-10 05:39:48 (7.88 MB/s) - 'node-v12.22.1-linux-x64.tar.gz' saved [23138380/23138380]
-   ```
-   
+설치파일을 받는 방법은 다양하겠으나(wget, scp, docker cp...) wget을 사용하였다.  
+필요한 다운로드 url을 복사하자  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/packagelinkcopy_node.png "패키지 목록")
+
+<br/>
+
+```shell
+# 복사한 링크를 붙여넣는다
+$ wget https://nodejs.org/download/release/latest-v12.x/node-v12.22.1-linux-x64.tar.gz
+
+--2021-05-10 05:39:45--  https://nodejs.org/download/release/latest-v12.x/node-v12.22.1-linux-x64.tar.gz
+Resolving nodejs.org (nodejs.org)... 104.20.22.46, 104.20.23.46, 2606:4700:10::6814:162e, ...
+Connecting to nodejs.org (nodejs.org)|104.20.22.46|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 23138380 (22M) [application/gzip]
+Saving to: 'node-v12.22.1-linux-x64.tar.gz'
+
+node-v12.22.1-linux-x64.tar.gz                              100%[========================================================================================================================================>]  22.07M  7.88MB/s    in 2.8s
+
+2021-05-10 05:39:48 (7.88 MB/s) - 'node-v12.22.1-linux-x64.tar.gz' saved [23138380/23138380]
+```
+
 <br/>
 
 #### 설치
 
-   다음과 같이 설치한다
-   ```shell
-   $ tar -zxvf {some-tar.gz}
-   ```
+다음과 같이 설치한다
+```shell
+$ tar -zxvf {some-tar.gz}
+```
 
-   z : gzip 압축 풀기
-   x : tar 파일 추출
-   v : verbose
-   f : 파일 이름 지정
+z : gzip 압축 풀기
+x : tar 파일 추출
+v : verbose
+f : 파일 이름 지정
 
 ## 심볼릭 링크 만들기
 
-   *설치했는데 실행이 안된다?*
+*설치했는데 실행이 안된다?*
 
-   실행파일은 대부분 /bin, /usr/bin 폴더 밑에 존재하고 경로는 $PATH로 관리된다.
-   (windows 환경변수와 유사하다)  
-   apt를 사용하여 설치하면 실행경로를 알아셔 연결해주나, 직접 설치해주면 실행파일 경로를 연결해 주어야
-   간편하게 프로그램을 사용할 수 있다.
-   
-   $PATH에 실행파일 위치를 지정해 주고, 쉘 시작시 경로를 지정해 줄 수 있으나  
-   좀더 elegance? 한 방법을 써 보자
+실행파일은 대부분 /bin, /usr/bin 폴더 밑에 존재하고 경로는 $PATH로 관리된다.
+(windows 환경변수와 유사하다)  
+apt를 사용하여 설치하면 실행경로를 알아셔 연결해주나, 직접 설치해주면 실행파일 경로를 연결해 주어야
+간편하게 프로그램을 사용할 수 있다.
 
-   ```shell
-   $ ln -s {full/path/to/origin} /bin/{origin}
-   
-   /node/node-v12.22.1-linux-x64/bin# ln -s $PWD/node /bin/node
-   /node/node-v12.22.1-linux-x64/bin# ln -s $PWD/npm /bin/npm
-   
-   # 확인해보자
-   $ cd ~
-   $ node -v && npm -v
-   
-   v12.22.1
-   6.14.12
-   ```
+$PATH에 실행파일 위치를 지정해 주고, 쉘 시작시 경로를 지정해 줄 수 있으나  
+좀더 elegance? 한 방법을 써 보자
+
+```shell
+$ ln -s {full/path/to/origin} /bin/{origin}
+
+/node/node-v12.22.1-linux-x64/bin# ln -s $PWD/node /bin/node
+/node/node-v12.22.1-linux-x64/bin# ln -s $PWD/npm /bin/npm
+
+# 확인해보자
+$ cd ~
+$ node -v && npm -v
+
+v12.22.1
+6.14.12
+```
 
 ### Reference  
-https://ko.wikipedia.org/wiki/Gzip
-https://ko.wikipedia.org/wiki/Tar_(%ED%8C%8C%EC%9D%BC_%ED%8F%AC%EB%A7%B7)
+[https://ko.wikipedia.org/wiki/Gzip](https://ko.wikipedia.org/wiki/Gzip)  
+[https://ko.wikipedia.org/wiki/Tar_(파일_포맷)](https://ko.wikipedia.org/wiki/Tar_(%ED%8C%8C%EC%9D%BC_%ED%8F%AC%EB%A7%B7))
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.
