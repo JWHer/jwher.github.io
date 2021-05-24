@@ -40,7 +40,7 @@ date: 2021-04-13 11:50:00
 
 ## docker 설치
 
-1. 이전 버전 확인 & 제거  
+<p>1. 이전 버전 확인 & 제거  </p>
 
 이미 도커가 설치되어 있다면, 다시 설치할 필요가 없을 것이다 :D
 ```shell
@@ -49,7 +49,7 @@ $ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 <br/>
 
-2. 레포지토리 설정  
+<p>2. 레포지토리 설정  </p>
 
 도커를 설치하고 업데이트 하기 위해 필요한 repository 위치를 설정해 주어야 한다.  
 repository 위치를 설정해 주기 위해 필요한 기본 라이브러리를 먼저 설치해 주자
@@ -85,9 +85,10 @@ $ echo \
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-<br/>
+<br/>  
 
-3. 도커 설치  
+<p>3. 도커 설치  </p>  
+
 repository를 추가했으니 ```apt```를 업데이트 하고 설치한다.
 ```shell
 $ sudo apt-get update
