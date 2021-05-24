@@ -12,7 +12,7 @@ date: 2021-05-24 17:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/preview.gif "preview")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-logo.jpg "preview")  
 *Regional Multi-Person pose Estimation*  
 
 # 목차
@@ -76,7 +76,7 @@ Alphapose도 two-step 모델(bounding box->pose estimation)로써 bounding box�
 * PGPG: Pose-Guided Proposals Generator
 
 #### SSTN
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose_fig4.png "alphapose_fig4")
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-fig4.png "alphapose_fig4")
 
 SPPE(Single Person Pose Estimator) 양쪽에 부착해 부정확한(inaccurate) bbx에서도 정확한 single person region
 을 찾는다. Parallel SPPE를 두고 모든 가중치(weight)를 고정해 STN이 한명의 사람만 추출할 수 있게 한다.
