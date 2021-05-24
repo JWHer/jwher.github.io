@@ -142,7 +142,7 @@ $ sudo iptables -F
 
 ## kubernetes 설치
 
-1. 네트워크 확인  
+<p>1. 네트워크 확인  </p>
 kubernetes는 MAC과 product_uuid를 사용하여 클러스터의 노드를 식별한다.  
 따라서, 네트워크 인터페이스의 MAC 주소가 고유한지 확인해야 한다.
 
@@ -180,7 +180,7 @@ PING 10.0.2.9 (10.0.2.9) 56(84) bytes of data.
 ```
 <br/>
 
-2. kubeadm, kubelet, kubectl 설치
+<p>2. kubeadm, kubelet, kubectl 설치  </p>
 
 쿠버네티스를 설치하고 업데이트 하기 위해 필요한 repository 위치를 설정해 주어야 한다.
 
@@ -212,7 +212,7 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 <br/>
    
-3. 마스터 노드, 워커 노드 join  
+<p>3. 마스터 노드, 워커 노드 join  </p>
    
  a. 마스터 노드 설정  
  Container Network Interface로 [flannel][flannel-github]를 사용할 것이다.  
