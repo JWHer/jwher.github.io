@@ -72,23 +72,19 @@ Ruby 지식 부족으로 인한 시행착오 끝에 2021.05.23일 블로그를 �
 소개는 이만 줄이고 바로 만들어보자.  
 *(github 아이디가 없지는 않겠지...?)*
 
-1. [깃헙 토픽](https://github.com/topics/jekyll) 에 가서 마음에 드는 테마를 고르자.  
+1. [깃헙 토픽](https://github.com/topics/jekyll) 에 가서 마음에 드는 테마를 고르자.
+  ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/github-jekyll.png "github-jekyll")  
+  *다양한 테마를 바로 사용할 수 있다*
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/github-jekyll.png "github-jekyll")  
-*다양한 테마를 바로 사용할 수 있다*
+2. 마음에 드는 테마를 fork 한다.
+  ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/install-steps.gif "install-steps")
+  *본 블로그에 사용한 beautiful-jekyll*
 
-2. 마음에 드는 테마를 fork 한다.  
+3. Settings에서 레포지토리를 Rename 한다.
+  Github Pages 호스팅을 위해 {yourusername}.github.io로 이름이 바뀌어야 한다.
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/install-steps.gif "install-steps")
-*본 블로그에 사용한 beautiful-jekyll*
-
-3. Settings에서 레포지토리를 Rename 한다.  
-
-Github Pages 호스팅을 위해 {yourusername}.github.io로 이름이 바뀌어야 한다.
-
-4. 레포지토리의 _config.yml을 수정한다.  
-
-각각의 테마마다 형식이 다르다. 소개하는대로 수정해 주자.
+4. 레포지토리의 _config.yml을 수정한다.
+  각각의 테마마다 형식이 다르다. 소개하는대로 수정해 주자.
 
 <br/>
 
