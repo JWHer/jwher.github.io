@@ -50,18 +50,18 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 
 ## 앞으로 추가할 컨텐츠
 
--[x] 링크 명료화
--[ ] 과학/공학 문서 분리
+- [x] 링크 명료화  
+- [ ] 과학/공학 문서 분리  
 
--[ ] kubernetes architecture
--[ ] kubernetes usage
--[ ] istio
+- [ ] kubernetes architecture  
+- [ ] kubernetes usage  
+- [ ] istio  
   
--[ ] nuclio
--[ ] hadoop
+- [ ] nuclio  
+- [ ] hadoop  
   
--[ ] Deep learning 개념 시리즈
--[ ] NLP(BERT)
+- [ ] Deep learning 개념 시리즈  
+- [ ] NLP(BERT)  
 
    
 <br/>
