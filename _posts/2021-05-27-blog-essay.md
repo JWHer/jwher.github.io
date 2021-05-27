@@ -12,7 +12,8 @@ date: 2021-05-27 23:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/pen.svg "pen")  
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/pen.svg" style="height: 40vmin;">
+
 *install 시리즈에 대해*  
 
 # 목차
@@ -33,7 +34,9 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 > 대한민국의 국기도 만물의 이치인 태극(太極)과 자연에 실제하는 4괘(卦)로 이루어져 있다.
 
 <p style="font-size: 20vmin; text-align: center;">TL;DR</p>  
-<div markdown="1" style="text-align: center;">*아니.. 뭐 어쩌라고...*</div>
+<div markdown="1" style="text-align: center;">
+*아니.. 뭐 어쩌라고...*
+</div>
 
 두번째로 가장 큰 문제는 *너무* [긴 글](https://jwher.github.io/2021-04-21-install-kubeflow/) 이 있다. 
 개념 설명이 함께 있어 긴 경우와, 단순 명령어 나열로 길어진 글을 개선하려고 한다.  
