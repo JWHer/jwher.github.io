@@ -29,14 +29,14 @@ date: 2021-05-24 17:50:00
 일 것이다.  
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alexnet.jpg "alexnet")  
-*신경망에 대해 공부할때 한번씩 봤을 이미지*  
+*AlexNet 신경망에 대해 공부할때 한번씩 봤을 이미지*  
 
 컴퓨터 비전은 다시 하위에 많은 영역이 있다. Alex Net은 Object Detection에 해당할 것이다.  
-여기에서 다루는 Alphapose는 Pose Estimation, 특히 그중에 Keypoint Detection에 해당한다.  
+여기에서 다루는 Alphapose는 Pose Estimation을 우해 Keypoint Detection을 한다.  
 (Pose를 직역하면 '자세'가 되겠으나 용어의 혼동을 피해 대부분 '포즈'라고 부른다)
 
 ### 체험해보자
-컴퓨터 비전을 처음 접하는 사람이라면 *이게 뭔소리야?* 할 것이다.
+컴퓨터 비전을 처음 접하는 사람이라면 *이게 뭔소리야?* 할 것이다.   
 구글 [Move Mirror] 링크를 통해 Pose Estimation을 체험해 볼 수 있다.
 [Move Mirror]는 webcam으로 들어온 사진을 Javascript 라이프러리로 포즈를 인식하고,
 가장 유사한 사진을 보여준다. 
@@ -52,14 +52,25 @@ date: 2021-05-24 17:50:00
 두고 여러 모델이 나오고 있으나, 대부분의 논문에서는 *정확도*를 더 강조하고 있다.  
 
 동영상에서 실시간으로 포즈를 추정하기 위해 *속도* 에 중점을 준 모델을 찾았고, Carnegie Mellon University
-에서 [CVRR 2017] 에 발표한 OpenPose를 찾았다.
+에서 [CVPR 2017] 에 발표한 OpenPose를 찾았다.
 
-하지만 [CVRR 2017] 에 같이 나온 Alphapose는 Openpose보다 뛰어난 성능을 보여준다. 물론 장단이 있겠지만,
-마침 Pytorch 기반 모델로 통일하기로 했고, 상업용 라이선스도 Alphapose가 더 싸 선택하게 되었다.  
+하지만 [CVPR 2017] 에 같이 나온 Alphapose는 Openpose보다 뛰어난 성능을 보여준다. 물론 장단이 있겠지만,
+마침 Pytorch 기반 모델로 통일하기로 했고, 상업용 라이선스도 Alphapose가 더 싸 선택하게 되었다.
 
 둘 다 현재(2021) 기준으로 굉장히 오래되었으나, Alphapose는 [MPII](http://human-pose.mpi-inf.mpg.de/) 데이터 셋에서
 아직도 1위를 기록하고 있다. [COCO](https://cocodataset.org/#home) 에서도 pytorch 기반중에 2번째로 뛰어난 순위를 기록하고 있다.  
 (사용해 보진 않았으나 2019년에는 MXNet 버전도 나왔다)  
+
+### 왜 빠른데?
+
+Alphapose는 backbone으로 [YOLOv3]을 사용한다(github master branch 기준).  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-yolo.png "alphapose-yolo")
+*0.5 IOU에서 속도/정확도 tradeoff*
+
+resNet backbone인 RetinaNet 보다 3배 빠르다고 논문은 소개하고 있다.
+성능 측면에서도 COCO 데이터셋에서 밀리지 않고 오히려 조금 나음을 보여주고 있다.
+현재(21.05) 최신으로 보이는 HRNet과 성능은 모르겠지만, 상당히 빠르고 정확함을 알 수 있다.
+(*이 글에서 정확한 원리를 다루기엔 공간이 모자라다* YOLO의 backbone인 Darknet은 기회가 되면 다루겠다)
 
 ### Paper
 
@@ -75,24 +86,28 @@ Alphapose도 two-step 모델(bounding box->pose estimation)로써 bounding box�
 * NMS: Parametric Pose Non-Maximum Suppression
 * PGPG: Pose-Guided Proposals Generator
 
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-architecture.png "alphapose-architecture")  
+*RMPE 프레임워크*
+
 #### SSTN
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-fig4.png "alphapose_fig4")
 
 SPPE(Single Person Pose Estimator) 양쪽에 부착해 부정확한(inaccurate) bbx에서도 정확한 single person region
-을 찾는다. Parallel SPPE를 두고 모든 가중치(weight)를 고정해 STN이 한명의 사람만 추출할 수 있게 한다.
-또한, 직접 참(truth) 포즈와 비교하고 가중치(weight)를 수정한다. 정확한 위치(center-located)에 있지 않으면 큰 오류가
-전파되어 성능이 향상된다. 성능 향상치는 ablation studies의 a를 보자. 
+을 찾는다. 학습 단계에서는 Parallel SPPE를 두고 모든 가중치(weight)를 고정한다. 이때
+직접 참(truth) 포즈와 비교하고 가중치(weight)를 수정한다. 정확한 위치(center-located)에 있지 않으면 큰 오류가
+전파되어 성능이 향상된다. 이 방법으로 STN이 사람 영역을 고품질로 얻게 돕는다.
+성능 향상치는 ablation studies의 a)를 보자. 
    
 #### NMS
 
 첫째로, 가장 정확한(confident) 포즈를 레퍼런스로 선택한다. 그리고 너무 가까운 포즈는 elimination criterion
-을 사용해 지운다. 이때 포즈 거리(pose distance)를 지표(metric)으로 사용한다. 성능 향상치는 ablation studies의 c를 보자. 
+을 사용해 지운다. 이때 포즈 거리(pose distance)를 지표(metric)으로 사용한다. 성능 향상치는 ablation studies의 c)를 보자. 
 
 #### PGPG
 
 정답(ground truth) bbx와 감지된(detected) bbx의 offset은 포즈마다 다르다. 이 분포를 모델링 할 수 있으면
 사람이 만든(generated by the human detector) 것과 비슷한 샘플을 많이 얻을 수 있을 것이다.
-성능 향상치는 ablation studies의 b를 보자.
+성능 향상치는 ablation studies의 b)를 보자.
 
 #### Ablation Studies  
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-ablation.png "alphapose-ablation")  
@@ -106,10 +121,10 @@ SPPE(Single Person Pose Estimator) 양쪽에 부착해 부정확한(inaccurate) 
 3.	사람 인식 실패
 4.	사람 오인식
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-error.gif "alphapose-error")  
-직접 돌린 모델에서도 잘못 인식되는 부분이 있었다.  
 
-리뷰를 하고 보니 역시나 Paper에는 속도 관련 이야기가 없다. 기회가 되면 속도 측정 metric을 만들어 비교해 봐야겠다. 
+리뷰를 하고 보니 역시나 Paper에는 속도 관련 이야기가 없다. 정확도는 높아졌으나,
+SPPE(yolo)에 부착했을 때 어느정도 속도가 나오는지 명확하게 알고 싶다.
+기회가 되면 속도 측정 metric을 만들어 비교해 봐야겠다. 
 
 <br/>
 
@@ -124,7 +139,8 @@ CV를 처음 접한 사람들에게 도움이 될만한 링크들이다.
 [https://ko.wikipedia.org/wiki/컴퓨터_비전](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0_%EB%B9%84%EC%A0%84)
 
 [Move Mirror]: https://experiments.withgoogle.com/collection/ai/move-mirror/view
-[CVRR 2017]: https://openaccess.thecvf.com/CVPR2017
+[CVPR 2017]: https://openaccess.thecvf.com/CVPR2017
+[YOLOv3]: https://pjreddie.com/media/files/papers/YOLOv3.pdf
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.
@@ -133,4 +149,5 @@ CV를 처음 접한 사람들에게 도움이 될만한 링크들이다.
 <!--
 본문에 추가할 내용을 적는다.
 https://younghk.github.io/machine-learning/2020-01-10---rmpe-retional-multi-person-pose-estimation/
+https://www.fritz.ai/pose-estimation/
 -->
