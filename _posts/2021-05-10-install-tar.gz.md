@@ -126,8 +126,8 @@ v12.22.1
 ```
 
 ### Reference  
-[https://ko.wikipedia.org/wiki/Gzip](https://ko.wikipedia.org/wiki/Gzip)  
-[https://ko.wikipedia.org/wiki/Tar_(파일_포맷)](https://ko.wikipedia.org/wiki/Tar_(%ED%8C%8C%EC%9D%BC_%ED%8F%AC%EB%A7%B7))
+[[wiki]Gzip](https://ko.wikipedia.org/wiki/Gzip)  
+[[wiki]Tar](https://ko.wikipedia.org/wiki/Tar_(%ED%8C%8C%EC%9D%BC_%ED%8F%AC%EB%A7%B7))
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.

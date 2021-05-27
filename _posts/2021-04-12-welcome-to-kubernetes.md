@@ -140,7 +140,7 @@ kubernetes를 줄여 k8s라고 한다. 이유는 긴 단어를 줄일 때 글자
 
 ### Reference  
 
-[https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
+[[공식]쿠버네티스란 무엇인가?](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.

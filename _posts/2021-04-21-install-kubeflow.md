@@ -361,9 +361,9 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
 <br/>
 
 ### Reference  
-[https://huyenchip.com/2020/06/22/mlops.html](https://huyenchip.com/2020/06/22/mlops.html)    
-[https://v1-2-branch.kubeflow.org/docs/](https://v1-2-branch.kubeflow.org/docs/)  
-[https://kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)  
+[What I learned from looking at 200 machine learning tools](https://huyenchip.com/2020/06/22/mlops.html)    
+[[공식]Documentation](https://v1-2-branch.kubeflow.org/docs/)  
+[[공식]Kind](https://kind.sigs.k8s.io/)  
 
 [workflow]: https://www.datarevenue.com/en-blog/airflow-vs-luigi-vs-argo-vs-mlflow-vs-kubeflow
 

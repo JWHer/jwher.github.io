@@ -16,8 +16,8 @@ date: 2021-04-15 11:50:00
 *linux 서버에 virtual machine 만들기*
 
 리눅스 서버에 virtualbox로 가상 환경을 구성해야 했다.  
-ssh console 명령어로 vm을 실행시켜 보자!
-(virtual box를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었다...)
+ssh console 명령어로 vm을 실행시켜 보자!  
+~~virtualbox를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었다...~~
 
 # 목차
 * [Preflight](#Preflight)
@@ -197,7 +197,7 @@ $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapte
 <br/>
 
 ### Reference  
-[https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html](https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html)  
+[[공식]VBoxManage](https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html)  
 
 
 ## - JWHer  

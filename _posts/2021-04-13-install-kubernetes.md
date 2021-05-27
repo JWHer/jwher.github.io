@@ -363,9 +363,9 @@ $ kubeadm join {k8s API server ip}:{PORT 6443} --token {TOKEN} --discovery-token
 자, 이제 당신도 작고 귀여운 kubernetes를 가지고 있다.
 
 ### Reference  
-[https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)    
-[https://medium.com/finda-tech/overview-8d169b2a54ff](https://medium.com/finda-tech/overview-8d169b2a54ff)  
-[https://sarc.io/index.php/cloud/1383-join-token](https://sarc.io/index.php/cloud/1383-join-token)    
+[[공식]kubeadm 설치하기](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)    
+[쿠버네티스(kubernetes) 설치 및 환경 구성하기](https://medium.com/finda-tech/overview-8d169b2a54ff)  
+[쿠버네티스 노드 조인(Join)시 Token 값 확인](https://sarc.io/index.php/cloud/1383-join-token)    
 
 [docker-install]: https://jwher.github.io/2021-04-13-install-docker/
 [flannel-github]: https://github.com/flannel-io/flannel

@@ -136,8 +136,8 @@ https://search.google.com/search-console
 <br/>
 
 ### Reference  
-[http://jekyllrb-ko.github.io/](http://jekyllrb-ko.github.io/)  
-[https://dymaxionkim.github.io/beautiful-jekyll/2017-01-10-make-blog/](https://dymaxionkim.github.io/beautiful-jekyll/2017-01-10-make-blog/)
+[[공식]Jekyll](http://jekyllrb-ko.github.io/)  
+[Github에 Beautiful-jekyll을 구축하는 순서 설명](https://dymaxionkim.github.io/beautiful-jekyll/2017-01-10-make-blog/)
 
 
 ## - JWHer  

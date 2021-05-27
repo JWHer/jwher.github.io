@@ -136,7 +136,7 @@ CV를 처음 접한 사람들에게 도움이 될만한 링크들이다.
 [Paper with codes](https://paperswithcode.com/area/computer-vision)  
 
 ### Reference  
-[https://ko.wikipedia.org/wiki/컴퓨터_비전](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0_%EB%B9%84%EC%A0%84)
+[[wiki]컴퓨터_비전](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0_%EB%B9%84%EC%A0%84)
 
 [Move Mirror]: https://experiments.withgoogle.com/collection/ai/move-mirror/view
 [CVPR 2017]: https://openaccess.thecvf.com/CVPR2017
