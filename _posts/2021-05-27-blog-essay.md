@@ -53,6 +53,7 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 - [x] 링크 명료화  
 - [ ] 과학/공학 문서 분리  
 - [ ] Timezone 에러 수정
+- [ ] Disqus 광고 해결
 
 
 - [ ] kubernetes architecture  
