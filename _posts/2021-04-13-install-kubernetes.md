@@ -2,7 +2,7 @@
 layout: post
 title: "Install kubernetes"
 subtitle: "천리길도 한걸음씩"
-cover-img: /assets/img/cover.svg
+cover-img: /assets/img/Kubeflow.gif
 thumbnail-img: /assets/img/Kubernetes.svg
 share-img: /assets/img/Kubernetes.svg
 tags: [tech, kubernetes, docker, linux]
