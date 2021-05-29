@@ -2,7 +2,7 @@
 layout: post
 title: "Install kubeflow"
 subtitle: "kubeflow를 설치하는 다양한 방법"
-cover-img: /assets/img/cover.svg
+cover-img: /assets/img/Kubeflow.gif
 thumbnail-img: /assets/img/kubeflow.svg
 share-img: /assets/img/kubeflow.svg
 tags: [tech, kubeflow, kubernetes, linux]

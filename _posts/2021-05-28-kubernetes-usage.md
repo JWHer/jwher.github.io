@@ -3,8 +3,8 @@ layout: post
 title: "kubernetes usage"
 subtitle: "쿠버네티스 사용하기"
 cover-img: /assets/img/cover.svg
-thumbnail-img: /assets/img/kubernetes.svg
-share-img: /assets/img/kubernetes.jpg
+thumbnail-img: /assets/img/Kubernetes.svg
+share-img: /assets/img/Kubernetes.svg
 tags: [tech, kubernetes, docker]
 comments: true
 
@@ -191,7 +191,7 @@ $ kubectl apply -f -<<EOF
 > ...
 > EOF
 
-# k8s api를 통해 서비스를 이용할 수 있다
+# k8s api를 통해 서비스를 이용할 수 있다  
 $ kubectl proxy
 # example
 # http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/{URI}
