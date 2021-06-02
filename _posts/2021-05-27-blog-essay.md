@@ -51,8 +51,9 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 ## 앞으로 추가할 컨텐츠
 
 - [x] 링크 명료화  
-- [ ] 과학/공학 문서 분리  
-- [ ] Timezone 에러 수정
+- [ ] 번역용어/어투 통일  
+- [ ] 과학/공학 문서 분리   
+- [ ] Timezone 에러 수정  
 - [ ] Disqus 광고 해결
 
 
@@ -61,11 +62,11 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 - [ ] istio  
 
   
-- [ ] nuclio  
+- [x] nuclio  
 - [ ] hadoop  
 
   
-- [ ] Deep learning 개념 시리즈  
+- [ ] Deep learning 개념 시리즈    
 - [ ] NLP(BERT)  
 
    
