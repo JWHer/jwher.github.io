@@ -54,7 +54,7 @@ date: 2021-05-24 17:50:00
 동영상에서 실시간으로 포즈를 추정하기 위해 *속도* 에 중점을 준 모델을 찾았고, Carnegie Mellon University
 에서 [CVPR 2017] 에 발표한 OpenPose를 찾았다.
 
-하지만 [CVPR 2017] 에 같이 나온 Alphapose는 Openpose보다 뛰어난 성능을 보여준다. 물론 장단이 있겠지만,
+조금 뒤인 [ICCV 2017] 에 같이 나온 Alphapose는 Openpose보다 뛰어난 성능을 보여준다. 물론 장단이 있겠지만,
 마침 Pytorch 기반 모델로 통일하기로 했고, 상업용 라이선스도 Alphapose가 더 싸 선택하게 되었다.
 
 둘 다 현재(2021) 기준으로 굉장히 오래되었으나, Alphapose는 [MPII](http://human-pose.mpi-inf.mpg.de/) 데이터 셋에서
@@ -140,6 +140,7 @@ CV를 처음 접한 사람들에게 도움이 될만한 링크들이다.
 
 [Move Mirror]: https://experiments.withgoogle.com/collection/ai/move-mirror/view
 [CVPR 2017]: https://openaccess.thecvf.com/CVPR2017
+[ICCV 2017]: https://openaccess.thecvf.com/ICCV2017
 [YOLOv3]: https://pjreddie.com/media/files/papers/YOLOv3.pdf
 
 ## - JWHer  
