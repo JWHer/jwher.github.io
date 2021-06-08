@@ -182,7 +182,7 @@ Kubernetes in Docker
 
 Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.  
 1. Install Kind  
- OS 버전에 맞게 설치한다
+OS 버전에 맞게 설치한다
 
  ```shell
  # On Linux
@@ -200,9 +200,8 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
  > choco install kind
  ```
 
-2. Create Cluster
- 
- 클러스터 생성 시 kubeflow를 사용할 것이므로 port-forwarding을 해주어야 한다.
+2. Create Cluster  
+클러스터 생성 시 kubeflow를 사용할 것이므로 port-forwarding을 해주어야 한다.
 
  ```shell
  # 다음 yaml을 작성해 준다
@@ -223,8 +222,8 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
      protocol: TCP
  ```
 
- <br/>  
- 클러스터를 생성해 준다.
+<br/>  
+클러스터를 생성해 준다.
 
  ```shell
  > kind create cluster
@@ -253,8 +252,7 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
  ```
 
 3. Access Cluster  
-
- CLI에 접속한다.  
+CLI에 접속한다.  
 
  ```shell
  # 디폴트 쉘이 bash가 아니다
@@ -276,8 +274,8 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
  Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:11:42Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
  ```  
 
- <br/>
- 확인 
+<br/>
+확인 
 
  ```shell
  $ kubectl get node
@@ -299,8 +297,8 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
  local-path-storage   local-path-provisioner-78776bfc44-pv9gw      1/1     Running   0          23m
  ```
 
-4. Install kubeflow  
- 쿠브플로우를 설치하기 위해 kfctl과 kustomize를 이용한다.
+4. Install kubeflow
+쿠브플로우를 설치하기 위해 kfctl과 kustomize를 이용한다.
 
  ```shell
  # 필요한 파일을 받기 위해 wget을 설치한다
@@ -327,9 +325,9 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
  INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:75"
  ```
 
- <br/>  
+<br/>  
 
- 설치 완료 후 kubeflow를 확인해 보자
+설치 완료 후 kubeflow를 확인해 보자
 
  ```shell
  $ kubectl get ns

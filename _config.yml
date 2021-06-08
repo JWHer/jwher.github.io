@@ -190,7 +190,7 @@ date_format: "%F"
 # --- You don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "Asia/Seoul"
+timezone:
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
@@ -230,6 +230,22 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: hijiki
+  display:
+    position: right
+    width: 150
+    height: 150
+  mobile:
+    show: true
+
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
-
