@@ -12,7 +12,7 @@ date: 2021-06-08 23:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
-![Alt](shttps://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/card.jpg "card")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/card.jpg "card")  
 *정보 이론*  
 
 <details>
@@ -55,7 +55,7 @@ date: 2021-06-08 23:50:00
 
 정보 엔트로피는 벨 연구소의 클로드 섀넌이 발표한 논문에서 도입된 개념이다.
 따라서 정보 엔트로피를 Shannon entropy, S로 표시하기도 한다.  
-![Alt](shttps://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/information-theory-claudeshannon.jpg.jpg "claudeshannon")  
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/information-theory-claudeshannon.jpg "claudeshannon")  
 *Claude Shannon, 1948. A Mathematical Theory of Communication*
 
 <br/>
@@ -83,6 +83,7 @@ date: 2021-06-08 23:50:00
 
 로 (일어날 확률)*(정보량)의 합이다.
 
+>![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/dice.jpg "dice")  
 > 주사위 집합 M = {1, 2, ... , 6} 에서 상황별 엔트로피를 살펴보자  
 > 
 > 주사위 각 숫자에 한명씩 배팅한 경우  
