@@ -116,7 +116,7 @@ $ kubectl top node [{name}]
 
 <br/>
 
-### TL;DR
+### [TL;DR](#간단한-서비스)
 
 어떤 resource를 공부해야 할지 궁금하다면?
 ```shell
@@ -260,6 +260,12 @@ $ kubectl drain {nodename} --delete-local-data --force --ignore-daemonsets
 # 제거가 잘 되면 Evit로 표시된다
 ```
 
+### 응용
+```shell
+# pending 상태의 pods 삭제
+$ kubectl delete pod [-n {namespace}] $(kubectl get pod -A --field-selector=status.phase=Pending -o=custom-columns='':metadata.name)
+```
+
 ### 기타
 ```shell
 # 파일 복사
@@ -280,6 +286,7 @@ $ kubectl cp [{namespace}/]{podname}:{guest/path} [-c {container}] {host/path}
 ### Reference  
 [[공식]리눅스에 kubectl 설치 및 설정](https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)  
 [[공식]kubectl-commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
+[[공식]kubectl 치트 시트](https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/)
 
 
 ## - JWHer  
