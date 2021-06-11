@@ -151,4 +151,5 @@ CV를 처음 접한 사람들에게 도움이 될만한 링크들이다.
 본문에 추가할 내용을 적는다.
 https://younghk.github.io/machine-learning/2020-01-10---rmpe-retional-multi-person-pose-estimation/
 https://www.fritz.ai/pose-estimation/
+https://jonathan-hui.medium.com/object-detection-speed-and-accuracy-comparison-faster-r-cnn-r-fcn-ssd-and-yolo-5425656ae359
 -->
