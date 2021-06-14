@@ -185,144 +185,144 @@ Windows 환경의 docker desktop에서 설치하는 방법을 소개한다.
 OS 버전에 맞게 설치한다
 
  ```shell
- # On Linux
- $ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
- $ chmod +x ./kind
- 
- # On Mac
- ~ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-darwin-amd64
- # or
- ~ brew install kind
+# On Linux
+$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
+$ chmod +x ./kind
 
- # On Windows
- > curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.10.0/kind-windows-amd64
- # or
- > choco install kind
+# On Mac
+~ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-darwin-amd64
+# or
+~ brew install kind
+
+# On Windows
+> curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.10.0/kind-windows-amd64
+# or
+> choco install kind
  ```
 
 2. Create Cluster  
 클러스터 생성 시 kubeflow를 사용할 것이므로 port-forwarding을 해주어야 한다.
 
  ```shell
- # 다음 yaml을 작성해 준다
- # 세부적인 ingress 설정은 https://kind.sigs.k8s.io/docs/user/ingress 을 참고한다
- kind: Cluster
- apiVersion: kind.x-k8s.io/v1alpha4
- nodes:
- - role: control-plane
-   # port forward 80 on the host to 80 on this node
-   extraPortMappings:
-   - containerPort: 31380
-     hostPort: 31380
-     # optional: set the bind address on the host
-     # 0.0.0.0 is the current default
-     listenAddress: "0.0.0.0"
-     # optional: set the protocol to one of TCP, UDP, SCTP.
-     # TCP is the default
-     protocol: TCP
+# 다음 yaml을 작성해 준다
+# 세부적인 ingress 설정은 https://kind.sigs.k8s.io/docs/user/ingress 을 참고한다
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  # port forward 80 on the host to 80 on this node
+  extraPortMappings:
+  - containerPort: 31380
+    hostPort: 31380
+    # optional: set the bind address on the host
+    # 0.0.0.0 is the current default
+    listenAddress: "0.0.0.0"
+    # optional: set the protocol to one of TCP, UDP, SCTP.
+    # TCP is the default
+    protocol: TCP
  ```
 
 <br/>  
 클러스터를 생성해 준다.
 
  ```shell
- > kind create cluster
- # or
- > kind create cluster --config {config}.yaml
+> kind create cluster
+# or
+> kind create cluster --config {config}.yaml
 
-    Creating cluster "kind" ...
-  • Ensuring node image (kindest/node:v1.20.2) 🖼  ...
-  ✓ Ensuring node image (kindest/node:v1.20.2) 🖼
-  • Preparing nodes 📦   ...
-  ✓ Preparing nodes 📦
-  • Writing configuration 📜  ...
-  ✓ Writing configuration 📜
-  • Starting control-plane 🕹️  ...
-  ✓ Starting control-plane 🕹️
-  • Installing CNI 🔌  ...
-  ✓ Installing CNI 🔌
-  • Installing StorageClass 💾  ...
-  ✓ Installing StorageClass 💾
- Set kubectl context to "kind-kind"
- You can now use your cluster with:
- 
- kubectl cluster-info --context kind-kind
- 
- Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+   Creating cluster "kind" ...
+ • Ensuring node image (kindest/node:v1.20.2) 🖼  ...
+ ✓ Ensuring node image (kindest/node:v1.20.2) 🖼
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+Set kubectl context to "kind-kind"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kind
+
+Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
  ```
 
 3. Access Cluster  
 CLI에 접속한다.  
 
  ```shell
- # 디폴트 쉘이 bash가 아니다
- # /bin/bash
+# 디폴트 쉘이 bash가 아니면
+# /bin/bash
 
- $ kubectl --version
+$ kubectl --version
   
- Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:10:43Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
- The connection to the server localhost:8080 was refused - did you specify the right host or port?
+Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:10:43Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
  
- # conf 파일을 복사해 주면 정상적으로 이용이 가능하다
- $ mkdir -p $HOME/.kube
- $ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
- $ chown $(id -u):$(id -g) $HOME/.kube/config
+# conf 파일을 복사해 주면 정상적으로 이용이 가능하다
+$ mkdir -p $HOME/.kube
+$ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ chown $(id -u):$(id -g) $HOME/.kube/config
 
- $ kubectl --version
+$ kubectl --version
 
- Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:10:43Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
- Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:11:42Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
+Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:10:43Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
+Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:11:42Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
  ```  
 
 <br/>
 확인 
 
  ```shell
- $ kubectl get node
+$ kubectl get node
 
- NAME                 STATUS   ROLES                  AGE   VERSION
- kind-control-plane   Ready    control-plane,master   23m   v1.20.2
+NAME                 STATUS   ROLES                  AGE   VERSION
+kind-control-plane   Ready    control-plane,master   23m   v1.20.2
 
- $ kubectl get pod -A
+$ kubectl get pod -A
 
- NAMESPACE            NAME                                         READY   STATUS    RESTARTS   AGE
- kube-system          coredns-74ff55c5b-jwwg7                      1/1     Running   0          23m
- kube-system          coredns-74ff55c5b-v4l25                      1/1     Running   0          23m
- kube-system          etcd-kind-control-plane                      1/1     Running   0          23m
- kube-system          kindnet-fqkvr                                1/1     Running   0          23m
- kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          23m
- kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          23m
- kube-system          kube-proxy-hq6qz                             1/1     Running   0          23m
- kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          23m
- local-path-storage   local-path-provisioner-78776bfc44-pv9gw      1/1     Running   0          23m
+NAMESPACE            NAME                                         READY   STATUS    RESTARTS   AGE
+kube-system          coredns-74ff55c5b-jwwg7                      1/1     Running   0          23m
+kube-system          coredns-74ff55c5b-v4l25                      1/1     Running   0          23m
+kube-system          etcd-kind-control-plane                      1/1     Running   0          23m
+kube-system          kindnet-fqkvr                                1/1     Running   0          23m
+kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          23m
+kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          23m
+kube-system          kube-proxy-hq6qz                             1/1     Running   0          23m
+kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          23m
+local-path-storage   local-path-provisioner-78776bfc44-pv9gw      1/1     Running   0          23m
  ```
 
 4. Install kubeflow
 쿠브플로우를 설치하기 위해 kfctl과 kustomize를 이용한다.
 
  ```shell
- # 필요한 파일을 받기 위해 wget을 설치한다
- $ apt-get update
- $ apt-get install wget
+# 필요한 파일을 받기 위해 wget을 설치한다
+$ apt-get update
+$ apt-get install wget
 
- # https://github.com/kubeflow/kfctl/releases 에서 kfctl
- $ wget https://github.com/kubeflow/kfctl/releases/download/v1.2.0/kfctl_v1.2.0-0-gbc038f9_linux.tar.gz
+# https://github.com/kubeflow/kfctl/releases 에서 kfctl
+$ wget https://github.com/kubeflow/kfctl/releases/download/v1.2.0/kfctl_v1.2.0-0-gbc038f9_linux.tar.gz
 
- # tar 파일을 풀어준다
- $ tar -xvf kfctl_{tag}_{platform}.tar.gz
+# tar 파일을 풀어준다
+$ tar -xvf kfctl_{tag}_{platform}.tar.gz
 
- # Export path
- $ export PATH=$PATH:$PWD
- $ export PATH=$PATH:{kfctl_path}
+# Export path
+$ export PATH=$PATH:$PWD
+$ export PATH=$PATH:{kfctl_path}
 
- # 설치 yaml을 받아준다
- $ wget https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_istio_dex.v1.2.0.yaml
+# 설치 yaml을 받아준다
+$ wget https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_istio_dex.v1.2.0.yaml
  
- $ kfctl apply -V -f {config_file}.yaml
+$ kfctl apply -V -f {config_file}.yaml
 
- ...생략...
- INFO[0285] Successfully applied application kfserving    filename="kustomize/kustomize.go:291"
- INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:75"
+...생략...
+INFO[0285] Successfully applied application kfserving    filename="kustomize/kustomize.go:291"
+INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:75"
  ```
 
 <br/>  
@@ -330,29 +330,29 @@ CLI에 접속한다.
 설치 완료 후 kubeflow를 확인해 보자
 
  ```shell
- $ kubectl get ns
+$ kubectl get ns
 
- NAME                 STATUS   AGE
- auth                 Active   101s
- cert-manager         Active   6m17s
- default              Active   45m
- istio-system         Active   6m16s
- knative-serving      Active   95s
- kube-node-lease      Active   45m
- kube-public          Active   45m
- kube-system          Active   45m
- kubeflow             Active   6m17s
- local-path-storage   Active   45m
+NAME                 STATUS   AGE
+auth                 Active   101s
+cert-manager         Active   6m17s
+default              Active   45m
+istio-system         Active   6m16s
+knative-serving      Active   95s
+kube-node-lease      Active   45m
+kube-public          Active   45m
+kube-system          Active   45m
+kubeflow             Active   6m17s
+local-path-storage   Active   45m
 
- # 볼륨도 맵핑이 잘 되었나 확인한다
- $ kubectl get pvc -A
+# 볼륨도 맵핑이 잘 되었나 확인한다
+$ kubectl get pvc -A
 
- NAMESPACE      NAME              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
- istio-system   authservice-pvc   Bound    pvc-48952a53-882e-436b-8396-97cee94acf28   10Gi       RWO            standard       4m31s
- kubeflow       katib-mysql       Bound    pvc-9afd9ddf-3f1e-4b05-9fac-2cd56af6393a   10Gi       RWO            standard       4m28s
- kubeflow       metadata-mysql    Bound    pvc-0f0e907b-7786-42bb-bc40-1b784ac6cddb   10Gi       RWO            standard       4m28s
- kubeflow       minio-pvc         Bound    pvc-1d18caf0-08e6-44d8-b366-223e67dee1e5   20Gi       RWO            standard       4m28s
- kubeflow       mysql-pv-claim    Bound    pvc-c4dbe4b2-6a39-467f-a0be-5f54ff45054d   20Gi       RWO            standard       4m28s
+NAMESPACE      NAME              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+istio-system   authservice-pvc   Bound    pvc-48952a53-882e-436b-8396-97cee94acf28   10Gi       RWO            standard       4m31s
+kubeflow       katib-mysql       Bound    pvc-9afd9ddf-3f1e-4b05-9fac-2cd56af6393a   10Gi       RWO            standard       4m28s
+kubeflow       metadata-mysql    Bound    pvc-0f0e907b-7786-42bb-bc40-1b784ac6cddb   10Gi       RWO            standard       4m28s
+kubeflow       minio-pvc         Bound    pvc-1d18caf0-08e6-44d8-b366-223e67dee1e5   20Gi       RWO            standard       4m28s
+kubeflow       mysql-pv-claim    Bound    pvc-c4dbe4b2-6a39-467f-a0be-5f54ff45054d   20Gi       RWO            standard       4m28s
  ```
 설치 후 pod 생성까지 시간이 좀 걸리니 기다려야 한다 :)
 

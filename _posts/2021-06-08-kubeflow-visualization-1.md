@@ -3,8 +3,8 @@ layout: post
 title: "kubeflow 시각화 개발 1편"
 subtitle: "kubeflow 시스템 이해와 ETL 아키텍처 설계"
 cover-img: /assets/img/cover.svg
-thumbnail-img: /assets/img/Kubernetes.svg
-share-img: /assets/img/Kubernetes.svg
+thumbnail-img: /assets/img/kubeflow.svg
+share-img: /assets/img/kubeflow.svg
 tags: [tech, kubernetes, dev]
 comments: true
 
@@ -69,7 +69,8 @@ Deployment 프로세스에 따라 자동적으로 배포된다.
 즉 진행 상황 시각화를 개발하려고 한다.  
 
 <div align="center">
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline.png" style="height: 26vmin;"/>&nbsp&nbsp⇒&nbsp&nbsp
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline.png" style="height: 26vmin;"/>
+&nbsp&nbsp⇒&nbsp&nbsp
 <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline2.png" style="height: 26vmin;"/>
 </div>
 
