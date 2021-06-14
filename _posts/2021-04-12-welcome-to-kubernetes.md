@@ -26,8 +26,9 @@ docker를 모르고 kubernetes를 먼저 알게 된 사람은 *<u>거의</u>* �
 
 *옛날 옛날에 ...*
 
->
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server.png "server")  
+> <div align="center">
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server.png" style="height: 40vmin;"/>
+> </div>
 > 전공 지식과 열정만으로 사업을 시작한 당신. 자금 부족으로 서버 하나에 여러 어플리케이션을 동작시키고 있었다.  
 > 몇날 밤을 새며 까다로운 고객의 요구사항을 맞춘 당신. 두근거리는 마음으로 배포 버튼을 누르는데...  
 > 아뿔사! 서드파티 앱과 충돌을 일으키며 서버가 죽고 말았다.
@@ -47,7 +48,9 @@ docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다�
 이렇게 여러 개발자 그룹, 혹은 오픈소스를 사용해 작은 서비스 어플리케이션으로 이루어진 아키텍처를
 Micro Service Architecture(MSA) 라고 한다. 이와 반대로 하나로 통합된 아키텍처를 Monolithic 아키텍처라 한다.
 
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container.png "container")  
+> <div align="center">
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container.png" style="height: 40vmin;"/>
+> </div>
 > 다양한 크기의 짐이 규격화된 container에 담겨 유통 혁명을 일으켰다.   
 
 <br/>  
@@ -56,7 +59,9 @@ Micro Service Architecture(MSA) 라고 한다. 이와 반대로 하나로 통합
 ## kubernetes의 필요성
 
 >
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server-multiple.png "multiple server")  
+> <div align="center">
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server-multiple.png" style="height: 40vmin;"/>  
+> </div>
 > docker를 알게된 당신. 덕분에 사업은 번창해 수십대의 서버를 운영하게 되었다.  
 > 하지만 어느 날 서버 한대가 고장났고, 당신은 어쩔 수 없이 새벽에 회사에 출근하게 되었다.
 
@@ -68,7 +73,10 @@ Micro Service Architecture(MSA) 라고 한다. 이와 반대로 하나로 통합
 kubernetes는 컨테이너화된 어플리케이션을 자동으로 배포, 스케일링 및 관리해주는 오픈소스 시스템이다.
 
 >
-> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-collapse.jpg" width="40%"/> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-good.jpg" width="40%"/>
+> <div align="center">
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-collapse.jpg" style="height: 26vmin;"/>
+> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-good.jpg" style="height: 26vmin;"/>
+> </div>
 > 
 > 어느 배에서 일해야 하는가?
 
@@ -115,10 +123,29 @@ kubernetes는 label을 사용하여 그룹을 암시적으로 표현한다.
 <br/>  
 
 ## kubernetes 설계 원칙
+*새삼스럽게 쿠버네티스만 그런게 아니다...*
 
 ### Unix 철학
 
+벨 연구소에서 Unix 개발을 주도한 켄 톰프슨이 고안한 것으로,
+최소주의적인 모듈 방식의 소프트웨어 개발 방식을 말한다.
+
+유닉스 철학은 1978년 더글러스 매클로이가, 1994년 피터 H. 살루스가 다시 한번 정리한다  
+* Write programs that do one thing and do it well.  
+  (한가지 기능만, 잘 수행하게)  
+* Write programs to work together.  
+  (함께 작동할 수 있게)  
+* Write programs to handle text streams, because that is a universal interface.  
+  (텍스트 스트림을 처리할 수 있게, 대중적인 인터페이스니까)  
+
+현재 대부분 지향하는 단순하고 짧고 명료하고 모듈 방식의 확장 가능한 코드 또한 유닉스 철학에서 영향을 받았다고 할 수 있다.
+
 ### Api 기반 상호 작용
+
+Application Programming Interface는 말 그대로 응용 프로그램에서 사용할 수 있도록,
+운영 체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻한다.
+쿠버네티스 또한 수많은 애플리케이션이 서로 상호작용 할 수 있도록 API를 제공하고 있다. 또한,
+Custom Resource Define으로 API를 추가/확장할 수 있다.  
 
 <br/>
 
@@ -128,6 +155,8 @@ kubernetes는 label을 사용하여 그룹을 암시적으로 표현한다.
 
 ## 그래서 어떻게 작동하는데?
 다음 글에서 kubernetes architecture를 설명한다.  
+(다음 글을 쓰려면 몇달은 걸릴 것 같아서 최근에 찾은 좋은 [설명](https://www.youtube.com/watch?v=rdyUAduXi48)
+을 남겨둔다)
 
 <br/>
 
@@ -141,6 +170,8 @@ kubernetes를 줄여 k8s라고 한다. 이유는 긴 단어를 줄일 때 글자
 ### Reference  
 
 [[공식]쿠버네티스란 무엇인가?](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
+[[위키]유닉스 철학](https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%8B%89%EC%8A%A4_%EC%B2%A0%ED%95%99)  
+[[위키]API](https://ko.wikipedia.org/wiki/API)
 
 ## - JWHer  
 좋은 글을 쓰고 싶습니다.
