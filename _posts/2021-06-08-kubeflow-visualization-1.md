@@ -73,8 +73,7 @@ Deployment 프로세스에 따라 자동적으로 배포됩니다.
 즉 진행 상황 시각화를 개발하려고 합니다.  
 
 <div align="center" markdown=1>
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline.png" style="height: 26vmin;"/>
-<p> &nbsp &nbsp ⇒ &nbsp &nbsp </p>
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline.png" style="height: 26vmin;"/>⇒
 <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline2.png" style="height: 26vmin;"/>
    
 *기존 ⇒ 변경 UI*
@@ -106,7 +105,7 @@ vanilla kubeflow도 visualization을 지원하지만,
 * gRPC는 송수신 최대 크기 제한을 4MB로 두기 때문입니다  
 * 일반적 해결책: gRPC 서버의 main.go에서 수동으로 maxCallRecvMsgSize를 설정해 줍니다.  
 
-<div markdown=1>
+<div markdown="1">
 <details>
 <summary>원문</summary>
    
@@ -134,15 +133,15 @@ vanilla kubeflow도 visualization을 지원하지만,
 
 ## ETL 아키텍처 설계
 
-(그림 추가)
+![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/newvis-architecture.png "newvis architecture")  
+*기술 스택보다 용도를 명확히 하자* ~~그래도 뭔가 더 있어보인다~~
 
-* 카프카 메시지 큐를 이용한 동시 처리
+* minIO를 통한 메타정보/오브젝트 저장
+* kafka 메시지 큐를 이용한 동시 처리
    대규모 서비스에서에서 빠른 속도로 처리할 수 있습니다.  
-   (검증을 해봐야겠지만 [글]https://epicdevs.com/17)을 참고했습니다)
-* 파이썬을 이용한 시각화
+   (검증을 해봐야겠지만 [글](https://epicdevs.com/17) 을 참고했습니다)
+* python/flask를 이용한 시각화
 * 사용자에게 보여줄 웹 서버
-* minIO를 통한 메타정보 관리
-* 사진을 저장할 캐시 스토리지
 
 다음 시간부터 실제 구현을 해 봅시다!
 
