@@ -21,7 +21,7 @@ date: 2021-05-28 17:50:00
 
 ## kubectl 설치  
 
-본 글은 linux에서 kubectl을 설치하는 방법을 다룬다.
+설마 kubectl이 없을까요...?
 
 ### requirements
 
@@ -32,12 +32,12 @@ date: 2021-05-28 17:50:00
 
 바이너리 다운로드  
 ```shell
-# 다음 명령으로 최신 kubectl을 다운받는다
+# 다음 명령으로 최신 kubectl을 다운받습니다
 $ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
-# kubectl은 kubernetes 클러스터와 마이너 버전 차이만 연동 가능하다
-# 예를 들어, v1.21 kubectl은 v1.20, v1.21, v1.22 클러스터와 연동될 수 있다
-# version을 수정해 특정 버전을 다운받을 수 있다
+# kubectl은 kubernetes 클러스터와 마이너 버전 차이만 연동 가능합니다
+# 예를 들어, v1.21 kubectl은 v1.20, v1.21, v1.22 클러스터와 연동될 수 있습니다
+# version을 수정해 특정 버전을 다운받을 수 있습니다
 $ curl -LO https://dl.k8s.io/release/{version}/bin/linux/amd64/kubectl
 
 # (선택사항) sha256 체크섬 검증
@@ -49,15 +49,16 @@ kubectl: OK # 성공시
 
 바이너리 파일 설치  
 ```shell
-# 설치하기, 사실 이동하기와 다를 바 없다
+# 설치하기, 바이너리 파일을 이동하는 것 처럼 보입니다
 $ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-# root 권한이 없어도 ~/.local/bin에 설치할 수 있다
+# root 권한이 없어도 ~/.local/bin에 설치할 수 있습니다
 $ mkdir -p ~/.local/bin/kubectl
 $ mv ./kubectl ~/.local/bin/kubectl
-# 그리고 ~/.local/bin/kubectl을 $PATH에 추가
+# 그리고 ~/.local/bin/kubectl을 $PATH에 추가해줍니다
+$ export $PATH=$PATH:~/.local/bin/kubectl
 
-# 확인해보자
+# 확인해봅시다
 $ kubectl cluster-info
 
 Kubernetes master is running at https://server-name:port
@@ -65,24 +66,24 @@ KubeDNS is running at https://server-name:port/api/v1/namespaces/kube-system/ser
 
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
-# 실패시
+# 실패시 나오는 메시지입니다
 The connection to the server <server-name:port> was refused - did you specify the right host or port?
-# kubernetes 클러스터와 연결이 안되거나 config 파일에 문제가 있다
+# kubernetes 클러스터와 연결이 안되거나 config 파일에 문제가 있습니다
 ```
 
 ### APT 설치
 
-하단 reference 참고. 필요하면 작성하겠다.
+하단 reference를 참고해주세요:blush: 시간이 나면 작성하겠습니다.
    
 <br/>
 
 ## 명령어
 *cheat sheet*  
-도커 명령어와 유사한 명령어가 많다
+도커 명령어와 유사한 명령어가 많습니다.
 
 ### 조회 명령어
 ```shell
-# 가볍게 시작하자
+# 가볍게 시작해봅시다
 $ kubectl version 
 
 Client Version: version.Info{Major:"1", Minor:"16", GitVersion:"v1.16.0", GitCommit:"2bd9643cee5b3b3a5ecbd3af49d09018f0773c77", GitTreeState:"clean", BuildDate:"2019-09-18T14:36:53Z", GoVersion:"go1.12.9", Compiler:"gc", Platform:"linux/amd64"}
@@ -116,7 +117,8 @@ $ kubectl top node [{name}]
 
 <br/>
 
-### [TL;DR](#간단한-서비스)
+### [TL;DR](#간단한-서비스)  
+*주의: 해당 섹션은 무지 깁니다. 위의 링크를 눌러 넘어가세요*
 
 어떤 resource를 공부해야 할지 궁금하다면?
 ```shell
@@ -186,51 +188,52 @@ volumeattachments                                     storage.k8s.io            
 # 기본중에 기본
 $ kubectl apply -f {file.yaml}
 
-# 간단한 deploy는 스트림으로 생성하기도 한다
+# 간단한 deploy는 스트림으로 생성하기도 합니다
 $ kubectl apply -f -<<EOF
 > ...
 > EOF
 
-# k8s api를 통해 서비스를 이용할 수 있다  
+# k8s api를 통해 서비스를 이용할 수 있습니다  
 $ kubectl proxy
 # example
 # http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/{URI}
 
 # 포트포워딩
 $ kubectl port-forward {resource/name} {port from:port to} [-n {namespace}] [--address={ip}]
-# 바로 연결할수 있어 주로 사용하게 된다
-# 백그라운드에 계속 유지시키고 싶으면
+# 바로 연결할수 있어 자주 사용합니다
+# 백그라운드에 계속 유지시키고 싶으면  
 $ nohup kubectl port-forward {args} > /dev/null &
 
 ```
 
 ### 문제 확인
 ```shell
-# 컨테이너를 직접 확인해보자
+# 컨테이너를 직접 확인해봅시다
 $ kubectl exec -it {podname} [-n {namespace}] [-c {container}] -- /bin/sh
-# 다른 명령어를 실행시켜도 된다
+# 다른 명령어를 실행시켜도 됩니다
 $ kubectl exec {resource}/{name} -- {command}
-# 쉘이 실행중이라면 attach 명령어를 사용할 수 있다
+# 쉘이 실행중이라면 attach 명령어를 사용할 수 있습니다
 $ kubectl attach {podname} [-n {namespace}] [-c {container}]
+# 해당 컨테이너가 실행되고 있는 노드에서 docker 명령어를 사용할 수도 있습니다
 
 # 로그 확인
 $ kubectl logs {resource}/{name} [-n {namespace}] [-c {container}]
 
 # 쿠버네티스 로그 확인
-# 리소스 생성에 문제가 있을 때, 확인한다
+# 리소스 생성에 문제가 있을 때, 확인합니다
 $ kubectl describe {resource}/{name} [-n {namespace}]
 
 # 리소스 정보 확인
 $ kubectl get {resource} -o yaml [-n {namespace}]
 
 # 컨테이너 리스트 확인
-# custom-columns를 사용해 편하게 조회할 수 있다
+# custom-columns를 사용해 편하게 조회할 수 있습니다
 $ kubectl get pod/{name} -n {namespace} -o=custom-columns=NameSpace:.metadata.namespace,NAME:.metadata.name,CONTAINERS:.spec.containers[*].name
 ```
 
 ### 문제 해결
-*!백업 수단을 만들고 진행하자*  
-변경 전 ```kubectl get {resource} -o yaml > {resource}.yaml```등의 명령어로 백업하자
+*주의: 백업 수단을 만들고 진행하세요*  
+변경 전 ```kubectl get {resource} -o yaml > {resource}.yaml```등의 명령어로 백업하고 진행합니다.  
 
 ```shell
 # 리소스 재시작
@@ -243,10 +246,13 @@ $ kubectl get {resource}/{name} [-n {namespace}] -o yaml | kubectl replace --for
 $ kubectl delete {resource}/{name} [-n {namespace}]  --grace-period=0 -force
 $ kubectl patch {resource}/{name} [-n {namespace}] -p '{"metadata": {"finalizers": null}}'
 
+# 모든 리소스 삭제
+$ kubectl delete all --all -n {namespace}
+
 # 편집
-# vi로 편집 / 시스템 기본 에디터를 사용하는지 확인 필요
+# vi로 편집 / 시스템 기본 에디터를 사용하는지 확인이 필요합니다
 $ kubectl edit {resource}/{name} [-n {namespace}] 
-# 환경변수로 에디터 선택이 가능하다
+# 환경변수로 에디터 선택이 가능합니다
 $ KUBE_EDITOR="nano" kubectl edit {resource}/{name} [-n {namespace}] 
 
 # 노드 라벨 설정
@@ -257,7 +263,7 @@ $ kubectl label nodes {node} key={value}
  
 # 노드 안전하게 제거
 $ kubectl drain {nodename} --delete-local-data --force --ignore-daemonsets
-# 제거가 잘 되면 Evit로 표시된다
+# 제거가 잘 되면 status가 Evit로 표시됩니다
 ```
 
 ### 응용
@@ -279,8 +285,8 @@ $ kubectl cp [{namespace}/]{podname}:{guest/path} [-c {container}] {host/path}
 
 ## Tips
 
-개념을 명확히 하자  
-[쿠버네티스 개념]()  
+개념 이해에 도움이 되는 글입니다
+[쿠버네티스 개념](https://jwher.github.io/2021-04-12-welcome-to-kubernetes/)  
 (작성 예정: kubernetes architecture)
 
 ### Reference  
