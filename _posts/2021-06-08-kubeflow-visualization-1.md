@@ -74,7 +74,7 @@ Deployment 프로세스에 따라 자동적으로 배포됩니다.
 
 <div align="center" markdown=1>
 <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline.png" style="height: 26vmin;"/>
-<p>&nbsp&nbsp⇒&nbsp&nbsp</p>
+<p> &nbsp &nbsp ⇒ &nbsp &nbsp </p>
 <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/vis-pipeline2.png" style="height: 26vmin;"/>
    
 *기존 ⇒ 변경 UI*
@@ -85,25 +85,50 @@ Deployment 프로세스에 따라 자동적으로 배포됩니다.
 우리가 가진건 github에 있는 vanilla kubeflow 밖에 없습니다.
 vanilla kubeflow도 visualization을 지원하지만,
 파이프라인이 완료된 결과를 보여주는 것으로 실시간 진행상황을 보고싶은 우리의 요구를 충족하지 못합니다.  
+<br/>
 
 기존 visualization이 가지는 한계는 다음과 같습니다.  
 
-여러 시각화 작업은 동시에 생성될 수 없다(Multiple visualizations cannot be generated concurrently)  
-* 하나의 파이썬 커널이 시각화 작업을 진행하기 때문입니다(This is because a single Python kernel is used to generate visualizations)  
-* 일반적 해결책: 시각화 서비스 레플리카를 늘리세요(increase the number of replicas)
+**여러 시각화 작업은 동시에 생성될 수 없습니다**  
+* 하나의 파이썬 커널이 시각화 작업을 진행하기 때문입니다  
+* 일반적 해결책: 시각화 서비스 레플리카를 늘리세요
 
-시각화는 30초를 지나면 생성에 실패한다(Visualizations that take longer than 30 seconds will fail to generate)  
-* 시각화 과정 중 30초가 넘으면 프론트엔드 요청에 타임아웃 헤더를 추가할 수 있습니다(For visualizations where the 30 second timeout is reached, you can add the TimeoutValue header to the request made by the frontend)  
-* 일반적 해결책: visualization deploy.yaml에 추가하세요
+**시각화는 30초를 지나면 생성에 실패합니다**  
+* 시각화 과정 중 30초가 넘으면 프론트엔드 요청에 타임아웃 헤더를 추가할 수 있습니다  
+* 일반적 해결책: visualization deploy.yaml에 추가하세요  
 ```yaml
 - env:
   - name: KERNEL_TIMEOUT
     value: 100
 ```
 
-HTML 컨텐츠는 4MB를 넘지 못한다(The HTML content of the generated visualizations cannot be larger than 4MB)
-* gRPC는 송수신 최대 크기 제한을 4MB로 두기 때문입니다(gRPC by default imposes a limit of 4MB as the maximum size that can be sent and received by a server)
-* 일반적 해결책: gRPC 서버의 main.go에서 수동으로 maxCallRecvMsgSize를 설정해 줍니다.
+**HTML 컨텐츠는 4MB를 넘지 못합니다**  
+* gRPC는 송수신 최대 크기 제한을 4MB로 두기 때문입니다  
+* 일반적 해결책: gRPC 서버의 main.go에서 수동으로 maxCallRecvMsgSize를 설정해 줍니다.  
+
+<div markdown=1>
+<details>
+<summary>원문</summary>
+   
+**Multiple visualizations cannot be generated concurrently**
+* This is because a single Python kernel is used to generate visualizations  
+* General solution: increase the number of replicas  
+
+**Visualizations that take longer than 30 seconds will fail to generate**
+* For visualizations where the 30 second timeout is reached, you can add the TimeoutValue header to the request made by the frontend  
+* General solution: set the KERNEL_TIMEOUT environment variable of the visualization service deployment  
+```yaml
+- env:
+  - name: KERNEL_TIMEOUT
+    value: 100
+```
+
+**The HTML content of the generated visualizations cannot be larger than 4MB**  
+* gRPC by default imposes a limit of 4MB as the maximum size that can be sent and received by a server  
+* Genearl solution: manually set MaxCallRecvMsgSize for gRPC
+   
+</details>   
+</div>
 
 <br/>
 
