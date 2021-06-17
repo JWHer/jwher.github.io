@@ -94,7 +94,8 @@ vanilla kubeflow도 visualization을 지원하지만,
 
 **시각화는 30초를 지나면 생성에 실패합니다**  
 * 시각화 과정 중 30초가 넘으면 프론트엔드 요청에 타임아웃 헤더를 추가할 수 있습니다  
-* 일반적 해결책: visualization deploy.yaml에 추가하세요  
+* 일반적 해결책: visualization deploy.yaml에 추가하세요
+
 ```yaml
 - env:
   - name: KERNEL_TIMEOUT
@@ -105,9 +106,9 @@ vanilla kubeflow도 visualization을 지원하지만,
 * gRPC는 송수신 최대 크기 제한을 4MB로 두기 때문입니다  
 * 일반적 해결책: gRPC 서버의 main.go에서 수동으로 maxCallRecvMsgSize를 설정해 줍니다.  
 
-<div markdown="1">
 <details>
 <summary>원문</summary>
+<div markdown="1">
    
 **Multiple visualizations cannot be generated concurrently**
 * This is because a single Python kernel is used to generate visualizations  
@@ -115,7 +116,8 @@ vanilla kubeflow도 visualization을 지원하지만,
 
 **Visualizations that take longer than 30 seconds will fail to generate**
 * For visualizations where the 30 second timeout is reached, you can add the TimeoutValue header to the request made by the frontend  
-* General solution: set the KERNEL_TIMEOUT environment variable of the visualization service deployment  
+* General solution: set the KERNEL_TIMEOUT environment variable of the visualization service deployment
+
 ```yaml
 - env:
   - name: KERNEL_TIMEOUT
@@ -125,16 +127,16 @@ vanilla kubeflow도 visualization을 지원하지만,
 **The HTML content of the generated visualizations cannot be larger than 4MB**  
 * gRPC by default imposes a limit of 4MB as the maximum size that can be sent and received by a server  
 * Genearl solution: manually set MaxCallRecvMsgSize for gRPC
-   
-</details>   
+ 
 </div>
+</details>  
 
 <br/>
 
 ## ETL 아키텍처 설계
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/newvis-architecture.png "newvis architecture")  
-*기술 스택보다 용도를 명확히 하자* ~~그래도 뭔가 더 있어보인다~~
+*기술 스택보다 용도를 명확히 하자*  ~~그래도 뭔가 더 있어보인다~~
 
 * minIO를 통한 메타정보/오브젝트 저장
 * kafka 메시지 큐를 이용한 동시 처리
