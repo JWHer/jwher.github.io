@@ -3,7 +3,8 @@ layout: null
 ---
 
 @import url("pygment_highlights.css");
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR|Ubuntu+Mono);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR|Ubuntu+Mono); */
 
 /* --- General --- */
 
