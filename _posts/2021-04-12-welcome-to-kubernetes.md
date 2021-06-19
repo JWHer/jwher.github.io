@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Welcome to kubernetes!"
-subtitle: "kubernetes의 세계에 오신 걸 환영합니다"
+subtitle: "쿠버네티스의 세계에 오신 걸 환영합니다"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
 share-img: /assets/img/Kubernetes.svg
@@ -12,125 +12,139 @@ date: 2021-04-12 23:50:00
 ---
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "kubernetes")  
-*kubernetes의 세계에 오신 걸 환영합니다!*  
+*쿠버네티스의 세계에 오신 걸 환영합니다!*  
+이 글은 쿠버네티스 창시자인 **브렌던 번스** 의 책 Managing Kubernetes를 참고하여 다시 작성했습니다.  
 
 # 목차
-* docker는 들어봤겠지?
-* kubernetes의 필요성
-* kubernetes 개념
+* [쿠버네티스란?](#쿠버네티스란?)
+* [쿠버네티스의 필요성](#쿠버네티스의-필요성)
+* [쿠버네티스 개념](#쿠버네티스-개념)
 
-## docker는 들어봤겠지?
+<br/>
 
-docker를 모르고 kubernetes를 먼저 알게 된 사람은 *<u>거의</u>* 없을 것이라고 생각하지만,  
-여기서 다시 한번 정리해보자.
+## 쿠버네티스란?
 
-*옛날 옛날에 ...*
+쿠버네티스는 컨테이너 애플리케이션을 배포하기 위한 **오케스트레이터**입니다.
+도커와 컨테이너를 모르고 쿠버네티스를 먼저 접하셨다면,
+[이 글](https://jwher.github.io/2021-06-19-welcome-to-docker/) 을 먼저 읽는 것을 추천합니다.
 
-> <div align="center">
-> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server.png" style="height: 40vmin;"/>
-> </div>
-> 전공 지식과 열정만으로 사업을 시작한 당신. 자금 부족으로 서버 하나에 여러 어플리케이션을 동작시키고 있었다.  
-> 몇날 밤을 새며 까다로운 고객의 요구사항을 맞춘 당신. 두근거리는 마음으로 배포 버튼을 누르는데...  
-> 아뿔사! 서드파티 앱과 충돌을 일으키며 서버가 죽고 말았다.
+컨테이너는 많은 이점을 지닙니다. 저는 <u>개발 환경 분리</u>을 가장 큰 이점이라 생각하는데요,
+**구글**은 대규모 시스템(*ex: youtube*)를 운영하며 일주일에 20억개의 컨테이너를 배포한다고 합니다.  
 
-수많은 개발자가 함께 일하는 환경이나, 오픈소스를 많이 활용하는 곳에서 여러 어플리케이션의 환경을 맞춰주는 것은 *어렵다*  
-각각의 독립적인 하드웨어 환경을 구축해 주는것에도 비용적인 한계가 있다.
+이런 작업을 사람이 일일히 할 순 없겠죠.
+구글은 컨테이너 기반 시스템을 오랜 기간동안 운영하며 쿠버네티스를 개발했으며,
+2015년 오픈소스로 공개된 후 현재는 MSA(Micro Service Architecture)의 표준이라 할 정도로 널리 쓰이고 있습니다.
 
-따라서 배포와 운영을 하는 Engineer들은 생각한다. 각 어플리케이션마다 *독립적*인 환경을 만들 순 없을까?  
-이런 고충을 해결하기 위해 나온 프로세스 격리 기술이 docker이다. 
+<br/>
 
-<!--실행 정보를 담고 있는 image, 실행중인 image instance를 container라 부른다.  -->
-격리된 공간에서 프로세스가 동작하는 기술을 [container][container-definition], container의 실행 정보를 image라고 한다.  
-docker container는 호스트의 커널을 공유해 VM보다 매우 빠르다는 장점이 있다.  
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container_evolution.svg "container_evolution")
-> 이전에도 가상화 기술은 존재했다.  
+## 쿠버네티스의 필요성
 
-이렇게 여러 개발자 그룹, 혹은 오픈소스를 사용해 작은 서비스 어플리케이션으로 이루어진 아키텍처를
-Micro Service Architecture(MSA) 라고 한다. 이와 반대로 하나로 통합된 아키텍처를 Monolithic 아키텍처라 한다.
+앞서 살펴봤듯이 쿠버네티스는 컨테이너 애플리케이션을 배포하는 오케스트레이션 API를 제공합니다.
+하지만 설치만 잘한다고 뛰어난 오케스트레이터가 될 순 없을 것입니다.
+쿠버네티스는 오류가 있는 애플리케이션을 복구하는 자가 재해 복구 알고리즘을 제공합니다.
+또한, 서비스의 여러 레플리카 간에 트래픽을 쉽게 분산할 수 있는 로드 밸런서를 제공하고,
+소프트웨어의 무중단 업데이트를 쉽게 수행할 수 있게 도와줍니다.
 
-> <div align="center">
-> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container.png" style="height: 40vmin;"/>
-> </div>
-> 다양한 크기의 짐이 규격화된 container에 담겨 유통 혁명을 일으켰다.   
+이 외에도 쿠버네티스는 보안, 문제 대응, 시스템 확장을 제공합니다.
+하지만 글이 복잡해지니 지금은 기본적인 개념만 다루겠습니다.
 
-<br/>  
-<br/>  
-
-## kubernetes의 필요성
-
->
-> <div align="center">
-> <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/server-multiple.png" style="height: 40vmin;"/>  
-> </div>
-> docker를 알게된 당신. 덕분에 사업은 번창해 수십대의 서버를 운영하게 되었다.  
-> 하지만 어느 날 서버 한대가 고장났고, 당신은 어쩔 수 없이 새벽에 회사에 출근하게 되었다.
-
+<!--
 운영자(Engineer)가 아무리 날고 기어도, *고장난* 서버가 스스로 고쳐지게 할 순 없다.  
 하지만 실제 운영중에 소프트웨어, 커널 시스템, 물리적 오류로 서버는 빈번하게 고장난다.  
 또한, 다수 서버에서 배포작업은 *어렵고* 운영자가 단순 노동자로 변하게 한다.
 
 하지만 운영자를 위한 개발자들이 있었으니,  
 kubernetes는 컨테이너화된 어플리케이션을 자동으로 배포, 스케일링 및 관리해주는 오픈소스 시스템이다.
+-->
 
 >
 > <div align="center">
 > <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-collapse.jpg" style="height: 26vmin;"/>
 > <image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/container-good.jpg" style="height: 26vmin;"/>
-> </div>
-> 
-> 어느 배에서 일해야 하는가?
+> </div>  
+> 수많은 컨테이너를 혼자 싣긴 힘들겠죠 :relaxed:
 
-## kubernetes 개념
+<br/>
+
+## 쿠버네티스 개념
 
 ### 선언적 구성 *declarative configuration*
 
-선언, 宣言 이란?  
-'널리 펴서 말하는 것' 이다
+선언宣言 이란 무엇일까요?  
+> 吾等은 玆에 我 朝鮮의 獨立國임과 朝鮮人의 自主民임을 宣言하노라
+> ―기미 독립 선언서
 
-kubernetes는 구조화된 YAML, JSON 파일으로 운영자가 원하는 상태를 선언하여 구성한다.  
-이상적인 상태를 유지하기 위해 현재 상태를 관찰하고, 스스로 수정과 복구를 한다. 
+일제 강점기, 민족대표 33명은 1919년 3월 1일에 독립을 선언합니다. 이처럼 선언은 '널리 펴서 말하는 것'을 말합니다.
 
-이전까지 운영자가 원하는 상태로 배포를 하기 위해서 여러 명령어를 작성했던 것과 대비된다. 
+너무 거창했나요?
+쿠버네티스에서 운영자는 ```이 앱을 그 서버에서 3개를 실행시키고 싶어``` 라고 선언할 수 있습니다.
+이런 선언문은 쿠버네티스가 이해할 수 있게 구조화된 YAML, JSON 파일으로 이루어집니다.  
 
-<br/>
-학부에서 프로그래밍 언어 과목을 잘 들은 사람은,  
-haskell, Erlang과 같은 함수형, Prolog와 같은 논리형 언어의 패러다임을 선언적 언어라 부름을 기억할 것이다.  
-좀더 친숙한 C, Java, python이 명령적(imperative) 언어로 분류되는 것을 생각하면, 이해가 쉬울 것이다.  
+이전까지는 운영자가 원하는 상태로 배포를 하기 위해서 여러 명령어를 작성했었습니다.
+선언적 구성은 명령어의 숫자를 줄이는 것보다 더 좋은 장점이 있는데요,
+운영자가 선언한 이상적인 상태를 이해하기 때문에 현재 상태를 관찰하고 스스로 수정과 복구를 할 수 있다는 것입니다.  
 
-명령적 언어는 내가 원하는 상태로 만드는 *과정*을 작성하지만, 선언적 언어는 원하는 *상태*를 작성한다.
+이런 작업을 수행하는 것은 쿠버네티스 컨트롤러입니다.
+컨트롤러는 선언문과 현재 상태를 비교해 상태를 유지시킵니다.
+상태를 관찰하는데 어려움은 *어떤* 그룹을 관찰할지 결정하는 것인데요,
+다음 단락을 봅시다.
+<details>
+<summary>TL;DR</summary>
+<div markdown="1">
+
+자연어로 실행되는 프로그래밍 언어를 꿈꿔온 저에겐 흥미있는 개념이였는데요,
+
+학부에서 프로그래밍 언어를 들은 사람은
+haskell, Erlang과 같은 함수형, Prolog와 같은 논리형 언어의 패러다임을 선언적 언어라 함을 기억할 것입니다.
+좀더 친숙한 C, Java, python이 명령적(imperative) 언어는
+내가 원하는 상태로 만드는 *과정*을 작성하지만, 선언적 언어는 원하는 *상태*를 작성하게 됩니다.  
+
+명령형 언어는 목적을 달성하기 위한 방법을 최적화 할 수 있다는 장점이 있을 것입니다.
+선언적 언어는 언듯 보면 *비효율*적일 것 같습니다.
+특히 SQL 쿼리 최적화 작업, C보다 밑의 어셈블리 최적화를 진행하시는 분이라면 더더욱 이해하기 힘들 것입니다.  
+
+그렇다면 선언형 언어의 장점은 무엇일까요?  
+바로 목적을 이루는데 강건한(robust) 방법을 제공한다는 것입니다.
+어려운 말들을 더 늘어놓자면 어떤 환경에서 실행시켜도 똑같은 결과를 주는 멱등성이 성립한다고 할까요?
+
+컴퓨팅 성능의 향상과 함께 빠르게 개발이 가능한 파이썬과 같은 인터프리터 언어가 유행하게 된 것 처럼
+우주선 프로그래밍에 쓰이던 선언형 언어도 유행하게 되는 날을 생각해 봅니다.
+</div>
+</details>
 
 <br/>
 
 ### 암시적/동적 그룹화
 
-일상속에서 접하기 쉬운 그룹은 *목록*으로 구성되어 있다.  
-> 카카오톡 채팅방은 정해진 목록으로 참가자 그룹을 인식한다.
+일상속에서 접하기 쉬운 그룹은 *목록*으로 구성되어 있습니다.
+> 카카오톡 채팅방은 정해진 목록으로 참가자 그룹을 인식합니다.  
+> 친구 철수, 민수, 우철이를 채팅방에 초대해서 그룹을 만들었습니다.
 
-새롭게 채팅방을 만들려고 하면 참가자 *목록*을 작성해 주어야 한다.  
-이를 명시적/정적 그룹화라고 한다.
+새롭게 채팅방을 만들려고 하면 참가자 *목록*을 작성해 주어야 합니다.
+이를 명시적/정적 그룹화라고 합니다.
 <br/>
 
-다른 상황을 생각해 보자.  
-고등학교 체육시간, 갑작스럽게 축구를 하게 되어 반을 두 팀으로 나누게 되었다.
+다른 상황을 생각해 볼까요?   
+고등학교 체육시간, 갑작스럽게 축구를 하게 되어 반을 두 팀으로 나누게 되었습니다.
 > 출석번호 홀수는 왼쪽, 짝수는 오른쪽 팀이야!
 
-다른 반이 축구팀에 합류해도 어느 그룹에 들어갈지 알 수 있다!
-이를 암시적/동적 그룹화라고 한다.
+다른 반이 축구팀에 합류해도 어느 그룹에 들어갈지 알 수 있겠네요!  
+이를 암시적/동적 그룹화라고 합니다.
 
-kubernetes는 label을 사용하여 그룹을 암시적으로 표현한다.  
-
+쿠버네티스도 라벨(레이블)을 사용하여 그룹을 암시적으로 표현합니다.
 
 <br/>  
 
 ## kubernetes 설계 원칙
-*새삼스럽게 쿠버네티스만 그런게 아니다...*
+*새삼스럽게 쿠버네티스만 그런건 아닙니다...*
 
 ### Unix 철학
 
 벨 연구소에서 Unix 개발을 주도한 켄 톰프슨이 고안한 것으로,
-최소주의적인 모듈 방식의 소프트웨어 개발 방식을 말한다.
+최소주의적인 모듈 방식의 소프트웨어 개발 방식을 말합니다.
 
-유닉스 철학은 1978년 더글러스 매클로이가, 1994년 피터 H. 살루스가 다시 한번 정리한다  
+유닉스 철학은 1978년 더글러스 매클로이가, 1994년 피터 H. 살루스가 다시 한번 정리하는데요,  
+내용은 다음과 같습니다.
 * Write programs that do one thing and do it well.  
   (한가지 기능만, 잘 수행하게)  
 * Write programs to work together.  
@@ -138,37 +152,37 @@ kubernetes는 label을 사용하여 그룹을 암시적으로 표현한다.
 * Write programs to handle text streams, because that is a universal interface.  
   (텍스트 스트림을 처리할 수 있게, 대중적인 인터페이스니까)  
 
-현재 대부분 지향하는 단순하고 짧고 명료하고 모듈 방식의 확장 가능한 코드 또한 유닉스 철학에서 영향을 받았다고 할 수 있다.
+현재 대부분 지향하는 단순하고 짧고 명료하고 모듈 방식의 확장 가능한 코드 또한 유닉스 철학에서 영향을 받았다고 할 수 있습니다.
 
 ### Api 기반 상호 작용
 
-Application Programming Interface는 말 그대로 응용 프로그램에서 사용할 수 있도록,
-운영 체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻한다.
-쿠버네티스 또한 수많은 애플리케이션이 서로 상호작용 할 수 있도록 API를 제공하고 있다. 또한,
-Custom Resource Define으로 API를 추가/확장할 수 있다.  
+API(Application Programming Interface)는 말 그대로 응용 프로그램에서 사용할 수 있도록,
+운영 체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻합니다.  
 
-<br/>
-
-선언적 구성과 암시적/동적 그룹화라는 개념으로 설계된 쿠버네티스는 운영자에게 *유용한* 기능을 제공하게 된다.  
+쿠버네티스에선 중앙 집중 API를 사용해 수많은 애플리케이션이 서로 상호작용 합니다.
+시스템의 어떤 부분도 특권을 갖고 직접 접근할 수 없다는 점은 교체와 추가가 자유로운 장점을 제공합니다.
+따라서 쿠버네티스는 소프트웨어가 업그레이드 되며 발생하는 버전 호환 문제를 쉽게 해결할 수 있습니다.
 
 <br/>
 
 ## 그래서 어떻게 작동하는데?
-다음 글에서 kubernetes architecture를 설명한다.  
+다음 글에서 쿠버네티스 구성요소와 작동방식을 설명하려고 합니다.  
+
 (다음 글을 쓰려면 몇달은 걸릴 것 같아서 최근에 찾은 좋은 [설명](https://www.youtube.com/watch?v=rdyUAduXi48)
-을 남겨둔다)
+을 남겨둡니다)
 
 <br/>
 
 ## Tips
-kubernetes를 줄여 k8s라고 한다. 이유는 긴 단어를 줄일 때 글자의 개수를 적는 관례가 있었기 때문이라고 한다.  
-[(K8s as an abbreviation results from counting the eight letters between the "K" and the "s".)](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)  
-(직접 한번 세보자...)
+kubernetes를 줄여 k8s라고 합니다. 이유는 긴 단어를 줄일 때 글자의 개수를 적는게 관례였기 때문이라고 하네요:D  
+[K8s as an abbreviation results from counting the eight letters between the "K" and the "s".](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)  
+~~직접 한번 세보자...~~
 
 <br/>
 
 ### Reference  
 
+[[Redhat]쿠버네티스란?](https://www.redhat.com/ko/topics/containers/what-is-kubernetes)  
 [[공식]쿠버네티스란 무엇인가?](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
 [[위키]유닉스 철학](https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%8B%89%EC%8A%A4_%EC%B2%A0%ED%95%99)  
 [[위키]API](https://ko.wikipedia.org/wiki/API)
@@ -180,19 +194,11 @@ kubernetes를 줄여 k8s라고 한다. 이유는 긴 단어를 줄일 때 글자
 [container-definition]: https://cloud.kt.com/portal/user-guide/education-eduadvanced-edu_adv_2
 
 <!--
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-```python
-def print_hi(name):
-  print("hello", name)
-print_hi('Tom')
-```
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
+구성요소
+api 서버
+스케줄러
+설치[x]/보안/인증인가/네트워킹
+모니터링
+복구
+확장
 -->

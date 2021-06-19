@@ -16,8 +16,9 @@ date: 2021-04-13 11:50:00
 
 # 목차
 * [Preflight](#Preflight)
-* docker 설치
+* [docker 설치](#docker-설치)
 
+<br/>
 
 ## Preflight  
 도커를 설치하기 전에 환경을 점검해 보자.
@@ -37,6 +38,8 @@ date: 2021-04-13 11:50:00
 * x86_64
 * amd64
 * arm64
+
+<br/>
 
 ## docker 설치
 
@@ -158,14 +161,20 @@ $ sudo service docker restart
 
 <br/>
 
-도커에서 사용하지 않는 컨테이너/이미지를 정리하는 방법
+디스크 용량 확보 명령어
 ```shell
+# 종료된 컨테이너 삭제하기
 $ docker rm $(docker ps --filter status=exited -q)
 
+# 사용하지 않는 이미지를 정리하기
 $ docker image prune -a
+
+# 사용하지 않는 build 캐시, 볼륨, 이미지 전부를 정리하기
+$ docker system prune -a --volumes
 ```
 
 <br/>
+
 
 ### Reference  
 [[공식]우분투에 도커 엔진 설치하기](https://docs.docker.com/engine/install/ubuntu/)  
