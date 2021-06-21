@@ -40,7 +40,7 @@ GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있는 �
 
 ### 주의사항
 * 현재(2021.05.23) github release는 1.2 버전입니다. 하지만 공식 doc이 1.3 버전으로 바뀌었습니다.
-* 공식 문서가 굉장히 낡았고 업데이트가 잘 안되어 있습니다. 1.3으로 버전을 바꾸고 오래된 항목을 삭제한듯 보입니다.
+* 공식 문서가 굉장히 낡았고 업데이트가 잘 안 되어 있습니다. 1.3으로 버전을 바꾸고 오래된 항목을 삭제한듯 보입니다.
 * 본 글은 현재 최신인 1.2 버전의 설치를 다루고 있습니다. [링크](https://v1-2-branch.kubeflow.org/)  
 
 
@@ -70,7 +70,8 @@ kfctl과 kustomize를 이용한 설치 방법을 설명합니다.
 
 ### 설치
 
-호환되는 kubernetes 버전을 꼭 확인하자.  
+쿠버네티스가 없으신 분은 [이글](https://jwher.github.io/2021-04-13-install-kubernetes/) 설치법을 참고해주세요.  
+아! 호환되는 kubernetes 버전을 꼭 확인해주세요. :blush:  
 
 <!--
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubeflow-version-matrix.png "kubeflow-version-matrix")
@@ -101,11 +102,12 @@ kfctl과 kustomize를 이용한 설치 방법을 설명합니다.
 | 1.20            | 호환 안됨     | 호환 안됨     | 호환 안됨     | 호환 안됨     | 알려진 문제 없음 | 알려진 문제 없음 | 알려진 문제 없음 |
 
 
-*참조 https://v1-2-branch.kubeflow.org/docs/started/k8s/overview/*  
+[참조](https://v1-2-branch.kubeflow.org/docs/started/k8s/overview/)
 *알려진 문제가 없다고 하지만 쿠버네티스1.2-쿠브플로우1.2 버전은 여러 오류가 발생합니다* :sweat:  
 *쿠버네티스 1.16 버전을 사용하는 것을 권장합니다*  
-*쿠브플로우 0.6 이후 버전부터 kustomize를 사용한다고 합니다*  
-*쿠브플로우 0.6 이상 버전을 권장합니다*  
+
+*쿠브플로우 0.6 이후 버전부터 kustomize를 사용합니다*  
+*따라서 쿠브플로우 0.6 이상 버전을 권장합니다*  
 
 <br/>
 
@@ -150,6 +152,7 @@ INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:
 <br/>
 
 ## Window Machine
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/Windows.svg" style="height: 40vmin;" />  
 
 고사양의 개인 PC가 있고, 쿠브플로우를 체험해 보고 싶다면 추천합니다.
 
@@ -157,10 +160,10 @@ INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:
 * docker desktop
 * kubernetes
 
-Docker desktop에 kubernetes를 활성화 시킵니다. (micro k8s가 구동된다)  
+Docker desktop에 kubernetes를 활성화 시킵니다. (micro k8s를 사용합니다)  
 (이미지 추가)
 kubernetes 저사양 node 등에 맞춰 다양한 버전이 있습니다. [다음](https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/)
-에서 여러 kubernetes에 차이점을 잘 설명한다.
+에서 여러 kubernetes에 차이점을 잘 설명하고 있습니다.
 
 (자료가 없어져 다음에 작성하겠습니다. kfctl을 사용해 linux 버전과 같은 방법으로 설치합니다)  
 configuration을 환경에 맞게 수정해 주어야 합니다. 다음 [블로그](https://sidepun.ch/entry/Kubeflow-%EC%84%A4%EC%B9%98-WSL2-Ubuntu-Docker-Desktop)
@@ -183,6 +186,7 @@ Linux에서 kfctl을 사용한 쿠브플로우 설치 방법과 같습니다.
 [virtualbox vm 생성](https://jwher.github.io/2021-04-15-Install-Virtualbox-with-no-GUI/)
    
 ### 번외: miniKF
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/minikf.png" style="height: 40vmin;" />  
 
 miniKF를 통해 간편히 설치할 수 있습니다.
 한개의 VM 단일 노드 쿠버네티스에서 작동하는 쿠브플로우로
@@ -217,18 +221,20 @@ VM 환경이 같는 한계, 현재 지원이 종료된 문제가 있습니다.
 <br/>
 
 ## Kind
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kind.png" style="height: 40vmin;" />  
 
 쿠버네티스의 한 버전인 Kubernetes in Docker를 사용하여 쿠브플로우를 설치합니다.
-단일 노드의 쿠버네티스를 가지고 있다면 추천합니다.
+Docker Image로 된 쿠버네티스로 단일 노드 쿠버네티스를 빠르게 구성하고자 하면 추천합니다.  
+
+이 글에선 Windows 환경의 docker desktop에서 설치하는 방법을 소개합니다.  
+~~사실 쿠버네티스 클러스터 구성이 더 깁니다~~
 
 #### requirements
 * docker가 설치된 컴퓨터
 
-이 글에선 Windows 환경의 docker desktop에서 설치하는 방법을 소개합니다.  
-~~쿠버네티스 클러스터 구성이 더 길다~~
 <p>1. Install Kind</p>  
 
-OS 버전에 맞게 설치한다
+OS에 맞게 설치합니다
 
  ```shell
 # On Linux
@@ -250,7 +256,7 @@ $ chmod +x ./kind
 
 클러스터 생성 시 쿠브플로우를 사용할 것이므로 port-forwarding을 해주어야 합니다.  
 다음 yaml을 작성합니다.  
-(세부적인 ingress 설정은 https://kind.sigs.k8s.io/docs/user/ingress 을 참고합시다)
+(세부적인 ingress 설정은 [[공식]Ingress](https://kind.sigs.k8s.io/docs/user/ingress)  참고합시다)
  ```yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
