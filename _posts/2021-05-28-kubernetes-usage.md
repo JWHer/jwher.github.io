@@ -268,8 +268,8 @@ $ kubectl drain {nodename} --delete-local-data --force --ignore-daemonsets
 
 ### 응용
 ```shell
-# pending 상태의 pods 삭제
-$ kubectl delete pod [-n {namespace}] $(kubectl get pod -A --field-selector=status.phase=Pending -o=custom-columns='':metadata.name)
+# Running 상태가 아닌 pod 삭제
+$ kubectl delete pod [-n {namespace}] $(kubectl get pod [-n {namespace}] --field-selector=status.phase!=Running -o=custom-columns='':metadata.name)
 ```
 
 ### 기타
