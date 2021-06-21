@@ -196,6 +196,30 @@ $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapte
 
 <br/>
 
+## Tips
+
+vboxmanage The machine locked for a session 문제  
+```shell
+~$ vboxheadless --startvm your awesome vm
+Oracle VM VirtualBox Headless Interface 5.2.44
+(C) 2008-2020 Oracle Corporation
+All rights reserved.
+
+VBoxHeadless: error: The machine 'your awesome vm' is already locked for a session (or being unlocked)
+VBoxHeadless: error: Details: code VBOX_E_INVALID_OBJECT_STATE (0x80bb0007), component MachineWrap, interface IMachine, callee nsISupports
+VBoxHeadless: error: Context: "LockMachine(session, LockType_VM)" at line 947 of file VBoxHeadless.cpp
+```
+이런 에러와 함께 어떤 명령도 실행되지 않을 때가 있습니다.
+
+<br/>
+
+다음 명령어로 VM을 강제종료 할 수 있습니다.
+```shell
+$ vboxmanage startvm kube-slave-kf --type emergencystop
+```
+
+<br/>
+
 ### Reference  
 [[공식]VBoxManage](https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html)  
 
