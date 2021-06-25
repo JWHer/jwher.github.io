@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "kubeflow visualization 개발 2편"
+title: "Kubeflow visualization 개발 2편"
 subtitle: "Event Driven Architecture 구현"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/kubeflow.svg
