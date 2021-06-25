@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "welcome to docker"
+title: "Welcome to docker"
 subtitle: "docker는 들어봤겠지?"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/docker.svg
