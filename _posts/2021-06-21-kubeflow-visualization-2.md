@@ -15,11 +15,14 @@ date: 2021-06-21 23:50:00
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/engineering.jpg "engineering")  
 *Event Driven Architecture 구현*  
 
+
 # 목차
 * [이전 이야기](#이전-이야기)
 * [시각화 대상 선정](#시각화-대상-선정)
 * [스토리지 선정](#스토리지-선정)
 * [Message Queue 선정](#Message-Queue-선정)
+
+<br/>
 
 ## 이전 이야기
 
@@ -39,8 +42,8 @@ Markdown(inline, file, url),
 ROC(csv),
 Table(csv),
 Tensorboard(file?),
-Web app(static html)을 지원했습니다.
-[참고](https://v1-2-branch.kubeflow.org/docs/components/pipelines/sdk/output-viewer/#web-app)
+Web app(static html)을 지원했습니다.  
+[[공식]Visualize Results in the Pipelines UI](https://v1-2-branch.kubeflow.org/docs/components/pipelines/sdk/output-viewer/)
 
 저는 기존 기능과 호환을 위해 csv, html 형식을 지원하고
 추가적으로 텍스트, 이미지, 진행상황(텍스트), 사용자 코드 실행을 지원하려고 합니다. 
@@ -63,7 +66,7 @@ minIO는 S3 호환 표준으로 객체(object)가 버킷에서 발생시키는 �
 
 ### kafka 배포
 
-kafka를 모르신다면 앞으로 작성할 [이글]() 을 참고하시면 좋을 것 같습니다. ~~없는데 어떻게~~  
+kafka를 모르신다면 앞으로 작성할 [이글](/404) 을 참고하시면 좋을 것 같습니다. ~~없는데 어떻게~~  
 
 쿠버네티스에 카프카를 배포해야 사용할 수 있겠죠?
 카프카를 사용하기 위해 zookeeper, 편하게 사용하기 위해 kafka manager가 필요합니다.
@@ -136,7 +139,7 @@ spec:
   selector:
     app: kafka
   ports:
-      # 기본적으로 그리고 편의상 `targetPort` 는 `port` 필드와 동일한 값으로 설                                     정된다.
+      # 기본적으로 그리고 편의상 `targetPort` 는 `port` 필드와 동일한 값으로 설정합니다.
     - name: http
       port: 9092
       targetPort: 9092
@@ -162,30 +165,29 @@ spec:
 </details>
 
 배포를 했다면 카프카 클러스터를 추가해 줘야겠죠!
-커맨드라인을 사용해도 되나 시간상 빠르게 사용할 수 있는 CMAK kafka manager를 사용합시다(야후? 추후작성)
+커맨드라인을 사용해도 되나 시간상 빠르게 사용할 수 있는 CMAK kafka manager를 사용합시다. (야후? 추후 상세히 작성하겠습니다)
 
 Add Cluster를 눌러줍니다  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster.png "kafka cluster")
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster.png" style="height: 26vmin;"/>
 
 <br/>
 
 minio 문서에 따르면 0.9버전이 호환된다고 합니다.  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster-add.png "kafka cluster add")
+(MinIO requires Kafka version 0.10 or 0.9. Internally MinIO uses the Shopify/sarama library and so has the same version compatibility as provided by this library.)  
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster-add.png" style="height: 26vmin;"/>
 
 <br/>
 
 클러스터를 생성했으면 Topic을 만들어줍시다.  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic.png "kafka topic")
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic.png" style="height: 26vmin;"/>
 
 <br/>
 
 이름은 mlpipeline으로 하겠습니다.  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic-add.png "kafka topic add")
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic-add.png" style="height: 26vmin;"/>
 
 ### notification config
 
-[참조](https://programmersought.com/article/56446127239/)  
-[공식](https://docs.min.io/docs/minio-bucket-notification-guide.html#apache-kafka)  
 이젠 kafka와 minio를 연결시켜야 합니다.
 
 커맨드라인으로 설정할 수도 있고 ```~/.minio/config.json```을 추가해
@@ -253,20 +255,14 @@ arn:{type}:{protocol}:{region}:{account-id}:{function}:{function-name}
 ARN: Amazon Resource Number  
 SQS: Simple Queue Service  
 amqp: Advanced Message Queuing Protocol  
-  
 * events  
 수신할 이벤트 목록입니다
-  
 * config_id  
 설정 아이디입니다
-  
 * prefix_filter_rule  
 파일 앞의 이름을 필터링합니다
-  
 * suffix_filter_rule  
 파일 뒤의 이름을 필터링합니다.
-  
-[AWS의 ARN 이해하기](https://medium.com/harrythegreat/aws%EC%9D%98-arn-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-8c20d0ccbbfd)
 
 <br/>
 
@@ -299,6 +295,9 @@ for event in events:
 
 [[공식]kubeflow output viewer](https://v1-2-branch.kubeflow.org/docs/components/pipelines/sdk/output-viewer/#web-app)  
 [[공식]python client api reference](https://docs.min.io/docs/python-client-api-reference.html)
+[Minio bucket notification guide](https://programmersought.com/article/56446127239/)  
+[[공식]Publish MinIO events via Kafka](https://docs.min.io/docs/minio-bucket-notification-guide.html#apache-kafka)  
+[AWS의 ARN 이해하기](https://medium.com/harrythegreat/aws%EC%9D%98-arn-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-8c20d0ccbbfd)
 
 
 ## - JWHer  
