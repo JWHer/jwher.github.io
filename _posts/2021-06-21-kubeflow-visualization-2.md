@@ -168,23 +168,23 @@ spec:
 커맨드라인을 사용해도 되나 시간상 빠르게 사용할 수 있는 CMAK kafka manager를 사용합시다. (야후? 추후 상세히 작성하겠습니다)
 
 Add Cluster를 눌러줍니다  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster.png" style="height: 26vmin;"/>
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster.png" style="height: 40vmin;"/>
 
 <br/>
 
 minio 문서에 따르면 0.9버전이 호환된다고 합니다.  
 (MinIO requires Kafka version 0.10 or 0.9. Internally MinIO uses the Shopify/sarama library and so has the same version compatibility as provided by this library.)  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster-add.png" style="height: 26vmin;"/>
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster-add.png" style="height: 40vmin;"/>
 
 <br/>
 
 클러스터를 생성했으면 Topic을 만들어줍시다.  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic.png" style="height: 26vmin;"/>
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic.png" style="height: 40vmin;"/>
 
 <br/>
 
 이름은 mlpipeline으로 하겠습니다.  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic-add.png" style="height: 26vmin;"/>
+<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic-add.png" style="height: 40vmin;"/>
 
 ### notification config
 
