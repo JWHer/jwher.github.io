@@ -12,6 +12,7 @@ date: 2021-06-21 23:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
+
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/engineering.jpg "engineering")  
 *Event Driven Architecture 구현*  
 
