@@ -183,6 +183,8 @@ volumeattachments                                     storage.k8s.io            
 ... 일부 생략 ...
 ```
 
+<br/>
+
 ### 간단한 서비스
 ```shell
 # 기본중에 기본
@@ -205,6 +207,8 @@ $ kubectl port-forward {resource/name} {port from:port to} [-n {namespace}] [--a
 $ nohup kubectl port-forward {args} > /dev/null &
 
 ```
+
+<br/>
 
 ### 문제 확인
 ```shell
@@ -230,6 +234,8 @@ $ kubectl get {resource} -o yaml [-n {namespace}]
 # custom-columns를 사용해 편하게 조회할 수 있습니다
 $ kubectl get pod/{name} -n {namespace} -o=custom-columns=NameSpace:.metadata.namespace,NAME:.metadata.name,CONTAINERS:.spec.containers[*].name
 ```
+
+<br/>
 
 ### 문제 해결
 *주의: 백업 수단을 만들고 진행하세요*  
@@ -266,11 +272,15 @@ $ kubectl drain {nodename} --delete-local-data --force --ignore-daemonsets
 # 제거가 잘 되면 status가 Evit로 표시됩니다
 ```
 
+<br/>
+
 ### 응용
 ```shell
 # Running 상태가 아닌 pod 삭제
 $ kubectl delete pod [-n {namespace}] $(kubectl get pod [-n {namespace}] --field-selector=status.phase!=Running -o=custom-columns='':metadata.name)
 ```
+
+<br/>
 
 ### 기타
 ```shell
