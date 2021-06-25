@@ -24,9 +24,9 @@ date: 2021-06-23 23:50:00
 
 ## nuctl
 
-누클리오를 처음 들어보신다면 [이글][nuclio]
+누클리오를 처음 들어보신다면 [이 글][nuclio]
 을 먼저 읽는걸 추천드립니다.
-이 글은 쿠버네티스 위에서 누클리오를 사용하는 법을 다룹니다.
+본 글은 쿠버네티스 위에서 누클리오를 사용하는 법을 다룹니다.
 (도커도 별반 다르지 않습니다)
 
 nuclio control, nuctl은 누클리오 커맨드 라인 인터페이스로 누클리오 기능에 접근할 수 있게 해줍니다.
@@ -184,13 +184,16 @@ $ kubectl port-forward svc/nuclio-dashboard -n nuclio 8070:8070 --address=0.0.0.
 [누클리오 구조][nuclio]를 이해하고 배포해야 각종 오류 원인을 이해할 수 있습니다.
 꼭 먼저 읽어보시는걸 권장합니다.
 
-저는 함수 작성을 통한 배포와 도커파일을 사용한 배포를 혼합해 배포하였습니다.
+저는 function 작성과 도커파일을 사용하는 방법을 혼합해 배포하였습니다.
 사용한 모델은 [Alphapose](https://jwher.github.io/2021-05-24-alphapose/) 로 keypoint detection 모델입니다.
 
 누클리오를 성공적으로 설치하셨다면 function을 작성해 클러스터에 배포할 수 있습니다.
 지원되는 런타임(Go, Python, NodeJS)은 두 인자를 받는 엔트리 포인트를 가집니다.
 * Context: 함수 호출시 상태를 관리하는 객체입니다. 로거, 데이터 바인딩, 유저 정의 데이터가 포함됩니다.
 * Event: 함수를 트리거한 이벤트 정보를 포함한 객체입니다. body, headers, trigger information을 포함합니다.
+
+> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nervous.png "nervous")  
+> 긴장하고 출발합시다!
 
 <p>1. 파이썬 코드 작성</p>
 
@@ -248,9 +251,10 @@ class ModelHandler:
 </div>
 </details>
 
-init_context() 함수에는 상태를 유지해야할 객체를 생성해 줍니다.
+init_context() 함수에는 상태를 유지할(비용이 비싼) 객체를 생성해 줍니다.
 저는 ML 모델 객체를 생성해 주었습니다.  
-엔트리 포인트로 사용할 handler()함수를 정의해 주었습니다. (이름은 달라도 됩니다)
+엔트리 포인트로 사용할 handler()함수를 정의해 줍니다. (이름은 달라도 됩니다)
+앞서 언급한 것처럼 context와 event를 인자로 받습니다.
 <details>
 <summary>main.py</summary>
 <div markdown="1">
@@ -388,6 +392,7 @@ $ nuctl deploy --project-name cvat -n nuclio --path . --platform kube -r docker.
 사용한 플래그의 의미는 다음과 같습니다.
 * --project-name : 프로젝트 이름, 누클리오 대쉬보드에서 확인 가능한 이름입니다
 * -n, --namespace : 쿠버네티스 네임스페이스, nuclio 고정입니다
+* -p, --path : function.yml 파일이 위치한 디렉토리
 * --platform : 사용하는 플랫폼입니다. local: 도커 kube: 쿠버네티스
 * -r --registry : 도커 이미지 레포지토리입니다.
 * --http-trigger-service-type : 쿠버네티스에서 serviceType을 정해줍니다.
