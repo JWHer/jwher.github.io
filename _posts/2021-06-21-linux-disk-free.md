@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "linux disk free"
+title: "Linux disk free"
 subtitle: "디스크 정리하기"
 cover-img: /assets/img/cover.svg
 thumbnail-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/hard-drive-internal.jpg
