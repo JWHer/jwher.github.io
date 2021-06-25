@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "deploying ML model on kubernetes nuclio"
+title: "eploying ML model on kubernetes nuclio"
 subtitle: "쿠버네티스 누클리오에 ML 모델 배포하기"
 cover-img: /assets/img/cover.svg
 thumbnail-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-superman.png
