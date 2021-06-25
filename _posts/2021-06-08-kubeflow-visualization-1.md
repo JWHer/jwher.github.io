@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "kubeflow 시각화 개발 1편"
+title: "Kubeflow 시각화 개발 1편"
 subtitle: "kubeflow 시스템 이해와 ETL 아키텍처 설계"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/kubeflow.svg
