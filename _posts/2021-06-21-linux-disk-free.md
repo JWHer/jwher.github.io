@@ -12,6 +12,7 @@ date: 2021-06-21 17:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
+
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/hard-drive-internal.jpg "hard-drive-internal")  
 *디스크 정리하기*  
 
