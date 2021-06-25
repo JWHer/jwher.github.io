@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "kubernetes usage"
+title: "Kubernetes usage"
 subtitle: "쿠버네티스 사용하기"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
