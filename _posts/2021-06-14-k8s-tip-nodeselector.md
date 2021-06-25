@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "k8s tip: NodeSelector"
+title: "K8s tip: NodeSelector"
 subtitle: "파드를 원하는 노드에 할당하는 법"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
