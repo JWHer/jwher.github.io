@@ -46,9 +46,9 @@ date: 2021-04-13 11:50:00
 
 ## docker 설치
 
-Ubuntu는 [여기](#Ubuntu) 
-CentOS는 [여기](#CentOS) 
-윈도우와 맥은 [여기](#Windows) 를 보세요.
+Ubuntu는 [여기](#ubuntu) 
+CentOS는 [여기](#centos) 
+윈도우와 맥은 [여기](#windows) 를 보세요.
 
 ### Ubuntu
 
