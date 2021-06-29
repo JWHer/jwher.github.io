@@ -196,6 +196,7 @@ repository 위치를 설정해 주기 위해 필요한 기본 라이브러리를
 $ sudo yum install -y yum-utils
 ```
 
+<br/>
   
 CentOS에서 nightly나 test repository를 사용하기 위해서는 ```--enable``` 옵션에 ```docker-ce-nightly```
 또는 ```docker-ce-test```를 추가해 줍니다.  
@@ -289,7 +290,7 @@ For more examples and ideas, visit:
 
 ### Windows
 
-*맥으로 테스트 해보지 못했으나 동일한 절차일 듯 합니다*
+*맥으로 테스트 해보지 못했으나 동일한 절차일 듯 합니다*  
 [여기](https://www.docker.com/products/docker-desktop) 에서 Docker Desktop for Windows를 다운받습니다.  
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-download.png "docker desktop download")  
 
