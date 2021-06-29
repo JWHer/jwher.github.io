@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Welcome to kubernetes!"
-subtitle: "쿠버네티스의 세계에 오신 걸 환영합니다"
+title: "쿠버네티스 세계에 오신 걸 환영합니다!"
+subtitle: "Welcome to kubernetes"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
 share-img: /assets/img/Kubernetes.svg
@@ -12,7 +12,7 @@ date: 2021-04-12 23:50:00
 ---
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "kubernetes")  
-*쿠버네티스의 세계에 오신 걸 환영합니다!*  
+*쿠버네티스 세계에 오신 걸 환영합니다!*  
 이 글은 쿠버네티스 창시자인 **브렌던 번스** 의 책 Managing Kubernetes를 참고하여 다시 작성했습니다.  
 
 # 목차
