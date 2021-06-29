@@ -47,7 +47,9 @@ date: 2021-04-13 11:50:00
 <br/>
 
 ## Ubuntu docker 설치
-
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ubuntu.svg" style="height: 40vmin;" />
+</div>
 <p>1. 이전 버전 확인 & 제거  </p>
 
 이미 도커가 설치되어 있다면, 다시 설치할 필요가 없겠죠? :D
@@ -167,6 +169,9 @@ For more examples and ideas, visit:
 <br/>
 
 ## CentOS docker 설치
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/centos.svg" style="height: 40vmin;" />
+</div>
 
 <p>1. 이전 버전 확인 & 제거  </p>
 
@@ -290,6 +295,9 @@ For more examples and ideas, visit:
 <br/>
 
 ## Windows docker 설치
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/Windows.svg" style="height: 40vmin;" />
+</div>
 
 *맥으로 테스트 해보지 못했으나 동일한 절차일 듯 합니다*  
 [여기](https://www.docker.com/products/docker-desktop) 에서 Docker Desktop for Windows를 다운받습니다.

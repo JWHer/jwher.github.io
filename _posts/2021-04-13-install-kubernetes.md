@@ -409,6 +409,8 @@ gpuadmin   Ready    <none>                 113s    v1.21.0
 * 20GB 여유 디스크
 * VM 매니저 (VirtualBox 기준 작성)
 
+### Mini Kube 설치하기
+
 <p>1. 설치하기</p>
 
 [공식 페이지](https://minikube.sigs.k8s.io/docs/start/) 에서 설치파일을 받습니다.  
@@ -434,12 +436,15 @@ kubectl이 없다면 [이 글](https://jwher.github.io/2021-05-28-kubernetes-usa
 
 
 ## Docker Desktop 설치
+
 <div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker.png" alt="docker" style="height: 40vmin;"/>
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/docker.svg" alt="docker" style="height: 40vmin;"/>
 </div>
 
 *한대의 윈도우 컴퓨터를 가지고 있을 때, 커맨드 라인을 보면 어지러울 때*  
 먼저 [도커 데스크탑](https://jwher.github.io/2021-04-13-install-docker/#windows) 이 없다면 설치합시다.
+
+### Docker Desktop 설치하기
 
 <p>1. 대쉬보드를 열고 설정을 눌러줍니다</p>
 
@@ -483,6 +488,8 @@ Kubernetes 설치는 많은 량의 docker container를 생성하기 때문에 �
 </div>
 
 *한대의 컴퓨터를 가지고 있고, 쉬운 설치와 그나마 빠른(...) 성능이 필요할 때*
+
+### Kind 설치하기
 
 <p>1. Install Kind</p>  
 
@@ -663,7 +670,7 @@ $ kubeadm join {k8s API server ip}:{PORT 6443} --token {TOKEN} --discovery-token
 <br/>
 
 ### Reference  
-[[레딧]K3s, minikube or microk8s?](https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/)
+[[레딧]K3s, minikube or microk8s?](https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/)  
 [[공식]kubeadm 설치하기](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)    
 [쿠버네티스(kubernetes) 설치 및 환경 구성하기](https://medium.com/finda-tech/overview-8d169b2a54ff)  
 [쿠버네티스 노드 조인(Join)시 Token 값 확인](https://sarc.io/index.php/cloud/1383-join-token)    

@@ -97,7 +97,8 @@ $ vboxmanage registervm "/some/path/your awesome vm.vbox"
 * --mouse: usbtablet으로 설정하면 mstsc에서 마우스 통합을 사용할 수 있습니다.
 * --x2apic on --ioapic on: Advanced Programmable Interrupt Controller,
   on을 설정해야 guest machine에서 cpu를 온전히 잡습니다.
-* --pae: on/off Physical Address Extension 메모리 4GB 이상일 때 사용합니다.
+* --pae: on/off Physical Address Extension 메모리 4GB 이상일 때 사용합니다.  
+
 ```shell
 $ vboxmanage modifyvm "your awesome vm" --ostype ubuntu_64 --cpus 8 --memory 20480 --vram 16 --mouse usbtablet --x2apic on --ioapic on --pae on
 
@@ -110,13 +111,15 @@ Guest OS:                    Ubuntu (64-bit)
 UUID:                        570ea192-d2ed-4ebd-91e9-b8d98e0498e6
 ... 생략 ...
 ```
+
 <br/>
 
 마지막으로 storage와 dvddrive를 설정합시다.
 * --filename: 생성할 이미지 이름입니다. 경로를 지정하지 않으면 작업공간에 생깁니다. 주의!
 * --size: 사용할 storage 크기입니다. (MB)
 * --format: 포멧 설정입니다. (default VDI)
-* --variant: 동적할당 Standard 정적할당 Fixed
+* --variant: 동적할당 Standard 정적할당 Fixed  
+
 ```shell
 $ vboxmanage createmedium disk --filename "awesome storage.vdi" --size 20240 --format VDI --variant fix 
 
@@ -134,6 +137,7 @@ $ vboxmanage storagectl "your awesome vm" --name "IDE" --add ide
 # 생성한 컨트롤러와 iso 파일을 vm에 연결해 줍니다
 $ vboxmanage storageattach "your awesome vm" --storagectl "IDE" --port 1 --device 0 --type dvddrive --medium "ubuntu.iso"
 ```
+
 <br/>
 
 ## virtualbox extension pack 설치
@@ -227,9 +231,7 @@ VBoxHeadless: error: The machine 'your awesome vm' is already locked for a sessi
 VBoxHeadless: error: Details: code VBOX_E_INVALID_OBJECT_STATE (0x80bb0007), component MachineWrap, interface IMachine, callee nsISupports
 VBoxHeadless: error: Context: "LockMachine(session, LockType_VM)" at line 947 of file VBoxHeadless.cpp
 ```
-이런 에러와 함께 어떤 명령도 실행되지 않을 때가 있습니다.
-
-<br/>
+이런 에러와 함께 어떤 명령도 실행되지 않을 때가 있습니다.  
 
 다음 명령어로 VM을 강제종료 할 수 있습니다.
 ```shell
