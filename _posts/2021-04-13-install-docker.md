@@ -12,11 +12,13 @@ date: 2021-04-13 11:50:00
 ---
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker.png "docker")  
-*천리길도 한걸음씩*  
+*나에게 필요한 도커 설치하기*  
 
 # 목차
 * [요구사항](#요구사항)
-* [docker 설치](#docker-설치)
+* [Ubuntu docker 설치](#ubnutu-docker-설치)
+* [CentOS docker 설치](#centos-docker-설치)
+* [Windows docker 설치](#windows-docker-설치)
 
 <br/>
 
@@ -44,13 +46,7 @@ date: 2021-04-13 11:50:00
 
 <br/>
 
-## docker 설치
-
-Ubuntu는 [여기](#ubuntu) 
-CentOS는 [여기](#centos) 
-윈도우와 맥은 [여기](#windows) 를 보세요.
-
-### Ubuntu
+## Ubuntu docker 설치
 
 <p>1. 이전 버전 확인 & 제거  </p>
 
@@ -119,6 +115,7 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 <br/>
 a. repo에서 가능한 버전을 리스트 합니다.
 ```shell
+# Ubuntu
 $ apt-cache madison docker-ce
 
 docker-ce | 5:20.10.6-3-0-ubuntu-focal | https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
@@ -130,6 +127,7 @@ docker-ce | 5:20.10.4-3-0-ubuntu-focal | https://download.docker.com/linux/ubunt
 
 b. ```VERSION_STRING```을 사용하여 특정 버전을 설치 합니다.
 ```shell
+# Ubuntu
 $ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
 ```
 
@@ -168,7 +166,7 @@ For more examples and ideas, visit:
 ```
 <br/>
 
-### CentOS
+## CentOS docker 설치
 
 <p>1. 이전 버전 확인 & 제거  </p>
 
@@ -225,6 +223,7 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 <br/>
 a. repo에서 가능한 버전을 리스트 합니다.
 ```shell
+# CentOS
 $ yum list docker-ce --showduplicates | sort -r
 
 ... 전략 ...
@@ -247,6 +246,7 @@ Available Packages
 b. ```VERSION_STRING```을 사용하여 특정 버전을 설치 합니다.  
 예를 들면 ```docker-ce-17.03.0```입니다.  
 ```shell
+# CentOS
 $ sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
 ```
 
@@ -255,6 +255,7 @@ $ sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> con
 <p>3. 도커 시작  </p>  
 
 ```shell
+# CentOS
 $  sudo systemctl start docker
 ```
 
@@ -288,16 +289,20 @@ For more examples and ideas, visit:
 
 <br/>
 
-### Windows
+## Windows docker 설치
 
 *맥으로 테스트 해보지 못했으나 동일한 절차일 듯 합니다*  
-[여기](https://www.docker.com/products/docker-desktop) 에서 Docker Desktop for Windows를 다운받습니다.  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-download.png "docker desktop download")  
-
+[여기](https://www.docker.com/products/docker-desktop) 에서 Docker Desktop for Windows를 다운받습니다.
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-download.png" alt="docker desktop download" style="height: 40vmin;"/>
+</div>
 <br/>
 
 다운받은 인스톨러를 실행합니다.  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-install.png "docker desktop install")  
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-install.png" alt="docker desktop install" style="height: 40vmin;"/>
+</div>
+
 * 첫 번째 옵션(Install required Windows components for WSL 2)은 Docker를 동작하는데 필요한 Windows Subsystem Linux(WSL)의 설치를 진행합니다.
 * 두 번째 옵션(Add shortcut to desktop)은 바탕화면에 바로가기 아이콘을 생성합니다.
 
@@ -306,7 +311,9 @@ For more examples and ideas, visit:
 <br/>
 
 컴퓨터를 재시작되면 Docker Desktop이 실행됩니다. 특별한 사용 방법을 익힐 것이 아니면 Skip tutorial을 눌러줍시다.  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-installed.png "docker desktop installed")  
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-installed.png" alt="docker desktop installed" style="height: 40vmin;"/>
+</div>
 
 <br/>
 

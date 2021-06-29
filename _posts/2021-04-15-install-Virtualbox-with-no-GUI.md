@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Install Virtualbox with no GUI"
-subtitle: "linux 서버에 virtual machine 만들기"
+title: "GUI 없이 리눅스 서버에 VM 만들기"
+subtitle: "Install Virtualbox with no GUI"
 cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Virtualbox.png
 share-img: /assets/img/Virtualbox.png
@@ -12,30 +12,35 @@ date: 2021-04-15 11:50:00
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.png "virtualbox")  
-*linux 서버에 virtual machine 만들기*
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.png" alt="virtualbox" style="height: 40vmin;"/>
+</div>
 
-리눅스 서버에 virtualbox로 가상 환경을 구성해야 했다.  
-ssh console 명령어로 vm을 실행시켜 보자!  
-~~virtualbox를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었다...~~
+*GUI 없이 리눅스 서버에 VM 만들기*
+
+리눅스 서버에 virtualbox로 가상 환경을 구성해야 합니다. 😲  
+CLI는 잘 모르는데 어떡하죠? 같이 ssh를 사용해 vm을 실행시켜 봅시다!  
+~~virtualbox를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었습니다...~~
 
 # 목차
-* [Preflight](#Preflight)
-* 가상 머신 생성하기
-* virtualbox extension pack 설치
-* 네트워크 설정과 RDP
+* [요구사항](#요구사항)
+* [가상 머신 생성하기](#가상-머신-생성하기)
+* [virtualbox extension pack 설치](#virtualbox-extension-pack-설치)
+* [네트워크 설정과 RDP](#네트워크-설정과-RDP)
 
-## Preflight
+<br/>
 
-oracle virtualbox의 설치  
-vm을 사용하기 위해선 vbox나 vmware가 필요하다:D
+## 요구사항
+
+가상 머신을 사용하기 위해선 vm 매니저로 virtual box나 vmware가 필요합니다:D  
+oracle virtualbox를 기준으로 설명하겠습니다.  
 
 ```shell
-# 설치에 관해서 자세한 설명은 하지 않겠다.
+# 설치를 자세히 설명하진 않겠습니다
 # https://www.virtualbox.org/wiki/Downloads
 $ sudo apt-get install virtualbox
 
-# 설치가 되었으면, 확인해 보자
+# 설치가 되었으면 확인해 봅시다
 $ vboxmanage --version
 ```
 
@@ -43,7 +48,7 @@ $ vboxmanage --version
 
 ## 가상 머신 생성하기
 
-먼저 설치 가능한 OS Type을 확인해야 한다.  
+먼저 설치 가능한 OS Type을 확인해야 합니다.  
 ```shell
 $ vboxmanage list ostypes
 
@@ -63,11 +68,12 @@ Family Desc: Linux
 ```
 <br/>
 
-Ubuntu 18.04 LTS를 설치할 것이므로 ubuntu_64를 확인한다.  
-확인이 끝났으면 가상 머신을 생성해 주자.  
+우리는 Ubuntu 18.04 LTS를 설치하려고 합니다.
+목록에서 ubuntu_64가 존재하는지 확인해야겠네요.  
+확인이 끝났으면 가상 머신을 생성합시다.  
 ```shell
-# --register 옵션을 사용해 등록까지 마쳐주자
-# 여러 설정을 해줄 수 있지만, 추후에 modifyvm 명령어로 수정한다
+# --register 옵션을 사용해 등록까지 한번에 합니다
+# 여러 설정을 지금 해줄 수 있습니다. 추후에 modifyvm 명령어로 수정해도 됩니다
 $ vboxmanage createvm --name "your awesome vm" --register
 
 Virtual machine 'your awesome vm' is created and registered.
@@ -75,27 +81,27 @@ UUID: 9a846e25-5227-4824-b396-2174264cb232
 Settings file: '/some/path/your awesome vm.vbox'
 
 
-# 만일 --register를 사용하지 않았다면, 명령어를 한번 더 입력해야 한다
+# 만일 --register를 사용하지 않았다면, 명령어를 한번 더 입력해야 합니다
 $ vboxmanage registervm "/some/path/your awesome vm.vbox"
 
-# virtualbox는 user마다 사용환경이 분리되어 있어 sudo를 사용하면 생성한 vm이 보이지 않는다
+# 주의! virtualbox는 user마다 사용환경이 분리되어 있어 sudo를 사용하면 생성한 vm이 보이지 않습니다
 # (어떻게 알았냐고? 알고싶지 않았다...)
 ```
 <br/>
 
-가상 머신 등록을 마쳤으면 여려 spec을 설정해 주자
+가상 머신 등록을 마쳤으면 여려 spec을 설정합시다.
+* --ostype: 위에서 확인한 type을 입력합니다.
+* --cpus: 사용할 cpu 크기를 설정합니다.
+* --memory: 사용할 메모리를 설정합니다. (MB)
+* --vram: 비디오 메모리를 설정합니다. (MB)
+* --mouse: usbtablet으로 설정하면 mstsc에서 마우스 통합을 사용할 수 있습니다.
+* --x2apic on --ioapic on: Advanced Programmable Interrupt Controller,
+  on을 설정해야 guest machine에서 cpu를 온전히 잡습니다.
+* --pae: on/off Physical Address Extension 메모리 4GB 이상일 때 사용합니다.
 ```shell
-# --ostype 위에서 확인한 type을 입력한다
-# --cpus 사용할 cpu 크기를 설정한다
-# --memory 사용할 메모리를 설정한다 (MB)
-# --vram 비디오 메모리를 설정한다 (MB)
-# --mouse usbtablet으로 설정하면 mstsc에서 마우스 통합을 사용할 수 있다
-# --x2apic on --ioapic on
-#  Advanced Programmable Interrupt Controller, on을 설정해야 guest machine에서 cpu를 온전히 잡는다
-# --pae on/off Physical Address Extension 메모리 4GB 이상일 때 사용한다
-$ vboxmanage modifyvm "your awesome vm" --ostype ubuntu_64 --cpus 8 --memory 20480 --vram 16 --mouse usbtablet
+$ vboxmanage modifyvm "your awesome vm" --ostype ubuntu_64 --cpus 8 --memory 20480 --vram 16 --mouse usbtablet --x2apic on --ioapic on --pae on
 
-# 설정은 다음 명령어로 확인할 수 있다.
+# 설정은 다음 명령어로 확인할 수 있습니다
 $ vboxmanage showvminfo "your awesome vm"
 
 Name:                        your awesome vm
@@ -106,50 +112,53 @@ UUID:                        570ea192-d2ed-4ebd-91e9-b8d98e0498e6
 ```
 <br/>
 
-마지막으로 storage와 dvddrive를 설정해 주자
+마지막으로 storage와 dvddrive를 설정합시다.
+* --filename: 생성할 이미지 이름입니다. 경로를 지정하지 않으면 작업공간에 생깁니다. 주의!
+* --size: 사용할 storage 크기입니다. (MB)
+* --format: 포멧 설정입니다. (default VDI)
+* --variant: 동적할당 Standard 정적할당 Fixed
 ```shell
-# --filename 생성할 이미지 이름. 경로를 지정하지 않으면 작업공간에 생기니 주의
-# --size 사용할 storage 크기 (MB)
-# --format 포멧 설정 (default VDI)
-# --variant 동적할당 Standard 정적할당 Fixed
 $ vboxmanage createmedium disk --filename "awesome storage.vdi" --size 20240 --format VDI --variant fix 
 
-# storage controller를 추가해 준다
+# storage controller를 추가합니다
 $ vboxmanage storagectl "your awesome vm" --name "SATA" --add sata --portcount 1
 
-# 생성한 컨트롤러에 이미지를 연결한다
+# 생성한 컨트롤러에 이미지를 연결합니다
 $ vboxmanage storageattach "your awesome vm" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "awesome storage.vdi"
 
 
-# 부팅에 사용할 iso 파일을 연결할 dvddrive를 설정해 주자
-# 먼저 storage contoller를 추가해 준다
+# 부팅에 사용할 iso 파일을 연결할 dvddrive를 설정합니다
+# 먼저 storage contoller를 추가합니다
 $ vboxmanage storagectl "your awesome vm" --name "IDE" --add ide
 
-# 생성한 컨트롤러와 iso 파일을 vm에 연결해 준다
+# 생성한 컨트롤러와 iso 파일을 vm에 연결해 줍니다
 $ vboxmanage storageattach "your awesome vm" --storagectl "IDE" --port 1 --device 0 --type dvddrive --medium "ubuntu.iso"
 ```
 <br/>
 
 ## virtualbox extension pack 설치
 길고 긴 설정 끝에 vm을 시작하려는데,  
-어라? ssh에서 vm에 os install을 어떻게 진행하지?  
+어라? ssh에서 vm에 os install을 어떻게 진행할까요?  
+~~*나중에 고민한 끝에 OS가 설치된 VDI를 연결시키면 된다는걸 알았습니다...*~~
 
-ubuntu server버전으로 headless(No gui, console)로 할 수 있을까 생각해봤지만,  
-마침 이미지 버전도 GUI이고 화면을 사용해 install을 하기로 했다!  
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/honest.jpeg "honest")  
+ubuntu server버전으로 headless(No gui, console)로 할 수 있을까 고민해봤지만,  
+마침 이미지 버전도 GUI이고 화면을 사용해 install을 하기로 했습니다!  
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/honest.jpeg" alt="honest" style="height: 40vmin;"/>
+</div>
 
 <br/>
-GUI를 원격으로 보여주려면 virtualbox extension pack이 설치되어야 한다.
+GUI를 원격으로 보여주려면 virtualbox extension pack이 설치되어야 합니다.
 
 ```shell
-# https://www.virtualbox.org/wiki/Downloads에서 버전에 맞는 extension pack을 받는다
+# https://www.virtualbox.org/wiki/Downloads에서 버전에 맞는 extension pack을 받습니다
 $ wget -O "확장팩 이름" "url"
 
 $ sudo vboxmanage extpack install "확장팩 이름"
 ```
 <br/>
 
-이제 vm이 GUI를 실행시켜 주도록 설정하고 실행시킨다
+이제 vm이 GUI를 실행시켜 주도록 설정하고 실행합니다.  
 ```shell
 $ vboxmanage modifyvm "your awesome vm" --vrde on --vrdeport "port number" --vrdemulticon on
 
@@ -161,10 +170,10 @@ All rights reserved.
 
 VRDE server is listening on port 5031.
 
-# 아래 명령어로 실행시킬 수 있으나 포트번호가 나오지 않는다
+# 아래 명령어로 실행시킬 수 있으나 포트번호가 나오지 않습니다
 $ vboxmanage startvm "your awesome vm" --vboxheadless
 
-# 또한, vboxheadless 옵션을 주지 않으면 다음과 같은 에러가 난다
+# 또한, vboxheadless 옵션을 주지 않으면 다음과 같은 에러가 납니다
 Waiting for VM "your awesome vm" to power on...
 VBoxManage: error: The virtual machine 'your awesome vm' has terminated unexpectedly during startup because of signal 6
 VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine
@@ -173,11 +182,11 @@ VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component Machin
 <br/>
 
 ## 네트워크 설정과 RDP
-필자는 VM이 사설망과 연결되어야 했기에 네트워크 어댑터를 설정해 주었다.  
-별도로 네트워크 세팅이 필요 없으면 건너뛰어도 된다. (기본적으로 NAT로 설정되어 있다)
+저는 VM이 사설망과 연결되어야 했기에 네트워크 어댑터를 설정해 주었습니다.  
+별도로 네트워크 세팅이 필요 없으면 건너뛰어도 됩니다. (기본적으로 NAT로 설정되어 있습니다)
 
 ```shell
-# nat과 bridge를 둘 다 사용하기 위해 다음과 같이 구성했다.
+# nat과 bridge를 둘 다 사용하기 위해 다음과 같이 구성했습니다
 $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapter2 "host interface"
 ```
 <br/>
@@ -185,14 +194,23 @@ $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapte
 ### RDP(remote desktop protocol) 사용
 *드디어 무중霧中을 빠져나와...*
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc.png "mstsc")    
-원격 데스크톱 연결을 연다
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc.png" alt="mstsc" style="height: 40vmin;"/>
+</div>
+ 
+작업중인 로컬 PC에서 원격 데스크톱 연결을 열어줍니다.
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-connection.png "mstsc-connection")   
-호스트 컴퓨터의 ip와 vm 설정에 사용한 GUI 포트를 입력한다
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-connection.png" alt="mstsc-connection" style="height: 40vmin;"/>
+</div>
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-ubuntu.png "mstsc-ubuntu")   
-자! 이제 그리웠던 GUI가 돌아왔다!   
+호스트 컴퓨터의 ip와 vm 설정에 사용한 GUI 포트를 입력합니다.  
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-ubuntu.png" alt="mstsc-ubuntu" style="height: 40vmin;"/>
+</div>
+ 
+이제 그리웠던 GUI를 사용할 수 있습니다! 😊
 
 <br/>
 
