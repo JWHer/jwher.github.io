@@ -48,7 +48,7 @@ date: 2021-04-13 11:50:00
 
 ## Ubuntu docker 설치
 <div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ubuntu.svg" style="height: 40vmin;" />
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/ubuntu.svg" style="height: 40vmin;" />
 </div>
 <p>1. 이전 버전 확인 & 제거  </p>
 
@@ -170,7 +170,7 @@ For more examples and ideas, visit:
 
 ## CentOS docker 설치
 <div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/centos.svg" style="height: 40vmin;" />
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/centos.svg" style="height: 40vmin;" />
 </div>
 
 <p>1. 이전 버전 확인 & 제거  </p>
