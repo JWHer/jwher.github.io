@@ -47,11 +47,12 @@ kubernetes 저사양 node 등에 맞춰 다양한 배포판이 있습니다.
   ([git](https://github.com/kubernetes-sigs/kind))  
   Kind: Kubernetes in docker 로써 쿠버네티스 클러스터를 도커로(...) 만들었습니다.
   따라서 도커가 동작하는 리눅스, 윈도우, 맥에서 사용할 수 있습니다.
-* K9s
+* [K9s](https://k9scli.io/)
   ([git](https://github.com/derailed/k9s))  
   *사용해 보지 않았습니다*  
-  CLI를 친숙하게 이용할 수 있게 해주는 도구입니다.  
-* K3s  
+  CLI를 친숙하게 이용할 수 있게 해주는 도구입니다. (쿠버네티스가 아닙니다!)  
+* [K3s](https://k3s.io/)
+  ([git](https://github.com/k3s-io/k3s))  
   *사용해 보지 않았습니다*  
   다양한 edge 환경(IoT, ARM)에서 사용되는 저사양(512MB 램, 200MB 디스크) 쿠버네티스 입니다.
   어떠한 리눅스 배포에서 동작하도록 만들어졌습니다.
