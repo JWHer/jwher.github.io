@@ -66,10 +66,10 @@ Family Desc: Linux
 64 bit:      true
 ... 후략 ...
 ```
+저는 Ubuntu 18.04 LTS를 설치하려고 합니다.
+목록에서 ubuntu_64가 존재하는지 확인해야겠네요.  
 <br/>
 
-우리는 Ubuntu 18.04 LTS를 설치하려고 합니다.
-목록에서 ubuntu_64가 존재하는지 확인해야겠네요.  
 확인이 끝났으면 가상 머신을 생성합시다.  
 ```shell
 # --register 옵션을 사용해 등록까지 한번에 합니다
@@ -85,19 +85,19 @@ Settings file: '/some/path/your awesome vm.vbox'
 $ vboxmanage registervm "/some/path/your awesome vm.vbox"
 
 # 주의! virtualbox는 user마다 사용환경이 분리되어 있어 sudo를 사용하면 생성한 vm이 보이지 않습니다
-# (어떻게 알았냐고? 알고싶지 않았다...)
+# (어떻게 알았냐고요? 저도 알고싶지 않았어요...)
 ```
 <br/>
 
 가상 머신 등록을 마쳤으면 여려 spec을 설정합시다.
-* --ostype: 위에서 확인한 type을 입력합니다.
-* --cpus: 사용할 cpu 크기를 설정합니다.
-* --memory: 사용할 메모리를 설정합니다. (MB)
-* --vram: 비디오 메모리를 설정합니다. (MB)
-* --mouse: usbtablet으로 설정하면 mstsc에서 마우스 통합을 사용할 수 있습니다.
-* --x2apic on --ioapic on: Advanced Programmable Interrupt Controller,
+* ```--ostype```: 위에서 확인한 type을 입력합니다.
+* ```--cpus```: 사용할 cpu 크기를 설정합니다.
+* ```--memory```: 사용할 메모리를 설정합니다. (MB)
+* ```--vram```: 비디오 메모리를 설정합니다. (MB)
+* ```--mouse```: usbtablet으로 설정하면 mstsc에서 마우스 통합을 사용할 수 있습니다.
+* ```--x2apic on``` ```--ioapic on```: Advanced Programmable Interrupt Controller.
   on을 설정해야 guest machine에서 cpu를 온전히 잡습니다.
-* --pae: on/off Physical Address Extension 메모리 4GB 이상일 때 사용합니다.  
+* ```--pae```: Physical Address Extension. on/off 값으로 메모리 4GB 이상일 때 사용합니다.  
 
 ```shell
 $ vboxmanage modifyvm "your awesome vm" --ostype ubuntu_64 --cpus 8 --memory 20480 --vram 16 --mouse usbtablet --x2apic on --ioapic on --pae on
@@ -115,10 +115,10 @@ UUID:                        570ea192-d2ed-4ebd-91e9-b8d98e0498e6
 <br/>
 
 마지막으로 storage와 dvddrive를 설정합시다.
-* --filename: 생성할 이미지 이름입니다. 경로를 지정하지 않으면 작업공간에 생깁니다. 주의!
-* --size: 사용할 storage 크기입니다. (MB)
-* --format: 포멧 설정입니다. (default VDI)
-* --variant: 동적할당 Standard 정적할당 Fixed  
+* ```--filename```: 생성할 이미지 이름입니다. 주의! 경로를 지정하지 않으면 작업공간에 생깁니다. 
+* ```--size```: 사용할 storage 크기입니다. (MB)
+* ```--format```: 포멧 설정입니다. (default VDI)
+* ```--variant```: Standard/Fixed 값으로 동적할당/정적할당 입니다.  
 
 ```shell
 $ vboxmanage createmedium disk --filename "awesome storage.vdi" --size 20240 --format VDI --variant fix 
