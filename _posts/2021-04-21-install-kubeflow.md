@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Install kubeflow"
-subtitle: "쿠브플로우를 설치하는 다양한 방법"
-cover-img: /assets/img/Kubeflow.gif
+title: "쿠브플로우를 설치하는 다양한 방법"
+subtitle: "Install kubeflow"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/kubeflow.svg
 share-img: /assets/img/kubeflow.svg
 tags: [tech, kubeflow, kubernetes, linux]
@@ -19,7 +19,7 @@ date: 2021-04-21 11:50:00
 *쿠브플로우를 설치하는 다양한 방법*  
 
 # 목차
-* [Preflight](#Preflight)
+* [요구사항](#요구사항)
 * [Linux Machine](#Linux-Machine)
 * [Window Machine](#Window-Machine)
 * [Virtual Machine](#Virtual-Machine)
@@ -27,16 +27,20 @@ date: 2021-04-21 11:50:00
 
 <br/>
 
-## Preflight
+## 요구사항
 
+### 쿠브플로우에 대한 이해
+
+쿠브플로우 또는 쿠베플로우(kubeflow)라고도 불리는데요,  
 [쿠브플로우 역할](https://jwher.github.io/2021-06-19-welcome-to-kubeflow/) 을 정확히 이해하고 목적에 맞는 배포판을 설치하는 것을 추천합니다.
 
-GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있는 것으로 알고있습니다.
+GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있습니다.
 [GKE](https://cloud.google.com/kubernetes-engine) [EKS](https://aws.amazon.com/ko/eks/)  
 클라우드를 적극 활용중이거나 충분한 스펙의 하드웨어가 없다면 추천드립니다!
 
 이 글에서는 다양한 쿠브플로우를 on-premise 환경에 직접 설치하는 방법을 설명합니다.  
 ~~사실, 쿠버네티스 클러스터만 갖추어져 있으면 설치방법은 대부분 동일합니다.~~
+[나에게 필요한 쿠버네티스 설치하기](https://jwher.github.io/2021-04-13-install-kubernetes/)
 
 ### 주의사항
 * 현재(2021.05.23) github release는 1.2 버전입니다. 하지만 공식 doc이 1.3 버전으로 바뀌었습니다.
@@ -44,7 +48,7 @@ GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있는 �
 * 본 글은 현재 최신인 1.2 버전의 설치를 다루고 있습니다. [링크](https://v1-2-branch.kubeflow.org/)  
 
 
-### requirements
+### 최소
 *아래 설치 방법들 중 최소 요구사항입니다*
 * kubernetes
 * A minimum of 0.6 CPU in cluster  
@@ -53,6 +57,10 @@ GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있는 �
 <br/>
 
 ## Linux Machine
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/linux.png" style="height: 40vmin;"/>
+</p>
 
 가장 일반적인 구성방식입니다.
 다른 설치법의 기본이 되니 참고해주세요 :grinning:  
@@ -152,7 +160,9 @@ INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:
 <br/>
 
 ## Window Machine
+<p align="center">
 <img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/Windows.svg" style="height: 40vmin;" />  
+</p>
 
 고사양의 개인 PC가 있고, 쿠브플로우를 체험해 보고 싶다면 추천합니다.
 
@@ -160,18 +170,24 @@ INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:
 * docker desktop
 * kubernetes
 
-Docker desktop에 kubernetes를 활성화 시킵니다. (micro k8s를 사용합니다)  
-(이미지 추가)
-kubernetes 저사양 node 등에 맞춰 다양한 버전이 있습니다. [다음](https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/)
+kubernetes 저사양 node 등에 맞춰 다양한 버전이 있습니다. [이글](https://jwher.github.io/2021-04-13-install-kubernetes/)
 에서 여러 kubernetes에 차이점을 잘 설명하고 있습니다.
+[Docker desktop](https://jwher.github.io/2021-04-13-install-docker/#windows-docker-%EC%84%A4%EC%B9%98)에
+kubernetes를 활성화 시킵니다. (현재 micro k8s를 사용합니다)  
 
-(자료가 없어져 다음에 작성하겠습니다. kfctl을 사용해 linux 버전과 같은 방법으로 설치합니다)  
+쿠버네티스 클러스터를 구성하셨다면 kfctl을 사용해 linux 버전과 같은 방법으로 설치합니다.  
+
+(커맨드라인 입력 자료가 없어져 요청주시면 다시 작성하겠습니다.)  
+
 configuration을 환경에 맞게 수정해 주어야 합니다. 다음 [블로그](https://sidepun.ch/entry/Kubeflow-%EC%84%A4%EC%B9%98-WSL2-Ubuntu-Docker-Desktop)
 에서 잘 설명해 주셔서 참고 부탁드립니다 :sweat:
    
 <br/>
 
 ## Virtual Machine
+<p align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.png" style="height: 40vmin;" />  
+</p>
 
 Virtual Machine을 호스팅 할 수 있는 고사양의 PC/Server가 있고
 다른 애플리케이션과 충돌, 쿠버네티스 버전 관리, 테스트 서버 운영이 필요하다면 추천합니다.
@@ -186,7 +202,9 @@ Linux에서 kfctl을 사용한 쿠브플로우 설치 방법과 같습니다.
 [virtualbox vm 생성](https://jwher.github.io/2021-04-15-Install-Virtualbox-with-no-GUI/)
    
 ### 번외: miniKF
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/minikf.png" style="height: 40vmin;" />  
+<p align="center">
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/minikf.png" style="width: 40vmin;" />  
+</p>
 
 miniKF를 통해 간편히 설치할 수 있습니다.
 한개의 VM 단일 노드 쿠버네티스에서 작동하는 쿠브플로우로
@@ -221,135 +239,24 @@ VM 환경이 같는 한계, 현재 지원이 종료된 문제가 있습니다.
 <br/>
 
 ## Kind
+<p align="center">
 <img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kind.png" style="height: 40vmin;" />  
+</p>
 
 쿠버네티스의 한 버전인 Kubernetes in Docker를 사용하여 쿠브플로우를 설치합니다.
 Docker Image로 된 쿠버네티스로 단일 노드 쿠버네티스를 빠르게 구성하고자 하면 추천합니다.  
 
-이 글에선 Windows 환경의 docker desktop에서 설치하는 방법을 소개합니다.  
-~~사실 쿠버네티스 클러스터 구성이 더 깁니다~~
+이 글에선 Windows 환경의 WSL2 ubuntu에서 설치하는 방법을 소개합니다.  
 
 #### requirements
 * docker가 설치된 컴퓨터
 
-<p>1. Install Kind</p>  
+<p>1. Kind 설치</p>  
 
-OS에 맞게 설치합니다
+[Kind 설치][https://jwher.github.io/2021-04-13-install-kubernetes/#kind-%EC%84%A4%EC%B9%98]를 참고해
+쿠버네티스 클러스터를 생성해 주세요.
 
- ```shell
-# On Linux
-$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
-$ chmod +x ./kind
-
-# On Mac
-~ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-darwin-amd64
-# or
-~ brew install kind
-
-# On Windows
-> curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.10.0/kind-windows-amd64
-# or
-> choco install kind
- ```
-
-<p>2. 쿠버네티스 클러스터 생성</p>  
-
-클러스터 생성 시 쿠브플로우를 사용할 것이므로 port-forwarding을 해주어야 합니다.  
-다음 yaml을 작성합니다.  
-(세부적인 ingress 설정은 [[공식]Ingress](https://kind.sigs.k8s.io/docs/user/ingress)  참고합시다)
- ```yaml
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-  # port forward 80 on the host to 80 on this node
-  extraPortMappings:
-  - containerPort: 31380
-    hostPort: 31380
-    # optional: set the bind address on the host
-    # 0.0.0.0 is the current default
-    listenAddress: "0.0.0.0"
-    # optional: set the protocol to one of TCP, UDP, SCTP.
-    # TCP is the default
-    protocol: TCP
- ```
-
-<br/>  
-클러스터를 생성합니다.
-
- ```shell
-> kind create cluster
-# or
-> kind create cluster --config {config}.yaml
-
-   Creating cluster "kind" ...
- • Ensuring node image (kindest/node:v1.20.2) 🖼  ...
- ✓ Ensuring node image (kindest/node:v1.20.2) 🖼
- • Preparing nodes 📦   ...
- ✓ Preparing nodes 📦
- • Writing configuration 📜  ...
- ✓ Writing configuration 📜
- • Starting control-plane 🕹️  ...
- ✓ Starting control-plane 🕹️
- • Installing CNI 🔌  ...
- ✓ Installing CNI 🔌
- • Installing StorageClass 💾  ...
- ✓ Installing StorageClass 💾
-Set kubectl context to "kind-kind"
-You can now use your cluster with:
-
-kubectl cluster-info --context kind-kind
-
-Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
- ```
-
-<p>3. Access Cluster</p>
-
-쿠버네티스 노드 쉘에 접속합니다.
- ```shell
-# 디폴트 쉘이 bash가 아니면
-# /bin/bash
-
-$ kubectl --version
-  
-Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:10:43Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
-The connection to the server localhost:8080 was refused - did you specify the right host or port?
- 
-# conf 파일을 복사해 주면 kubectl을 이용할 수 있습니다
-$ mkdir -p $HOME/.kube
-$ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-$ chown $(id -u):$(id -g) $HOME/.kube/config
-
-$ kubectl --version
-
-Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:10:43Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
-Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-21T01:11:42Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
- ```  
-
-<br/>
-쿠버네티스 클러스터를 확인합니다. 
-
- ```shell
-$ kubectl get node
-
-NAME                 STATUS   ROLES                  AGE   VERSION
-kind-control-plane   Ready    control-plane,master   23m   v1.20.2
-
-$ kubectl get pod -A
-
-NAMESPACE            NAME                                         READY   STATUS    RESTARTS   AGE
-kube-system          coredns-74ff55c5b-jwwg7                      1/1     Running   0          23m
-kube-system          coredns-74ff55c5b-v4l25                      1/1     Running   0          23m
-kube-system          etcd-kind-control-plane                      1/1     Running   0          23m
-kube-system          kindnet-fqkvr                                1/1     Running   0          23m
-kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          23m
-kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          23m
-kube-system          kube-proxy-hq6qz                             1/1     Running   0          23m
-kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          23m
-local-path-storage   local-path-provisioner-78776bfc44-pv9gw      1/1     Running   0          23m
- ```
-
-<p>4. Install kubeflow</p>
+<p>2. Install kubeflow</p>
 
 쿠브플로우를 설치하기 위해 kfctl과 kustomize를 이용합니다.
 linux에서 쿠브플로우를 설치하는 방법과 동일합니다.
@@ -386,7 +293,7 @@ INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:
 
 <br/>  
 
-<p>5. 설치 완료 후 쿠브플로우를 확인해 봅니다.</p>
+<p>3. 설치 완료 후 쿠브플로우를 확인해 봅니다.</p>
 
  ```shell
 $ kubectl get ns
@@ -414,6 +321,30 @@ kubeflow       minio-pvc         Bound    pvc-1d18caf0-08e6-44d8-b366-223e67dee1
 kubeflow       mysql-pv-claim    Bound    pvc-c4dbe4b2-6a39-467f-a0be-5f54ff45054d   20Gi       RWO            standard       4m28s
  ```
 설치 후 pod 생성까지 시간이 좀 걸리니 기다려야 합니다 :)
+
+<br/>
+
+## Tips
+
+a. 삭제  
+쿠브플로우 설치시 종종 파드가 crash나 pending 상태에서 멈춥니다. 😭  
+일반적인 오류가 아닐 때 재설치를 위해 삭제해야 합니다.  
+
+```shell
+$ kfctl delete -f ${CONFIG_FILE}
+```
+
+하지만 모든 쿠브플로우 리소스가 쿠버네티스에서 삭제되지 않습니다.
+여러가지 CRD: Custom Resource Define이 남아있죠.
+
+쿠버네티스에 대한 이해가 부족하시다면
+가장 효과적인 방법은 쿠버네티스 클러스터의 재설치입니다...
+
+이전에 당근마켓 기술블로그에서 쿠브플로우 애로 관련 글을 봤었는데 없어진 듯 하네요...
+[당근](https://medium.com/daangn/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-in-production-fa623877e56a)  
+쿠버네티스를 다루는 회사
+[두다지](https://github.com/mojokb/kubeflow-book/blob/master/uninstall/kubeflow-uninstall.txt)  
+여러 팀들이 동일하게 겪은 문제라 생각하니 마음이 편해지네요:D
 
 <br/>
 
