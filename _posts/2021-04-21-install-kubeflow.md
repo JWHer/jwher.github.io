@@ -29,6 +29,8 @@ date: 2021-04-21 11:50:00
 
 ## 요구사항
 
+<br/>
+
 ### 쿠브플로우에 대한 이해
 
 쿠브플로우 또는 쿠베플로우(kubeflow)라고도 불리는데요,  
@@ -48,7 +50,7 @@ GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있습�
 * 본 글은 현재 최신인 1.2 버전의 설치를 다루고 있습니다. [링크](https://v1-2-branch.kubeflow.org/)  
 
 
-### 최소
+### 최소사양
 *아래 설치 방법들 중 최소 요구사항입니다*
 * kubernetes
 * A minimum of 0.6 CPU in cluster  
@@ -344,7 +346,7 @@ $ kfctl delete -f ${CONFIG_FILE}
 [당근](https://medium.com/daangn/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-in-production-fa623877e56a)  
 쿠버네티스를 다루는 회사
 [두다지](https://github.com/mojokb/kubeflow-book/blob/master/uninstall/kubeflow-uninstall.txt)  
-여러 팀들이 동일하게 겪은 문제라 생각하니 마음이 편해지네요:D
+여러 팀들이 동일하게 겪은 문제라 생각하니 마음이 한결 편해지는 것 같습니다:D
 
 <br/>
 
