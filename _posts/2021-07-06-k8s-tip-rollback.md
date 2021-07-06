@@ -26,8 +26,8 @@ date: 2021-07-06 11:50:00
 ## 개념
 디플로이먼트는 파드와 레플리카셋에 대한 선언적 업데이트를 제공합니다. 😵  
 
-혹시, 디플로이먼트, 파드, 레플리카셋을 처음 들어보셨다면 [이글][wellcometokubernetes]을
-먼저 읽는 걸 추천합니다!  
+혹시, 디플로이먼트, 파드, 레플리카셋을 처음 들어보셨나요?
+[이글][wellcometokubernetes] 을 먼저 읽는 걸 추천합니다!  
 
 그래도 어려우니 조금 풀어서 볼까요?  
 사용자는 디플로이먼트로 파드의 의도하는 상태를 설명하고, 디플로이먼트 [컨트롤러](https://kubernetes.io/ko/docs/concepts/architecture/controller/)
@@ -57,7 +57,7 @@ REVISION  CHANGE-CAUSE
 ```CHANGE-CAUSE```는 디플로이먼트 주석인 ```kubernetes.io/change-cause```에서
 복사되는데요, 다음 방법으로 메시지를 작성할 수 있습니다.
 * ```annotate```로 작성: ```kubectl annotate deploy/${deploy_name} kubernetes.io/change-cause="변경내용"```
-* ```--record```플래그 추가
+* ```--record``` 플래그 추가
 * 수동으로 리소스 메니페스트 편집
 
 가만이 있을 수 없겠죠, 직접 해봅시다.
@@ -71,7 +71,8 @@ $ kubectl rollout history deploy/ml-pipeline-newvis -n kubeflow  deployment.apps
 REVISION  CHANGE-CAUSE
 1         첫 배포
 ```
-
+  
+  
 ```shell
 # --record 플래그 사용
 $ kubectl edit deploy/ml-pipeline-newvis -n kubeflow --record
@@ -83,11 +84,13 @@ REVISION  CHANGE-CAUSE
 1         첫 배포
 2         kubectl edit deploy/ml-pipeline-newvis --namespace=kubeflow --record=true
 ```
-
+  
+  
 ```shell
 # 수동 편집은 yaml의 kubernetes.io/change-cause을 직접 수정해 주면 됩니다
 ```
-
+  
+  
 수정 버전의 세부 정보를 보려면 다음과 같이 합니다.
 ```shell
 $ kubectl rollout history deploy/ml-pipeline-newvis -n kubeflow --revision=1
@@ -105,6 +108,7 @@ Pod Template:
     Mounts:     <none>
   Volumes:      <none>
 ```
+<br/>
 
 ### 롤백하기
 
@@ -115,7 +119,8 @@ $ kubectl rollout undo deploy/ml-pipeline-newvis -n kubeflow
 # --to-revision 플래그로 버전을 지정할 수 있습니다
 $ kubectl rollout undo deploy/ml-pipeline-newvis -n kubeflow --to-revision=2
 ```
-
+  
+  
 롤백에 성공했는지 확인해 봅시다.
 ```shell
 $ kubectl get deploy/ml-pipeline-newvis -n kubeflow
