@@ -255,7 +255,7 @@ Docker Image로 된 쿠버네티스로 단일 노드 쿠버네티스를 빠르�
 
 <p>1. Kind 설치</p>  
 
-[Kind 설치][https://jwher.github.io/2021-04-13-install-kubernetes/#kind-%EC%84%A4%EC%B9%98]를 참고해
+[Kind 설치](https://jwher.github.io/2021-04-13-install-kubernetes/#kind-%EC%84%A4%EC%B9%98) 를 참고해
 쿠버네티스 클러스터를 생성해 주세요.
 
 <p>2. Install kubeflow</p>
@@ -268,7 +268,9 @@ linux에서 쿠브플로우를 설치하는 방법과 동일합니다.
  $ apt-get update
  $ apt-get install wget
 ```
+<br/>
 
+kfctl을 설치합니다.
 ```shell
 # https://github.com/kubeflow/kfctl/releases 에서 kfctl 최신 버전을 확인합니다
 $ wget https://github.com/kubeflow/kfctl/releases/download/v1.2.0/kfctl_v1.2.0-0-gbc038f9_linux.tar.gz
@@ -280,6 +282,7 @@ $ tar -xvf kfctl_{tag}_{platform}.tar.gz
 $ export PATH=$PATH:$PWD
 $ export PATH=$PATH:{kfctl_path}
 ```
+<br/>
 
 쿠브플로우를 설치합니다
 ```shell
@@ -292,9 +295,7 @@ $ kfctl apply -V -f {config_file}
 INFO[0285] Successfully applied application kfserving    filename="kustomize/kustomize.go:291"
 INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:75"
 ```
-
 <br/>  
-
 <p>3. 설치 완료 후 쿠브플로우를 확인해 봅니다.</p>
 
  ```shell
@@ -340,7 +341,8 @@ $ kfctl delete -f ${CONFIG_FILE}
 여러가지 CRD: Custom Resource Define이 남아있죠.
 
 쿠버네티스에 대한 이해가 부족하시다면
-가장 효과적인 방법은 쿠버네티스 클러스터의 재설치입니다...
+가장 효과적인 방법은 쿠버네티스 클러스터의 재설치입니다...  
+[쿠버네티스 사용하기](https://jwher.github.io/2021-05-28-kubernetes-usage/)  
 
 이전에 당근마켓 기술블로그에서 쿠브플로우 애로 관련 글을 봤었는데 없어진 듯 하네요...
 [당근](https://medium.com/daangn/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-in-production-fa623877e56a)  
