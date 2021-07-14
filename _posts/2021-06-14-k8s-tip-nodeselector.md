@@ -1,24 +1,15 @@
 ---
 layout: post
-
-title: "K8s tip: nodeSelector"
+title: "k8s 노드 셀렉터"
+subtitle: "파드를 원하는 노드에 할당하는 법"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
-categories:
-- tech
-- kubernetes
-- short
-excerpt: |
-  파드를 원하는 노드에 할당하는 법
-date: 2021-06-14 11:50:00 
-
-aside: true
-feature_text: |
-  # K8s tip: nodeSelector
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/Kubernetes.svg
+tags: [tech, kubernetes, short]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-14 11:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "kubernetes")  

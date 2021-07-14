@@ -1,23 +1,15 @@
 ---
 layout: post
-
-title: "Alphapose 논문 리뷰와 사용"
+title: "Alphapose"
+subtitle: "Regional Multi-Person pose Estimation"
+cover-img: /assets/img/alphapose-preview.gif
 thumbnail-img: /assets/img/alphapose-logo.jpg
-categories:
-- paper
-- ml
-excerpt: |
-  RMPE: Regional Multi-Person pose Estimation
-date: 2021-05-24 17:50:00 
-
-aside: true
-feature_text: |
-  # Alphapose
-feature_image: "/assets/img/alphapose-preview.gif"
+share-img: /assets/img/alphapose-logo.jpg
+tags: [tech, ml, paper]
 comments: true
----
 
-<!-- more -->
+date: 2021-05-24 17:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/alphapose-logo.jpg "preview")  
@@ -133,23 +125,6 @@ SPPE(Single Person Pose Estimator) 양쪽에 부착해 부정확한(inaccurate) 
 리뷰를 하고 보니 역시나 Paper에는 속도 관련 이야기가 없다. 정확도는 높아졌으나,
 SPPE(yolo)에 부착했을 때 어느정도 속도가 나오는지 명확하게 알고 싶다.
 기회가 되면 속도 측정 metric을 만들어 비교해 봐야겠다. 
-
-<br/>
-
-## 사용하기
-
-* cuda 11.0
-* cudnn 8.0
-* pytorch 1.7.0
-
-도커 이미지로 빌드하여 docker hub에 등록하였습니다. 간단하게 pull 해서 사용할 수 있습니다.
-```shell
-$ docker pull jwher/alphapose:v1
-
-$ conda activate alphapose
-```
-
-자세한 demo inference 코드는 나중에 작성하겠습니다...
 
 <br/>
 

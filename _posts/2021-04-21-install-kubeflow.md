@@ -1,39 +1,29 @@
 ---
 layout: post
-
 title: "쿠브플로우를 설치하는 다양한 방법"
+subtitle: "Install kubeflow"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/kubeflow.svg
-categories:
-- tech
-- kubeflow
-- kubernetes
-- virtualbox
-- linux
-excerpt: |
-  리눅스, 윈도우, VM 등 다양한 환경에서 쿠브플로우를 설치하는 방법
-date: 2021-04-21 11:50:00
-
-aside: true
-feature_text: |
-  # Install kubeflow
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/kubeflow.svg
+tags: [tech, kubeflow, kubernetes, linux]
 comments: true
+
+date: 2021-04-21 11:50:00 
 ---
-
-<!-- more -->
-
+ 
+<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 <p align="center">
-<img src="/assets/img/kubeflow.svg" style="height: 40vmin;" />  
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/kubeflow.svg" style="height: 40vmin;" />  
 </p>
 
-*쿠브플로우를 설치하는 다양한 방법*
+*쿠브플로우를 설치하는 다양한 방법*  
 
 # 목차
 * [요구사항](#요구사항)
-* [Linux Machine](#linux-machine)
-* [Window Machine](#window-machine)
-* [Virtual Machine](#virtual-machine)
-* [Kind](#kind)
+* [Linux Machine](#Linux-Machine)
+* [Window Machine](#Window-Machine)
+* [Virtual Machine](#Virtual-Machine)
+* [Kind](#Kind)
 
 <br/>
 
@@ -53,9 +43,6 @@ GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있습�
 이 글에서는 다양한 쿠브플로우를 on-premise 환경에 직접 설치하는 방법을 설명합니다.  
 ~~사실, 쿠버네티스 클러스터만 갖추어져 있으면 설치방법은 대부분 동일합니다.~~
 [나에게 필요한 쿠버네티스 설치하기](https://jwher.github.io/2021-04-13-install-kubernetes/)
-
-진짜 아무것도 모르겠고, 더 공부하기도 싫다면 추천하는 방법입니다.  
-[miniKF](#번외-minikf)
 
 ### 주의사항
 * 현재(2021.05.23) github release는 1.2 버전입니다. 하지만 공식 doc이 1.3 버전으로 바뀌었습니다.

@@ -1,23 +1,15 @@
 ---
 layout: post
-
-title: "도커의 세계에 오신 걸 환영합니다!"
+title: "Welcome to docker"
+subtitle: "docker는 들어봤겠지?"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/docker.svg
-categories:
-- tech
-- docker
-excerpt: |
-  docker는 들어봤겠지?
-date: 2021-06-19 23:50:00 
-
-aside: true
-feature_text: |
-  
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/docker.svg
+tags: [tech, docker]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-19 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker.png "docker")  

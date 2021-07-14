@@ -1,23 +1,15 @@
 ---
 layout: post
-
-title: "자주쓰는 쿠버네티스 명령어"
+title: "Kubernetes usage"
+subtitle: "쿠버네티스 사용하기"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
-categories:
-- tech
-- kubernetes
-excerpt: |
-  당신에게 필요한 실전 명령어
-date: 2021-05-28 17:50:00 
-
-aside: true
-feature_text: |
-  # Kubernetes usage
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/Kubernetes.svg
+tags: [tech, kubernetes, docker]
 comments: true
----
 
-<!-- more -->
+date: 2021-05-28 17:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/Kubernetes.svg "kubernetes")  

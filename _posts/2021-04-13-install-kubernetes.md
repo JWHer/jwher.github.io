@@ -1,25 +1,15 @@
 ---
 layout: post
-
 title: "나에게 필요한 쿠버네티스 설치하기"
-thumbnail-img: /assets/img/Kubernetes.svg  
-categories:
-- tech
-- kubernetes
-- docker
-- linux
-excerpt: |
-  당신에게 필요한 쿠버네티스 설치 가이드  
-date: 2021-04-13 11:50:00 
-
-aside: true
-feature_text: |
-  # Install kubernetes
-feature_image: "/assets/img/bamboos.jpg"
+subtitle: "Install kubernetes"
+cover-img: /assets/img/cover.svg
+thumbnail-img: /assets/img/Kubernetes.svg
+share-img: /assets/img/Kubernetes.svg
+tags: [tech, kubernetes, docker, linux]
 comments: true
----
 
-<!-- more -->
+date: 2021-04-13 11:50:00 
+---
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "docker")  
 *나에게 필요한 쿠버네티스 설치하기*  

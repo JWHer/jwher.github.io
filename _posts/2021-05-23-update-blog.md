@@ -1,23 +1,15 @@
 ---
 layout: post
-
 title: "블로그 업데이트"
+subtitle: "Jekyll 블로그 사용하기"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Jekyll.png
-categories:
-- blog
-- update
-excerpt: |
-  Jekyll 블로그 사용하기
-date: 2021-05-23 23:50:00 
-
-aside: true
-feature_text: |
-
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/Jekyll.png
+tags: [blog, update]
 comments: true
----
 
-<!-- more -->
+date: 2021-05-23 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/Jekyll.png "Jekyll")  

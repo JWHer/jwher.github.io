@@ -1,7 +1,5 @@
-**Please read the [contributing guidelines](https://github.com/daviddarnes/alembic/blob/master/.github/CONTRIBUTING.md) and [code of conduct](https://github.com/daviddarnes/alembic/blob/master/.github/CODE_OF_CONDUCT.md) before creating a pull request.**
+Please note that if you are trying to update **your** website, this is the wrong place to do so. Please carefully follow the Beautiful Jekyll instructions (found at https://github.com/daattali/beautiful-jekyll#readme) and make sure you submit changes to **your** version of the project.
 
-Please prefix your pull request with one of the following: **[Feature]** **[Fix]** **[Enhancement]**.
+If your intention is to submit a Pull Request, please describe what your pull request achieves.
 
-If the pull request is a **fix** please **link to the related issue**, all bugs must have an [an issue created](https://github.com/daviddarnes/alembic/issues/new) before a fix is provided.
-
-If the pull request is a **feature** please **provide a summary of how it works**, as well as documentation in the [readme](https://github.com/daviddarnes/alembic/blob/master/README.md).
+Thank you!

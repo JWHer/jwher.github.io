@@ -1,49 +1,23 @@
 ---
 layout: post
-
 title: "좋은 제목"
-thumbnail-img: 
-categories:
-- tech
-- blog
-- math
-- dev  
-- paper
-
-- kubeflow
-- kubernetes
-- docker
-- virtualbox
-- linux
-- update
-- ml
-- nuclio
-
-- short
-excerpt: |
-  접근하기 좋은 설명
-date: 2021-04-21 11:50:00
-
-aside: true
-feature_text: |
-  # 좋은 영어 제목
-feature_image: "/assets/img/bamboos.jpg"
+subtitle: "부제"
+cover-img: /assets/img/cover.svg
+thumbnail-img: /assets/img/cover.svg
+share-img: /assets/img/path.jpg
+tags: [tech, blog]
 comments: true
+
+date: 2021-04-13 11:50:00 
 ---
 
-<!-- more -->
-
-<p align="center">
-<img src="/assets/img/linux.png" style="height: 40vmin;"/>
-</p>
-
+<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](some-awesome-image.png "awesome")  
 *요약을 적어주자*  
 
 # 목차
-* [대제](#preflight)
+* [대제](#Preflight)
 * 목차에 링크를 걸면 좋다
-* 반드시 소문자
 
 ## 대제(大題)  
 

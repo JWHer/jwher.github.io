@@ -1,41 +1,33 @@
 ---
-layout: post
-
-title: "타르(tar) 파일 설치하기"
+title: "Inatall tar.gz"
+subtitle: "가끔은 예측하지 못한 결과에 대비해야 할 수도..."
+cover-img: /assets/img/prepared.jpg
 thumbnail-img: /assets/img/gzip.png
-categories:
-- tech
-- linux
-excerpt: |
-  아직도 몰라?
-date: 2021-05-10 17:50:00 
-
-aside: true
-feature_text: |
-  # Inatall tar.gz
-feature_image: "/assets/img/prepared.jpg"
+share-img: /assets/img/gzip.png
+tags: [tech, linux]
 comments: true
----
 
-<!-- more -->
+date: 2021-05-10 17:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/gzip.png "gnuzip")  
 *가끔은 예측하지 못한 결과에 대비해야 할 수도...*  
 
 # 목차
-* [GNU Zip](#gnu-zip)
-* [Tape Archive](#tape-archive)
-* [Tar 설치하기](#tar-설치하기)
-* [심볼릭 링크 만들기](#심볼릭-링크-만들기)
+* [GNU Zip](#Preflight)
+* Tape Archive
+* 직접 설치해보기
+* 심볼릭 링크 만들기
 
 ## GNU Zip 
 
+#### GNU Zip이란?
 *zip은 많이 봤는데...*
 
-줄여서 gzip, .gz 포맷으로 사용되는 free software입니다.  
+줄여서 gzip, .gz 포맷으로 사용되는 free software이다.  
 1992년 10월 31일에 처음 공개되었으며 
-Jean-loup Gailly와 Mark Adler가 개발했습니다. 
+Jean-loup Gailly와 Mark Adler가 만들었다고 한다. 
 
 <br/>
 
@@ -47,7 +39,7 @@ Jean-loup Gailly와 Mark Adler가 개발했습니다.
 
 <br/>
 
-### Advanced Packaging Tool이 있는데 왜?
+#### Advanced Packaging Tool이 있는데 왜?
 
 사실 리눅스(debian)를 사용하면 대부분 apt 명령어를 사용해서 프로그램을 설치한다.  
 하지만 apt repository에 등록되지 않은 프로그램을 사용하거나,
@@ -56,9 +48,9 @@ Jean-loup Gailly와 Mark Adler가 개발했습니다.
 
 <br/>
 
-## Tar 설치하기
+## 직접 설치해보기
 
-### Node를 설치해 보자
+#### Node를 설치해 보자
 
 여러가지 설치하려는 프로그램이 있겠으나 node를 예시로 한다.
 

@@ -1,24 +1,15 @@
 ---
 layout: post
-
-title: "쿠브플로우: 머신러닝 자동화"
+title: "Welcome to kubeflow"
+subtitle: "MLOps와 쿠브플로우"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/kubeflow.svg
-categories:
-- tech
-- kubeflow
-- kubernetes
-excerpt: |
-  DevOps와 MLOps 쿠브플로우까지
-date: 2021-06-19 23:50:00 
-
-aside: true
-feature_text: |
-
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/kubeflow.svg
+tags: [tech, kubeflow]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-19 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 <p align="center">

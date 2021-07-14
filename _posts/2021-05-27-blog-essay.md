@@ -1,23 +1,15 @@
 ---
 layout: post
-
 title: "블로그 생각"
+subtitle: "install 시리즈에 대해"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/pen.svg
-categories:
-- blog
-- update
-excerpt: |
-  install 시리즈에 대해
-date: 2021-05-27 23:50:00 
-
-aside: true
-feature_text: |
-
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/pen.svg
+tags: [blog, update]
 comments: true
----
 
-<!-- more -->
+date: 2021-05-27 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 <p style="text-align: center;">
@@ -43,9 +35,7 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 > 
 > 대한민국의 국기도 만물의 이치인 태극(太極)과 자연에 실제하는 4괘(卦)로 이루어져 있다.
 
-<br/>
 <p style="font-size: 20vmin; text-align: center;">TL;DR</p>  
-<br/>
 <div markdown="1" style="text-align: center;">
 *아니.. 뭐 어쩌라고...*
 </div>

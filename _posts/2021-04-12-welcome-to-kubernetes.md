@@ -1,24 +1,15 @@
 ---
 layout: post
-
-title: "쿠버네티스 세계에 오신 걸 환영합니다!"  
+title: "쿠버네티스 세계에 오신 걸 환영합니다!"
+subtitle: "Welcome to kubernetes"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
-categories:
-- tech
-- kubernetes
-- docker
-excerpt: |
-  도커 컨테이너는 아는데 쿠버네티스는 모른다고?  
-date: 2021-04-12 23:50:00 
-
-aside: true
-feature_text: |
-  # Welcome to kubernetes
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/Kubernetes.svg
+tags: [tech, kubernetes, docker]
 comments: true
----
 
-<!-- more -->
+date: 2021-04-12 23:50:00 
+---
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "kubernetes")  
 *쿠버네티스 세계에 오신 걸 환영합니다!*  

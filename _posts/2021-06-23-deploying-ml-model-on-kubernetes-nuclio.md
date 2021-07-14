@@ -1,25 +1,15 @@
 ---
 layout: post
-
-title: "쿠버네티스 누클리오에 ML 모델 배포하기"
-thumbnail-img: /assets/img/nuclio-superman.png
-categories:
-- tech
-- kubernetes
-- docker
-- nuclio
-excerpt: |
-  서버리스 함수로 ML 모델 배포
-date: 2021-06-23 23:50:00 
-
-aside: true
-feature_text: |
-  # Deploying ML model on kubernetes nuclio
-feature_image: "/assets/img/bamboos.jpg"
+title: "Deploying ML model on kubernetes nuclio"
+subtitle: "쿠버네티스 누클리오에 ML 모델 배포하기"
+cover-img: /assets/img/cover.svg
+thumbnail-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-superman.png
+share-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-superman.png
+tags: [tech, docker, kubernetes, nuclio]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-23 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 

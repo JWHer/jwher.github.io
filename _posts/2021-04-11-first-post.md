@@ -1,33 +1,18 @@
 ---
 layout: post
-
-title: "Jekyll 페이지"
-thumbnail-img: /assets/img/Jekyll.png
-categories:
-- blog
-- update
-excerpt: |
-  글을 작성할 만한 좋은 블로그 서비스를 찾고 있습니다.
-date: 2021-04-11 11:50:00
-
-aside: true
-feature_text: |
-  # Welcome to Jekyll!
-feature_image: "/assets/img/bamboos.jpg"
+title: "Welcome to Jekyll!"
+subtitle: Jekyll 페이지
+cover-img: /assets/img/path.jpg
+tags: [blog, jekyll, update]
 comments: true
----
 
-<!-- more -->
+date: 2021-04-11 11:50:00 -0400
+---
 
 github.io 테스트 입니다!
 글을 작성할 만한 좋은 블로그 서비스를 찾고 있습니다.
 
 2021.05.22 리뉴얼
-<p align="center">
-<img src="/assets/img/blog-210522.png"/>  
-</p>
-
-2021.07.15 리뉴얼
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

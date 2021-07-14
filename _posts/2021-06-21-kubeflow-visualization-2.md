@@ -1,24 +1,15 @@
 ---
 layout: post
-
-title: "Kubeflow 시각화 개발 2편"
-thumbnail-img: /assets/img/engineering.jpg
-categories:
-- dev  
-- kubeflow
-- kubernetes
-excerpt: |
-  이벤트 기반 아키텍처 구현
-date: 2021-06-21 23:50:00 
-
-aside: true
-feature_text: |
-
-feature_image: "/assets/img/bamboos.jpg"
+title: "Kubeflow visualization 개발 2편"
+subtitle: "Event Driven Architecture 구현"
+cover-img: /assets/img/cover.svg
+thumbnail-img: /assets/img/kubeflow.svg
+share-img: /assets/img/kubeflow.svg
+tags: [tech, kubernetes, dev]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-21 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 

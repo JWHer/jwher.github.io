@@ -1,24 +1,15 @@
 ---
 layout: post
-
-title: "리눅스 디스크 정리하기"
-thumbnail-img: /assets/img/hard-drive-internal.jpg
-categories:
-- tech
-- linux
-- short
-excerpt: |
-  이거 지워도 되는거야?
-date: 2021-06-21 17:50:00
-
-aside: true
-feature_text: |
-
-feature_image: "/assets/img/bamboos.jpg"
+title: "Linux disk free"
+subtitle: "디스크 정리하기"
+cover-img: /assets/img/cover.svg
+thumbnail-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/hard-drive-internal.jpg
+share-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/hard-drive-internal.jpg
+tags: [tech, linux]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-21 17:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 

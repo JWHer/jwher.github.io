@@ -1,24 +1,15 @@
 ---
 layout: post
-
 title: "Kubeflow 시각화 개발 1편"
-thumbnail-img: /assets/img/engineering.jpg
-categories:
-- dev
-- kubeflow
-- kubernetes
-excerpt: |
-  kubeflow 시스템 이해와 이벤트 기반 아키텍처 설계
-date: 2021-06-08 11:50:00 
-
-aside: true
-feature_text: |
-  
-feature_image: "/assets/img/bamboos.jpg"
+subtitle: "kubeflow 시스템 이해와 ETL 아키텍처 설계"
+cover-img: /assets/img/cover.svg
+thumbnail-img: /assets/img/kubeflow.svg
+share-img: /assets/img/kubeflow.svg
+tags: [tech, kubernetes, dev]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-08 11:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/engineering.jpg "engineering")  

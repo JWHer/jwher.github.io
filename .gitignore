@@ -1,8 +1,14 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-alembic-jekyll-theme-*.gem
+# project
+_site
+.sass-cache
+.vagrant
+./_posts/.idea/
+
+# general
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
 Gemfile.lock
-**/Gemfile.lock
-._posts/.idea/
+
+beautiful-jekyll-theme-*.gem

@@ -1,24 +1,15 @@
 ---
 layout: post
-
 title: "K8s tip: Rollback"
+subtitle: "쿠버네티스 배포 롤백하기"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Kubernetes.svg
-categories:
-- tech
-- kubernetes
-- short
-excerpt: |
-  쿠버네티스 배포 롤백하기
-date: 2021-07-06 11:50:00 
-
-aside: true
-feature_text: |
-
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/Kubernetes.svg
+tags: [tech, kubernetes, short]
 comments: true
----
 
-<!-- more -->
+date: 2021-07-06 11:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 

@@ -1,23 +1,15 @@
 ---
 layout: post
-
-title: "정보 이론"
-thumbnail-img: /assets/img/card.jpg
-categories:
-- math
-- ml
-excerpt: |
-  데이터 통신과 의사결정의 핵심 이론
-date: 2021-06-08 23:50:00 
-
-aside: true
-feature_text: |
-  # Information theory
-feature_image: "/assets/img/theory.jpg"
+title: "Information theory"
+subtitle: "정보 이론"
+cover-img: /assets/img/theory.jpg
+thumbnail-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/card.jpg
+share-img: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/card.jpg
+tags: [theory, math, ml]
 comments: true
----
 
-<!-- more -->
+date: 2021-06-08 23:50:00 
+---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/card.jpg "card")  

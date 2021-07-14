@@ -1,33 +1,25 @@
 ---
 layout: post
-
 title: "GUI 없이 리눅스 서버에 VM 만들기"
+subtitle: "Install Virtualbox with no GUI"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/Virtualbox.png
-categories:
-- tech
-- virtualbox
-- linux
-excerpt: |
-  접근하기 좋은 설명  
-date: 2021-04-15 11:50:00
-
-aside: true
-feature_text: |
-  # Install Virtualbox with no GUI
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/Virtualbox.png
+tags: [tech, virtualbox, linux]
 comments: true
+
+date: 2021-04-15 11:50:00
 ---
 
-<!-- more -->
-
+<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/main/_posts/images/ -->
 <div align="center">
-<img src="/assets/img/virtualbox.png" alt="virtualbox" style="height: 40vmin;"/>
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/virtualbox.png" alt="virtualbox" style="height: 40vmin;"/>
 </div>
 
 *GUI 없이 리눅스 서버에 VM 만들기*
 
 리눅스 서버에 virtualbox로 가상 환경을 구성해야 합니다. 😲  
-CLI는 잘 모르는데 어떡하죠? 한번 같이 vm을 실행시켜 봅시다!  
+CLI는 잘 모르는데 어떡하죠? 같이 ssh를 사용해 vm을 실행시켜 봅시다!  
 ~~virtualbox를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었습니다...~~
 
 # 목차

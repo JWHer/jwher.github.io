@@ -1,24 +1,15 @@
 ---
 layout: post
-
 title: "나에게 필요한 도커 설치하기"
+subtitle: "Install Docker"
+cover-img: /assets/img/cover.svg
 thumbnail-img: /assets/img/docker.svg
-categories:
-- tech
-- docker
-- linux
-excerpt: |
-  아직도 도커 설치 못하고 있어?  
-date: 2021-04-13 11:50:00 
-
-aside: true
-feature_text: |
-  # Install Docker
-feature_image: "/assets/img/bamboos.jpg"
+share-img: /assets/img/docker.svg
+tags: [tech, kubernetes, docker, linux]
 comments: true
----
 
-<!-- more -->
+date: 2021-04-13 11:50:00 
+---
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker.png "docker")  
 *나에게 필요한 도커 설치하기*  
