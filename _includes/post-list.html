@@ -1,0 +1,33 @@
+<section class="section  typeset">
+  <ul class="list  list--posts">
+    {% for page in paginator.posts %}
+      <li class="item  item--post">
+        <article class="article  article--post">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
+                </th>
+                {% if page.thumbnail-img %}
+                <th rowspan="2">
+                  <a href="{{ site.baseurl }}{{ page.url }}"><img src ="{{ page.thumbnail-img }}" class="img-link" /></a>
+                </th>
+                {% endif %}
+              </tr>
+              <tr>
+                <th>
+                  {% include post-meta.html %}
+                </th>
+              </tr>
+            </tbody>
+          </table>
+          {{ page.excerpt | markdownify | truncatewords: 60 }}
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+  {% if paginator.posts %}
+    {% include post-pagination.html %}
+  {% endif %}
+</section>

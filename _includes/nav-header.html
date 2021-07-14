@@ -1,0 +1,113 @@
+{% if site.navigation_header %}
+<nav class="nav  nav--header">
+  <ul class="list  list--nav">
+    {% for item in site.navigation_header %}
+
+      {% if item.url contains '://' %}
+        {% assign url = item.url %}
+      {% else %}
+        {% assign url = item.url | relative_url %}
+      {% endif %}
+
+      <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+        <a href="{{ url }}">{{ item.title }}</a>
+      </li>
+    {% endfor %}
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <div class="search-box" id="js-search">
+        <button class="btn-search">
+          <img src="/assets/logos/search_colored.svg"/>
+        </button>
+        <!--  class=search__input form-control -->
+        <input type="text" placeholder="search" class="input-search" id="js-search__input">
+        <ul class="search-results" id="js-search__results"></ul>
+      </div>
+    </li>
+  </ul>
+  <button class="button  button--nav" aria-label="Menu toggle">
+    {% include icon.html id="nav" title="Menu" %}
+  </button>
+</nav>
+{% else %}
+  {% include nav-default.html %}
+{% endif %}
+
+<script src="/assets/scripts/super-search.js">
+</script>
+<script type="text/javascript">
+  // Get list and button
+  const navList = document.querySelector('.header .list--nav')
+  const button  = document.querySelector('.header .button--nav')
+
+  // Hide nav and apply toggle
+  const collapseNav = () => {
+    if (document.body.clientWidth < 640) {
+      navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+    } else {
+      navList.removeAttribute('style')
+    }
+
+    button.onclick = () => {
+      navList.style.setProperty('transition', `margin .1s`)
+      if (navList.style.getPropertyValue('--listHeight')) {
+        navList.style.removeProperty('--listHeight')
+      } else {
+        navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+      }
+    }
+  }
+
+  collapseNav()
+
+  // Check on resize if to collapse nav
+  window.addEventListener('resize', () => {
+    collapseNav()
+  })
+
+
+  // search list 초기화
+  const searchInput = document.getElementById("js-search__input");
+  const searchList = document.getElementById("js-search__results");
+  searchInput.addEventListener('input', function(e){
+    if(e.target.value == ""){
+      searchList.innerHTML = "";
+    }
+  });
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key == "Enter"){
+      window.location.href = searchList.querySelector("a").href;
+    }
+  });
+
+  // toggle button
+  const searchBtn = document.querySelector('.btn-search');
+  var toggle = false;
+  function changeStyle(){
+    if(toggle){
+      searchInput.focus();
+      searchList.classList.add('search-results-on');
+      searchInput.classList.add('input-search-on');
+    }else{
+      searchList.classList.remove('search-results-on');
+      searchInput.classList.remove('input-search-on');
+    }
+  }
+  searchBtn.addEventListener('click', function(e){
+    toggle = !toggle;
+    changeStyle();
+  });
+
+  var mouseOver = null;
+  window.onmouseover = function(e){
+    mouseOver = e.target.tagName;
+  }
+  searchInput.addEventListener('blur', function(e){
+    console.log(e.target.tagName);
+    if(mouseOver == "A"){
+      return;
+    }
+    toggle = false;
+    changeStyle();
+  });
+
+</script>
