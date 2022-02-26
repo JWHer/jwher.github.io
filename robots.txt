@@ -1,5 +1,0 @@
-User-agent: Googlebot
-User-agent: NaverBot
-Allow: /
-
-Sitemap: https://jwher.github.io/sitemap.xml
