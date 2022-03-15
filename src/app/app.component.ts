@@ -24,16 +24,15 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit() {
-    var navbar: HTMLElement;
     this._router = this.router.events.pipe(
         filter( (event) => event instanceof NavigationEnd)
       ).subscribe(event => {
-        if(window.outerWidth > 991) {
-          window.document.children[0].scrollTop = 0;
-        }else {
-          window.document.activeElement.scrollTop = 0;
-        }
-        this.navbar.sidebarClose();
+          if(window.outerWidth > 991) {
+            window.document.children[0].scrollTop = 0;
+          }else {
+            window.document.activeElement.scrollTop = 0;
+          }
+          this.navbar.sidebarClose();
         }
       );
 
@@ -41,25 +40,12 @@ export class AppComponent implements OnInit {
     this.renderer.listen('window', 'scroll', (event) => {
       const number = window.scrollY;
       if (number > 150 || window.pageYOffset > 150) {
-          // add logic
-          navbar.classList.remove('navbar-transparent');
+        this.navbar.untransparentize();
       } else {
-          // remove logic
-          navbar.classList.add('navbar-transparent');
+        this.navbar.transparentize();
       }
     });
 
-    var ua = window.navigator.userAgent;
-    var trident = ua.indexOf('Trident/');
-    if (trident > 0) {
-        // IE 11 => return version number
-        var rv = ua.indexOf('rv:');
-        var version = parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-    }
-    if (version) {
-        var body = document.getElementsByTagName('body')[0];
-        body.classList.add('ie-background');
-    }
   }
 
   removeFooter() {
