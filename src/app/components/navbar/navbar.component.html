@@ -1,1 +1,70 @@
-<p>navbar works!</p>
+<nav #navbar
+    class="navbar navbar-expand-lg fixed-top navbar-transparent">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="https://jwher.github.io">JWHer Tech Blog</a>
+            <button
+                #openButton
+                class="navbar-opener"
+                type="button"
+                (click)="sidebarOpen()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div #sideMenu
+            class="collapse navbar-collapse"
+            [ngbCollapse]="isCollapsed">
+            <button
+                #closeButton
+                class="navbar-closer"
+                type="button"
+                (click)="sidebarClose()">
+                <i class="fa fa-times"></i>
+            </button>
+            <ul class="links">
+              <li>
+                <a routerLink="/home" (click)="isCollapsed = true">Home</a>
+              </li>
+              <hr>
+              <li>
+                <a routerLink="/posts" (click)="isCollapsed = true">Posts</a>
+              </li>
+              <hr>
+              <li>
+                <a routerLink="/categories" (click)="isCollapsed = true">Categories</a>
+              </li>
+              <hr>
+              <li>
+                <a href="https://github.com/jwher"
+                  rel="tooltip"
+                  title="Follow me on Github"
+                  data-placement="bottom"
+                  target="_blank">
+                  <i class="fa fa-github"></i>
+                </a>
+              </li>
+              <hr>
+              <li>
+                  <a href="https://www.instagram.com/jwher96"
+                    rel="tooltip"
+                    title="Follow me on Instagram"
+                    data-placement="bottom"
+                    target="_blank">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+              </li>
+              <hr>
+              <li>
+                  <a href="https://www.linkedin.com/in/정원-허-1160b3193/"
+                    rel="tooltip"
+                    title="Follow me on Linkedin"
+                    data-placement="bottom"
+                    target="_blank">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
