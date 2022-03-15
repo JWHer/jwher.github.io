@@ -1,0 +1,34 @@
+@import 'src/styles/variables';
+
+.links{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    li{
+        display: inline-block;
+        margin: 0 .25em;
+        a{
+            // color: $font-color;
+            color: inherit;
+            *{
+                font-size: 3em;
+                margin: 0 .5em;
+                text-align: center;
+            }
+        }
+    }
+}
+
+:host.icon-small {
+    .links>li>a>*{
+        font-size: 1em;
+    }
+}
+
+// :host.color-light {
+//     .links>li>a>*{
+//         color: $white-color;
+//     }
+// }
