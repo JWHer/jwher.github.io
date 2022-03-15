@@ -1,0 +1,96 @@
+@import 'src/styles/variables';
+
+.section{
+    z-index: 2;
+    padding: 70px 0;
+    position: relative;
+    background-color: $white-color;
+}
+
+.rainbow-image .img-src{
+    background-attachment: scroll;
+}
+
+.rainbow-image{
+    background-image: url('~src/assets/img/common/theory.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top:0;
+
+    .rainbow {
+        height: 4rem;
+    }
+    :nth-child(1){
+        background-color: $primary-color;
+    }
+    :nth-child(2){
+        background-color: $info-color;
+    }
+    :nth-child(3){
+        background-color: $success-color;
+    }
+    :nth-child(4){
+        background-color: $warning-color;
+    }
+    :nth-child(5){
+        background-color: $danger-color;
+    }
+    :last-child {
+        background-color: transparent;
+        height: 8rem;
+    }
+}
+
+.support{
+    margin: 5rem 0;
+    text-align: center;
+    display: block;
+}
+
+p{
+    line-height: 2;
+}
+
+.tim-container{
+
+}
+
+.tim-title* {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+}
+
+.typography-line {
+    // padding-left: 180px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.typography-line .note {
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+}
+
+.page-carousel{
+    margin: 0 1rem;
+}
+
+.blockquote{
+    border-left: 0 none;
+    border-bottom: 1px solid #CCC5B9;
+    border-top: 1px solid #CCC5B9;
+    font-weight: 300;
+    margin: 15px 0 10px;
+    text-align: center;
+}
