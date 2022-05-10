@@ -7,6 +7,62 @@
     background-color: $white-color;
 }
 
+.btn {
+    box-sizing: border-box;
+    border-width: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: .1rem;
+    line-height: 1.75;
+    // margin-right: 3px;
+    // cursor: pointer;
+    text-transform: uppercase;
+    // background-color: #66615b;
+    // border-color: #66615b;
+    // color: #fff;
+    // opacity: 1;
+    // filter: alpha(opacity=100);
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: .4rem;
+    transition: all 150ms linear;
+
+    &:hover {
+        color: $white-color;
+        text-decoration: $white-color wavy underline;
+    }
+
+    // &:focus {
+    //     text-decoration: $link-hover-decoration;
+    // }
+
+    // &:disabled,
+    // &.disabled {
+    //     color: $btn-link-disabled-color;
+    // }
+}
+
+.btn-outline-warning {
+    border-color: $warning-color;
+    color: $warning-color;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.btn-outline-success {
+    border-color: $success-color;
+    color: $success-color;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
 .rainbow-image .img-src{
     background-attachment: scroll;
 }
