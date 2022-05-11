@@ -142,22 +142,10 @@
         </div>
         <div class="card page-carousel">
             <ngb-carousel>
-                <ng-template ngbSlide>
-                    <img src="./assets/img/soroush-karimi.jpg" alt="Random first slide">
+                <ng-template ngbSlide *ngFor="let d of this.data">
+                    <img src="{{d.media_url}}" alt="{{d.caption}}">
                     <div class="carousel-caption">
-                        <p>Somewhere</p>
-                    </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                    <img src="./assets/img/federico-beccari.jpg" alt="Random second slide">
-                    <div class="carousel-caption">
-                        <p>Somewhere else</p>
-                    </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                    <img src="./assets/img/joshua-stannard.jpg" alt="Random third slide">
-                    <div class="carousel-caption">
-                        <p>Here it is</p>
+                        <p>{{d.caption}}</p>
                     </div>
                 </ng-template>
             </ngb-carousel>
