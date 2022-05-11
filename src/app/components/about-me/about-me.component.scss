@@ -68,7 +68,7 @@
 }
 
 .rainbow-image{
-    background-image: url('~src/assets/img/common/theory.jpg');
+    background-image: url('~src/assets/img/common/sea-cave.jpg');
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -94,7 +94,7 @@
     }
     :last-child {
         background-color: transparent;
-        height: 8rem;
+        height: 16rem;
     }
 }
 
@@ -139,7 +139,16 @@ p{
 }
 
 .page-carousel{
-    margin: 0 1rem;
+    text-align: center;
+    margin: 0 auto;
+    width: 66%;
+    height: 33%;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+    }
 }
 
 .blockquote{
