@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://graph.instagram.com",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    }
+  }
