@@ -13,6 +13,7 @@ import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { CommentsComponent } from './comments/comments.component';
 import { PostsComponent } from './posts/posts.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PostsComponent } from './posts/posts.component';
     CommonModule,
     FontAwesomeModule,
     NgbModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,
