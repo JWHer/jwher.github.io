@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { CommentsComponent } from './comments/comments.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CommentsComponent } from './comments/comments.component';
     HomeComponent,
     NavbarComponent,
     PageNotFoundComponent,
+    PostsComponent,
     RecentPostsComponent,
     SocialLinksComponent,
     CommentsComponent,
