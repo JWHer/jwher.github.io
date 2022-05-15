@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MarkdownModule, MarkdownService } from 'ngx-markdown';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,6 +23,8 @@ import { ComponentsModule } from './components/components.module';
     RouterModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({loader: HttpClient}),
     
     AppRoutingModule,
     ComponentsModule,
