@@ -36,10 +36,14 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/katex/dist/katex.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
+              "node_modules/katex/dist/katex.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -110,10 +114,13 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/katex/dist/katex.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/katex/dist/katex.min.js"
+            ]
           }
         }
       }
