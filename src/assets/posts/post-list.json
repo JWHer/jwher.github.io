@@ -1,0 +1,900 @@
+{
+  "list": [
+    {
+      "layout": "post",
+      "title": "Jekyll 페이지",
+      "description": "글을 작성할 만한 좋은 블로그 서비스를 찾고 있습니다.",
+      "thumbnail-img": "/assets/img/Jekyll.png",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "date": "2021-04-11 11:50:00",
+      "categories": [
+        "blog",
+        "update"
+      ],
+      "comments": true,
+      "id": 1,
+      "name": "first-post",
+      "file_name": "2021-04-11-first-post.md"
+    },
+    {
+      "layout": "post",
+      "title": "쿠버네티스 세계에 오신 걸 환영합니다!",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "docker"
+      ],
+      "date": "2021-04-12 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 2,
+      "name": "welcome-to-kubernetes",
+      "file_name": "2021-04-12-welcome-to-kubernetes.md",
+      "description": "도커 컨테이너는 아는데 쿠버네티스는 모른다고?"
+    },
+    {
+      "layout": "post",
+      "title": "나에게 필요한 도커 설치하기",
+      "thumbnail-img": "/assets/img/docker.svg",
+      "categories": [
+        "tech",
+        "docker",
+        "linux"
+      ],
+      "date": "2021-04-13 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 3,
+      "name": "install-docker",
+      "file_name": "2021-04-13-install-docker.md",
+      "description": "아직도 도커 설치 못하고 있어?"
+    },
+    {
+      "layout": "post",
+      "title": "나에게 필요한 쿠버네티스 설치하기",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "docker",
+        "linux"
+      ],
+      "date": "2021-04-13 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 4,
+      "name": "install-kubernetes",
+      "file_name": "2021-04-13-install-kubernetes.md",
+      "description": "당신에게 필요한 쿠버네티스 설치 가이드"
+    },
+    {
+      "layout": "post",
+      "title": "GUI 없이 리눅스 서버에 VM 만들기",
+      "thumbnail-img": "/assets/img/Virtualbox.png",
+      "categories": [
+        "tech",
+        "virtualbox",
+        "linux"
+      ],
+      "date": "2021-04-15 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 5,
+      "name": "install-virtualbox-with-no-gui",
+      "file_name": "2021-04-15-install-virtualbox-with-no-gui.md",
+      "description": "접근하기 좋은 설명"
+    },
+    {
+      "layout": "post",
+      "title": "쿠브플로우를 설치하는 다양한 방법",
+      "thumbnail-img": "/assets/img/kubeflow.svg",
+      "categories": [
+        "tech",
+        "kubeflow",
+        "kubernetes",
+        "virtualbox",
+        "linux"
+      ],
+      "date": "2021-04-21 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 6,
+      "name": "install-kubeflow",
+      "file_name": "2021-04-21-install-kubeflow.md",
+      "description": "리눅스, 윈도우, VM 등 다양한 환경에서 쿠브플로우를 설치하는 방법"
+    },
+    {
+      "layout": "post",
+      "title": "타르(tar) 파일 설치하기",
+      "thumbnail-img": "/assets/img/gzip.png",
+      "categories": [
+        "tech",
+        "linux"
+      ],
+      "date": "2021-05-10 17:50:00",
+      "feature_image": "/assets/img/prepared.jpg",
+      "comments": true,
+      "id": 7,
+      "name": "install-tar.gz",
+      "file_name": "2021-05-10-install-tar.gz.md",
+      "description": "아직도 몰라?"
+    },
+    {
+      "layout": "post",
+      "title": "블로그 업데이트",
+      "thumbnail-img": "/assets/img/Jekyll.png",
+      "categories": [
+        "blog",
+        "update"
+      ],
+      "date": "2021-05-23 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 8,
+      "name": "update-blog",
+      "file_name": "2021-05-23-update-blog.md",
+      "description": "Jekyll 블로그 사용하기"
+    },
+    {
+      "layout": "post",
+      "title": "Alphapose 논문 리뷰와 사용",
+      "thumbnail-img": "/assets/img/alphapose-logo.jpg",
+      "categories": [
+        "paper",
+        "ml"
+      ],
+      "date": "2021-05-24 17:50:00",
+      "feature_image": "/assets/img/alphapose-preview.gif",
+      "comments": true,
+      "id": 9,
+      "name": "alphapose",
+      "file_name": "2021-05-24-alphapose.md",
+      "description": "RMPE: Regional Multi-Person pose Estimation"
+    },
+    {
+      "layout": "post",
+      "title": "블로그 생각",
+      "thumbnail-img": "/assets/img/pen.svg",
+      "categories": [
+        "blog",
+        "update"
+      ],
+      "date": "2021-05-27 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 10,
+      "name": "blog-essay",
+      "file_name": "2021-05-27-blog-essay.md",
+      "description": "install 시리즈에 대해"
+    },
+    {
+      "layout": "post",
+      "title": "자주쓰는 쿠버네티스 명령어",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes"
+      ],
+      "date": "2021-05-28 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 11,
+      "name": "kubernetes-usage",
+      "file_name": "2021-05-28-kubernetes-usage.md",
+      "description": "당신에게 필요한 실전 명령어"
+    },
+    {
+      "layout": "post",
+      "title": "Nuclio 개념과 아키텍처",
+      "thumbnail-img": "/assets/img/nuclio-superman.png",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "docker",
+        "nuclio"
+      ],
+      "date": "2021-06-02 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 12,
+      "name": "nuclio",
+      "file_name": "2021-06-02-nuclio.md",
+      "description": "서버리스 함수로 데이터 파이프라인 자동화"
+    },
+    {
+      "layout": "post",
+      "title": "정보 이론",
+      "thumbnail-img": "/assets/img/card.jpg",
+      "categories": [
+        "math",
+        "ml"
+      ],
+      "date": "2021-06-08 23:50:00",
+      "feature_image": "/assets/img/theory.jpg",
+      "comments": true,
+      "id": 13,
+      "name": "information-theory",
+      "file_name": "2021-06-08-information-theory.md",
+      "description": "데이터 통신과 의사결정의 핵심 이론"
+    },
+    {
+      "layout": "post",
+      "title": "Kubeflow 시각화 개발 1편",
+      "thumbnail-img": "/assets/img/engineering.jpg",
+      "categories": [
+        "dev",
+        "kubeflow",
+        "kubernetes"
+      ],
+      "date": "2021-06-08 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 14,
+      "name": "kubeflow-visualization-1",
+      "file_name": "2021-06-08-kubeflow-visualization-1.md",
+      "description": "kubeflow 시스템 이해와 이벤트 기반 아키텍처 설계"
+    },
+    {
+      "layout": "post",
+      "title": "K8s tip: nodeSelector",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "short"
+      ],
+      "date": "2021-06-14 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 15,
+      "name": "k8s-tip-nodeselector",
+      "file_name": "2021-06-14-k8s-tip-nodeselector.md",
+      "description": "파드를 원하는 노드에 할당하는 법"
+    },
+    {
+      "layout": "post",
+      "title": "minIO 오브젝트 스토리지",
+      "thumbnail-img": "/assets/img/minio.svg",
+      "categories": [
+        "tech",
+        "kubeflow",
+        "kubernetes"
+      ],
+      "date": "2021-06-16 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 16,
+      "name": "minio",
+      "file_name": "2021-06-16-minio.md",
+      "description": "S3 호환 고성능 쿠버네티스 네이티브 오브젝트 스토리"
+    },
+    {
+      "layout": "post",
+      "title": "도커의 세계에 오신 걸 환영합니다!",
+      "thumbnail-img": "/assets/img/docker.svg",
+      "categories": [
+        "tech",
+        "docker"
+      ],
+      "date": "2021-06-19 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 17,
+      "name": "welcome-to-docker",
+      "file_name": "2021-06-19-welcome-to-docker.md",
+      "description": "docker는 들어봤겠지?"
+    },
+    {
+      "layout": "post",
+      "title": "쿠브플로우: 머신러닝 자동화",
+      "thumbnail-img": "/assets/img/kubeflow.svg",
+      "categories": [
+        "tech",
+        "kubeflow",
+        "kubernetes"
+      ],
+      "date": "2021-06-19 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 18,
+      "name": "welcome-to-kubeflow",
+      "file_name": "2021-06-19-welcome-to-kubeflow.md",
+      "description": "DevOps와 MLOps 쿠브플로우까지"
+    },
+    {
+      "layout": "post",
+      "title": "Kubeflow 시각화 개발 2편",
+      "thumbnail-img": "/assets/img/engineering.jpg",
+      "categories": [
+        "dev",
+        "kubeflow",
+        "kubernetes"
+      ],
+      "date": "2021-06-21 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 19,
+      "name": "kubeflow-visualization-2",
+      "file_name": "2021-06-21-kubeflow-visualization-2.md",
+      "description": "이벤트 기반 아키텍처 구현"
+    },
+    {
+      "layout": "post",
+      "title": "리눅스 디스크 정리하기",
+      "thumbnail-img": "/assets/img/hard-drive-internal.jpg",
+      "categories": [
+        "tech",
+        "linux",
+        "short"
+      ],
+      "date": "2021-06-21 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 20,
+      "name": "linux-disk-free",
+      "file_name": "2021-06-21-linux-disk-free.md",
+      "description": "이거 지워도 되는거야?"
+    },
+    {
+      "layout": "post",
+      "title": "쿠버네티스 누클리오에 ML 모델 배포하기",
+      "thumbnail-img": "/assets/img/nuclio-superman.png",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "docker",
+        "nuclio"
+      ],
+      "date": "2021-06-23 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 21,
+      "name": "deploying-ml-model-on-kubernetes-nuclio",
+      "file_name": "2021-06-23-deploying-ml-model-on-kubernetes-nuclio.md",
+      "description": "서버리스 함수로 ML 모델 배포"
+    },
+    {
+      "layout": "post",
+      "title": "K8s tip: Expose Service",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "short"
+      ],
+      "date": "2021-06-25 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 22,
+      "name": "k8s-tip-expose-service",
+      "file_name": "2021-06-25-k8s-tip-expose-service.md",
+      "description": "쿠버네티스 서비스 노출하기"
+    },
+    {
+      "layout": "post",
+      "title": "UUID 범용 고유 식별자",
+      "thumbnail-img": "/assets/img/ticket.png",
+      "categories": [
+        "tech",
+        "linux",
+        "virtualbox",
+        "short"
+      ],
+      "date": "2021-06-25 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 23,
+      "name": "uuid",
+      "file_name": "2021-06-25-uuid.md",
+      "description": "객체 인스턴스 이름은 어떻게 짓지?"
+    },
+    {
+      "layout": "post",
+      "title": "K8s tip: Rollback",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "short"
+      ],
+      "date": "2021-07-06 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 24,
+      "name": "k8s-tip-rollback",
+      "file_name": "2021-07-06-k8s-tip-rollback.md",
+      "description": "쿠버네티스 배포 롤백하기"
+    },
+    {
+      "layout": "post",
+      "title": "깃허브 이슈로 협업하기",
+      "thumbnail-img": "/assets/img/github.svg",
+      "categories": [
+        "dev"
+      ],
+      "date": "2021-07-15 20:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 25,
+      "name": "github-issue",
+      "file_name": "2021-07-15-github-issue.md",
+      "description": "아직도 개발문서 작성하고 있어?"
+    },
+    {
+      "layout": "post",
+      "title": "무료 와일드카드 DNS",
+      "thumbnail-img": "/assets/img/joker.jpg",
+      "categories": [
+        "dev",
+        "short"
+      ],
+      "date": "2021-07-21 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 26,
+      "name": "free-wildcard-dns",
+      "file_name": "2021-07-21-free-wildcard-dns.md",
+      "description": "개발과 테스트에 필요한 사이트"
+    },
+    {
+      "layout": "post",
+      "title": "쿠버네티스에 Harbor 설치하기",
+      "thumbnail-img": "/assets/img/harbor-stacked-black.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "docker",
+        "linux"
+      ],
+      "date": "2021-07-21 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 27,
+      "name": "install-harbor",
+      "file_name": "2021-07-21-install-harbor.md",
+      "description": "도커 프라이빗 레지스트리를 만들어 보자"
+    },
+    {
+      "layout": "post",
+      "title": "Helm: 쿠버네티스 패키지 매니저",
+      "thumbnail-img": "/assets/logos/helm.svg",
+      "categories": [
+        "tech",
+        "kubernetes"
+      ],
+      "date": "2021-07-19 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 28,
+      "name": "install-helm",
+      "file_name": "2021-07-21-install-helm.md",
+      "description": "쿠버네티스도 패키지 매니저가 있다고~"
+    },
+    {
+      "layout": "post",
+      "title": "K8s tip: PersistentVolume terminating",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "short"
+      ],
+      "date": "2021-07-26 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 29,
+      "name": "k8s-tip-pv-terminating",
+      "file_name": "2021-07-26-k8s-tip-pv-terminating.md",
+      "description": "볼륨 삭제가 안되요"
+    },
+    {
+      "layout": "post",
+      "title": "VAE: Variable Auto Encoder",
+      "thumbnail-img": "/assets/img/variable-autoencoder/vae.png",
+      "categories": [
+        "math",
+        "paper",
+        "ml"
+      ],
+      "date": "2021-07-28 01:50:00",
+      "feature_image": "/assets/img/theory.jpg",
+      "comments": true,
+      "mathjax": true,
+      "id": 30,
+      "name": "variable-autoencoder",
+      "file_name": "2021-07-28-variable-autoencoder.md",
+      "description": "생성 모델과 VAE, 수학적 의미까지"
+    },
+    {
+      "layout": "post",
+      "title": "도커 컨테이너와 공유 볼륨",
+      "thumbnail-img": "/assets/img/docker.svg",
+      "categories": [
+        "tech",
+        "docker",
+        "linux"
+      ],
+      "date": "2021-08-05 11:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 31,
+      "name": "docker-shared-volume",
+      "file_name": "2021-08-05-docker-shared-volume.md",
+      "description": "도커, 어디까지 알고있니?"
+    },
+    {
+      "layout": "post",
+      "title": "고(Golang) 개발환경 구축하기",
+      "thumbnail-img": "/assets/logos/Go.svg",
+      "categories": [
+        "dev",
+        "short"
+      ],
+      "date": "2021-08-10 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 32,
+      "name": "golang-setup",
+      "file_name": "2021-08-10-golang-setup.md",
+      "description": "고 아직도 안써봤어?"
+    },
+    {
+      "layout": "post",
+      "title": "K8s tip: ConfigMap",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubeflow",
+        "kubernetes",
+        "short"
+      ],
+      "date": "2021-08-11 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 33,
+      "name": "k8s-tip-configmap",
+      "file_name": "2021-08-11-k8s-tip-configmap.md",
+      "description": "컨테이너 설정 데이터를 관리하는 방법"
+    },
+    {
+      "layout": "post",
+      "title": "Dex: OpenID 커넥터",
+      "thumbnail-img": "/assets/logos/dex.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "istio"
+      ],
+      "date": "2021-08-12 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 34,
+      "name": "dex",
+      "file_name": "2021-08-12-dex.md",
+      "description": "자원에 OpenID 인증을 제공하는 방법"
+    },
+    {
+      "layout": "post",
+      "title": "Envoy proxy: 대규모 서비스를 위한 L7 프록시",
+      "thumbnail-img": "/assets/logos/envoy-proxy.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "istio"
+      ],
+      "date": "2021-08-20 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 35,
+      "name": "envoy",
+      "file_name": "2021-08-20-envoy.md",
+      "description": "네트워크 투명성과 쉬운 문제 파악"
+    },
+    {
+      "layout": "post",
+      "title": "Istio: 서비스 메시",
+      "thumbnail-img": "/assets/logos/Istio.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "docker",
+        "istio"
+      ],
+      "date": "2021-08-17 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 36,
+      "name": "istio",
+      "file_name": "2021-08-20-istio.md",
+      "description": "마이크로 서비스 아키텍처를 관리하는 방법"
+    },
+    {
+      "layout": "post",
+      "title": "허정원 기술블로그",
+      "thumbnail-img": "/assets/logos/logo.svg",
+      "categories": [
+        "blog",
+        "tech"
+      ],
+      "date": "2021-08-23 19:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 37,
+      "name": "blog-tech-map",
+      "file_name": "2021-08-23-blog-tech-map.md",
+      "description": "블로그 사이트맵"
+    },
+    {
+      "layout": "post",
+      "title": "CNCF: Cloud Native Computing Foundation",
+      "thumbnail-img": "/assets/logos/cncf.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "linux"
+      ],
+      "date": "2021-08-23 15:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 38,
+      "name": "cncf",
+      "file_name": "2021-08-23-cncf.md",
+      "description": "클라우드, 컨테이너 환경을 위한 오픈소스"
+    },
+    {
+      "layout": "post",
+      "title": "아마존 세이지메이커: 머신러닝 자동화",
+      "thumbnail-img": "/assets/logos/sagemaker.svg",
+      "categories": [
+        "tech",
+        "ml"
+      ],
+      "date": "2021-08-29 23:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 39,
+      "name": "sagemaker",
+      "file_name": "2021-08-29-sagemaker.md",
+      "description": "AWS Builders Sagemaker Session"
+    },
+    {
+      "layout": "post",
+      "title": "쿠브플로우 가이드",
+      "thumbnail-img": "/assets/img/kubeflow.svg",
+      "categories": [
+        "tech",
+        "kubeflow"
+      ],
+      "date": "2021-08-31 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 40,
+      "name": "kubeflow-guide",
+      "file_name": "2021-08-31-kubeflow-guide.md",
+      "description": "쿠브플로우 파이프라인 사용 가이드"
+    },
+    {
+      "layout": "post",
+      "title": "쿠버네티스 아키텍처",
+      "thumbnail-img": "/assets/img/Kubernetes.svg",
+      "categories": [
+        "tech",
+        "kubernetes",
+        "linux"
+      ],
+      "date": "2021-09-01 17:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 41,
+      "name": "kubernetes-architecture",
+      "file_name": "2021-09-01-kubernetes-architecture.md",
+      "description": "쿠버네티스의 작동 원리"
+    },
+    {
+      "layout": "post",
+      "title": "Intelligent Computer Vision 1(개요)",
+      "thumbnail-img": "/assets/logos/computer_vision.svg",
+      "categories": [
+        "lecture",
+        "ml"
+      ],
+      "date": "2021-10-18 22:50:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 42,
+      "name": "Intelligent-Computer-Vision-1",
+      "file_name": "2021-10-18-Intelligent-Computer-Vision-1.md",
+      "description": "개요"
+    },
+    {
+      "layout": "post",
+      "title": "Ensemble Methods",
+      "thumbnail-img": "/assets/Bamboo.png",
+      "categories": [
+        "math",
+        "ml"
+      ],
+      "date": "2022-02-13 15:00:00",
+      "feature_image": "/assets/img/bamboos.jpg",
+      "comments": true,
+      "id": 43,
+      "name": "ensemble-methods",
+      "file_name": "2022-02-13-ensemble-methods.md",
+      "description": "모델 앙상블"
+    },
+    {
+      "layout": "post",
+      "title": "Uncertainty Estimation",
+      "thumbnail-img": "/assets/Bamboo.png",
+      "categories": [
+        "math",
+        "ml"
+      ],
+      "date": "2022-02-13 15:00:00",
+      "feature_image": "/assets/img/theory.jpg",
+      "comments": true,
+      "mathjax": true,
+      "id": 44,
+      "name": "uncertainty-estimation",
+      "file_name": "2022-02-13-uncertainty-estimation.md",
+      "description": "모델이 예측한 결과를 얼마나 신뢰할 수 있는가?"
+    }
+  ],
+  "categories": {
+    "blog": [
+      "first-post",
+      "update-blog",
+      "blog-essay",
+      "blog-tech-map"
+    ],
+    "update": [
+      "first-post",
+      "update-blog",
+      "blog-essay"
+    ],
+    "tech": [
+      "welcome-to-kubernetes",
+      "install-docker",
+      "install-kubernetes",
+      "install-virtualbox-with-no-gui",
+      "install-kubeflow",
+      "install-tar.gz",
+      "kubernetes-usage",
+      "nuclio",
+      "k8s-tip-nodeselector",
+      "minio",
+      "welcome-to-docker",
+      "welcome-to-kubeflow",
+      "linux-disk-free",
+      "deploying-ml-model-on-kubernetes-nuclio",
+      "k8s-tip-expose-service",
+      "uuid",
+      "k8s-tip-rollback",
+      "install-harbor",
+      "install-helm",
+      "k8s-tip-pv-terminating",
+      "docker-shared-volume",
+      "k8s-tip-configmap",
+      "dex",
+      "envoy",
+      "istio",
+      "blog-tech-map",
+      "cncf",
+      "sagemaker",
+      "kubeflow-guide",
+      "kubernetes-architecture"
+    ],
+    "kubernetes": [
+      "welcome-to-kubernetes",
+      "install-kubernetes",
+      "install-kubeflow",
+      "kubernetes-usage",
+      "nuclio",
+      "kubeflow-visualization-1",
+      "k8s-tip-nodeselector",
+      "minio",
+      "welcome-to-kubeflow",
+      "kubeflow-visualization-2",
+      "deploying-ml-model-on-kubernetes-nuclio",
+      "k8s-tip-expose-service",
+      "k8s-tip-rollback",
+      "install-harbor",
+      "install-helm",
+      "k8s-tip-pv-terminating",
+      "k8s-tip-configmap",
+      "dex",
+      "envoy",
+      "istio",
+      "cncf",
+      "kubernetes-architecture"
+    ],
+    "docker": [
+      "welcome-to-kubernetes",
+      "install-docker",
+      "install-kubernetes",
+      "nuclio",
+      "welcome-to-docker",
+      "deploying-ml-model-on-kubernetes-nuclio",
+      "install-harbor",
+      "docker-shared-volume",
+      "istio"
+    ],
+    "linux": [
+      "install-docker",
+      "install-kubernetes",
+      "install-virtualbox-with-no-gui",
+      "install-kubeflow",
+      "install-tar.gz",
+      "linux-disk-free",
+      "uuid",
+      "install-harbor",
+      "docker-shared-volume",
+      "cncf",
+      "kubernetes-architecture"
+    ],
+    "virtualbox": [
+      "install-virtualbox-with-no-gui",
+      "install-kubeflow",
+      "uuid"
+    ],
+    "kubeflow": [
+      "install-kubeflow",
+      "kubeflow-visualization-1",
+      "minio",
+      "welcome-to-kubeflow",
+      "kubeflow-visualization-2",
+      "k8s-tip-configmap",
+      "kubeflow-guide"
+    ],
+    "paper": [
+      "alphapose",
+      "variable-autoencoder"
+    ],
+    "ml": [
+      "alphapose",
+      "information-theory",
+      "variable-autoencoder",
+      "sagemaker",
+      "Intelligent-Computer-Vision-1",
+      "ensemble-methods",
+      "uncertainty-estimation"
+    ],
+    "nuclio": [
+      "nuclio",
+      "deploying-ml-model-on-kubernetes-nuclio"
+    ],
+    "math": [
+      "information-theory",
+      "variable-autoencoder",
+      "ensemble-methods",
+      "uncertainty-estimation"
+    ],
+    "dev": [
+      "kubeflow-visualization-1",
+      "kubeflow-visualization-2",
+      "github-issue",
+      "free-wildcard-dns",
+      "golang-setup"
+    ],
+    "short": [
+      "k8s-tip-nodeselector",
+      "linux-disk-free",
+      "k8s-tip-expose-service",
+      "uuid",
+      "k8s-tip-rollback",
+      "free-wildcard-dns",
+      "k8s-tip-pv-terminating",
+      "golang-setup",
+      "k8s-tip-configmap"
+    ],
+    "istio": [
+      "dex",
+      "envoy",
+      "istio"
+    ],
+    "lecture": [
+      "Intelligent-Computer-Vision-1"
+    ]
+  }
+}

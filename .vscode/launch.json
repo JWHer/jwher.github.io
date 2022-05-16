@@ -15,6 +15,14 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
+    },
+    {
+      "name": "Update",
+      "type": "python",
+      "request": "launch",
+      "program": "update.py",
+      "console": "integratedTerminal",
+      "justMyCode": false
     }
   ]
 }

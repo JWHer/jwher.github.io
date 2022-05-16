@@ -1,5 +1,6 @@
 import os, json, yaml, tqdm, re
-dry_run = True
+from urllib.request import urlopen
+dry_run = False
 
 # 1. update posts
 delimiter = '---\n'
@@ -26,6 +27,14 @@ for idx, mkdw in enumerate(tqdm.tqdm(mkdw_list), 1):
     meta['id'] = idx
     meta['name'] = mkdw[11:-3]
     meta['file_name'] = mkdw
+
+    meta['title'] = str(meta['title'])
+    meta['date'] = meta['date'].strftime('%Y-%m-%d %H:%M:%S')
+    if 'excerpt' in meta: meta['description'] = meta.pop('excerpt')
+    meta['description'] = str(meta['description']).strip()
+    if 'redirect_from' in meta: del meta['redirect_from']
+    if 'aside' in meta: del meta['aside']
+    if 'feature_text' in meta: del meta['feature_text']
 
     meta_list.append(meta)
     if dry_run:
@@ -54,8 +63,11 @@ if dry_run:
     print("post list")
     print(post_list)
 else:
-    with open(os.path.join(output_path, 'post-list.json')) as json_file:
-        json.dump(post_list, json_file, indent=2)
+    with open(
+        os.path.join(output_path, 'post-list.json'),
+        'w', encoding='utf-8'
+    ) as json_file:
+        json.dump(post_list, json_file, indent=2, ensure_ascii=False)
 """
 {
     "layout": "",
@@ -71,5 +83,41 @@ else:
 """
 
 # 2. update mystory
+endpoint = 'https://graph.instagram.com'
+token = 'IGQVJVNW5TbldjdWo5NkhCeDRvOUFLUU55a2xsbUtJSXllaUFZAYmozUUFoNnNERUZACOXpENG9kUFMwcGlHd3B4YnpheEV3ODRrcFA0QVpoa1ZApOVpleGlNVUlZAU1ZAMQ21ZAbGRvdy1nOVdMQW9ZAQWhDTAZDZD'
+response = urlopen(f'{endpoint}/me/media?fields=id,caption&access_token={token}')
+image_list = []
+
+media_list = json.loads(response.read().decode('utf-8'))['data']
+for media in tqdm.tqdm(media_list):
+    response = urlopen(f'{endpoint}/{media["id"]}?fields=media_type,media_url&access_token={token}')
+    result = json.loads(response.read().decode('utf-8'))
+    if result['media_type']=='IMAGE':
+        image_list.append({"media_url":result['media_url'], "caption":media['caption']})
+
+if dry_run:
+    print('image_list')
+    print(image_list)
+else:
+    with open(
+        os.path.join('./src/app/components/about-me', 'image-list.json'),
+        'w', encoding='utf-8'
+    ) as json_file:
+        json.dump(image_list, json_file, indent=2, ensure_ascii=False)    
+"""
+const response = await fetch('/api/me/media?fields=id,caption&access_token=IGQVJVNW5TbldjdWo5NkhCeDRvOUFLUU55a2xsbUtJSXllaUFZAYmozUUFoNnNERUZACOXpENG9kUFMwcGlHd3B4YnpheEV3ODRrcFA0QVpoa1ZApOVpleGlNVUlZAU1ZAMQ21ZAbGRvdy1nOVdMQW9ZAQWhDTAZDZD');
+let mediaList: {data:Array<{id:string, caption:string}>} = await response.json();
+console.log(mediaList);
+for(const media of mediaList.data){
+  // console.log("media:"+media);
+  const response = await fetch('/api/'+media.id+'?fields=media_type,media_url&access_token=IGQVJVNW5TbldjdWo5NkhCeDRvOUFLUU55a2xsbUtJSXllaUFZAYmozUUFoNnNERUZACOXpENG9kUFMwcGlHd3B4YnpheEV3ODRrcFA0QVpoa1ZApOVpleGlNVUlZAU1ZAMQ21ZAbGRvdy1nOVdMQW9ZAQWhDTAZDZD');
+  let result:{media_type:string, media_url:string} = await response.json();
+  console.log(result);
+  if(result.media_type=='IMAGE'){
+    this.data.push({media_url:result.media_url, caption:media.caption});
+  }
+}
+console.log(this.data);
+"""
 
 # ...
