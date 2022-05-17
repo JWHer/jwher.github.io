@@ -7,27 +7,27 @@
             Let thine heart retain my words: Keep my commandments, and live.
         </h6>
     </div>
-    <!-- <li>
+    <li *ngFor="let post of postList">
         <table>
             <tbody>
                 <tr>
                     <th>
-                        <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+                        <h2><a routerLink="/{{ post.name }}">{{ post.title }}</a></h2>
                     </th>
-                    <th *ngIf="page.thumbnail" rowspan="2" style="min-width: 15vh;">
-                        <a href="{{ page.url }}">
-                            <img src="{{ page.thumbnail }}" class="img-link" />
+                    <th *ngIf="post['thumbnail-img']" rowspan="2" style="min-width: 15vh;">
+                        <a routerLink="/{{ post.name }}">
+                            <img src="{{ post['thumbnail-img'] }}" class="img-link" />
                         </a>
                     </th>
                 </tr>
                 <tr>
                     <th>
-                        {{page.desc}}
+                        {{post.description}}
                     </th>
                 </tr>
             </tbody>
         </table>
-    </li> -->
-    <markdown katex src="https://raw.githubusercontent.com/JWHer/jwher.github.io/main/README.md"></markdown>
+    </li>
+    <!-- <markdown katex src="https://raw.githubusercontent.com/JWHer/jwher.github.io/main/README.md"></markdown> -->
     <!-- <markdown src="./assets/posts/2021-04-11-first-post.md"></markdown> -->
 </div>
