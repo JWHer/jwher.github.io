@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('assets/img/posts/library.jpg');">
+        <h2 class="presentation-subtitle">
+            {{post.name}}
+        </h2>
+        <h6 class="presentation-copyright">
+            {{post.description}}
+        </h6>
+    </div>
+    <markdown katex emoji
+        src="/assets/posts/{{post.file_name}}">
+    </markdown>
+</div>
