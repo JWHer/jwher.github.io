@@ -15,6 +15,7 @@ import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { CommentsComponent } from './comments/comments.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostViewComponent } from './post-view/post-view.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PostsComponent } from './posts/posts.component';
     RecentPostsComponent,
     SocialLinksComponent,
     CommentsComponent,
+    PostViewComponent,
   ],
   imports: [
     CommonModule,

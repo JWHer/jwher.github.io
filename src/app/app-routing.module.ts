@@ -2,15 +2,17 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { PostsComponent } from './components/posts/posts.component';
 
+import { HomeComponent } from './components/home/home.component';
+import { PostViewComponent } from './components/post-view/post-view.component';
+import { PostsComponent } from './components/posts/posts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'posts', component: PostsComponent },
+  { path: ':postName', component: PostViewComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

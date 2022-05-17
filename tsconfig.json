@@ -23,7 +23,11 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@states/*": ["src/app/states/*"],
+      "@assets/*": ["src/assets/*"]
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
