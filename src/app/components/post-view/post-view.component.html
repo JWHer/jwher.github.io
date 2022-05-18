@@ -7,7 +7,10 @@
             {{post.description}}
         </h6>
     </div>
-    <markdown katex emoji
-        src="/assets/posts/{{post.file_name}}">
-    </markdown>
+    <div class="container">
+        <markdown katex emoji
+            src="/assets/posts/{{post.file_name}}">
+        </markdown>
+        <app-comments></app-comments>
+    </div>
 </div>
