@@ -2,19 +2,112 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
+ :root{
+   --header-text-color: #e3e3e3;
+   --header-text-dark-color: #9A9A9A;
+ }
 
-.heroBanner {
+ .navbar {
+   background-color: transparent;
+ }
+
+ .page-header {
+  background: url('/static/img/bamboo-road.jpg');
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 999px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+.page-header .filter::after {
+  background-color: rgba(0, 0, 0, .5);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.content-center {
+  z-index: 1;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  display: block;
+}
+.title-brand {
+  max-width: 730px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  color: inherit;
+  display: block;
+}
+.presentation-title {
+  font-size: 8em;
+  font-weight: 700;
+  margin: 0;
+  padding: 15px;
+  color: var(--header-text-color);
+  /* background: $white-color; */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+.presentation-subtitle {
+  font-size: 1.7em;
+  color: var(--header-text-color);
+  text-align: center;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  /* font-family: $font-family-sans-serif; */
+  font-weight: 300;
+}
+.presentation-copyright {
+  font-size: 1em;
+  color: var(--header-text-dark-color);
+  text-align: center;
+}
+.moving-clouds{
+  background-image: url('/static/img/clouds.png');
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 250.625em;
+  height: 43.75em;
+  -webkit-animation: cloudLoop 80s linear infinite;
+  animation: cloudLoop 80s linear infinite;
+}
+@keyframes cloudLoop{   0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+                      100%{-webkit-transform:translate3d(-50%,0,0);
+                      transform:translate3d(-50%,0,0)}
+                  }
+
+/* .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
+} */
 
-@media screen and (max-width: 996px) {
+/* @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
-}
+} */
 
 .buttons {
   display: flex;
