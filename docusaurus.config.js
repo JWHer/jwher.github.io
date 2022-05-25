@@ -62,14 +62,23 @@ const config = {
           alt: 'Site Logo',
           src: 'img/logo.svg',
         },
+        hideOnScroll: true,
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            to: '/',
+            label: 'Home',
             position: 'right',
-            label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'right'},
+          {
+            to: '/posts',
+            label: 'Posts',
+            position: 'right'
+          },
+          {
+            to: '/categories',
+            label: 'Categories',
+            position: 'right'
+          },
           {
             href: 'https://github.com/jwher',
             className: 'github-icon',
@@ -100,9 +109,10 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Social links',
             items: [
               {
+                // html: '<a href=https://github.com/jwher target=_blank class=github-icon></a>',
                 href: 'https://github.com/jwher',
                 label: 'GitHub',
               },
