@@ -28,3 +28,56 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* .icon::after {
+  width: 24px;
+  height: 24px;
+  display: block;
+} */
+
+.github-icon::after {
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-image: url('/static/img/github-brands.svg');
+  mask-image: url('/static/img/instagram-brands.svg');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.linkedin-icon::after {
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-image: url('/static/img/linkedin-brands.svg');
+  mask-image: url('/static/img/instagram-brands.svg');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.instagram-icon::after {
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-image: url('/static/img/instagram-brands.svg');
+  mask-image: url('/static/img/instagram-brands.svg');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  /* background: url('/static/img/instagram-brands.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+}

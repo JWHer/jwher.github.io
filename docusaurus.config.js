@@ -72,17 +72,17 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'right'},
           {
             href: 'https://github.com/jwher',
-            label: 'GitHub',
+            className: 'github-icon',
             position: 'right',
           },
           {
             href: 'https://www.linkedin.com/jwher',
-            label: 'Linked In',
+            className: 'linkedin-icon',
             position: 'right',
           },
           {
             href: 'https://www.instagram.com/jwher96',
-            label: 'Instagram',
+            className: 'instagram-icon',
             position: 'right',
           },
         ],
