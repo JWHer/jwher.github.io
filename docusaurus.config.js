@@ -47,7 +47,7 @@ const config = {
             'https://github.com/jwher/jwher.github.io',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
     ],
@@ -64,11 +64,11 @@ const config = {
         },
         hideOnScroll: true,
         items: [
-          {
-            to: '/',
-            label: 'Home',
-            position: 'right',
-          },
+          // {
+          //   to: '/',
+          //   label: 'Home',
+          //   position: 'right',
+          // },
           {
             to: '/posts',
             label: 'Posts',
@@ -98,36 +98,11 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Social links',
-            items: [
-              {
-                // html: '<a href=https://github.com/jwher target=_blank class=github-icon></a>',
-                href: 'https://github.com/jwher',
-                label: 'GitHub',
-              },
-              {
-                href: 'https://www.linkedin.com/jwher',
-                label: 'Linked In',
-              },
-              {
-                href: 'https://www.instagram.com/jwher96',
-                label: 'Instagram',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Jeongwon Her. Built with Docusaurus.`,
+        copyright: `
+        <div class="copyright">
+          Copyright © ${new Date().getFullYear()}, made by JWHer.<span class="heart-icon"></span>
+        </div>
+        `,
       },
       prism: {
         theme: lightCodeTheme,
@@ -155,6 +130,7 @@ const config = {
       //   searchPagePath: 'search',
       // }
     }),
+    plugins: ['docusaurus-plugin-sass'],
 };
 
 module.exports = config;

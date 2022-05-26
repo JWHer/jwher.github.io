@@ -1,0 +1,40 @@
+.navbar__top.navbar{
+    background: transparent;
+    .navbar__inner .navbar__title {
+        color: #e3e3e3;
+    }
+    .navbar__items {
+        color: #e3e3e3;
+    }
+    .navbar__item {
+        color: #e3e3e3;
+    }
+}
+
+%icon {
+    color: inherit;
+    background-color: currentColor;
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+.github-icon::after {
+    @extend %icon;
+    mask-image: url('/static/img/github-brands.svg');
+}
+.linkedin-icon::after {
+    @extend %icon;
+    mask-image: url('/static/img/linkedin-brands.svg');
+}
+.instagram-icon::after {
+    @extend %icon;
+    mask-image: url('/static/img/instagram-brands.svg');
+    // background: url('/static/img/instagram-brands.svg');
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center; 
+}

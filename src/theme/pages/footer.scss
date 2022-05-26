@@ -1,0 +1,21 @@
+@keyframes heathing {
+    0%   { font-size: .75em; }
+    20%  { font-size: 1em; }
+    40%  { font-size: .75em; }
+    60%  { font-size: 1em; }
+    80%  { font-size: .75em; }
+    100% { font-size: .75em; }
+  }
+  .heart-icon {
+    position: absolute;
+    &::after {
+      content: '♥';
+      color: #F00;
+      animation: 1s infinite heathing;
+    }
+  }
+  .copyright {
+    /* color: #e3e3e3; */
+    font-weight: bold;
+    font-size: 1.2em;
+  }
