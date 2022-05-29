@@ -1,0 +1,19 @@
+.presentation__title {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--header-text-color);
+    text-align: center;
+    // mix-blend-mode: hard-light;
+    z-index: 2;
+}
+
+.presentation__subtitle {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--header-text-color);
+    text-align: center;
+    // mix-blend-mode: hard-light;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    z-index: 2;
+}

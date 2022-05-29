@@ -1,0 +1,37 @@
+.docPage {
+    display: flex;
+    width: 100%;
+}
+
+.docsWrapper {
+    display: flex; 
+    flex-direction: column;
+}
+ 
+.categories__header {
+    background-image: url('/static/img/categories/category.jpg');
+    background-position: center center;
+    background-size: cover;
+    min-height: 30vh;
+    // max-height: 999px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    .filter::after {
+        background-color: rgba(0, 0, 0, .5);
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+}

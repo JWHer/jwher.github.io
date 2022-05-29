@@ -1,0 +1,16 @@
+.notfound__header {
+    background-image: url('/static/img/notfound/under-construction.jpg');
+    background-position: center center;
+    background-size: cover;
+    min-height: 30vh;
+    // max-height: 999px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+}
