@@ -33,6 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: 'categories',
+          routeBasePath: '/categories',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -40,6 +42,8 @@ const config = {
             'https://github.com/jwher/jwher.github.io',
         },
         blog: {
+          path: 'posts',
+          routeBasePath: '/posts',
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
