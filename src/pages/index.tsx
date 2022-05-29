@@ -1,40 +1,45 @@
 import React from 'react';
-import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 function HomepageHeader() {
+  document.addEventListener('scroll',()=>{
+    if(window.scrollY<150){
+      document.documentElement.style.setProperty(
+        '--navbar-bg-color', 'transparent'
+      );
+      document.documentElement.style.setProperty(
+        '--navbar-text-color', '#e3e3e3'
+      );
+    }else{
+      document.documentElement.style.setProperty(
+        '--navbar-bg-color',
+        'var(--ifm-background-surface-color)'
+      );
+      document.documentElement.style.setProperty(
+        '--navbar-text-color',
+        'var(--ifm-navbar-link-color)'
+      );
+    }
+  });
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={styles['page-header']}>
+    <header className={styles.title__header}>
       <div className={styles.filter}></div>
-        <div className={styles['content-center']}>
-            <div className={styles['title-brand']}>
-                <h1 className={styles['presentation-title']}>JWHer Tech Blog</h1>
+        <div className={styles.title__center}>
+            <div className={styles.title__brand}>
+                <h1 className={styles.title__presentation__title}>JWHer Tech Blog</h1>
             </div>
-            <h2 className={styles['presentation-subtitle']}>
+            <h2 className={styles.title__presentation__subtitle}>
                 허정원 기술블로그
             </h2>
-            <h6 className={styles['presentation-copyright']}>
+            <h6 className={styles.title__presentation__copyright}>
                 Copyright © 2022, JeongWon Her and/or its subsidiaries or affiliates.
             </h6>
-            <div className={styles['moving-clouds']}></div>
+            <div className={styles.title__moving__clouds}></div>
         </div>
-      {/* <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div> */}
     </header>
   );
 }

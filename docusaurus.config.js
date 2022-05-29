@@ -62,7 +62,7 @@ const config = {
           alt: 'Site Logo',
           src: 'img/logo.svg',
         },
-        hideOnScroll: true,
+        // hideOnScroll: true,
         items: [
           // {
           //   to: '/',
@@ -81,17 +81,17 @@ const config = {
           },
           {
             href: 'https://github.com/jwher',
-            className: 'github-icon',
+            className: 'icon-github',
             position: 'right',
           },
           {
             href: 'https://www.linkedin.com/jwher',
-            className: 'linkedin-icon',
+            className: 'icon-linkedin',
             position: 'right',
           },
           {
             href: 'https://www.instagram.com/jwher96',
-            className: 'instagram-icon',
+            className: 'icon-instagram',
             position: 'right',
           },
         ],

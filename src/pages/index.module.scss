@@ -7,11 +7,7 @@
    --header-text-dark-color: #9A9A9A;
  }
 
- .navbar {
-   background-color: transparent;
- }
-
- .page-header {
+ .title__header {
   background: url('/static/img/bamboo-road.jpg');
   background-position: center center;
   background-size: cover;
@@ -26,7 +22,7 @@
   justify-content: center;
   -ms-flex-pack: center;
 }
-.page-header .filter::after {
+.title__header .filter::after {
   background-color: rgba(0, 0, 0, .5);
   content: "";
   display: block;
@@ -37,7 +33,7 @@
   width: 100%;
   z-index: 1;
 }
-.content-center {
+.title__center {
   z-index: 1;
   width: 100%;
   padding-right: 15px;
@@ -47,7 +43,7 @@
 
   display: block;
 }
-.title-brand {
+.title__brand {
   max-width: 730px;
   margin: 0 auto;
   position: relative;
@@ -55,7 +51,7 @@
   color: inherit;
   display: block;
 }
-.presentation-title {
+.title__presentation__title {
   font-size: 8em;
   font-weight: 700;
   margin: 0;
@@ -65,7 +61,7 @@
   /* -webkit-background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
 }
-.presentation-subtitle {
+.title__presentation__subtitle {
   font-size: 1.7em;
   color: var(--header-text-color);
   text-align: center;
@@ -75,12 +71,12 @@
   /* font-family: $font-family-sans-serif; */
   font-weight: 300;
 }
-.presentation-copyright {
+.title__presentation__copyright {
   font-size: 1em;
   color: var(--header-text-dark-color);
   text-align: center;
 }
-.moving-clouds{
+.title__moving__clouds{
   background-image: url('/static/img/clouds.png');
   position: absolute;
   z-index: 1;
@@ -91,26 +87,8 @@
   -webkit-animation: cloudLoop 80s linear infinite;
   animation: cloudLoop 80s linear infinite;
 }
-@keyframes cloudLoop{   0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-                      100%{-webkit-transform:translate3d(-50%,0,0);
-                      transform:translate3d(-50%,0,0)}
-                  }
-
-/* .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-} */
-
-/* @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-} */
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes cloudLoop{
+  0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+  100%{-webkit-transform:translate3d(-50%,0,0);
+  transform:translate3d(-50%,0,0)}
 }

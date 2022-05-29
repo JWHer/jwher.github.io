@@ -1,13 +1,30 @@
-.navbar__top.navbar{
-    background: transparent;
+:root{
+    --navbar-bg-color: var(--ifm-background-surface-color) // #FFF;
+    --navbar-bg-top: transparent; 
+    // --navbar-bg-origin: #FFF;
+
+    --navbar-text-color: var(--ifm-navbar-link-color) // #1c1e21;
+    --navbar-text-top: #e3e3e3;
+    // --navbar-text-origin: #1c1e21;
+}
+// [data-theme='dark'] {
+//     --navbar-bg-color: #242526;
+//     --navbar-bg-origin: #242526;
+//     --navbar-text-color: #e3e3e3;
+//     --navbar-text-origin: #e3e3e3;
+// }
+
+.navbar{
+    transition: background-color .3s, color .3s;
+    background: var(--navbar-bg-color);
     .navbar__inner .navbar__title {
-        color: #e3e3e3;
+        color: var(--navbar-text-color);
     }
     .navbar__items {
-        color: #e3e3e3;
+        color: var(--navbar-text-color);
     }
     .navbar__item {
-        color: #e3e3e3;
+        color: var(--navbar-text-color);
     }
 }
 
@@ -22,15 +39,15 @@
     mask-repeat: no-repeat;
     mask-position: center;
 }
-.github-icon::after {
+.icon-github::after {
     @extend %icon;
     mask-image: url('/static/img/github-brands.svg');
 }
-.linkedin-icon::after {
+.icon-linkedin::after {
     @extend %icon;
     mask-image: url('/static/img/linkedin-brands.svg');
 }
-.instagram-icon::after {
+.icon-instagram::after {
     @extend %icon;
     mask-image: url('/static/img/instagram-brands.svg');
     // background: url('/static/img/instagram-brands.svg');
