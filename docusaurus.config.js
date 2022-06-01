@@ -42,9 +42,11 @@ const config = {
             'https://github.com/jwher/jwher.github.io',
         },
         blog: {
+          blogTitle: 'Posts',
           path: 'posts',
           routeBasePath: '/posts',
           showReadingTime: true,
+          blogSidebarCount: 10,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -89,7 +91,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://www.linkedin.com/jwher',
+            href: 'https://www.linkedin.com/in/jwher',
             className: 'icon-linkedin',
             position: 'right',
           },

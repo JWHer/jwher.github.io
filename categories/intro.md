@@ -3,6 +3,6 @@ sidebar_position: 1
 slug: /
 ---
 
-# Introduction
+# Categories
 
-nice job bro!
+Will be updated soon

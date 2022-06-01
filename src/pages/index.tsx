@@ -2,28 +2,9 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.scss';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import AboutMe from '@site/src/components/AboutMe';
 
 function HomepageHeader() {
-  document.addEventListener('scroll',()=>{
-    if(window.scrollY<150){
-      document.documentElement.style.setProperty(
-        '--navbar-bg-color', 'transparent'
-      );
-      document.documentElement.style.setProperty(
-        '--navbar-text-color', '#e3e3e3'
-      );
-    }else{
-      document.documentElement.style.setProperty(
-        '--navbar-bg-color',
-        'var(--ifm-background-surface-color)'
-      );
-      document.documentElement.style.setProperty(
-        '--navbar-text-color',
-        'var(--ifm-navbar-link-color)'
-      );
-    }
-  });
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={styles.title__header}>
@@ -52,7 +33,7 @@ export default function Home(): JSX.Element {
       description="JWHer Tech Blog">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <AboutMe />
       </main>
     </Layout>
   );
