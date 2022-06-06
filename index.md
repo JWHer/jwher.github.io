@@ -40,7 +40,7 @@ hacell2@gamil.com
 
 # Experience
 >MLOps engineer  
->March 2021 - Current
+>March 2021 - Current  
 >Seoul, Korea
  
 ML system Integration, Orchestrate the steps in ML, Automation
