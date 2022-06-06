@@ -25,7 +25,13 @@ What else do you need?
 
 hacell2@gamil.com
 
-# English
+### My story
+
+나중에 들려드리겠습니다:)
+
+<hr style="80vw"/>
+
+# English - Summary
 
 * Languages: Java, Python, JavaScript
 * DevOps: git(gitlab), Docker(Harbor), Kubernetes
@@ -77,4 +83,4 @@ hacell2@gamil.com
 
 ### My story
 
-나중에 들려드리겠습니다:)
+I'll tell you later:)
