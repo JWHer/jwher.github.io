@@ -6,6 +6,12 @@
     // mix-blend-mode: hard-light;
     z-index: 2;
 }
+@media only screen and (max-width:767px) {
+    .presentation__title {
+        padding-top: 1em;
+        font-size: 3em;
+    }
+}
 
 .presentation__subtitle {
     font-size: 1em;

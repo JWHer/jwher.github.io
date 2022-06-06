@@ -60,6 +60,11 @@
   /* -webkit-background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
 }
+@media only screen and (max-width: 767px){
+  .title__presentation__title {
+    font-size: 4em;
+  }
+}
 .title__presentation__subtitle {
   font-size: 1.7em;
   color: var(--header-text-color);
