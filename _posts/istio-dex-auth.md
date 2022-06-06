@@ -89,3 +89,11 @@ data:
       name: 'Dex Login Application'
       secret: pUBnBOY80SnXgjibTYM9ZWNzY2xreNGQok
 ```
+
+## dex
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=alice_k106&logNo=221598325656  
+https://lcc3108.github.io/articles/2020-12/Istio+Dex-%EC%9D%B8%EC%A6%9D#dex-%EB%B0%B0%ED%8F%AC
+
+https://github.com/oauth2-proxy/oauth2-proxy  
+https://github.com/arrikto/oidc-authservice  
