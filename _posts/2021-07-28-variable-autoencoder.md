@@ -158,7 +158,7 @@ $ P(A)P(B)=P(A \bigcap B) $
 
 *p,q는 각각 확률분포의 확률밀도함수입니다*  
 연속일때 조금 더 풀어보면 다움과 같습니다  
-* $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log p(x)dx - \int_{-\infty}^{\infty}p(x)log q(x)dx $  
+* $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\ p(x)dx - \int_{-\infty}^{\infty}p(x)log\ q(x)dx $  
   
 <p align="center">
 <iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/" style="height: 350px; width: 860px; overflow: scroll;">
@@ -228,44 +228,48 @@ p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\m
 
 이상적인 사후조건에 베이즈 정리를 적용해 봅시다.  
 
-$ p(z\mid x)=\frac{p(z)*p(x\mid z)}{p(x)} \newline p(x)=\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
+$ p(z\mid x)=\frac{p(z)*p(x\mid z)}{p(x)} $  
+$ p(x)=\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
 
 *양변에 로그를 취합니다*  
-$ log p(x)=log\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
+$ log\ p(x)=log\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
 
 *로그의 성질에 따라*  
-$ \quad = log p(z)+log p(x\mid z)-log p(z\mid x) \qquad 1) $  
+$ \quad = log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x $  -1)  
 
 우리가 알고있는 근사분포 $ q_\lambda(z\mid x) $는 연속확률분포임으로  
 $ \int_{\infty}^{-\infty}q_\lambda(z\mid x)dz=1 $  
 
-*식1) 양변에 1을 곱하면*  
-$ log p(x)*1=\int_{\infty}^{-\infty}q_\lambda(z\mid x)log p(x)dz $  
-$ \quad = \int q_\lambda(z\mid x) \left [ log p(z)+log p(x\mid z)-log p(z\mid x) \right ] dz $  
-$ \quad = \int q_\lambda(z\mid x)log p(z)dz + \int q_\lambda(z\mid x)log p(x\mid z)dz - \int q_\lambda(z\mid x)log p(z\mid x)dz $  
+*log p(x) 양변에 1을 곱하면*  
+$ log\ p(x)*1=\int q_\lambda(z\mid x)log\ p(x)dz $  
 
-*양변에 $ 0=\int q_\lambda(z\mid x)log q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log q_\lambda(z\mid x)dz $을 더합니다.
+*식1)을 사용하여*  
+$ \quad = \int q_\lambda(z\mid x) \left [ log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) \right ] dz $  
+$ \quad = \int q_\lambda(z\mid x)log\ p(z)dz + \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\ p(z\mid x)dz $  
+
+*양변에 $ 0=\int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz $을 더합니다.
 이때, 우리가 알아낼 수 있는 것($ p(z), q_\lambda(z\mid x) $)을 생각해 짝지어 줍시다*  
-$ log p(x)= \int q_\lambda(z\mid x)log p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz $
-$ log p(x)= \int q_\lambda(z\mid x)log p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz $  
+$ log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz $
+$ log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz $  
 
 *몬테카를로 추정과 쿨백-라이블러 발산으로 변형하면*   
-$ log p(x)= E_{q_\lambda(z\mid x)}[log p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $  
+$ log\ p(x)= E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $  
 
 *쿨백-라이블러 발산의 특징(≥0)을 이용하면*  
-$ log p(x) \geq E_{q_\lambda(z\mid x)}[log p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $  
+$ log\ p(x) \geq E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $  
 
 자! 길었습니다. 여기에서 확실한 최소 경계
-$ ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $
+$ ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $
 가 ELBO 입니다!  
 
-*디코더 $ log p(x\mid z) $의 기댓값 $ E_{q_\lambda(z\mid x)}[log p(x\mid z)] $는 재생성 에러를 나타냅니다*  
+*디코더 $ log\ p(x\mid z) $의 기댓값 $ E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] $는 재생성 에러를 나타냅니다*  
 *$ - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $는 알고있는 파라미터로 정규화할수 있습니다*  
 *실제(참) 사후조건분포 $ p(z\mid x) $는 계산할 수 없습니다*  
 
 말로만 하면 어려우니 그림을 볼까요?  
 <p align="center">
 <img src="/assets/img/variable-autoencoder/elbo.png" style="max-height: 40vmin;"/>
+<img src="/assets/img/variable-autoencoder/elbo-draw.png" style="max-height: 40vmin;"/>
 </p>
 
 $ D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) \geq 0 $에 따라
