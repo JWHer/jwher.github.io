@@ -221,7 +221,7 @@ $ helm fetch harbor/harbor --untar
 
 해당 파일에도 주석이 잘 적혀있습니다만,
 공식 사이트를 확인해 보는 것도 좋을 것입니다. 😁  
-[[공식]Helm Install](https://helm.sh/docs/helm/helm_install/#options)
+[[공식]Configuration](https://goharbor.io/docs/2.3.0/install-config/harbor-ha-helm/#configuration)
 
 주요 플래그  
 * ```externalURL```: FQDN(Fully Qualified Domain Name)입니다.
