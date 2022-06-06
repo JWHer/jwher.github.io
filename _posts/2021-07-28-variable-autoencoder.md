@@ -121,8 +121,8 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 *Bayes' theorem*  
 
 베이즈 정리는 두 확률변수의 사전확률과 사후확률 사이의 관계를 나타냅니다.  
+*A,B는 가측집합이고 P(B)>0일 때,*  
 * $ P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)} $
-*A,B는 가측집합이고 P(B)>0*
   
 조건부 확률을 통해 쉽게 증명할 수 있습니다.  
 $ P(A\mid B)=\frac{P(A \bigcap B)}{P(B)} $  
@@ -130,7 +130,7 @@ $ P(A\mid B)=\frac{P(A \bigcap B)}{P(B)} $
 *P(B)>0임을 가정했으므로*  
 $ P(A\mid B)P(B)=P(A \bigcap B)=P(B \bigcap A)=P(B\mid A)P(A) $  
 
-*첫 식의 교집합을 바꿔주면*  
+*첫 식에 $ P(A \bigcap B)=P(B\mid A)P(A) $ 를 이용하면*  
 $ P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)} $  
 
 <details markdown="1">
