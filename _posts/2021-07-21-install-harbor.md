@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: "Harbor: 오픈 소스 도커 레지스트리"  
+title: "쿠버네티스에 Harbor 설치하기"  
 thumbnail-img: /assets/img/harbor-stacked-black.svg  
 categories:
 - tech
@@ -25,7 +25,7 @@ comments: true
 <img src="/assets/img/harbor-stacked-black.svg" style="height: 40vh; object-fit:cover;"/>
 </p>
 
-*Harbor: 오픈 소스 도커 레지스트리*  
+*쿠버네티스에 Harbor 설치하기*  
 
 # 목차
 * [요구사항](#요구사항)
@@ -48,7 +48,7 @@ comments: true
 하버 배포와 문제 해결을 주로 다룹니다.  
 [바로가기](#헬름차트로-배포)  
 
-아래는 도커 컴포즈를 사용한 하버 설치 방법을 간단히 기술했습니다.
+아래는 도커 컴포즈를 사용한 하버 설치 방법을 *간단히* 기술했습니다.
 읽어 보시면 하버 구조파악에 도움이 될 것입니다!
 
 > ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/not-america-but-heaven.jpg "not-america-but-heaven")  
@@ -160,10 +160,11 @@ $ tar xzvf harbor-[online/offline]-installer-[version].tgz
 *Trivy: 이미지의 취약점을 찾습니다*
 
 각각의 설정은 다음 플래그를 이용합니다.
-* Notary: ```--with-notary```
-* Trivy: ```--with-trivy```
-* ChartMuseum: ```--with-chartmuseum```
+* ```Notary```: --with-notary
+* ```Trivy```: --with-trivy
+* ```ChartMuseum```: --with-chartmuseum
 
+쉘 스크립트를 실행할 때 여러 권한이 필요합니다. ```sudo```로 권한을 부여해 줍시다.
 ```shell
 $ sudo ./install.sh [flags]
 ```
@@ -172,7 +173,7 @@ $ sudo ./install.sh [flags]
 
 ### CLI
 
-API v2.0을 사용하는 간단한 CLI 명령어를 테스트 할 수 있습니다.  
+Harbor API v2.0을 사용하는 간단한 CLI 명령어를 테스트 할 수 있습니다.  
 ```shell
 # 이미지 목록 확인
 $ curl -X GET http://[$id:$passwd@]${endpoint}:5000/v2/_catalog
@@ -235,7 +236,7 @@ $ helm fetch harbor/harbor --untar
 
 * ```persistence.enabled```: 삭제시 pv 처리 방법을 설정합니다.(```ture```/```false```) 
 
-* ```harborAdminPassword```: ```admin``` 계정의 비밀번호를 설정합니다. 기본값은 ```Harbor12345```입니다
+* ```harborAdminPassword```: 관리자(```admin```) 계정의 비밀번호를 설정합니다. 기본값은 ```Harbor12345```입니다
 
 <br/>
 
@@ -283,7 +284,10 @@ pv 생성까지 완료하면 파드들이 정상적으로 실행됩니다.
 </p>
 
 헬름 차트로 값을 변경하지 않고 배포하셨다면,
-하버 포탈의 admin id/pw는 admin/Harbor12345 입니다.
+하버 포탈의 관리자 id/pw는 다음과 같습니다.
+
+* ```id```: admin
+* ```password```: Harbor12345
 
 자, 이제 당신도 개인 도커 레지스트리를 가지고 있습니다!
 
@@ -443,7 +447,7 @@ $ helm upgrade -n harbor ${release-name} . --set externalURL=https://${url}:${po
 ```
 
 두번째로 ```/v2/```에서 400 Bad Request가 발생한다면 ingress의 호스트 문제일 가능성이 큽니다.
-[2. 접속이 안되요(404 Not Found)](#2-접속이-안되요\(404-not-found\)) 를 참고해 호스트를 제거합니다.
+[2. 접속이 안되요(404 Not Found)](#2-접속이-안되요404-not-found) 를 참고해 호스트를 제거합니다.
 
 세번째로 ```/v2/```에서 바로 connection refused가 발생한다면,
 ```docker login ${endpoint}```에서 포트를 누락시켰을 가능성이 큽니다.
