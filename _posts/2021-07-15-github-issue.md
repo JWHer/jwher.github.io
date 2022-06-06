@@ -19,10 +19,10 @@ comments: true
 <!-- more -->
 
 <p align="center">
-<img src="/assets/img/github.svg" style="height: 40vmin;"/>
+<img src="/assets/img/github.svg" style="width: 40vmin;"/>
 </p>
 
-*깃허브 이슈로 산출물 관리하기*  
+*깃허브 이슈로 협업하기*  
 
 # 목차
 * [이슈](#이슈)
@@ -39,13 +39,12 @@ comments: true
 > <p align="center">
 > <img src="https://t1.daumcdn.net/cfile/tistory/2158293455F6709717" style="filter: grayscale(100%); height: 40vmin" />
 > </p>
->
-> Initial revision of "git", the information manager from hell  
-> ─ Linus Torvalds
+> <p>Initial revision of "git", the information manager from hell</p>
+> <p>─ Linus Torvalds</p>
 
 농담이 아니라, 리눅스 창시자이기도 한 리누스 토발즈가 **깃**을
-처음 소개하며 한 [말](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290) 입니다.  
-얼마나 지옥같은 코드 관리를 했는지 알 수 있겠죠.  
+처음 소개하며 한 [말](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290) 입니다.
+깃이 없을 땐 얼마나 지옥같은 코드 관리를 했는지 느껴지네요.  
 
 깃은 크게 버전 관리, 백업, 협업을 목표로 하고 있습니다.
 본 글은 깃의 버전 관리와 백업 기능을 이해하는 독자를 위해 작성했습니다.
@@ -57,7 +56,7 @@ comments: true
 이슈 추적 시스템(ITS: Issue Tracking System)으로 개발자간의 협업을 돕죠
 
 <p align="center">
-<img src="/assets/img/github-issue/issue.png" style="height: 40vmin;"/>
+<img src="/assets/img/github-issue/issue.png" style="height: 40vmin; object-fit:cover;"/>
 </p>
 
 *이 버튼을 본 적이 있나요?*
@@ -93,7 +92,7 @@ comments: true
 마크다운 파일(.md)로 작성된 템플릿은 어떠한 정보를 포함해야 하는지 명시할 수 있습니다.
 
 <p align="center">
-<img src="/assets/img/github-issue/template-gitlab.png" style="height: 40vmin;"/>
+<img src="/assets/img/github-issue/template-gitlab.png" style="height: 40vmin; object-fit:cover;"/>
 </p>
 
 *깃랩에서 템플릿을 사용해 이슈를 작성하는 모습*
@@ -101,7 +100,6 @@ comments: true
 백문이 불여일견, 예시를 하나 봅시다
 ```markdown
 <!--bug_report.md-->
-
 ---
 name: Bug report
 about: Report a bug you've encountered
@@ -163,7 +161,7 @@ e.g. 이슈 #397과 유사한 증상입니다.
 ## 머지요청
 
 문제를 해결했다면 반영해야죠. 이슈의 큰 기능 중 하나는 ```merge``` 입니다.  
-해결한 문제를 merge request 하면, 프로젝트 관리자가 메인(마스터) 브랜치에 합치게 됩니다.  
+해결한 문제를 merge request 하면, 프로젝트 관리자가 메인(마스터) 브랜치와 병합하게 됩니다.  
 
 <br/>
 
