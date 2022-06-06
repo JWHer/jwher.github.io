@@ -1,8 +1,8 @@
 ---
 title: About Me
 feature_text: |
-  # 허정원 기술블로그
-  일일신 구일신
+  <span style="color: #FFFAFA; background-color: black; padding: 0 10px;" class="h1"> 허정원 기술블로그 </span>
+  <span style="color: #FFFAFA; background-color: black; padding: 0 10px;" class="h3"> 일일신 구일신 </span>
 feature_image: "https://raw.githubusercontent.com/JWHer/jwher.github.io/main/assets/img/weeping-cherry.jpg"
 excerpt: "..."
 ---
