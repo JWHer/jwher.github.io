@@ -9,9 +9,10 @@ excerpt: "..."
 My name is JeongWon Her. I have the following qualities:
 
 
-:hand: CS 전공자로 프로그래밍 언어, 컴퓨터 보안, 동시성 프로그래밍 조교를 했습니다  
-:thumbsup: 의사결정 지원 알고리즘(clustering), 딥러닝을 이용한 악성코드 진단, 자연어 처리를 이용한 창작 연구를 수행했습니다.  
-:wave: 인턴(블록체인, Spring-svn), 교육(AI보안), 현직(MLOps, k8s, pytorch)을 경험했습니다  
+:thumbsup: CS 전공자로 프로그래밍 언어, 컴퓨터 보안, 동시성 프로그래밍 조교를 했습니다  
+:metal: 자연어 처리를 이용한 창작, 딥러닝을 이용한 악성코드 진단, 의사결정 지원 알고리즘을 연구했습니다.  
+:hand: 인턴(블록체인, Spring-svn), 교육(AI보안)을 경험했습니다.   
+:wave: 현직(MLOps, k8s, pytorch)에서 일하고 있습니다  
 
 My Dream is:
 
@@ -47,6 +48,8 @@ ML system Integration, Orchestrate the steps in ML, Automation
 
 Technologies: Python, Docker, Pytorch, Typescript  
 Culture: Linux, MLOps(DevOps), MSA
+
+<hr style="80vw"/>
 
 # Education
 ## [Dongguk University](https://www.dongguk.edu/)  
@@ -84,10 +87,10 @@ Technologies: linux, cloud computing, golang
 
 Technologies: pytorch, BERT  
 
-<br/>
+<hr style="80vw"/>
 
 # Internship
-## Hivvlab
+## [Hivvlab](http://www.hivvlab.co.kr/)
 >Java Backend Developer  
 >2 months (January 2020 - February 2020)  
 >Seoul, Korea
@@ -100,11 +103,9 @@ Winter internship
 Technologies: Java, Node.js  
 Culture: Spring-svn
 
-<br/>
-
 <hr style="80vw"/>
 
-## Malware detection using deep learning  
+## [Malware detection using deep learning](https://www.koreascience.or.kr/article/CFKO202024664105109.page)  
 >Study (Independant Capstone Design)  
 >5 months (september 2019 - january 2020)  
 
