@@ -8,8 +8,6 @@ excerpt: "..."
 
 My name is JeongWon Her. I have the following qualities:
 
-<!--:thumbsup: kubernetes를 운영하고 있습니다  
-:metal: 리눅스 전반을 이해하고 있습니다  -->
 
 :hand: CS 전공자로 프로그래밍 언어, 컴퓨터 보안, 동시성 프로그래밍 조교를 했습니다  
 :thumbsup: 의사결정 지원 알고리즘(clustering), 딥러닝을 이용한 악성코드 진단, 자연어 처리를 이용한 창작 연구를 수행했습니다.  
