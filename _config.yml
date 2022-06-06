@@ -54,7 +54,7 @@ collections:
     output: true
     description: "생각과 아이디어" # The post list page content
     feature_text: |
-      <h2 style="color: #FFFAFA; background-color: black; padding: 0 10px;"> Let thine heart retain my words:
+      <h2 style="color: #FFFAFA; background-color: black; padding: 0 10px; opacity: 80%;"> Let thine heart retain my words:
       Keep my commandments, and live. </h2>
     feature_image: "https://raw.githubusercontent.com/JWHer/jwher.github.io/main/assets/img/Bamboo-road.jpg"
 
