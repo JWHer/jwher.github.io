@@ -150,9 +150,9 @@ $ P(A)P(B)=P(A \bigcap B) $
 
 두 확률변수에 대한 확률분포 P, Q에 대해 쿨백-라이블러 발산은 다음과 같이 정의합니다.  
 
-* 이산확률분포: $ D_{KL}(P\| Q)=\sum_iP(i)log\frac{P(i)}{Q(i)} $  
+* 이산확률분포: $ D_{KL}(P\mid\mid Q)=\sum_iP(i)log\frac{P(i)}{Q(i)} $  
   
-* 연속확률븐포: $ D_{KL}(P\| Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)} $  
+* 연속확률븐포: $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)} $  
 
 *p,q는 각각 확률분포의 확률밀도함수입니다*
   
@@ -165,9 +165,9 @@ $ P(A)P(B)=P(A \bigcap B) $
 좋은 자료를 만들어 주셨습니다.  
 
 쿨백-라이블러 발산의 중요한 특징은 다음과 같습니다.  
-* $ D_{KL}(p\mid q) ≥ 0 $  
+* $ D_{KL}(p\mid\mid q) ≥ 0 $  
   
-* $ D_{KL}(p\mid q) ≠ D_{KL}(q\mid p) $  
+* $ D_{KL}(p\mid\mid q) ≠ D_{KL}(q\mid\mid p) $  
 
 ~~증명은 다음에 하겠습니다~~
 
