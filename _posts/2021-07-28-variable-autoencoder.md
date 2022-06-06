@@ -23,13 +23,14 @@ comments: true
 <p align="center">
 <img src="/assets/img/variable-autoencoder/vae.png" style="height: 40vh;"/>
 </p>
-
+<!--
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script type="text/javascript"
   src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+-->
 
 
 *생성 모델과 VAE, 수학적 의미까지*  
@@ -49,8 +50,8 @@ comments: true
 실제 고양이를 그리는 것은 생성 모델입니다.  
 
 수학적으로 표현해 봅시다. 주어진 데이터 집합 X와 라벨(레이블) 집합 Y가 있습니다.  
-* **생성 모델**은 결합 분포 p(X,Y)를 학습하거나, 라벨이 없으면 p(X) 분포만 학습합니다.
-* **판별 모델**은 X일때 Y일 확률, 즉 조건부 확률 p(Y|X)를 학습합니다.  
+* **생성 모델** 은 결합 분포 p(X,Y)를 학습하거나, 라벨이 없으면 p(X) 분포만 학습합니다.
+* **판별 모델** 은 X일때 Y일 확률, 즉 조건부 확률 p(Y|X)를 학습합니다.  
 
 > <div align="center">
 > <img src="/assets/img/variable-autoencoder/x-and-y.png" style="height: 26vmin;"/>
@@ -160,9 +161,11 @@ P(A)P(B)=P(A∩B)
 * 연속확률븐포: $$D_{KL}(P||Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)}$$  
 *p,q는 각각 확률분포의 확률밀도함수입니다*
 
+<!--
 <p align="center">
 <iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/"/>
 </p>
+-->
 
 [KL divergence](https://angeloyeo.github.io/2020/10/27/KL_divergence.html)
 좋은 자료를 만들어 주셨습니다.  
