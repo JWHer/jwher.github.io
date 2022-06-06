@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[9376],{7186:function(e){e.exports=JSON.parse('{"permalink":"/kr/posts/tags/update","page":1,"postsPerPage":5,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Posts"}')}}]);

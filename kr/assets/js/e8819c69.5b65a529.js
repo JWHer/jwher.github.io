@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[1488],{4386:function(e){e.exports=JSON.parse('{"label":"kubernetes","permalink":"/kr/posts/tags/kubernetes","allTagsPath":"/kr/posts/tags","count":22}')}}]);

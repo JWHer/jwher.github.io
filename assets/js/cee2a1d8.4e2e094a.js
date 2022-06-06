@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[6709],{4770:function(s){s.exports=JSON.parse('{"label":"kubeflow","permalink":"/posts/tags/kubeflow","allTagsPath":"/posts/tags","count":7}')}}]);
