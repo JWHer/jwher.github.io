@@ -18,8 +18,6 @@ feature_image: "/assets/img/bamboos.jpg"
 comments: true
 ---
 
-<!-- more -->
-
 <p align="center">
 <img src="/assets/img/docker.svg" style="max-height: 40vh;"/>
 </p>
@@ -30,6 +28,8 @@ comments: true
 * [리눅스 사용자와 그룹](#리눅스-사용자와-그룹)
 * [컨테이너 실습](#컨테이너-실습)
 * [공유 볼륨](#공유-볼륨)
+
+<!-- more -->
 
 ## 리눅스 사용자와 그룹  
 

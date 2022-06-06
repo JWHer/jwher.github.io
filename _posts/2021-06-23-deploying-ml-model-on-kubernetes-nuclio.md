@@ -21,8 +21,6 @@ feature_image: "/assets/img/bamboos.jpg"
 comments: true
 ---
 
-<!-- more -->
-
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
 
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-superman.png "nuclio superman")  
@@ -33,6 +31,7 @@ comments: true
 * [누클리오 설치](#누클리오-설치)
 * [모델 배포하기](#모델-배포하기)
 
+<!-- more -->
 <br/>
 
 ## nuctl

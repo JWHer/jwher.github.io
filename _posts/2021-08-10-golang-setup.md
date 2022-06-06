@@ -17,8 +17,6 @@ feature_image: "/assets/img/bamboos.jpg"
 comments: true
 ---
 
-<!-- more -->
-
 <p align="center">
 <img src="/assets/logos/Go.svg" style="max-height: 40vh;"/>
 </p>
@@ -29,6 +27,8 @@ comments: true
 * [고 설치하기](#고-설치하기)
 * [IDE 구성하기](#ide-구성하기)
 * [프로젝트 생성](#프로젝트-생성)
+
+<!-- more -->
 
 ## 고 설치하기
 
@@ -162,9 +162,7 @@ go: found google.golang.org/grpc/credentials in google.golang.org/grpc v1.39.1
 [[공식]Go modules](https://blog.golang.org/using-go-modules)
 
 ## - JWHer  
-좋은 글을 쓰고 싶습니다.  
-
-{% include button.html text="Buy me a coffee ☕️" link="https://buymeacoffee.com/jwher" color="#f68140" %}
+좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--
