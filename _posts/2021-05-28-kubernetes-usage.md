@@ -43,7 +43,8 @@ comments: true
 ### 바이너리 설치
 <details markdown="1" open>
 
-1. 바이너리 파일을 다운로드 합니다.  
+<p>1. 바이너리 파일을 다운로드 합니다.</p>
+
 ```shell
 # 다음 명령으로 최신 kubectl을 다운받습니다
 $ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -58,9 +59,11 @@ $ curl -LO "https://dl.k8s.io/{version}/bin/linux/amd64/kubectl.sha256"
 $ echo "$(<kubectl.sha256) kubectl" | sha256sum --check
 
 kubectl: OK # 성공시
+
 ```
 
-2. 바이너리 파일을 설치합니다.  
+<p>2. 바이너리 파일을 설치합니다.</p>  
+
 ```shell
 # 설치하기, 바이너리 파일을 이동하는 것 처럼 보입니다
 $ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
@@ -83,6 +86,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 The connection to the server <server-name:port> was refused - did you specify the right host or port?
 # kubernetes 클러스터와 연결이 안되거나 config 파일에 문제가 있습니다
 ```
+
 <br/>
 </details>
 
