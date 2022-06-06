@@ -56,7 +56,7 @@ collections:
     feature_text: |
       Let thine heart retain my words:
       Keep my commandments, and live.
-    feature_image: /assets/Bamboo-road.jpg
+    feature_image: "https://raw.githubusercontent.com/JWHer/jwher.github.io/main/assets/img/Bamboo-road.jpg"
 
 defaults:
   -
