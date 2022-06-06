@@ -1,1 +1,0 @@
-date 문제, october==9?

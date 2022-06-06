@@ -1,5 +1,0 @@
-openvino
-
-bentoml
-
-deepstream
