@@ -28,13 +28,13 @@ comments: true
 
 # 목차
 * [리눅스 사용자와 그룹](#리눅스-사용자와-그룹)
-* [컨테이너 실행](#컨테이너-실행)
+* [컨테이너 실습](#컨테이너-실습)
 * [공유 볼륨](#공유-볼륨)
 
 ## 리눅스 사용자와 그룹  
 
 리눅스 커널은 uid, gid 공간을 관리합니다.
-이 정보는 커널 레벨의 syscall 요청에 권한이 있는지 판단하는데 사용됩니다.
+이 정보는 커널 레벨의 syscall 요청에 권한이 있는지 판단하는데 사용됩니다.  
 [[위키]파일 시스템 권한](https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC_%EC%8B%9C%EC%8A%A4%ED%85%9C_%EA%B6%8C%ED%95%9C)
 
 > vi로 write 권한이 없는 파일을 편집할 때
@@ -45,9 +45,11 @@ comments: true
 *(도커에 대한 자세한 내용은 [이글](https://jwher.github.io/welcome-to-docker) 을 보면 도움이 될 것입니다!)*
 😋
 
+빠른 해결방법을 찾으신다면 [공유 볼륨](#공유-볼륨)으로 넘어가주세요:)
+
 <br/>
 
-## 컨테이너 실행
+## 컨테이너 실습
 
 하나의 커널을 공유한다는 말은, 컨테이너에서 동작하는 uid와 gid 또한 한 커널에서 관리되고 있음을 뜻합니다.
 그렇다면, 컨테이너를 실행시키면 호스트의 어떤 사용자로 실행이 될까요?  
@@ -168,6 +170,7 @@ uid 0의 `root`로 오버라이드 된 것을 확인할 수 있습니다!😀
 > <p align="center">
 > <img src="/assets/img/docker-shared-volume/thinking.png" style="max-height: 40vh;"/>
 > </p>
+> &nbsp;
 > 어려워요...
 
 <br/>
@@ -222,6 +225,7 @@ $ sudo chmod 777 data
 > <p align="center">
 > <img src="/assets/img/docker-shared-volume/idea.jpg" style="max-height: 40vh;"/>
 > </p>
+> &nbsp;
 > 흠! 하나 해결했군요!
 
 <br/>
