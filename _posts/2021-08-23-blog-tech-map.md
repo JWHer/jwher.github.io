@@ -241,7 +241,7 @@ Go로 작성된 서비스 디스커버리입니다.
 ### [etcd]()
 *작성예정*  
 중요한(critical) 데이터의 분산 키-값 저장소 입니다.
-[쿠버네티스](#kubernetes), ROOK, [CoreDNS](#coredns)에 사용됩니다.
+[쿠버네티스](#kubernetes), [ROOK](#rook), [CoreDNS](#coredns)에 사용됩니다.
 
 ### [ZooKeeper](https://zookeeper.apache.org/)
 *작성예정*  
@@ -302,6 +302,10 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 
 ### [Istio](https://istio.io/)
 
+관측성, 트래픽 관리, 보안, 정책을 쉽게 관리하는 서비스 메시 입니다.
+
+관련글  
+* [Istio: 서비스 메시](https://jwher.github.io/istio)  
 <br/>
 
 ## 클라우드 스토리지
@@ -310,8 +314,43 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/cloud-storage.png" style="max-height: 40vh;"/>
 </p>
 
+### [ROOK](https://rook.io/)
+쿠버네티스를 위한 오픈소스 오브젝트 스토리지로
+자가 관리, 자가 확장, 자가 치유를 하는 분산 저장소입니다.
 
+### [Arrikto](https://www.arrikto.com/)
+ML 모델을 시장에 사용할 수 있는 것을 돕는 회사입니다.
+Kubeflow의 MLOps 잠재력으로 데이터 과학자가 빠르고 효과적으로 작업하도록 돕습니다.
+대표 제품으로 MiniKF가 있습니다.  
+*Arrikto는 그리스어로 "unbreakable"이라는 뜻입니다(출처필요)*
 
+관련글  
+* [MiniKF](https://jwher.github.io/install-kubeflow#%EB%B2%88%EC%99%B8-minikf)
+<br/>
+
+### [ceph](https://ceph.io/en/)
+모든 조직을 위해 신뢰할 수 있고 확장 가능하게 설계된 스토리지입니다.
+데이터 레플리카를 사용해 내결함성(fault-tolerant)으로 설계되었습니다.
+
+### [HITACHI](https://www.hitachi.com/)
+일본의 다국적 회사입니다.
+AI, IOT, 빅데이터, 인프라 IT 사업을 하고 있습니다.
+
+### [HUAWEI](https://www.huawei.com/kr/)
+중국의 다국적 회사입니다.
+통신장비 제조로 시작해, 현재는 정보 통신 기술(ITC) 솔루션 선두 기업입니다.
+
+### [IBM](https://www.ibm.com/kr-ko)
+International Business Machines Corporation,
+미국의 다국적 회사입니다.
+하드웨어(메인프레임)부터 글로벌 기술 지원까지, 고부가가치 사업을 지향하며 확장했습니다.
+
+### [MINIO](https://min.io/)
+고성능 클라우드 오프젝트 스토리지로,
+아마존 S3와 호환성을 두고 설계된 쿠버네티스 네이티브 스토리지입니다.
+
+관련글  
+* [minIO 오브젝트 스토리지](https://jwher.github.io/minio)
 <br/>
 
 ## 컨테이너 런타임
@@ -320,7 +359,9 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/container-runtime.png" style="max-height: 40vh;"/>
 </p>
 
-
+### [containerd](https://containerd.io/)
+*작성예정*  
+산업 표준 컨테이너 런타임으로 단순성, 강건성(robustness), 호환성(portability)를 강조합니다.
 
 <br/>
 
@@ -330,8 +371,12 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/cloud-network.png" style="max-height: 40vh;"/>
 </p>
 
+### [flannel](https://github.com/flannel-io/flannel/tree/master/Documentation)
+*작성예정*  
+Layer3(ip) 네트워크 패브릭을 간단하게 설정하는 방법으로 쿠버네티스를 위해 디자인됬습니다. 
 
-
+관련글  
+* [Kubeadm 설치하기](https://jwher.github.io/install-kubernetes#kubeadm-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
 <br/>
 
 ## 자동화
@@ -340,7 +385,16 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/automation.png" style="max-height: 40vh;"/>
 </p>
 
+### [ANSIBLE](https://www.ansible.com/)
+*작성예정*  
+오픈소스 설정 프로비저닝, 앱 배포를 코드로(infrastructure as code) 관리합니다.
 
+### [openstack](https://www.openstack.org/)
+개방형 표준 클라우드 컴퓨팅 플랫폼으로, 
+가장 많이 배포된 Infrastructure-as-a-Service(IaaS) 입니다.
+
+### [vmware](https://www.vmware.com/)
+클라우드 컴퓨팅 및 가상화 소프트웨어를 판매하는 기업입니다.
 
 <br/>
 
@@ -350,7 +404,16 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/container-registry.png" style="max-height: 40vh;"/>
 </p>
 
+### [HARBOR](https://goharbor.io/)
+쿠버네티스를 위한 신뢰할 수 있는 클라우드 네이티브 레포지토리를 목표로 만들어졌습니다.
+[notary](#notary), [trivy](#trivy)를 포함합니다.
 
+관련글  
+* [쿠버네티스에 Harbor 설치하기](https://jwher.github.io/install-harbor)
+<br/>
+
+### [Kraken](https://eng.uber.com/introducing-kraken/)
+우버에서 만든 오픈소스 p2p 도커 레지스트리 입니다.
 
 <br/>
 
@@ -360,7 +423,15 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/security.png" style="max-height: 40vh;"/>
 </p>
 
+### [notary]()
+*작성예정*  
 
+### [dex]()
+
+### [TREND MICRO]()
+
+### [trivy]()
+*작성예정*  
 
 <br/>
 
@@ -370,7 +441,9 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/key-management.png" style="max-height: 40vh;"/>
 </p>
 
+### [OAuth2]()
 
+### [Vault]()
 
 <br/>
 
@@ -380,7 +453,28 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/observability.png" style="max-height: 40vh;"/>
 </p>
 
+### [Prometheus]()
+*작성예정*  
 
+### [Thanos]()
+*작성예정*  
+
+### [beats]()
+
+### [Gradle](#gradle)
+*상위 항목과 중복*
+
+### [Grafana]()
+
+### [kiali]()
+
+### [elastic]()
+*작성예정*  
+
+### [logstash]()
+*작성예정*  
+
+### [ZIPKIN]()
 
 <br/>
 
@@ -390,7 +484,14 @@ HTTP/2, Protocol Buffer를 사용해 고성능의 RPC를 지원합니다.
 <img src="/assets/img/tech/serverless.png" style="max-height: 40vh;"/>
 </p>
 
+### [AWS Lambda]()
 
+### [Knative]()
+*작성예정*  
+
+### [Kubeless]()
+
+### [nuclio]()
 
 <br/>
 
