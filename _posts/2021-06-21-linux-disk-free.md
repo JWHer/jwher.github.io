@@ -2,6 +2,8 @@
 layout: post
 
 title: "리눅스 디스크 정리하기"
+redirect_from:
+  - /2021-06-21-linux-disk-free/
 thumbnail-img: /assets/img/hard-drive-internal.jpg
 categories:
 - tech

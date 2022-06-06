@@ -2,6 +2,8 @@
 layout: post
 
 title: "자주쓰는 쿠버네티스 명령어"
+redirect_from:
+  - /2021-05-28-kubernetes-usage/
 thumbnail-img: /assets/img/Kubernetes.svg
 categories:
 - tech

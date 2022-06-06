@@ -2,6 +2,8 @@
 layout: post
 
 title: "타르(tar) 파일 설치하기"
+redirect_from:
+  - /2021-05-10-install-tar.gz/
 thumbnail-img: /assets/img/gzip.png
 categories:
 - tech

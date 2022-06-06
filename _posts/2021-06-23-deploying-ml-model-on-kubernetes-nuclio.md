@@ -2,6 +2,8 @@
 layout: post
 
 title: "쿠버네티스 누클리오에 ML 모델 배포하기"
+redirect_from:
+  - /2021-06-23-deploying-ml-model-on-kubernetes-nuclio/
 thumbnail-img: /assets/img/nuclio-superman.png
 categories:
 - tech

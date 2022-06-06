@@ -2,6 +2,8 @@
 layout: post
 
 title: "도커의 세계에 오신 걸 환영합니다!"
+redirect_from:
+  - /2021-06-19-welcome-to-docker/
 thumbnail-img: /assets/img/docker.svg
 categories:
 - tech

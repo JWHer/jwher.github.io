@@ -2,6 +2,8 @@
 layout: post
 
 title: "Alphapose 논문 리뷰와 사용"
+redirect_from:
+  - /2021-05-24-alphapose/
 thumbnail-img: /assets/img/alphapose-logo.jpg
 categories:
 - paper
@@ -15,6 +17,7 @@ feature_text: |
   # Alphapose
 feature_image: "/assets/img/alphapose-preview.gif"
 comments: true
+
 ---
 
 <!-- more -->

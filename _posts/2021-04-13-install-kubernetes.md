@@ -2,6 +2,8 @@
 layout: post
 
 title: "나에게 필요한 쿠버네티스 설치하기"
+redirect_from:
+  - /2021-04-13-install-kubernetes/
 thumbnail-img: /assets/img/Kubernetes.svg  
 categories:
 - tech

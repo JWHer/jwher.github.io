@@ -2,6 +2,8 @@
 layout: post
 
 title: "GUI 없이 리눅스 서버에 VM 만들기"
+redirect_from:
+  - /2021-04-15-install-virtualbox-with-no-gui/
 thumbnail-img: /assets/img/Virtualbox.png
 categories:
 - tech

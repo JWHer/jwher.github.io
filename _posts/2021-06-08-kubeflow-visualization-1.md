@@ -2,6 +2,8 @@
 layout: post
 
 title: "Kubeflow 시각화 개발 1편"
+redirect_from:
+  - /2021-06-08-kubeflow-visualization-1/
 thumbnail-img: /assets/img/engineering.jpg
 categories:
 - dev

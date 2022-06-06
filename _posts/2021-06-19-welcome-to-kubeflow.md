@@ -2,6 +2,8 @@
 layout: post
 
 title: "쿠브플로우: 머신러닝 자동화"
+redirect_from:
+  - /2021-06-19-welcome-to-kubeflow/
 thumbnail-img: /assets/img/kubeflow.svg
 categories:
 - tech

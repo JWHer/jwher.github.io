@@ -2,6 +2,8 @@
 layout: post
 
 title: "나에게 필요한 도커 설치하기"
+redirect_from:
+  - /2021-04-13-install-docker/
 thumbnail-img: /assets/img/docker.svg
 categories:
 - tech

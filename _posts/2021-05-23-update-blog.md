@@ -2,6 +2,8 @@
 layout: post
 
 title: "블로그 업데이트"
+redirect_from:
+  - /2021-05-23-update-blog/
 thumbnail-img: /assets/img/Jekyll.png
 categories:
 - blog

@@ -2,6 +2,8 @@
 layout: post
 
 title: "K8s tip: nodeSelector"
+redirect_from:
+  - /2021-06-14-k8s-tip-nodeselector/
 thumbnail-img: /assets/img/Kubernetes.svg
 categories:
 - tech

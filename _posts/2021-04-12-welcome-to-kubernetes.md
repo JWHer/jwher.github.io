@@ -2,6 +2,8 @@
 layout: post
 
 title: "쿠버네티스 세계에 오신 걸 환영합니다!"  
+redirect_from:
+  - /2021-04-12-welcome-to-kubernetes/
 thumbnail-img: /assets/img/Kubernetes.svg
 categories:
 - tech

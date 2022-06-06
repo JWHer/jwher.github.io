@@ -2,6 +2,8 @@
 layout: post
 
 title: "쿠브플로우를 설치하는 다양한 방법"
+redirect_from:
+  - /2021-04-21-install-kubeflow/
 thumbnail-img: /assets/img/kubeflow.svg
 categories:
 - tech

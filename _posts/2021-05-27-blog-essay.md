@@ -2,6 +2,8 @@
 layout: post
 
 title: "블로그 생각"
+redirect_from:
+  - /2021-05-27-blog-essay/
 thumbnail-img: /assets/img/pen.svg
 categories:
 - blog

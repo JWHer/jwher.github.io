@@ -2,6 +2,8 @@
 layout: post
 
 title: "정보 이론"
+redirect_from:
+  - /2021-06-08-information-theory/
 thumbnail-img: /assets/img/card.jpg
 categories:
 - math
