@@ -26,7 +26,6 @@ mathjax: true
 </p>
 
 *생성 모델과 VAE, 수학적 의미까지*  
-*Disclaimer! 이 글은 작성중에 있습니다*  
 
 # 목차
 * [생성모델](#생성모델)
@@ -132,12 +131,12 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
   
 조건부 확률을 통해 쉽게 증명할 수 있습니다.  
 >$ P(A\mid B)=\frac{P(A \bigcap B)}{P(B)} $  
->
+> &nbsp;  
 >*P(B)>0임을 가정했으므로*  
 >$ P(A\mid B)P(B)=P(A \bigcap B)=P(B \bigcap A)=P(B\mid A)P(A) $  
->
+> &nbsp;  
 >*첫 식에 $ P(A \bigcap B)=P(B\mid A)P(A) $ 를 이용하면*  
->$ P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)} $  
+>$ P(A\mid B)=\frac{P(A)\cdot P(B\mid A)}{P(B)} $  
 
 <details markdown="1">
 <summary>TMI</summary>
@@ -208,7 +207,7 @@ $ z\sim p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확
 주황색과 회색 분포 중 무엇이 파란색 분포에 더 가까울까요?  
 
 회색 분포는 단순히 이동을 했기 때문에 의미적으로 파란색과 동일합니다.
-하지만, 파란색 분포와 다른 확률분포의 차이를 계산해 보면, 오류가 있지만 가까이 있는 주황색 분포가 더 작습니다.  
+하지만 파란색 분포와 다른 확률분포의 차이(MSE)를 계산하면, 오류가 있지만 더 가까이 있는 주황색 분포가 작습니다.  
 
 즉, 사전 확률(prior probability, $ p(z) $) 지표로 학습하면 올바르게 학습되지 않습니다.
 따라서 사후 확률(posterior probability, $ p(z\mid x) $)과 근사값 $ q_\lambda(z\mid x) $를 포함해
@@ -233,46 +232,53 @@ p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\m
 
 생성해야할 x의 분포 p(x)의 확실한 최소 경계값을 추정하고 최댓값을 구해 유사한 분포를 만들 수 있습니다.  
 
-이상적인 사후조건에 베이즈 정리를 적용해 봅시다.  
->$ p(z\mid x) = \frac{ p(z) * p(x\mid z) }{ p(x) } $  
->$ p(x) = \frac{ p(z) * p(x\mid z) }{ p(z\mid x) } $  
->
+이상적인 사후조건에 베이즈 정리를 적용해봅시다.  
+>$ p(z\mid x) = \frac{ p(z) \cdot p(x\mid z) }{ p(x) } $  
+>$ p(x) = \frac{ p(z) \cdot p(x\mid z) }{ p(z\mid x) } $  
+> &nbsp;  
 >*양변에 로그를 취합니다*  
->$ log\ p(x)=log\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
->
->*로그의 성질에 따라*  
->$ \quad = log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x $  -1)  
+>$ log\ p(x)=log\frac{p(z) \cdot p(x\mid z)}{p(z\mid x)} $  
+> &nbsp;  
+> *로그의 성질에 따라*  
+>$ \quad = log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) $ &nbsp; &nbsp; &nbsp; -1)    
+<br/>
 
 우리가 알고있는 근사분포 $ q_\lambda(z\mid x) $는 연속확률분포임으로  
 >$ \int_{\infty}^{-\infty}q_\lambda(z\mid x)dz=1 $  
 
+입니다.
+<br/>
+
 1이 곱셈의 항등원이라는 점을 이용해 식을 변형해봅시다.  
 >*log p(x) 양변에 1을 곱하면*  
->$ log\ p(x)*1=\int q_\lambda(z\mid x)log\ p(x)dz $  
->
->*식1)을 사용하여*  
+>$ log\ p(x) \cdot 1=\int q_\lambda(z\mid x)log\ p(x)dz $  
+> &nbsp;  
+> *식1)을 사용하여*  
 >$ \quad = \int q_\lambda(z\mid x) \left [ log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) \right ] dz $  
 >$ \quad = \int q_\lambda(z\mid x)log\ p(z)dz + \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\ p(z\mid x)dz $  
->
+> &nbsp;  
 >*양변에 $ 0=\int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz $을 더합니다.
 >이때, 우리가 알아낼 수 있는 것($ p(z), q_\lambda(z\mid x) $)을 생각해 짝지어 줍시다*  
 >$ log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz $
 >$ log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz $  
->
+> &nbsp;  
 >*몬테카를로 추정과 쿨백-라이블러 발산으로 변형하면*   
 >$ log\ p(x)= E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $  
->
+> &nbsp;  
 >*쿨백-라이블러 발산의 특징(≥0)을 이용하면*  
 >$ log\ p(x) \geq E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $  
+<br/>
 
-자! 길었습니다. 여기에서 확실한 최소 경계
+자! 길었습니다.😅 여기에서 확실한 최소 경계
 $ ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $
 가 ELBO 입니다!  
 
 각 항의 의미는 다음과 같습니다.  
-* 디코더 $ log\ p(x\mid z) $의 기댓값 $ E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] $는 재생성 에러를 나타냅니다.  
-* $ - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $는 알고있는 파라미터로 정규화할수 있습니다.  
-* 실제(참) 사후조건분포 $ p(z\mid x) $는 계산할 수 없습니다. 따라서 앞의 두 항을 최대화하는 방법을 사용합니다.  
+* $ E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] $: 디코더 $ log\ p(x\mid z) $의 기댓값으로 재생성 에러를 나타냅니다.  
+* $ - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $: 알수있는 파라미터로 분포를 정규화할수 있습니다.  
+* $ D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $: 실제(참) 사후조건분포 $ p(z\mid x) $는 계산할 수 없습니다.
+따라서 앞의 두 항을 최대화하는 방법을 사용합니다.  
+<br/>
 
 말로만 하면 어려우니 그림을 볼까요?  
 <p align="center">
