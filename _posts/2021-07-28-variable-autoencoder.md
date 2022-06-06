@@ -99,37 +99,39 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 
 연속 확률 변수의 확률밀도함수(f(x))는 다음 두 조건을 만족합니다.  
 * 모든 실수 x에 대해 f(x)≥0  
-* $  \int_{\infty}^{-\infty}f(x)dx=1  $  
+* $  \int_{\infty}^{-\infty}f(x)dx=1 $  
 
 정규분포 또한 연속확률분포로 확률밀도함수의 특징을 갖습니다.    
 
 정규분포는 평균(μ, mu)과 표준편차(σ, sigma)로 분포를 표기합니다.  
-* $ N(\mu, \sigma^2) $ 
+* $ N(\mu, \sigma^2) $  
 
 평균이 0이고 표준편차가 1인 정규분포 N(0,1)을 표준정규분포라 합니다.
 정규분포는 정규화를 통해 표준정규분포를 얻을 수 있습니다.
-* $ Z=\frac{X-\mu}{\sigma} $ 
+* $ Z=\frac{X-\mu}{\sigma} $  
 
 각 사건이 벌어졌을 때의 이득과 확률을 곱한 값의 합을 **기댓값**이라고 하는데요,
 연속확률변수에서 기댓값은 다음과 같습니다.
-* $ E[X] = \int_{\infty}^{-\infty}xf(x)dx $ 
+* $ E[X] = \int_{\infty}^{-\infty}xf(x)dx $  
 
 정규분포에서 기댓값을 계산해 보면 다음과 같습니다.
-* E[X]=μ
+* $ E[X]=μ $  
 
 ### 베이즈 정리
 *Bayes' theorem*  
 
 베이즈 정리는 두 확률변수의 사전확률과 사후확률 사이의 관계를 나타냅니다.  
-* $ P(A|B)=\frac{P(A)*P(B|A)}{P(B)} $   
+* $ P(A|B)=\frac{P(A)*P(B|A)}{P(B)} $  
 *A,B는 가측집합이고 P(B)>0*
   
 조건부 확률을 통해 쉽게 증명할 수 있습니다.  
- $ P(A|B)=\frac{P(A \bigcap B)}{P(B)} $   
+ $ P(A|B)=\frac{P(A \bigcap B)}{P(B)} $  
+
 *P(B)>0임을 가정했으므로*  
 P(A|B)P(B)=P(A∩B)=P(B∩A)=P(B|A)P(A)  
+
 *첫 식의 교집합을 바꿔주면*  
- $ P(A|B)=\frac{P(A)*P(B|A)}{P(B)} $   
+ $ P(A|B)=\frac{P(A)*P(B|A)}{P(B)} $  
 
 <details markdown="1">
 <summary>TMI</summary>
@@ -147,8 +149,9 @@ P(A)P(B)=P(A∩B)
 쿨백-라이블러 발산은 두 확률분포의 차이를 계산하는 함수입니다.  
 
 두 확률변수에 대한 확률분포 P, Q에 대해 쿨백-라이블러 발산은 다음과 같이 정의합니다.  
-* 이산확률분포: $ D_{KL}(P||Q)=\sum_iP(i)log\frac{P(i)}{Q(i)} $   
-* 연속확률븐포: $ D_{KL}(P||Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)} $   
+* 이산확률분포: $ D_{KL}(P||Q)=\sum_iP(i)log\frac{P(i)}{Q(i)} $  
+  
+* 연속확률븐포: $ D_{KL}(P||Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)} $  
 *p,q는 각각 확률분포의 확률밀도함수입니다*
   
 <p align="center">
