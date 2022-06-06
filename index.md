@@ -1,8 +1,8 @@
 ---
 title: About Me
 feature_text: |
-  <h1 style="color: #FFFAFA; background-color: black; padding: 0 10px; opacity: 80%;"> 허정원 기술블로그 </h1>
-  <h3 style="color: #FFFAFA; background-color: black; padding: 0 10px; opacity: 80%;"> 일일신 구일신 </h3>
+  <h1 style="color: #FFFAFA; background-color: black; padding: 0 10px; opacity: 80%;"> 허정원기술블로그 </h1>
+  <h4 style="color: #FFFAFA; background-color: black; padding: 0 10px; opacity: 80%;"> 일일신 구일신 </h4>
 feature_image: "https://raw.githubusercontent.com/JWHer/jwher.github.io/main/assets/img/weeping-cherry.jpg"
 excerpt: "..."
 ---
