@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo.svg',
+  favicon: '@site/static/img/logo.svg', //'img/logo.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -46,7 +46,9 @@ const config = {
           path: 'posts',
           routeBasePath: '/posts',
           showReadingTime: true,
-          blogSidebarCount: 10,
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
+          postsPerPage: 5,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
