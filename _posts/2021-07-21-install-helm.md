@@ -12,7 +12,7 @@ date: 2021-07-19 17:50:00
 
 aside: true
 feature_text: |
-  # HELM
+  # Install Helm
 feature_image: "/assets/img/bamboos.jpg"
 comments: true
 ---
@@ -28,7 +28,7 @@ comments: true
 # 목차
 * [Helm](#helm)
 * [설치하기](#설치하기)
-* [명령어](#명렁어)
+* [명령어](#명령어)
 
 ## Helm
    
