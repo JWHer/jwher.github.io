@@ -129,8 +129,6 @@ v12.22.1
 [[위키]Gzip](https://ko.wikipedia.org/wiki/Gzip)  
 [[위키]Tar](https://ko.wikipedia.org/wiki/Tar_(%ED%8C%8C%EC%9D%BC_%ED%8F%AC%EB%A7%B7))
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

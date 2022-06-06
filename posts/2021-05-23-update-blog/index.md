@@ -140,8 +140,6 @@ https://search.google.com/search-console
 [Github에 Beautiful-jekyll을 구축하는 순서 설명](https://dymaxionkim.github.io/beautiful-jekyll/2017-01-10-make-blog/)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

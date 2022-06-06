@@ -146,8 +146,6 @@ ml-pipeline-newvis   1/1     1            1           18h
 
 [wellcometokubernetes]: https://jwher.github.io/2021-04-12-welcome-to-kubernetes/  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

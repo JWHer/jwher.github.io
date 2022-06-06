@@ -386,7 +386,5 @@ $ sudo rm -rf /var/lib/containerd
 [[공식]Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->

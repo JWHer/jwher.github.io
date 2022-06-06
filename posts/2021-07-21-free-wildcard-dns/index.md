@@ -45,8 +45,6 @@ http://127.0.0.1.nip.io:8080
 
 [[GKE]와일드 카드 DNS의 대안 선택](https://cloud.google.com/run/docs/gke/default-domain?hl=ko#choose_an_alternative_for_wildcard_dns)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

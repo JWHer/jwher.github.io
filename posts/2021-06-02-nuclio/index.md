@@ -165,8 +165,6 @@ OS thread를 사용하는지, PL이 제공하는 경량 thread(goroutine, erlang
 [Nuclio Documentation](https://nuclio.io/docs/latest/)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

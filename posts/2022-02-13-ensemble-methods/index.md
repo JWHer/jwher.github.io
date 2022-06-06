@@ -40,8 +40,6 @@ ensemble member간 대부분의 weights를 공유합니다.
 ### Reference
 2021 MIPAL
 
-## - JWHer
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

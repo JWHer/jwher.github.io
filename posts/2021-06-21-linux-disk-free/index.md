@@ -119,8 +119,6 @@ tmpfs            2025760       20   2025740   1% /run/user/1000
 ### Reference  
 www.google.com
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

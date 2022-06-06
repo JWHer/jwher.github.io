@@ -94,8 +94,6 @@ annotations:
 [[조대협]Istio #1 - 마이크로 서비스와 서비스 매쉬](https://bcho.tistory.com/1293)  
 [[IBM]What is Istio?](https://www.youtube.com/watch?v=1iyFq2VaL5Y)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

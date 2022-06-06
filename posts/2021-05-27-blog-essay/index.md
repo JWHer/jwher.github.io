@@ -78,8 +78,6 @@ Install 시리즈는 공학적 관점에서 작성한 글이다.
 [허정원 깃허브](https://github.com/jwher)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

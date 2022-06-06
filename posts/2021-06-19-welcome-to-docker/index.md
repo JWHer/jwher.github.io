@@ -60,8 +60,6 @@ Micro Service Architecture(MSA) 라고 한다. 이와 반대로 하나로 통합
 https://www.google.com
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

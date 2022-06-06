@@ -154,8 +154,6 @@ vanilla kubeflow도 visualization을 지원하지만,
 ### Reference  
 [[깃헙]Python based visualizations guideline](https://github.com/kubeflow/pipelines/blob/master/backend/src/apiserver/visualization/README.md)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

@@ -163,8 +163,6 @@ Jupyter notebook과 연동해 쉽게(?) 사용할 수 있습니다.
 [[공식]Documentation](https://www.kubeflow.org/docs/)  
 [[공식]Install the Kubeflow Pipelines SDK](https://www.kubeflow.org/docs/components/pipelines/sdk/install-sdk/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

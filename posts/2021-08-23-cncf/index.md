@@ -126,8 +126,6 @@ CNCF는 오픈소스 프로젝트 성숙도를
 [[위키]Cloud Native Computing Foundation](https://en.wikipedia.org/wiki/Cloud_Native_Computing_Foundation)  
 [[깃헙]CNCF charter](https://github.com/cncf/foundation/blob/master/charter.md)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

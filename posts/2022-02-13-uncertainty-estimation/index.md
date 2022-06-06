@@ -81,8 +81,6 @@ $ H(p,q) = H(p) + D_{KL}(p||q) $
 [[wiki]Binomial proportion confidence interval](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval)
 [[wiki]허용 오차](https://ko.wikipedia.org/wiki/허용_오차)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

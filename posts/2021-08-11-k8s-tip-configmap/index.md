@@ -110,8 +110,6 @@ PV와 삭제에 관련된 글입니다.
 
 [[공식]컨피그맵(ConfigMap)](https://kubernetes.io/ko/docs/concepts/configuration/configmap/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

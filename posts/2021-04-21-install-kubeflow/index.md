@@ -364,8 +364,6 @@ $ kfctl delete -f ${CONFIG_FILE}
 [[공식]Kind](https://kind.sigs.k8s.io/)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

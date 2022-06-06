@@ -148,8 +148,6 @@ mlpipeline  test
 [[공식]min.io](https://min.io)  
 [[공식]Amazon S3이란 무엇인가요?](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/Welcome.html)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

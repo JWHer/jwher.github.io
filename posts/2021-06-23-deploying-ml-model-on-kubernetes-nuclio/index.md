@@ -431,8 +431,6 @@ nuclio-dashboard-584689f894-mg8qq              1/1     Running            0     
 [kubectl]: https://jwher.github.io/2021-05-28-kubernetes-usage/
 [docker]: https://jwher.github.io/2021-04-13-install-docker/
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

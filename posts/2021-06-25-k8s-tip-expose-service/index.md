@@ -61,8 +61,6 @@ $ kubectl get svc [-n {namespace}]
 
 [[공식]외부 IP 주소를 노출하여 클러스터의 애플리케이션에 접속하기](https://kubernetes.io/ko/docs/tutorials/stateless-application/expose-external-ip-address/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

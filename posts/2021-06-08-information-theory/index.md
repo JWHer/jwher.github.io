@@ -127,8 +127,6 @@ https://horizon.kias.re.kr/7937/
 [[위키]정보 이론](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EC%9D%B4%EB%A1%A0)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

@@ -139,8 +139,6 @@ UV(400nm) ~ IR (700nm)
 
 2021 MIPAL, Gwak Nojun
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

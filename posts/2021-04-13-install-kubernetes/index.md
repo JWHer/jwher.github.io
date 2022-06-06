@@ -682,8 +682,6 @@ $ kubeadm join {k8s API server ip}:{PORT 6443} --token {TOKEN} --discovery-token
 
 [docker-install]: https://jwher.github.io/2021-04-13-install-docker/
 [flannel-github]: https://github.com/flannel-io/flannel
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!--
 update log

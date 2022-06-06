@@ -486,8 +486,6 @@ schedule(pod): string
 [[공식]What is kubernetes](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
 [[공식]Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

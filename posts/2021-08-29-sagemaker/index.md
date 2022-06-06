@@ -139,5 +139,3 @@ MLOps 수명 주기를 최적화하기 위한 핵심 원칙은 다음과 같습�
 [AWS Builders 2021](https://aws.amazon.com/ko/events/seminars/aws-industry-week/)  
 [[깃헙]AWS Samples](https://github.com/aws-samples)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.

@@ -160,8 +160,6 @@ CV를 처음 접한 사람들에게 도움이 될만한 링크들이다.
 [ICCV 2017]: https://openaccess.thecvf.com/ICCV2017
 [YOLOv3]: https://pjreddie.com/media/files/papers/YOLOv3.pdf
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

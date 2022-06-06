@@ -105,8 +105,6 @@ Istio는 설정이 바뀌면 sidecar로 inject 된 envoy 컨테이너를 재생�
 [[조대협]Envoy Proxy](https://bcho.tistory.com/1253)  
 [[공식]Install envoy using docker](https://www.envoyproxy.io/docs/envoy/latest/start/install#install-envoy-using-docker)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

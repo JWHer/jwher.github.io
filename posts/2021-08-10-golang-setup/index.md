@@ -147,8 +147,6 @@ go: found google.golang.org/grpc/credentials in google.golang.org/grpc v1.39.1
 [가장 빨리 만나는 Go 언어](http://pyrasis.com/book/GoForTheReallyImpatient/Unit03)  
 [[공식]Go modules](https://blog.golang.org/using-go-modules)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

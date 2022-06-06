@@ -184,8 +184,6 @@ kubernetes를 줄여 k8s라고 합니다. 이유는 긴 단어를 줄일 때 글
 [[위키]유닉스 철학](https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%8B%89%EC%8A%A4_%EC%B2%A0%ED%95%99)  
 [[위키]API](https://ko.wikipedia.org/wiki/API)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 
 [container-definition]: https://cloud.kt.com/portal/user-guide/education-eduadvanced-edu_adv_2

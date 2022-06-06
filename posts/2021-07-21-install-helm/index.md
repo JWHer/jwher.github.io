@@ -74,8 +74,6 @@ $ helm rollback $name [revision] [flags]
 [[공식]Installing Helm](https://helm.sh/docs/intro/install/)  
 [[공식]Helm Commands](https://helm.sh/docs/helm/helm/)
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

@@ -270,8 +270,6 @@ staticClients:
 
 [[공식]Dex](https://dexidp.io/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

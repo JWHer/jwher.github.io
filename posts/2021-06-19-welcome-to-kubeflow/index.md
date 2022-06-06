@@ -65,8 +65,6 @@ kubeflow는 kubernetes 상에서 돌아가는 workflow이다. 다양한 시스�
 [workflow]: https://www.datarevenue.com/en-blog/airflow-vs-luigi-vs-argo-vs-mlflow-vs-kubeflow
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

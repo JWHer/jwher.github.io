@@ -244,8 +244,6 @@ $ vboxmanage startvm kube-slave-kf --type emergencystop
 [[공식]VBoxManage](https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html)  
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

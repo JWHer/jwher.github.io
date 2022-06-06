@@ -489,8 +489,6 @@ Layer3(ip) 네트워크 패브릭을 간단하게 설정하는 방법으로 쿠�
 ### Reference
 [한국어 위키피디아](https://ko.wikipedia.org/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

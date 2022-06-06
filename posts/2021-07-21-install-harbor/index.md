@@ -629,8 +629,6 @@ Error response from daemon: Get ${endpoint}/v2/: http: server gave HTTP response
 [[공식]Harbor Installation and Configuration](https://goharbor.io/docs/2.2.0/install-config/)  
 [[공식]Deploying Harbor with High Availability via Helm](https://goharbor.io/docs/2.2.0/install-config/harbor-ha-helm/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

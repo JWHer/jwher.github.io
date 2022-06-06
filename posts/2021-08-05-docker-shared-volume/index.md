@@ -251,8 +251,6 @@ $ sudo chmod 777 data
 [[깃헙]WSL2 where is docker volume location?](https://github.com/microsoft/WSL/discussions/4176#discussioncomment-264961)  
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

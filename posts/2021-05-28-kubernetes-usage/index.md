@@ -461,8 +461,6 @@ $ kubectl delete pod [-n {namespace}] $(kubectl get pod [-n {namespace}] --field
 [[공식]kubectl 치트 시트](https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

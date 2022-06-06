@@ -186,8 +186,6 @@ Iteration은 이슈를 반복하게 됩니다.
 [[깃랩]Issues](https://docs.gitlab.com/ee/user/project/issues/)  
 [[깃헙]Mastering Issues](https://guides.github.com/features/issues/)  
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

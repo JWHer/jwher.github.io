@@ -104,8 +104,6 @@ test                        0/1     Completed   2          115s   10.244.3.78   
 [[공식]노드에 파드 할당하기](https://kubernetes.io/ko/docs/concepts/scheduling-eviction/assign-pod-node/)
 
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--

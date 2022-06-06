@@ -60,8 +60,6 @@ Zombie claim을 지워주면 바로 사라지게 된다!
 
 www.google.com
 
-## - JWHer  
-좋은 글을 쓰고 싶습니다.
 
 <!-- update log -->
 <!--
