@@ -342,11 +342,12 @@ metadata:
         {"id": 9, "name": "right_elbow"},
         {"id": 10, "name": "left_wrist"},
         {"id": 11, "name": "right_wrist"},
-        {"id": 13, "name": "left_hip"},
-        {"id": 14, "name": "right_hip"},
-        {"id": 15, "name": "left_knee"},
-        {"id": 16, "name": "right_knee"},
-        {"id": 17, "name": "left_ankle"}
+        {"id": 12, "name": "left_hip"},
+        {"id": 13, "name": "right_hip"},
+        {"id": 14, "name": "left_knee"},
+        {"id": 15, "name": "right_knee"},
+        {"id": 16, "name": "left_ankle"},
+	{"id": 17, "name": "right_ankle"}
       ]
 
 spec:
@@ -403,12 +404,12 @@ $ nuctl deploy --project-name cvat -n nuclio --path . --platform kube -r docker.
 ```
 ```nuctl -h```를 통해 플래그 정보를 확인할 수 있습니다.  
 사용한 플래그의 의미는 다음과 같습니다.
-* --project-name : 프로젝트 이름, 누클리오 대쉬보드에서 확인 가능한 이름입니다
-* -n, --namespace : 쿠버네티스 네임스페이스, nuclio 고정입니다
-* -p, --path : function.yml 파일이 위치한 디렉토리
-* --platform : 사용하는 플랫폼입니다. local: 도커 kube: 쿠버네티스
-* -r --registry : 도커 이미지 레포지토리입니다.
-* --http-trigger-service-type : 쿠버네티스에서 serviceType을 정해줍니다.
+* `--project-name` : 프로젝트 이름, 누클리오 대쉬보드에서 확인 가능한 이름입니다
+* `-n`, `--namespace` : 쿠버네티스 네임스페이스, nuclio 고정입니다
+* `-p`, `--path` : function.yml 파일이 위치한 디렉토리
+* `--platform` : 사용하는 플랫폼입니다. local: 도커 kube: 쿠버네티스
+* `-r` `--registry` : 도커 이미지 레포지토리입니다.
+* `--http-trigger-service-type` : 쿠버네티스에서 serviceType을 정해줍니다.
 NodePort를 사용해 클러스터 외부에서도 접속 가능하게 설정했습니다.
 
 
