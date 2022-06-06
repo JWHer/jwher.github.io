@@ -83,6 +83,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 The connection to the server <server-name:port> was refused - did you specify the right host or port?
 # kubernetes 클러스터와 연결이 안되거나 config 파일에 문제가 있습니다
 ```
+<br/>
 </details>
 
 ### 패키지 관리자 설치
@@ -261,7 +262,6 @@ $ kubectl top node {nodename}
 ```shell
 $ kubectl logs {resource}/{name} [-n {namespace}] [-c {container}]
 ```
-<br/>
 
 리소스 생성에 문제가 있을 때는 쿠버네티스 로그만 확인할 수 있습니다
 ```shell
@@ -278,7 +278,6 @@ $ kubectl describe {resource}/{name} [-n {namespace}]
 ```shell
 $ kubectl apply -f {file.yaml}
 ```
-<br/>
 
 간단한 deploy는 스트림으로 생성하기도 합니다
 ```shell
@@ -324,7 +323,6 @@ $ nohup kubectl port-forward {args} > /dev/null &
 ```shell
 $ kubectl cp {host/path} [{namespace}/]{podname}:{guest/path} [-c {container}]
 ```
-<br/>
 
 게스트 -> 호스트
 ```shell
@@ -342,13 +340,11 @@ $ kubectl cp [{namespace}/]{podname}:{guest/path} [-c {container}] {host/path}
 ```shell
 $ kubectl exec -it {podname} [-n {namespace}] [-c {container}] -- /bin/sh
 ```
-<br/>
 
 다른 명령어를 실행시켜도 됩니다
 ```shell
 $ kubectl exec {resource}/{name} -- {command}
 ```
-<br/>
 
 쉘이 실행중이면 attach 명령어를 사용할 수 있습니다
 ```shell
@@ -371,7 +367,6 @@ $ kubectl attach {podname} [-n {namespace}] [-c {container}]
 ```shell
 $ kubectl rollout restart {resource}/{name} [-n {namespace}] 
 ```
-<br/>
 
 리소스 삭제 후 재생성
 ```shell
@@ -389,7 +384,6 @@ $ kubectl rollout history {resource}/{name} [-n {namespace}]
 REVISION  CHANGE-CAUSE
 1         <none>
 ```
-<br/>
 
 롤백
 ```shell
@@ -416,7 +410,6 @@ $ kubectl delete all --all -n {namespace}
 ```shell
 $ kubectl edit {resource}/{name} [-n {namespace}] 
 ```
-<br/>
 
 환경변수로 에디터 선택이 가능합니다
 ```shell
