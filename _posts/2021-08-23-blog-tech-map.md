@@ -210,7 +210,6 @@ SageMaker 등 인기 AWS 서비스를 사용하려면 ECS를 사용해야 합니
 [[공식]Amazon ECS vs Amazon EKS](https://aws.amazon.com/ko/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/)
 
 관련글  
-*작성예정*
 * [SageMaker](https://jwher.github.io/sagemaker)  
 <br/>
 
