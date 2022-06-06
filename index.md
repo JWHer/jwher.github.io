@@ -6,7 +6,52 @@ feature_image: "https://raw.githubusercontent.com/JWHer/jwher.github.io/main/ass
 excerpt: "..."
 ---
 
+# Summary
 My name is JeongWon Her. I have the following qualities:
+
+* Languages: Java, Python, JavaScript
+* DevOps: git(gitlab), Docker(Harbor), Kubernetes
+* Culture: Linux, Open Source, Continuous Delivery
+* Methodology: Agile
+
+# Experience
+>MLOps engineer  
+>March 2021 - Current
+>Seoul, Korea
+ 
+ML system Integration, Orchestrate the steps in ML, Automation
+1. Project setup
+2. Data pipeline ([kubeflow](https://jwher.github.io/categories#kubeflow)...)  
+3. Modeling & training ([ml](https://jwher.github.io/categories#ml)...)  
+4. Serving ([nuclio](https://jwher.github.io/categories#nuclio)...)  
+
+Technologies: Python, Docker, React, Typescript  
+Culture: Linux, MLOps(DevOps), MSA
+
+<br/>
+
+>Java Backend Developer  
+>2 months (January 2020 - February 2020)  
+>Hivvlab  
+>Seoul, Korea
+
+Winter internship  
+1. Researching top blockchain trends
+2. Find a specific transaction in distributed ledger
+3. Process transaction data and insertion
+
+Technologies: Java, Node.js  
+Culture: Spring-svn
+
+# Education
+>Dongguk University  
+>4 years (March 2015 - February 2021)  
+>Seoul, Korea
+
+I've learned Computer Science and Engineering  
+Military service from Feb. 2016 until Nov. 2017
+
+# 한국어
 
 :thumbsup: kubernetes를 운영하고 있습니다  
 :metal: 리눅스 전반을 이해하고 있습니다  
