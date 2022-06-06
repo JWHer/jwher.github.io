@@ -47,8 +47,7 @@ mathjax: true
 * **판별 모델** 은 X일때 Y일 확률, 즉 조건부 확률 `p(Y|X)`를 학습합니다.  
 
 > <div align="center">
-> <img src="/assets/img/variable-autoencoder/x-and-y.png" style="height: 26vmin;"/>
-> <img src="/assets/img/variable-autoencoder/y-in-x.png" style="height: 26vmin;"/>
+> <img src="/assets/img/variable-autoencoder/xandy-ybarx.png" style="max-height: 40vmin;"/>
 > </div>
 >
 > 생성모델은 X에서 Y가 생성되게 학습해야 합니다. 즉, `X=Y=X∩Y`, `(X∩Y)ᶜ=∅`이 되어야 합니다.  
@@ -59,16 +58,17 @@ mathjax: true
 예를 들어 고양이를 찾는다면 주변과 구분되는 특징(꼬리...) 하나 이상만 찾으면 됩니다.
 하지만 고양이 그림을 그리려면, 고양이의 모든 특징(꼬리, 귀, 눈, 털...)을 정확히 알아야 합니다.
 
-> <p align="center">
-> <img src="/assets/img/variable-autoencoder/x-is-y-y-include-x.png" style="height: 40vh;"/>
-> </p>
+> <div align="center">
+> <img src="/assets/img/variable-autoencoder/x-is-y-y-include-x.png" style="max-height: 40vmin;"/><br/>
+> <img src="/assets/img/variable-autoencoder/x-y-example.png" style="max-height: 40vmin;"/>
+> </div>
 >
 > 생성 모델은 집합 X와 집합 Y를 최대한 일치시키는 방법을 찾아야 합니다.  
-> 반면에 판별 모델은 X가 집합 Y에 속하는 방법만 찾으면 됩니다.  
+> 반면에 판별 모델은 집합 Y에 속한 X만 찾으면 됩니다.  
 > (X를 학습해야 하는 정보, Y를 고양이의 특징이라고 생각해 봅시다)
 
-생성 모델의 종류로는 VAE, GAN...  
-판별 모델의 종류로는 ...
+생성 모델의 종류로는 VAE, GAN, HMM, Bayesian 등이 있습니다.
+판별 모델의 종류로는 k-NN, 로지스틱 회귀, SVM, 결정트리 등이 있습니다.
 
 <br/>
 
@@ -77,9 +77,9 @@ mathjax: true
 VAE를 살펴보기 전엔 [확률분포](#확률분포),
 [베이즈 정리](#베이즈-정리),
 [쿨백-라이블러 발산](#쿨백-라이블러-발산) 배경지식이 필요합니다.
-전부 아신다고요? [다음 장](#수학과-코드) 으로 넘어가세요!
+전부 아신다고요? [다음 장](#vae) 으로 넘어가세요!
 
-~~*저는 개념이 지겨워서 코드 먼저 보고 역순으로 볼 때가 많습니다*~~
+~~*저는 개념이 지겨워서 역순으로 코드 먼저 볼 때가 많습니다*~~
 
 ### 확률분포
 *probability distribution*  
@@ -87,15 +87,16 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 확률 분포는 확률변수(x)가 특정한 값을 가질 확률을 나타내는 함수(f(x))입니다.
 확률 분포는 **이산확률분포(Discrete Probability Distribution)** 와
 **연속확률분포(Continuous Probability Distribution)** 로 나뉘는데요,
-**이산확률분포**는 확률변수가 가질 수 있는 값이 가산집합인 확률분포를 말합니다.
+**이산확률분포**는 확률변수가 가질 수 있는 값이 **가산집합**인 확률분포를 말합니다.
 반면에, **연속확률분포**는 확률변수가 **연속적**이고 확률밀도함수로 표현할 수 있는 분포를 말합니다.
 
-통계학을 들으신 분이라면 이항분포의 특수한 형태인 [푸아송 분포](https://ko.wikipedia.org/wiki/%ED%91%B8%EC%95%84%EC%86%A1_%EB%B6%84%ED%8F%AC)
-와 대표적인 연속확률분포인 정규분포를 어렴풋이 기억할 것입니다.  
+통계학을 들으신 분이라면 이항분포의 특수한 형태인
+[푸아송 분포](https://ko.wikipedia.org/wiki/%ED%91%B8%EC%95%84%EC%86%A1_%EB%B6%84%ED%8F%AC)
+와 대표적인 연속확률분포인 정규분포가 어렴풋이 기억날겁니다.  
 
 정규분포(Gaussian distribution)와 연속확률분포를 조금 더 자세히 볼까요?  
 <p align="center">
-<img src="/assets/img/variable-autoencoder/Gaussian_distribution.svg" style="height: 40vh;"/>
+<img src="/assets/img/variable-autoencoder/Gaussian_distribution.svg" style="height: 40vmin;"/>
 </p>
 
 연속 확률 변수의 확률밀도함수(f(x))는 다음 두 조건을 만족합니다.  
@@ -115,13 +116,13 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 연속확률변수에서 기댓값은 다음과 같습니다.
 * $ E[X] = \int_{\infty}^{-\infty}xf(x)dx $  
 
-정규분포에서 기댓값을 계산해 보면 다음과 같습니다.
+정규분포에서 기댓값을 계산해 보면 모평균과 같습니다.
 * $ E[X]=μ $  
 
 ### 베이즈 정리
 *Bayes' theorem*  
 
-베이즈 정리는 두 확률변수의 사전확률과 사후확률 사이의 관계를 나타냅니다.  
+베이즈 정리는 두 확률변수의 **사전확률**과 **사후확률** 사이의 관계를 나타냅니다.  
 *A,B는 가측집합이고 P(B)>0일 때,*  
 * $ P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)} $
   
@@ -149,13 +150,15 @@ $ P(A)P(B)=P(A \bigcap B) $
 
 쿨백-라이블러 발산은 두 확률분포의 차이를 계산하는 함수입니다.  
 
-두 확률변수에 대한 확률분포 P, Q에 대해 쿨백-라이블러 발산은 다음과 같이 정의합니다.  
+두 확률변수에 대한 확률분포 P, Q에 대해 쿨백-라이블러 발산은 다음과 같이 정의됩니다.  
 
 * 이산확률분포: $ D_{KL}(P\mid\mid Q)=\sum_iP(i)log\frac{P(i)}{Q(i)} $  
   
-* 연속확률븐포: $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)} $  
+* 연속확률븐포: $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)}dx $  
 
-*p,q는 각각 확률분포의 확률밀도함수입니다*
+*p,q는 각각 확률분포의 확률밀도함수입니다*  
+연속일때 조금 더 풀어보면 다움과 같습니다  
+* $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log p(x)dx - \int_{-\infty}^{\infty}p(x)log q(x)dx $  
   
 <p align="center">
 <iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/" style="height: 350px; width: 860px; overflow: scroll;">
@@ -163,12 +166,12 @@ $ P(A)P(B)=P(A \bigcap B) $
 </p>
 
 [KL divergence](https://angeloyeo.github.io/2020/10/27/KL_divergence.html)
-좋은 자료를 만들어 주셨습니다.  
+눈으로 이해하기 쉬운 좋은 자료를 만들어 주셨습니다.  
 
 쿨백-라이블러 발산의 중요한 특징은 다음과 같습니다.  
 * $ D_{KL}(p\mid\mid q) ≥ 0 $  
   
-* $ D_{KL}(p\mid\mid q) ≠ D_{KL}(q\mid\mid p) $  
+* $ D_{KL}(p\mid\mid q) ≠ D_{KL}(q\mid\mid p) $
 
 ~~증명은 다음에 하겠습니다~~
 
@@ -176,69 +179,113 @@ $ P(A)P(B)=P(A \bigcap B) $
 
 ## VAE
 
-주인공 Variable Auto Encoder의 구조를 봅시다.  
+생성 모델 구조를 봅시다.  
 <p align="center">
-<img src="/assets/img/variable-autoencoder/latent-vector.png" style="height: 40vh;"/>
+<img src="/assets/img/variable-autoencoder/latent-vector.png" style="max-height: 40vmin;"/>
 </p>
 
-$ z~p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확률은  
-$ p(x\bar z) $  
-입니다.
-우리의 목적은 $ p(x\bar z) $일 수도 있는 근사값 $ p_\theta(x\bar z) $를 구하는 것입니다.  
+$ z\sim p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확률은 $ p(x\mid z) $ 입니다.
+우리의 목적은 $ p(x\mid z) $일 수도 있는 근사값 $ p_\theta(x\mid z) $를 구하는 것입니다.  
 <!-- p(x | generator_theta(z)) => p_theta(x | z) -->
-*주의! $ p(x\bar z) $는 생성기(generator)가 아닌 확률입니다*  
+*주의! $ p(x\mid z) $는 생성기(generator)가 아닌 확률분포입니다*  
 
-그렇다면 $ p(x\bar z) $와 가장 유사한 $ p_\theta(x\bar z) $를 어떻게 구해야 할까요?
-[MLE(Maximum Likelihood Estimation)](https://ko.wikipedia.org/wiki/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84_%EB%B0%A9%EB%B2%95)
+그렇다면 $ p(x\mid z) $와 가장 비슷한 $ p_\theta(x\mid z) $를 어떻게 구해야 할까요?
+둘 사이의 MSE(Mean Square Error)가 최소가 되는 분포를 찾으면 가장 비슷할까요?   
+<!--[MLE(Maximum Likelihood Estimation)](https://ko.wikipedia.org/wiki/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84_%EB%B0%A9%EB%B2%95)
 을 적용해 [가능도](https://ko.wikipedia.org/wiki/%EA%B0%80%EB%8A%A5%EB%8F%84)
-를 최대로 만들면 될까요?
+를 최대로 만들면 될까요?-->
+
 <p align="center">
-<img src="/assets/img/variable-autoencoder/latent-vector.png" style="height: 40vh;"/>
+<img src="/assets/img/variable-autoencoder/mle-example.png" style="max-height: 40vmin;"/>
 </p>
 
-파란색 분포를 $ p(x\bar z) $라고 합시다.
+파란색 분포를 $ p(x\mid z) $라고 합시다.
 주황색 분포는 변형이 존재하고, 회색 분포는 x축 이동을 했습니다.
 주황색과 회색 분포 중 무엇이 파란색 분포에 더 가까울까요?  
 
 회색 분포는 단순히 이동을 했기 때문에 의미적으로 파란색과 동일합니다.
-하지만, 파란색 분포와 다른 확률분포의 차이를 계산해 보면 오류가 있지만 가까이 있는 주황색 분포가 더 작습니다.  
+하지만, 파란색 분포와 다른 확률분포의 차이를 계산해 보면, 오류가 있지만 가까이 있는 주황색 분포가 더 작습니다.  
 
 즉, 사전 확률(prior probability, $ p(z) $) 지표로 학습하면 올바르게 학습되지 않습니다.
-따라서 사후 확률(posterior probability, $ p(z\bar x) $)과 근사값 $ q_\lambda(z\bar x) $를 포함해
+따라서 사후 확률(posterior probability, $ p(z\mid x) $)과 근사값 $ q_\lambda(z\mid x) $를 포함해
 [변분법(Calculus of Variational)](https://ko.wikipedia.org/wiki/%EB%B3%80%EB%B6%84%EB%B2%95)
 을 통해 학습합니다.  
 
 <p align="center">
-<img src="/assets/img/variable-autoencoder/vae.png" style="height: 40vh;"/>
+<img src="/assets/img/variable-autoencoder/vae.png" style="max-height: 40vmin;"/>
 </p>
 
 ~~*왜 앞에있는게 사후확률이야*~~  
-p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\bar x) $ 사후확률)로 z를 학습합니다.
-이때 근사함수 $ q_\lambda(z\bar x), p_\theta(x\bar z) $를 각각 `encoder`, `decoder`로 부르겠습니다.    
+p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\mid x) $ 사후확률)로 z를 학습합니다.
+이때 근사함수 $ q_\lambda(z\mid x), p_\theta(x\mid z) $를 각각 `encoder`, `decoder`로 부르겠습니다.    
 *(신경망은 각각 λ와 θ를 파라미터로 가집니다)*
 
-자, 그럼 이제 변분법을 통해 참 사후조건인 $ p(z\bar x) $를 찾으면 됩니다!
+자, 그럼 이제 변분법을 통해 참 사후조건인 $ p(z\mid x) $를 찾으면 됩니다!
 왜 VAE인지 이제 알겠군요!
 
 ## ELBO
-*Evidence Lower BOund*
+*Evidence Lower BOund*  
 
-를 최대화
+이상적인 사후조건에 베이즈 정리를 적용해 봅시다.  
 
-이미지
+$ p(z\mid x)=\frac{p(z)*p(x\mid z)}{p(x)} \newline p(x)=\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
+
+*양변에 로그를 취합니다*  
+$ log p(x)=log\frac{p(z)*p(x\mid z)}{p(z\mid x)} $  
+
+*로그의 성질에 따라*  
+$ \quad = log p(z)+log p(x\mid z)-log p(z\mid x) \qquad 1) $  
+
+우리가 알고있는 근사분포 $ q_\lambda(z\mid x) $는 연속확률분포임으로  
+$ \int_{\infty}^{-\infty}q_\lambda(z\mid x)dz=1 $  
+
+*식1) 양변에 1을 곱하면*  
+$ log p(x)*1=\int_{\infty}^{-\infty}q_\lambda(z\mid x)log p(x)dz $  
+$ \quad = \int q_\lambda(z\mid x) \left [ log p(z)+log p(x\mid z)-log p(z\mid x) \right ] dz $  
+$ \quad = \int q_\lambda(z\mid x)log p(z)dz + \int q_\lambda(z\mid x)log p(x\mid z)dz - \int q_\lambda(z\mid x)log p(z\mid x)dz $  
+
+*양변에 $ 0=\int q_\lambda(z\mid x)log q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log q_\lambda(z\mid x)dz $을 더합니다.
+이때, 우리가 알아낼 수 있는 것($ p(z), q_\lambda(z\mid x) $)을 생각해 짝지어 줍시다*  
+$ log p(x)= \int q_\lambda(z\mid x)log p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz $
+$ log p(x)= \int q_\lambda(z\mid x)log p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz $  
+
+*몬테카를로 추정과 쿨백-라이블러 발산으로 변형하면*   
+$ log p(x)= E_{q_\lambda(z\mid x)}[log p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $  
+
+*쿨백-라이블러 발산의 특징(≥0)을 이용하면*  
+$ log p(x) \geq E_{q_\lambda(z\mid x)}[log p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $  
+
+자! 길었습니다. 여기에서 확실한 최소 경계
+$ ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $
+가 ELBO 입니다!  
+
+*디코더 $ log p(x\mid z) $의 기댓값 $ E_{q_\lambda(z\mid x)}[log p(x\mid z)] $는 재생성 에러를 나타냅니다*  
+*$ - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $는 알고있는 파라미터로 정규화할수 있습니다*  
+*실제(참) 사후조건분포 $ p(z\mid x) $는 계산할 수 없습니다*  
+
+말로만 하면 어려우니 그림을 볼까요?  
+<p align="center">
+<img src="/assets/img/variable-autoencoder/elbo.png" style="max-height: 40vmin;"/>
+</p>
+
+$ D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) \geq 0 $에 따라
+확률분포 log p(x)와 ELBO(λ)는 0 이상의 차이(거리)가 있습니다.
+하지만 $ p(z\mid x) $는 계산할 수 없으므로, ELBO를 최대화 하는 방법으로 학습합니다.  
+*다른말로 디코더의 기댓값 최대화, 이상적인 인코더 생성을 목표로 합니다*
 
 ## Reparameterization Trick
 
+backpropagation 문제를 해결합니다.  
+<!--
 하지만, 단순하게 ELBO의 경사값을 계산하는건 샘플링 계산이 obtain z를 사용하기에 불가능합니다.
-따라서 p(z)를 다루기 쉬운 정규분포를 사용하여 우회할 수 있습니다.  
-
-
+따라서 p(z)를 다루기 쉬운 정규분포를 사용하여 우회할 수 있습니다.
+-->
 
 <br/>
 
 ## 수학과 코드
 
-https://github.com/magenta/magenta/blob/be6558f1a06984faff6d6949234f5fe9ad0ffdb5/magenta/models/music_vae/base_model.py#L210-L272
+[Music VAE](https://github.com/magenta/magenta/blob/be6558f1a06984faff6d6949234f5fe9ad0ffdb5/magenta/models/music_vae/base_model.py#L210-L272)
    
 ```python
 import tensorflow_probability as tfp
