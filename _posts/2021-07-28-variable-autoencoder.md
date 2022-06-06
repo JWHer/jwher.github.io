@@ -15,7 +15,8 @@ aside: true
 feature_text: |
   # Variable Auto Encoder
 feature_image: "/assets/img/theory.jpg"
-comments: true
+comments: true  
+mathjax: true
 ---
 
 <!-- more -->
@@ -23,15 +24,6 @@ comments: true
 <p align="center">
 <img src="/assets/img/variable-autoencoder/vae.png" style="height: 40vh;"/>
 </p>
-<!--
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
--->
-
 
 *생성 모델과 VAE, 수학적 의미까지*  
 *Disclaimer! 이 글은 작성중에 있습니다*  
@@ -50,16 +42,16 @@ comments: true
 실제 고양이를 그리는 것은 생성 모델입니다.  
 
 수학적으로 표현해 봅시다. 주어진 데이터 집합 X와 라벨(레이블) 집합 Y가 있습니다.  
-* **생성 모델** 은 결합 분포 p(X,Y)를 학습하거나, 라벨이 없으면 p(X) 분포만 학습합니다.
-* **판별 모델** 은 X일때 Y일 확률, 즉 조건부 확률 p(Y|X)를 학습합니다.  
+* **생성 모델** 은 결합 분포 `p(X,Y)`를 학습하거나, 라벨이 없으면 `p(X)` 분포만 학습합니다.
+* **판별 모델** 은 X일때 Y일 확률, 즉 조건부 확률 `p(Y|X)`를 학습합니다.  
 
 > <div align="center">
 > <img src="/assets/img/variable-autoencoder/x-and-y.png" style="height: 26vmin;"/>
 > <img src="/assets/img/variable-autoencoder/y-in-x.png" style="height: 26vmin;"/>
 > </div>
 >
-> 생성모델은 X에서 Y가 생성되게 학습해야 합니다. 즉, 교집합이 아닌 부분을 최소화 해야합니다.(X=Y=X∩Y, (X∩Y)ᶜ=∅)  
-> 판별 모델은 X가 Y에 포힘되도록 학습해야 합니다. 즉, X∩Yᶜ=∅이 되어야 합니다.
+> 생성모델은 X에서 Y가 생성되게 학습해야 합니다. 즉, `X=Y=X∩Y`, `(X∩Y)ᶜ=∅`이 되어야 합니다.  
+> 판별 모델은 X가 Y에 포힘되도록 학습해야 합니다. 즉, `X∩Yᶜ=∅`이 되어야 합니다.
 
 눈치가 빠른 사람은 생성 모델이 판별 모델보다 어렵다는 것을 발견했을 겁니다.
 
@@ -92,10 +84,8 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 *probability distribution*  
 
 확률 분포는 확률변수(x)가 특정한 값을 가질 확률을 나타내는 함수(f(x))입니다.
-
 확률 분포는 **이산확률분포(Discrete Probability Distribution)** 와
 **연속확률분포(Continuous Probability Distribution)** 로 나뉘는데요,
-
 **이산확률분포**는 확률변수가 가질 수 있는 값이 가산집합인 확률분포를 말합니다.
 반면에, **연속확률분포**는 확률변수가 **연속적**이고 확률밀도함수로 표현할 수 있는 분포를 말합니다.
 
@@ -160,12 +150,11 @@ P(A)P(B)=P(A∩B)
 * 이산확률분포: $$D_{KL}(P||Q)=\sum_iP(i)log\frac{P(i)}{Q(i)}$$  
 * 연속확률븐포: $$D_{KL}(P||Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)}$$  
 *p,q는 각각 확률분포의 확률밀도함수입니다*
-
-<!--
+  
 <p align="center">
-<iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/"/>
+<iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/" style="height: 350px; width: 860px; overflow: scroll;">
+</iframe>
 </p>
--->
 
 [KL divergence](https://angeloyeo.github.io/2020/10/27/KL_divergence.html)
 좋은 자료를 만들어 주셨습니다.  

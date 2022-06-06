@@ -46,6 +46,10 @@
     {% include site-fonts.html %}
 
     {% include site-before-start.html %}
+
+    {% if page.mathjax %}
+      {% include mathjax.html %}
+    {% endif %}
   </head>
 
   <body class="layout-{{ page.layout }}{% if page.title %}  {{ page.title | slugify }}{% endif %}">
