@@ -25,6 +25,7 @@ comments: true
 </p>
 
 *쿠버네티스 아키텍처*  
+*이 글은 쿠버네티스의 창시자 중 한명인 브렌던 번스의 매니징 쿠버네티스를 참고해 작성했습니다.*
 
 # 목차
 * [기능 범위](#기능-범위)
@@ -69,6 +70,7 @@ comments: true
 | 엔드포인트에서 컨테이너로 부하분산 | ○ |                                |
 | 각 노드로 트래픽 분산 | × |                                |
 
+<hr/>
 <br/>
 
 ## 기본 개념
@@ -102,6 +104,8 @@ Docker 데몬이 동작하는 호스트를 말합니다.
 수평적 확장(스케일 아웃)을 제공합니다.
 과거 버전은 `Replication Controller`를 사용하였고 하위 호환성을 위해 존재하나,
 현재는 `Replica Set`을 사용합니다.
+레플리카는 다른 레플리카와 구별되는 고유한 ID가 없습니다.
+레플리카셋은 복제된 애플리케이션을 구분하는 방법을 제공합니다.
 
 ### 서비스
 레플리카셋으로 생성된 로드벨런서의 엔드포인트를 제공합니다.
@@ -158,12 +162,16 @@ https://gruuuuu.github.io/network/lb01/
 
 * 컨피그맵
   
-[컨피그맵](https://jwher.github.io/k8s-tip-configmap)
+[컨피그맵](https://jwher.github.io/k8s-tip-configmap)  
+컨피그맵은 구성파일의 모음을 나타냅니다.
+파드에 컨피그맵 기반 볼륨을 추가하면 실행중인 컨테이너의 지정된 디렉터리에 나타납니다.
 
 * 시크릿
 
 시크릿은 볼륨 컨텍스트 안에서 컨피그맵과 동일합니다.
+데이터베이스 암호 및 인증서와 같은 보안 데이터를 저장합니다.
 
+<hr/>
 <br/>
 
 ## 관리 개념
@@ -175,10 +183,28 @@ https://gruuuuu.github.io/network/lb01/
 
 ### 네임스페이스
 
+쿠버네티스 API 오브젝트를 구분하기 위한 개념입니다.
+RBAC 규칙 범위를 제공합니다.
+삭제시 하위 오브젝트가 준부 삭제됩니다.
+네임스페이스를 지정하지 않은 오브젝트는 `default` 네임스페이스가 사용됩니다.
+
 ### 라벨
-라벨 설렉터, 동적 그룹을 제공합니다.
+*레이블*  
+라벨이 짧고 부르기 편해서 이렇게 부르지만, 공식 번역은 "레이블" 입니다.
+쿠버네티스의 모든 오브젝트는 연관된 임의의 레이블 집합을 가질 수 있습니다.
+API 서버에 **라벨 쿼리**, **라벨 설렉터**를 보내 조회할 수 있습니다.
+많은 오브젝트는 라벨 설렉터를 사용해 다른 오브젝트 집합을 식별합니다.
+예를들어 파드의 [노드 셀렉터](https://jwher.github.io/k8s-tip-nodeselector) ,
+서비스의 파드 설렉터가 있습니다.
+
+(노드 셀렉터, 노드 어피니티, 테인트/톨러레이션)
+
+<!--라벨 설렉터, 동적 그룹을 제공합니다.-->
 
 ### 어노테이션
+
+API 오브젝트가 전부 정보 식별용은 아닙니다.
+일부는 단순 **주석**(어노테이션)입니다.
 
 <br/>
 
@@ -222,7 +248,164 @@ spec:
 
 ### 인그레스
 
+서비스로 간단한 TCP 수준의 로들 밸런싱을 수행하지만,
+애플리케이션 수준의 방법은 제공하지 않습니다.
+대부분 애플리케이션은 HTTP 웹 기반이기 때문에 HTTP 로드 밸런서가 필요합니다.
+이를 해결하기 위해 **인그레스**가 있습니다.
+인그레스는 가상 IP 주소를 받아 HTTP 요청 내용을 확인해 다른 서비스로 라우팅합니다.
+
+<!--
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: "0"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    meta.helm.sh/release-name: harbor
+    meta.helm.sh/release-namespace: harbor
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  creationTimestamp: "2021-07-26T12:19:54Z"
+  generation: 1
+  labels:
+    app: harbor
+    app.kubernetes.io/managed-by: Helm
+    chart: harbor
+    heritage: Helm
+    release: harbor
+  name: harbor-ingress
+  namespace: harbor
+  resourceVersion: "9589535"
+  selfLink: /apis/extensions/v1beta1/namespaces/harbor/ingresses/harbor-ingress
+  uid: 02d7bb0c-12e0-44fc-9a38-1ec2f921b675
+spec:
+  rules:
+  - host: core.harbor.192.168.1.161.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: harbor-portal
+          servicePort: 80
+        path: /
+      - backend:
+          serviceName: harbor-core
+          servicePort: 80
+        path: /api/
+      - backend:
+          serviceName: harbor-core
+          servicePort: 80
+        path: /service/
+      - backend:
+          serviceName: harbor-core
+          servicePort: 80
+        path: /v2
+      - backend:
+          serviceName: harbor-core
+          servicePort: 80
+        path: /chartrepo/
+      - backend:
+          serviceName: harbor-core
+          servicePort: 80
+        path: /c/
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.1.161
+```
+-->
+
 ### 스테이트풀 셋
+
+레플리카셋은 스테이트풀 스토리지 워크로드 또는 공유 애플리케이션은 레플리카 차별이 더 필요합니다.
+레플리카셋으로 표현할 수 있지만, 최종 사용자에게 복잡하고, 오류가 나기 쉬우며, 반복적입니다.
+스테이트풀 셋은 컨테이너를 만들고 삭제하는 방식이 더 확실합니다.
+
+<!--
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{},"labels":{"app":"metacontroller","kustomize.component":"metacontroller"},"name":"metacontroller","namespace":"kubeflow"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"metacontroller","kustomize.component":"metacontroller"}},"serviceName":"","template":{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"},"labels":{"app":"metacontroller","kustomize.component":"metacontroller"}},"spec":{"containers":[{"command":["/usr/bin/metacontroller","--logtostderr","-v=4","--discovery-interval=20s"],"image":"metacontroller/metacontroller:v0.3.0","imagePullPolicy":"Always","name":"metacontroller","ports":[{"containerPort":2345}],"resources":{"limits":{"cpu":"4","memory":"4Gi"},"requests":{"cpu":"500m","memory":"1Gi"}},"securityContext":{"allowPrivilegeEscalation":true,"privileged":true}}],"serviceAccountName":"meta-controller-service"}},"volumeClaimTemplates":[]}}
+  creationTimestamp: "2021-07-15T00:59:01Z"
+  generation: 1
+  labels:
+    app: metacontroller
+    kustomize.component: metacontroller
+  name: metacontroller
+  namespace: kubeflow
+  resourceVersion: "207220"
+  selfLink: /apis/apps/v1/namespaces/kubeflow/statefulsets/metacontroller
+  uid: 103f0abb-1247-4476-a0ee-9abdcb179482
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: metacontroller
+      kustomize.component: metacontroller
+  serviceName: ""
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        app: metacontroller
+        kustomize.component: metacontroller
+    spec:
+      containers:
+      - command:
+        - /usr/bin/metacontroller
+        - --logtostderr
+        - -v=4
+        - --discovery-interval=20s
+        image: metacontroller/metacontroller:v0.3.0
+        imagePullPolicy: Always
+        name: metacontroller
+        ports:
+        - containerPort: 2345
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "4"
+            memory: 4Gi
+          requests:
+            cpu: 500m
+            memory: 1Gi
+        securityContext:
+          allowPrivilegeEscalation: true
+          privileged: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: meta-controller-service
+      serviceAccountName: meta-controller-service
+      terminationGracePeriodSeconds: 30
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+status:
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: metacontroller-6559b8f5c7
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updateRevision: metacontroller-6559b8f5c7
+  updatedReplicas: 1
+```
+
+잡 크론잡 데몬셋
+-->
 
 <br/>
 
@@ -236,6 +419,69 @@ spec:
 * kube-controller-manager
 * kube-scheduler
 * kube-proxy(미니언)
+
+### etcd
+키/값 저장소로 쿠버네티스 클러스터의 핵심입니다.
+etcd 서버는 분산된 합의 알고리즘인 래프트를 구현해, 장애 극복과 데이터 복구가 가능합니다.
+(낙관적 동시성, 비교 후 교환(CAS, compare and swap), 워치 프로토콜)
+
+네임스페이스의 모든 오브젝트는 etcd 디렉터리에 저장됩니다.
+워치 프로토콜ㅇㄹ 사용해 전체 키/값 저장소의 변경사항을 효율적으로 감시합니다.
+클라이언트가 지속적으로 폴링하지 않아도 됩니다.
+
+### api 서버
+
+중요!
+
+### 스케줄러
+
+파드가 실행될 위치를 찾아줍니다.  
+
+```javascript
+schedule(pod): string
+    nodes := getAllHealthyNodes()
+    viableNodes := []
+    for node in nodes:
+        for predicate in predicates:
+            if predicate(node, pod):
+                viableNodes.append(node)
+
+    scoredNodes := PriorityQueue<score, Node[]>
+    priorities := GetPriorityFunctions()
+    for node in viableNodes:
+        score = CalculateCombinedPriority(node, pod, priorities)
+        scoredNodes[score].push(node)
+
+    bestScore := scoredNodes.top().score
+    selectedNodes.append(scoredNodes.pop())
+
+    node := selectAtRandom(selectedNodes)
+    return node.Name
+```
+*현재는 로직이 바뀌었습니다.*
+
+### 컨트롤러 관리자
+
+스케줄러 명령을 실제 실행하는 조정 제어 루프를 관리합니다.
+
+### 쿠블렛
+
+쿠버네티스 클러스터에 포함되는 모든 시스템의 노드 데몬입니다.
+사용가능한 cpu, 디스크, 노드를 쿠버네티스 클러스터에 연결하는 다리입니다.
+이런 상태를 API 서버에 전달해 다른 조정 제어 루프가 컨테이너 상태를 볼 수 있습니다.
+
+또한, 실행될 것으로 예상되는 컨테이너의 상태를 확인하고 다시 시작합니다.
+하지만 모든 상태 정보를 API 서버에 전달하는 것은 비효율적이기 때문에
+조정 루프를 재실행하고, 상태와 재시작 정보만 API 서버에 전달합니다.
+
+### kube-proxy
+
+서비스의 로드 밸런서 네트워킹 모델을 담담합니다.
+
+<!-- 스케줄된 구성요소 kube-dns 힙스터 -->
+
+<hr/>
+<br/>
    
 ## 노드간 통신
 
@@ -245,7 +491,7 @@ spec:
 
 ## Tips
 
-상당히 많은 글과 6개월간 운영 검혐으로 작성했습니다.
+상당히 많은 글과 운영 검혐으로 작성했습니다.
 
 ### Reference  
 
