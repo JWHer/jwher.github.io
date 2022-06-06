@@ -41,7 +41,8 @@ comments: true
 * kubernetes cluster
 
 ### 바이너리 설치
-<details markdown="1" open>
+<details open>
+<div markdown="1">
 
 <p>1. 바이너리 파일을 다운로드 합니다.</p>
 
@@ -88,6 +89,7 @@ The connection to the server <server-name:port> was refused - did you specify th
 ```
 
 <br/>
+</div>
 </details>
 
 ### 패키지 관리자 설치
