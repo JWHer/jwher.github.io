@@ -2,7 +2,7 @@
 layout: post
 
 title: "VAE: Variable Auto Encoder"  
-thumbnail-img: /assets/variable-autoencoder/vae.png
+thumbnail-img: /assets/img/variable-autoencoder/vae.png
 categories:
 - math
 - paper
@@ -21,7 +21,7 @@ comments: true
 <!-- more -->
 
 <p align="center">
-<img src="/assets/variable-autoencoder/vae.png" style="height: 40vh;"/>
+<img src="/assets/img/variable-autoencoder/vae.png" style="height: 40vh;"/>
 </p>
 <!--
 <script type="text/x-mathjax-config">
@@ -52,8 +52,8 @@ comments: true
 * **판별 모델**은 X일때 Y일 확률, 즉 조건부 확률 p(Y|X)를 학습합니다.  
 
 > <div align="center">
-> <img src="/assets/variable-autoencoder/x-and-y.png" style="height: 26vmin;"/>
-> <img src="/assets/variable-autoencoder/y-in-x.png" style="height: 26vmin;"/>
+> <img src="/assets/img/variable-autoencoder/x-and-y.png" style="height: 26vmin;"/>
+> <img src="/assets/img/variable-autoencoder/y-in-x.png" style="height: 26vmin;"/>
 > </div>
 >
 > 생성모델은 X에서 Y가 생성되게 학습해야 합니다. 즉, 교집합이 아닌 부분을 최소화 해야합니다.(X=Y=X∩Y, (X∩Y)ᶜ=∅)  
@@ -65,7 +65,7 @@ comments: true
 하지만 고양이 사진을 만드려면, 고양이의 모든 특징(꼬리, 귀, 눈, 털...)을 정확히 알아야 합니다.
 
 > <p align="center">
-> <img src="/assets/variable-autoencoder/x-is-y-y-include-x.png" style="height: 40vh;"/>
+> <img src="/assets/img/variable-autoencoder/x-is-y-y-include-x.png" style="height: 40vh;"/>
 > </p>
 >
 > 생성 모델은 집합 X와 집합 Y를 최대한 일치시키는 방법을 찾아야 합니다.  
