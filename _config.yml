@@ -114,7 +114,7 @@ navigation_header:
 - title: Posts
   url: /posts/
 - title: Categories
-  url: /categories/
+  url: /categories
 #- title: ⌕
 #  url: /search/
 #- title: Fork Alembic
