@@ -5,6 +5,7 @@ title: "허정원 기술블로그"
 thumbnail-img: /assets/logos/logo.svg
 categories:
 - blog
+- tech  
 excerpt: |
   블로그 사이트맵
 date: 2021-08-23 19:50:00
