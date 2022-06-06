@@ -39,8 +39,9 @@ comments: true
 > <p align="center">
 > <img src="https://t1.daumcdn.net/cfile/tistory/2158293455F6709717" style="filter: grayscale(100%); height: 40vmin" />
 > </p>
-> <p>Initial revision of "git", the information manager from hell</p>
-> <p>─ Linus Torvalds</p>
+> 
+> Initial revision of "git", the information manager from hell  
+> ─ Linus Torvalds
 
 농담이 아니라, 리눅스 창시자이기도 한 리누스 토발즈가 **깃**을
 처음 소개하며 한 [말](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290) 입니다.
