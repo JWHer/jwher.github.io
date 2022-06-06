@@ -28,7 +28,7 @@ title: K8S Tip Rollback
 디플로이먼트는 파드와 레플리카셋에 대한 선언적 업데이트를 제공합니다. 😵  
 
 혹시, 디플로이먼트, 파드, 레플리카셋을 처음 들어보셨나요?
-[이글][wellcometokubernetes] 을 먼저 읽는 걸 추천합니다!  
+[이글][/posts/welcome-to-kubernetes] 을 먼저 읽는 걸 추천합니다!  
 
 그래도 어려우니 조금 풀어서 볼까요?  
 사용자는 디플로이먼트로 파드의 의도하는 상태를 설명하고, 디플로이먼트 [컨트롤러](https://kubernetes.io/ko/docs/concepts/architecture/controller/)
@@ -136,15 +136,13 @@ ml-pipeline-newvis   1/1     1            1           18h
 
 ## Tips
 
-[쿠버네티스란?](wellcometokubernetes)
+[쿠버네티스란?](/posts/welcome-to-kubernetes)
 
 <br/>
 
 ### Reference  
 
 [[공식]디플로이먼트](https://kubernetes.io/ko/docs/concepts/workloads/controllers/deployment/)
-
-[wellcometokubernetes]: https://jwher.github.io/2021-04-12-welcome-to-kubernetes/  
 
 
 <!-- update log -->

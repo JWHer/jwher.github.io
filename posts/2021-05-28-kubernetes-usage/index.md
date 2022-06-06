@@ -16,8 +16,8 @@ title: Kubernetes Usage
 *쿠버네티스 사용하기*  
 
 # 목차
-* [kubectl 설치](kubectl-설치)
-* [명령어](명령어)
+* [kubectl 설치](#kubectl-설치)
+* [명령어](#명령어)
 
 ## kubectl 설치  
 

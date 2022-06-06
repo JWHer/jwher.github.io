@@ -26,11 +26,11 @@ const FeatureList: FeatureItem[] = [
         ∙ Drive best practice implementation for across company
         <br /><br />
         <p style={{fontWeight:"bold"}}>Skills:&nbsp;
-          <Link href="/categories/server/fastapi" className={styles.btn__warning}>FastAPI</Link>
-          <Link href="/categories/mlops/mlflow" className={styles.btn__warning}>MLflow</Link>
-          <Link href="/categories/pytorch" className={styles.btn__warning}>Pytorch</Link>
-          <Link href="/categories/web/angular" className={styles.btn__warning}>Angular</Link>
-          <Link href="/categories/ml/deepstream" className={styles.btn__warning}>Deepstream</Link>
+          <Link href="https://jwher.github.io/categories/server/fastapi" className={styles.btn__warning}>FastAPI</Link>
+          <Link href="https://jwher.github.io/categories/mlops/mlflow" className={styles.btn__warning}>MLflow</Link>
+          <Link href="https://jwher.github.io/categories/pytorch" className={styles.btn__warning}>Pytorch</Link>
+          <Link href="https://jwher.github.io/categories/web/angular" className={styles.btn__warning}>Angular</Link>
+          <Link href="https://jwher.github.io/categories/ml/deepstream" className={styles.btn__warning}>Deepstream</Link>
         </p>
       </>
     ),
@@ -53,8 +53,8 @@ const FeatureList: FeatureItem[] = [
           <Link href="/categories/kubernetes" className={styles.btn__success}>Kubernetes</Link>
           <Link href="/categories/kubernetes/kubeflow" className={styles.btn__success}>Kubeflow</Link>
           <Link href="/categories/ml/openvino" className={styles.btn__warning}>OpenVINO</Link>
-          <a href="/categories/ml/nuclio" className={styles.btn__success}>Nuclio</a>
-          <Link href="/categories/wep/angular" className={styles.btn__warning}>React</Link>
+          <Link href="/categories/ml/nuclio" className={styles.btn__success}>Nuclio</Link>
+          <Link href="/categories/web/angular" className={styles.btn__warning}>React</Link>
         </p>
       </>
     ),
