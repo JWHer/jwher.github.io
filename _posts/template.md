@@ -34,7 +34,7 @@ comments: true
 <!-- more -->
 
 <p align="center">
-<img src="/assets/img/linux.png" style="height: 40vmin;"/>
+<img src="/assets/img/linux.png" style="height: 40vh; object-fit:cover;"/>
 </p>
 
 ![Alt](some-awesome-image.png "awesome")  
