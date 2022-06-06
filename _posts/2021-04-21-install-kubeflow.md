@@ -45,16 +45,17 @@ comments: true
 
 ### 쿠브플로우에 대한 이해
 
-쿠브플로우 또는 쿠베플로우(kubeflow)라고도 불리는데요,  
+쿠브플로우 또는 쿠베플로우(kubeflow)라고도 불리는데요,
 [쿠브플로우 역할](https://jwher.github.io/2021-06-19-welcome-to-kubeflow/) 을 정확히 이해하고 목적에 맞는 배포판을 설치하는 것을 추천합니다.
 
 GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있습니다.
+클라우드를 적극 활용중이거나 충분한 스펙의 하드웨어가 없다면 추천드립니다!  
 [GKE](https://cloud.google.com/kubernetes-engine) [EKS](https://aws.amazon.com/ko/eks/)  
-클라우드를 적극 활용중이거나 충분한 스펙의 하드웨어가 없다면 추천드립니다!
 
 이 글에서는 다양한 쿠브플로우를 on-premise 환경에 직접 설치하는 방법을 설명합니다.  
-~~사실, 쿠버네티스 클러스터만 갖추어져 있으면 설치방법은 대부분 동일합니다.~~
-[나에게 필요한 쿠버네티스 설치하기](https://jwher.github.io/2021-04-13-install-kubernetes/)
+
+~~사실, 쿠버네티스 클러스터만 갖추어져 있으면 설치방법은 대부분 동일합니다.~~  
+[나에게 필요한 쿠버네티스 설치하기](https://jwher.github.io/install-kubernetes)
 
 진짜 아무것도 모르겠고, 더 공부하기도 싫다면 추천하는 방법입니다.  
 [miniKF](#번외-minikf)
@@ -96,7 +97,7 @@ kfctl과 kustomize를 이용한 설치 방법을 설명합니다.
 ### 설치
 
 쿠버네티스가 없으신 분은 [이글](https://jwher.github.io/2021-04-13-install-kubernetes/) 설치법을 참고해주세요.  
-아! 호환되는 kubernetes 버전을 꼭 확인해주세요. :blush:  
+*호환되는 kubernetes 버전을 꼭 확인해주세요.* :blush:  
 
 <!--
 ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubeflow-version-matrix.png "kubeflow-version-matrix")
