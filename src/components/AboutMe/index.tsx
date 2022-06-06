@@ -25,13 +25,13 @@ const FeatureList: FeatureItem[] = [
         <br />
         ∙ Drive best practice implementation for across company
         <br /><br />
-        <h5>Skills:&nbsp;
+        <p style={{fontWeight:"bold"}}>Skills:&nbsp;
           <Link href="/categories/server/fastapi" className={styles.btn__warning}>FastAPI</Link>
           <Link href="/categories/mlops/mlflow" className={styles.btn__warning}>MLflow</Link>
           <Link href="/categories/pytorch" className={styles.btn__warning}>Pytorch</Link>
           <Link href="/categories/web/angular" className={styles.btn__warning}>Angular</Link>
           <Link href="/categories/ml/deepstream" className={styles.btn__warning}>Deepstream</Link>
-        </h5>
+        </p>
       </>
     ),
   },
@@ -49,13 +49,13 @@ const FeatureList: FeatureItem[] = [
         <br />
         ∙ Deploy model using serverless framework
         <br /><br />
-        <h5>Skills:&nbsp;
+        <p style={{fontWeight:"bold"}}>Skills:&nbsp;
           <Link href="/categories/kubernetes" className={styles.btn__success}>Kubernetes</Link>
           <Link href="/categories/kubernetes/kubeflow" className={styles.btn__success}>Kubeflow</Link>
           <Link href="/categories/ml/openvino" className={styles.btn__warning}>OpenVINO</Link>
           <a href="/categories/ml/nuclio" className={styles.btn__success}>Nuclio</a>
           <Link href="/categories/wep/angular" className={styles.btn__warning}>React</Link>
-        </h5>
+        </p>
       </>
     ),
   },
@@ -71,10 +71,10 @@ const FeatureList: FeatureItem[] = [
         <br />
         ∙ Develope logic to find a specific transaction on distributed ledger
         <br /><br />
-        <h5>Skills:&nbsp;
+        <p style={{fontWeight:"bold"}}>Skills:&nbsp;
           <Link href="/categories/java/spring" className={styles.btn__success}>Spring</Link>
           <Link href="/categories/web/node" className={styles.btn__success}>Node.js</Link>
-        </h5>
+        </p>
       </>
     ),
   },
@@ -94,12 +94,12 @@ const FeatureList: FeatureItem[] = [
         <br />
         ∙ Military service from Feb. 2016 until Nov. 2017
         <br /><br />
-        <h5>Skills:&nbsp;
+        <p style={{fontWeight:"bold"}}>Skills:&nbsp;
           <Link href="/categories/cs/algorithm" className={styles.btn__warning}>Algorithm</Link>
           <Link href="/categories/cs/design-pattern" className={styles.btn__warning}>Design Pattern</Link>
           <Link href="/categories/cs/operating-system" className={styles.btn__warning}>OS</Link>
           <Link href="/categories/cs/parallel-programming" className={styles.btn__warning}>Parallel Programming</Link>
-        </h5>
+        </p>
       </>
     ),
   },
@@ -169,6 +169,7 @@ export default function AboutMe(): JSX.Element {
         </div>
         <br />
       </div>
+      <hr></hr>
       <div className="container">
         <h1 className="card-title">Timeline</h1>
         <br />
@@ -182,7 +183,7 @@ export default function AboutMe(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="container" style={{padding: 0}}>
+      <div className="container" style={{padding: 0, maxWidth: "none"}}>
         <div className={styles.rainbow}>
           <div>Come unto me, all ye that labour and are heavy laden, and I will give you rest</div>
         </div>

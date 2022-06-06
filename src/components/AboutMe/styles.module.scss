@@ -39,6 +39,8 @@ $read-light:	#ff6a60;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		padding: 0 20px;
+
 		font-size: 3rem;
 		font-weight: bold;
 		color: #E3E3E3;
@@ -224,6 +226,9 @@ $read-light:	#ff6a60;
 			&:nth-child(2) {
 				margin: 0;
 			}
+			&:last-child {
+				margin-bottom: 80px !important;
+			}
 			&:nth-child(2n){
 				.timeline__content {
 					text-align: left;
@@ -235,18 +240,11 @@ $read-light:	#ff6a60;
 			&:nth-child(odd) {
 				margin: 0;
 			}
-			&:last-child {
-				.timeline__content {
-					text-align: left;
-				}
-			}
+
 			width: 100%;
 			float: none;
 			padding: 0 30px;
 			margin-bottom: 20px !important;
-			&:last-child {
-				margin: 0 !important;
-			}
 		}
 
 		.timeline__icon {
