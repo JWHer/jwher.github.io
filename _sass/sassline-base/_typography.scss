@@ -105,7 +105,7 @@ a {
       margin-left: 2rem;
 
       @include breakpoint(break-1) {
-        margin-left: 0;
+        margin-left: 2rem;
       }
 
       ol, ul {
@@ -299,7 +299,7 @@ a {
     }
 
     @include breakpoint(break-1) {
-      margin-left: -1rem;
+      margin-left: 0rem;
     }
   }
 
