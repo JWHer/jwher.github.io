@@ -2,10 +2,9 @@
 layout: post
 
 title: "K8s tip: PersistentVolume terminating"
-thumbnail-img: 
+thumbnail-img: /assets/img/Kubernetes.svg  
 categories:
 - tech
-- kubeflow
 - kubernetes
 - short
 excerpt: |
@@ -25,7 +24,7 @@ comments: true
 <img src="/assets/img/Kubernetes.svg" style="height: 40vh; object-fit:cover;"/>
 </p>
 
-*요약을 적어주자*  
+*쿠버네티스 PV 삭제하기*  
 
 # 목차
 * [PV 삭제하기](#pv-삭제하기)
