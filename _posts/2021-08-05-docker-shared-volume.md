@@ -2,7 +2,7 @@
 layout: post
 
 title: "도커 컨테이너와 공유 볼륨"  
-thumbnail-img: /assets/img/docker.png  
+thumbnail-img: /assets/img/docker.svg  
 categories:
 - tech
 - docker
@@ -21,7 +21,7 @@ comments: true
 <!-- more -->
 
 <p align="center">
-<img src="/assets/img/docker.png" style="max-height: 40vh;"/>
+<img src="/assets/img/docker.svg" style="max-height: 40vh;"/>
 </p>
 
 *도커 컨테이너와 공유 볼륨 권한 문제 해결*  
@@ -163,6 +163,15 @@ root         1  0.0  0.0   2516   584 ?        Ss   07:47   0:00 sleep infinity
 ```
 uid 0의 `root`로 오버라이드 된 것을 확인할 수 있습니다!😀  
 
+<br/>
+
+> <p align="center">
+> <img src="/assets/img/docker-shared-volume/thinking.png" style="max-height: 40vh;"/>
+> </p>
+> 어려워요...
+
+<br/>
+
 ### 정리
 위의 실습을 정리하면 다음과 같습니다.
 1. 컨테이너 프로세스가 알려진 uid로 실행중이면, 호스트에서 uid를 사용하여 간단하게 컨테이너 접근제한을 할 수 있습니다.  
@@ -207,6 +216,15 @@ drwxrwxrwx  3 root root 4096  8월  2 09:10 logs
 ```shell
 $ sudo chmod 777 data
 ```
+
+<br/>
+
+> <p align="center">
+> <img src="/assets/img/docker-shared-volume/idea.jpg" style="max-height: 40vh;"/>
+> </p>
+> 흠! 하나 해결했군요!
+
+<br/>
 
 ### 끝?
 
