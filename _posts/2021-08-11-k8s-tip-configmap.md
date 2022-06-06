@@ -2,7 +2,7 @@
 layout: post
 
 title: "K8s tip: ConfigMap"
-thumbnail-img: 
+thumbnail-img: /assets/img/Kubernetes.svg
 categories:
 - tech
 - kubeflow
@@ -105,7 +105,7 @@ spec:
           name: someapp-config      # 컨피그맵 이름
 ```
 
-자 이제 컨피그맵을 수정해 컨테이너 설정을 변경할 수 있습니다! 😊
+자, 이제 컨피그맵을 수정해 컨테이너 설정을 변경할 수 있습니다! 😊
 
 <br/>
 
