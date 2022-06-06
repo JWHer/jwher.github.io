@@ -54,8 +54,8 @@ collections:
     output: true
     description: "생각과 아이디어" # The post list page content
     feature_text: |
-      Let thine heart retain my words:
-      Keep my commandments, and live.
+      <h2 style="color: #FFFAFA; background-color: black; padding: 0 10px;"> Let thine heart retain my words:
+      Keep my commandments, and live. </h2>
     feature_image: "https://raw.githubusercontent.com/JWHer/jwher.github.io/main/assets/img/Bamboo-road.jpg"
 
 defaults:
@@ -162,4 +162,4 @@ live2d:
     width: 150
     height: 150
   mobile:
-    show: true
+    show: false
