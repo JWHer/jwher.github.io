@@ -41,6 +41,11 @@ social:
 #commonmark:
 #  options: ["SMART", "FOOTNOTES"]
 #  extensions: ["strikethrough", "autolink", "table"]
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 
 sass:
   style: compressed
