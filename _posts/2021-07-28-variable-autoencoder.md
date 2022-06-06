@@ -31,6 +31,7 @@ mathjax: true
 # 목차
 * [생성모델](#생성모델)
 * [배경지식](#배경지식)
+* [VAE](#vae)
 * [수학과 코드](#수학과-코드)
 
 ## 생성모델
@@ -90,7 +91,7 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 반면에, **연속확률분포**는 확률변수가 **연속적**이고 확률밀도함수로 표현할 수 있는 분포를 말합니다.
 
 통계학을 들으신 분이라면 이항분포의 특수한 형태인 [푸아송 분포](https://ko.wikipedia.org/wiki/%ED%91%B8%EC%95%84%EC%86%A1_%EB%B6%84%ED%8F%AC)
-와 대표적인 연속확률분포인 정규분포를 어렴풋이 기억날 것입니다.  
+와 대표적인 연속확률분포인 정규분포를 어렴풋이 기억할 것입니다.  
 
 정규분포(Gaussian distribution)와 연속확률분포를 조금 더 자세히 볼까요?  
 <p align="center">
@@ -173,11 +174,107 @@ $ P(A)P(B)=P(A \bigcap B) $
 
 <br/>
 
+## VAE
+
+주인공 Variable Auto Encoder의 구조를 봅시다.  
+<p align="center">
+<img src="/assets/img/variable-autoencoder/latent-vector.png" style="height: 40vh;"/>
+</p>
+
+$ z~p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확률은  
+$ p(x\bar z) $  
+입니다.
+우리의 목적은 $ p(x\bar z) $일 수도 있는 근사값 $ p_\theta(x\bar z) $를 구하는 것입니다.  
+<!-- p(x | generator_theta(z)) => p_theta(x | z) -->
+*주의! $ p(x\bar z) $는 생성기(generator)가 아닌 확률입니다*  
+
+그렇다면 $ p(x\bar z) $와 가장 유사한 $ p_\theta(x\bar z) $를 어떻게 구해야 할까요?
+[MLE(Maximum Likelihood Estimation)](https://ko.wikipedia.org/wiki/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84_%EB%B0%A9%EB%B2%95)
+을 적용해 [가능도](https://ko.wikipedia.org/wiki/%EA%B0%80%EB%8A%A5%EB%8F%84)
+를 최대로 만들면 될까요?
+<p align="center">
+<img src="/assets/img/variable-autoencoder/latent-vector.png" style="height: 40vh;"/>
+</p>
+
+파란색 분포를 $ p(x\bar z) $라고 합시다.
+주황색 분포는 변형이 존재하고, 회색 분포는 x축 이동을 했습니다.
+주황색과 회색 분포 중 무엇이 파란색 분포에 더 가까울까요?  
+
+회색 분포는 단순히 이동을 했기 때문에 의미적으로 파란색과 동일합니다.
+하지만, 파란색 분포와 다른 확률분포의 차이를 계산해 보면 오류가 있지만 가까이 있는 주황색 분포가 더 작습니다.  
+
+즉, 사전 확률(prior probability, $ p(z) $) 지표로 학습하면 올바르게 학습되지 않습니다.
+따라서 사후 확률(posterior probability, $ p(z\bar x) $)과 근사값 $ q_\lambda(z\bar x) $를 포함해
+[변분법(Calculus of Variational)](https://ko.wikipedia.org/wiki/%EB%B3%80%EB%B6%84%EB%B2%95)
+을 통해 학습합니다.  
+
+<p align="center">
+<img src="/assets/img/variable-autoencoder/vae.png" style="height: 40vh;"/>
+</p>
+
+~~*왜 앞에있는게 사후확률이야*~~  
+p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\bar x) $ 사후확률)로 z를 학습합니다.
+이때 근사함수 $ q_\lambda(z\bar x), p_\theta(x\bar z) $를 각각 `encoder`, `decoder`로 부르겠습니다.    
+*(신경망은 각각 λ와 θ를 파라미터로 가집니다)*
+
+자, 그럼 이제 변분법을 통해 참 사후조건인 $ p(z\bar x) $를 찾으면 됩니다!
+왜 VAE인지 이제 알겠군요!
+
+## ELBO
+*Evidence Lower BOund*
+
+를 최대화
+
+이미지
+
+## Reparameterization Trick
+
+하지만, 단순하게 ELBO의 경사값을 계산하는건 샘플링 계산이 obtain z를 사용하기에 불가능합니다.
+따라서 p(z)를 다루기 쉬운 정규분포를 사용하여 우회할 수 있습니다.  
+
+
+
+<br/>
+
 ## 수학과 코드
 
-### ELBO
-*Evidence Lower BOund*
+https://github.com/magenta/magenta/blob/be6558f1a06984faff6d6949234f5fe9ad0ffdb5/magenta/models/music_vae/base_model.py#L210-L272
    
+```python
+import tensorflow_probability as tfp
+# ds = tfp.distributions
+
+... 전략 ...
+q_z = self.encode(input_sequence, x_length, control_sequence)
+z = q_z.sample()
+
+# Prior distribution.
+p_z = ds.MultivariateNormalDiag(
+    loc=[0.] * hparams.z_size, scale_diag=[1.] * hparams.z_size)
+
+# KL Divergence (nats)
+kl_div = ds.kl_divergence(q_z, p_z)
+
+r_loss, metric_map = self.decoder.reconstruction_loss(
+    x_input, x_target, x_length, z, control_sequence)[0:2]
+
+free_nats = hparams.free_bits * tf.math.log(2.0)
+kl_cost = tf.maximum(kl_div - free_nats, 0)
+
+beta = ((1.0 - tf.pow(hparams.beta_rate, tf.to_float(self.global_step)))
+        * hparams.max_beta)
+self.loss = tf.reduce_mean(r_loss) + beta * tf.reduce_mean(kl_cost)
+
+scalars_to_summarize = {
+    'loss': self.loss,
+    'losses/r_loss': r_loss,
+    'losses/kl_loss': kl_cost,
+    'losses/kl_bits': kl_div / tf.math.log(2.0),
+    'losses/kl_beta': beta,
+}
+return metric_map, scalars_to_summarize
+```
+
 <br/>
 
 ## Tips
@@ -198,7 +295,8 @@ https://deepinsight.tistory.com/127
 
 # KLD>=0 증명
 https://hyunw.kim/blog/2017/10/27/KL_divergence.html
-
+-->
+<!--
 # KLD
 https://qiita.com/ceptree/items/9a473b5163d5655420e8
 ```python
@@ -341,4 +439,26 @@ ani = animation.FuncAnimation(fig, update, interval=1000,frames=U2_n)
 # plt.show()
 # ani.save("KL_μ.gif", writer="imagemagick")
 ```
+-->
+<!--
+https://stopspoon.tistory.com/63
+Posterior collapse가 발생하는 이유
+
+1. Decoder가 latent z 없이 과거 데이터만으로 충분히 generation이 가능한 경우
+
+2. Ill-posed problem이기 때문에 조건에 맞는 다양한 latent z가 존재할 수 있는 가능성
+
+3. VAE가 local information을 선호하는 경향 (즉, z가 sequence 전체의 속성을 담지 못하고 next-step prediction을 위해서만 사용됨, KL term보다 likelihood term에 집중되는 경향) 
+
+4. 학습 초기에 encoder가 meaningful z를 표현하지 못하기 때문에
+
+5. 가정한 Gaussian prior는 사실 아무 정보가 없음
+
+6. ELBO와 evidence 사이의 gap, true posterior approximation의 실패
+
+ 
+
+References
+
+[1] S. R. Bowman et al., Generating Sentences from a Continuous Space, CoNLL 2016
 -->
