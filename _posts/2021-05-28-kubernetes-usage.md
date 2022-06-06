@@ -42,6 +42,8 @@ comments: true
 
 ### 바이너리 설치
 
+<details markdown="1" open>
+
 <p>1. 바이너리 파일을 다운로드 합니다.</p>
 
 ```shell
@@ -87,8 +89,11 @@ The connection to the server <server-name:port> was refused - did you specify th
 ```
 
 <br/>
+</details>
 
 ### 패키지 관리자 설치
+
+<details markdown="1" open>
 
 apt나 yum으로 관리되게 설치할 수 있습니다.  
 
@@ -132,8 +137,11 @@ yum install -y kubectl
 ```
    
 <br/>
+</details>
 
 ### 다른 패키지 관리자
+
+<details markdown="1" open>
 
 *직접 해보지 않았습니다*
 
@@ -151,6 +159,7 @@ $ brew install kubectl
 $ kubectl version --client
 ```
 <br/>
+</details>
 
 ## 명령어
 *cheat sheet*  
