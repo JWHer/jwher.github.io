@@ -269,6 +269,167 @@ harbor-registry                 5GB
 
 총 18GB를 필요로 하지만
 [요구사항](#요구사항) 에 맞게 저는 레지스트리에 160GB를 할당했습니다.  
+<details markdown="1">
+  <summary>pv.yaml</summary>
+  
+  ```yaml
+  apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: harbor-redis
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  claimRef:
+    name: data-harbor-redis-0
+    namespace: harbor
+  local:
+    path: /var/lib/docker/volumes/harbor/redis
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - cwdev07
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: harbor-trivy
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  claimRef:
+    name: data-harbor-trivy-0
+    namespace: harbor
+  local:
+    path: /var/lib/docker/volumes/harbor/trivy
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - cwdev07
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: harbor-database
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  claimRef:
+    name: database-data-harbor-database-0
+    namespace: harbor
+  local:
+    path: /var/lib/docker/volumes/harbor/database
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - cwdev07
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: harbor-chartmuseum
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  claimRef:
+    name: harbor-chartmuseum
+    namespace: harbor
+  local:
+    path: /var/lib/docker/volumes/harbor/chartmuseum
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - cwdev07
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: harbor-jobservice
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  claimRef:
+    name: harbor-jobservice
+    namespace: harbor
+  local:
+    path: /var/lib/docker/volumes/harbor/jobservice
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - cwdev07
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: harbor-registry
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 160Gi
+  claimRef:
+    name: harbor-registry
+    namespace: harbor
+  local:
+    path: /var/lib/docker/volumes/harbor/registry
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - cwdev07
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+  ```
+</details>
 
 ### 서비스 노출
 
