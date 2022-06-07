@@ -19,10 +19,8 @@ $read-light:	#ff6a60;
 }
 .featureSvg {
 	object-fit: contain;
-	height: 150px;
-	width: 200px;
-	// height: fit-content;
-	// width: fit-content;
+	height: fit-content;
+	width: fit-content;
 	// opacity: .7;
 	// fill: inherit;
 }
@@ -331,5 +329,9 @@ $read-light:	#ff6a60;
 		:last-child {
 			font-size: 2rem;
 		}
+	}
+	.featureSvg{
+		height: 150px;
+		width: 200px;
 	}
 }
