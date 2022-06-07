@@ -12,13 +12,11 @@ tags:
 title: Install Kubeflow
 ---
 
-<!--truncate-->
 
-<p align="center">
 ![kubeflow](/img/logos/kubeflow.svg)
-</p>
 
 *쿠브플로우를 설치하는 다양한 방법*
+<!--truncate-->
 
 # 목차
 * [요구사항](#요구사항)
@@ -66,9 +64,7 @@ GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있습�
 
 ## Linux Machine
 
-<p align="center">
 ![linux](/img/logos/linux.svg)
-</p>
 
 가장 일반적인 구성방식입니다.
 다른 설치법의 기본이 되니 참고해주세요 :grinning:  
@@ -168,9 +164,7 @@ INFO[0285] Applied the configuration Successfully!       filename="cmd/apply.go:
 <br/>
 
 ## Window Machine
-<p align="center">
 ![windows](/img/logos/windows.svg)
-</p>
 
 고사양의 개인 PC가 있고, 쿠브플로우를 체험해 보고 싶다면 추천합니다.
 
@@ -193,9 +187,7 @@ configuration을 환경에 맞게 수정해 주어야 합니다. 다음 [블로�
 <br/>
 
 ## Virtual Machine
-<p align="center">
 ![virtualbox](/img/logos/virtualbox.svg)
-</p>
 
 Virtual Machine을 호스팅 할 수 있는 고사양의 PC/Server가 있고
 다른 애플리케이션과 충돌, 쿠버네티스 버전 관리, 테스트 서버 운영이 필요하다면 추천합니다.
@@ -210,9 +202,7 @@ Linux에서 kfctl을 사용한 쿠브플로우 설치 방법과 같습니다.
 [virtualbox vm 생성](https://jwher.github.io/2021-04-15-Install-Virtualbox-with-no-GUI/)
    
 ### 번외: miniKF
-<p align="center">
 ![minikf](/img/logos/minikf.svg)
-</p>
 
 miniKF를 통해 간편히 설치할 수 있습니다.
 한개의 VM 단일 노드 쿠버네티스에서 작동하는 쿠브플로우로
@@ -247,9 +237,7 @@ VM 환경이 같는 한계, 현재 지원이 종료된 문제가 있습니다.
 <br/>
 
 ## Kind
-<p align="center">
 ![kind](/img/logos/kind.svg)
-</p>
 
 쿠버네티스의 한 버전인 Kubernetes in Docker를 사용하여 쿠브플로우를 설치합니다.
 Docker Image로 된 쿠버네티스로 단일 노드 쿠버네티스를 빠르게 구성하고자 하면 추천합니다.  

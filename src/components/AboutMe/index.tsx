@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
       <>
         MLOps product survey and implementation for labeling toolset&nbsp;
         <br />
-        ∙ Introduce kubernetes for scalable infrastructure
+        ∙ Adopting kubernetes for scalable infrastructure
         <br />
         ∙ Automate training pipeline for pseudo-labeling feature
         <br />
@@ -148,7 +148,7 @@ export default function AboutMe(): JSX.Element {
           <h3>My name is Jeongwon Her. I have the following qualities</h3>
           ∙ Back-end programming languages: Python, Java, C#
           <br/>
-          ∙ Back-End Framework: .NET, Spring Framework
+          ∙ Back-End Framework: .NET, Spring Framework, FastAPI
           <br/>
           ∙ Front-End Framework: Angular, React
           <br/>
