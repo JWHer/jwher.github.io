@@ -139,7 +139,22 @@ const config = {
       //   searchPagePath: 'search',
       // }
     }),
-    plugins: ['docusaurus-plugin-sass'],
+    plugins: [
+      'docusaurus-plugin-sass',
+      [
+        '@docusaurus/plugin-client-redirects',
+        {
+          createRedirects(existingPath) {
+            if (existingPath.includes('/posts/')) {
+              return [
+                existingPath.replace('/posts', ''),
+              ];
+            }
+            return undefined;
+          },
+        },
+      ],
+    ],
 };
 
 module.exports = config;
