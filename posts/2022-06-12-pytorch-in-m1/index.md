@@ -8,22 +8,57 @@ tags:
 title: Pytorch in M1
 ---
 
+설치와 사용방법만 보시고 싶은 분은 [공식 발표](#공식-발표) 단락을 봐주세요!
+
 ## Pytorch
+
+> 이 글을 읽는 분이라면, pytorch가 뭔지 모르시는 분은 없을 것이라 생각합니다만 🤣
+
+파이토치는 오픈소스 머신 러닝 프레임워크로
+제품 개발 연구를 빠르게 하기 위한 방법입니다.
+
+머신 러닝 특성상 많은 선형대수학 연산을 하게 됩니다.
 
 ## GPU 가속
 
+Hardware Accelation이란 특정한 소프트웨어 작업을 general-purpose CPU 보다 빠르게 작업하기 위해 만들어 졌습니다.
+
+GPU가 그렇죠, 근데 GPU에서 그래픽 작업만 하드웨어 가속을 할 수 있는 게 아닙니다.
+
+역으로 General-purpose on GPU, GPGPU 기술이 있습니다.
+
+대표적인 GPU hardware 제조사 nvidia는 Compute Unified Device Architecture, CUDA를 지원합니다.
+
+이 가속은 AI와 딥러닝을 빠르게 해 주었습니다. GPU 가격을 폭등시킬 정도로요!
+
 ## ARM
+
+그렇다면 맥북은 Nvidia GPU를 쓸까요?
+답은 이젠 **아니요** 입니다.
+
+애플은 Mac을 Apple silicon으로 전환한다는 계획을 발표합니다.
+[Apple announces Mac transition to Apple silicon](https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/)
+M1은 Advanced RISC Machine으로 설계되었습니다.
+여러 장점이 있다고 합니다.
+
+그렇다면, Mac에서 머신러닝을 하는건 불가능 할까요?
 
 ## 공식 발표
 
 [Official Blog](https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/)
+에 따르면, pytorch 개발팀은 애플 Metal engineering 팀과 함께 Mac GPU 가속 파이토치 학습을 도입했습니다.
+이는 apple의 Metal Performance Shaders 를 backend로 해 구현되었습니다.
 
-In collaboration with the Metal engineering team at Apple, we are excited to announce support for GPU-accelerated PyTorch training on Mac.
-Accelerated GPU training is enabled using Apple’s Metal Performance Shaders (MPS) as a backend for PyTorch.
+<!-- In collaboration with the Metal engineering team at Apple, we are excited to announce support for GPU-accelerated PyTorch training on Mac.
+Accelerated GPU training is enabled using Apple’s Metal Performance Shaders (MPS) as a backend for PyTorch. -->
+
+이는 CPU로 연산을 할 때 보다 최소 5%에서 20% 정도의 성능 향상을 보인다고 보고되었습니다.
 
 ![pytorch-m1](./pytorch-m1.gif)
 
 ## 설치해보기
+
+하지만 진짜 그런지 확인해 봐야겠죠?
 
 ```
 The MPS backend is supported on MacOS 12.3+.Current OS version can be queried using `sw_vers`
