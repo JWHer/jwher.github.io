@@ -1,4 +1,13 @@
-
+---
+authors:
+- jwher
+description: CAP 이론
+slug: cap-theorem
+tags:
+- tech
+title: CAP Theorem
+draft: true
+---
 
 ## References
 https://www.ibm.com/cloud/learn/cap-theorem

@@ -1,3 +1,14 @@
+---
+authors:
+- jwher
+description: Nvidia GPU 아키텍처
+slug: nvidia-gpu-arch
+tags:
+- tech
+title: Nvidia GPU Arch
+draft: true
+---
+
 |            | Kepler cards (CUDA 5 until CUDA 10)                                                                                                                                                                     |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | compute 30 | generic Kepler, GeForce 700, GT-730                                                                                                                                                                     |
