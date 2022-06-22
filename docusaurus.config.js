@@ -27,6 +27,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en', 'kr'],
   },
+  trailingSlash: false,
 
   presets: [
     [
@@ -57,6 +58,11 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
         },
       }),
     ],
