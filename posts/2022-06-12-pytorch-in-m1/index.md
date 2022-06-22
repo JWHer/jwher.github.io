@@ -8,6 +8,10 @@ tags:
 title: Pytorch in M1
 ---
 
+![m1](apple_new-m1-chip-graphic.jpg)
+*Pytorch on Mac!*
+<!--truncate-->
+
 설치와 사용방법만 보시고 싶은 분은 [공식 발표](#공식-발표) 단락을 봐주세요!
 
 ## Pytorch
@@ -17,37 +21,50 @@ title: Pytorch in M1
 파이토치는 오픈소스 머신 러닝 프레임워크로
 제품 개발 연구를 빠르게 하기 위한 방법입니다.
 
-머신 러닝 특성상 많은 선형대수학 연산을 하게 됩니다.
+머신 러닝 특성상 많은 행렬 연산을 하게 됩니다.
+python에서는 Numpy가 대표적인 행렬 계산 라이브러리죠.
+pytorch에서는 Numpy의 [ndarrays](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html)와 비슷하며 GPU 가속을 사용할 수 있는 [tensor](https://pytorch.org/docs/stable/tensors.html)를 제공합니다.
 
 ## GPU 가속
 
-Hardware Accelation이란 특정한 소프트웨어 작업을 general-purpose CPU 보다 빠르게 작업하기 위해 만들어 졌습니다.
+그렇다면 왜 GPU 가속을 해야할까요?  
+
+하드웨어 가속(Hardware Accelation)이란 특정한 소프트웨어 작업을 general-purpose CPU 보다 빠르게 작업하기 위해 만들어 졌습니다.
 
 GPU가 그렇죠, 근데 GPU에서 그래픽 작업만 하드웨어 가속을 할 수 있는 게 아닙니다.
+역으로 General-purpose on GPU, [GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) 기술이 있습니다.
 
-역으로 General-purpose on GPU, GPGPU 기술이 있습니다.
-
-대표적인 GPU hardware 제조사 nvidia는 Compute Unified Device Architecture, CUDA를 지원합니다.
-
+대표적인 GPU hardware 제조사 nvidia는 Compute Unified Device Architecture, [CUDA](https://developer.nvidia.com/cuda-toolkit)를 지원합니다.
 이 가속은 AI와 딥러닝을 빠르게 해 주었습니다. GPU 가격을 폭등시킬 정도로요!
 
-## ARM
+## M1
 
 그렇다면 맥북은 Nvidia GPU를 쓸까요?
 답은 이젠 **아니요** 입니다.
 
 애플은 Mac을 Apple silicon으로 전환한다는 계획을 발표합니다.
-[Apple announces Mac transition to Apple silicon](https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/)
-M1은 Advanced RISC Machine으로 설계되었습니다.
-여러 장점이 있다고 합니다.
 
-그렇다면, Mac에서 머신러닝을 하는건 불가능 할까요?
+[Apple announces Mac transition to Apple silicon](https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/)  
+[Apple unleashes M1](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/)
+
+M1은 [ARMv8.5-A](https://en.wikipedia.org/wiki/ARM_architecture_family#ARMv8-A) [명령어 집합](https://github.com/llvm/llvm-project/blob/main/llvm/include/llvm/Support/AArch64TargetParser.def)을 가진 Advanced RISC Machine(ARM)으로 설계되었습니다.
+[RISC](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer), Reduced Instruction Set Computer는 적은 명령어 수를 사용하여 실행속도를 높인 마이크로프로세서 입니다.
+고정 길이의 명령어를 사용해 빠르게 해석되고 명령어 파이프라인 대기가 없습니다.
+
+이는 Intel과 같은 전통적인 하나의 특정한 연산을 위한 복잡한 명령어를 제공하는 [CISC](https://en.wikipedia.org/wiki/Complex_instruction_set_computer), Complex Instruction Set Computer와 비교할 수 있습니다.
+CISC에 비해 RISC가 갖는 대표적인 장점으로 **전력 소모가 적다**는 것입니다.
+따라서, 저전력으로 작동해야 하는 많은 모바일 기기와 임베디드 프로세서에서 채택하고 있습니다.
+
+![apple_m1-chip-cpu-power-chart](apple_m1-chip-cpu-power-chart.jpg)
+
+M1 칩은 GPU와 Neural Engine이 포함되어 있습니다.
+그렇다면, Mac에서 GPU 가속을 사용해 머신러닝을 하는건 불가능 할까요?
 
 ## 공식 발표
 
 [Official Blog](https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/)
 에 따르면, pytorch 개발팀은 애플 Metal engineering 팀과 함께 Mac GPU 가속 파이토치 학습을 도입했습니다.
-이는 apple의 Metal Performance Shaders 를 backend로 해 구현되었습니다.
+이는 apple의 [Metal Performance Shaders](https://developer.apple.com/videos/play/wwdc2021/10152/) 를 backend로 해 구현되었습니다.
 
 <!-- In collaboration with the Metal engineering team at Apple, we are excited to announce support for GPU-accelerated PyTorch training on Mac.
 Accelerated GPU training is enabled using Apple’s Metal Performance Shaders (MPS) as a backend for PyTorch. -->
@@ -55,29 +72,16 @@ Accelerated GPU training is enabled using Apple’s Metal Performance Shaders (M
 이는 CPU로 연산을 할 때 보다 최소 5%에서 20% 정도의 성능 향상을 보인다고 보고되었습니다.
 
 ![pytorch-m1](./pytorch-m1.gif)
+* Testing conducted by Apple in April 2022 using production Mac Studio systems with Apple M1 Ultra, 20-core CPU, 64-core GPU 128GB of RAM, and 2TB SSD. Tested with macOS Monterey 12.3, prerelease PyTorch 1.12, ResNet50 (batch size=128), HuggingFace BERT (batch size=64), and VGG16 (batch size=64). Performance tests are conducted using specific computer systems and reflect the approximate performance of Mac Studio.
 
 ## 설치해보기
 
 하지만 진짜 그런지 확인해 봐야겠죠?
 
-```
-The MPS backend is supported on MacOS 12.3+.Current OS version can be queried using `sw_vers`
-```
-안타깝게도 12.3+
+설치한 Library 입니다. (Conda나 Venv를 사용하시길 추천합니다)
+<details>
+<summary>requirements.txt</summary>
 
-```
-jwher@jwherui-MacBookPro ~ % sw_vers
-ProductName:	macOS
-ProductVersion:	12.2.1
-BuildVersion:	21D62
-
-jwher@jwherui-MacBookPro ~ % sw_vers
-ProductName:	macOS
-ProductVersion:	12.4
-BuildVersion:	21F79
-```
-
-requirements.txt
 ```
 certifi==2022.5.18.1
 charset-normalizer==2.0.12
@@ -106,22 +110,49 @@ tqdm==4.64.0
 typing_extensions==4.2.0
 urllib3==1.26.9
 ```
+</details>
+<br/>
+
+> **주의**
+>
+> 안타깝게도 12.3+ 이상의 Mac OS 에서 동작합니다. 이전 버전의 OS에서 `torch.device("mps")` 를 사용하면 다음 오류가 발생합니다.
+> 
+> ```
+> The MPS backend is supported on MacOS 12.3+.Current OS version can be queried using `sw_vers`
+> ```
+<br/>
+
+설치 전에 OS Version을 확인합시다.
+```
+# Bad
+jwher@jwher-MacBookPro ~ % sw_vers
+ProductName:	macOS
+ProductVersion:	12.2.1
+BuildVersion:	21D62
+
+# Good (12.3+)
+jwher@jwher-MacBookPro ~ % sw_vers
+ProductName:	macOS
+ProductVersion:	12.4
+BuildVersion:	21F79
+```
+
 
 ## 테스트
 
-torchvision 사용
+torchvision에서 제공하는 pre-trained weight로 Mnist를 학습해 봅시다.
 
 <details>
 <summary>Full Script</summary>
 
 ```
+# main thread에서만 실행가능한 함수가 있습니다
 if __name__ == "__main__":
 
     import platform, torch
-    # /Users/jwher/miniconda3/envs/py39_native/bin/python
     print(platform.platform())
 
-    CPU= True
+    CPU= False
     device = "cpu" if CPU else torch.device("mps")
     print("Device is : {}".format(device))
 
@@ -220,14 +251,7 @@ if __name__ == "__main__":
 
 </details>
 
-```
-Time result with device=mps
-vgg16_model: 36.275963306427
-alexnet: 10.713558197021484
-resnet_18: 18.608237743377686
-mobilenet_v2: 45.10530471801758
-efficientnet_b0: 75.51856923103333
-```
+### CPU 결과
 
 ```
 Time result with device=cpu
@@ -238,5 +262,31 @@ mobilenet_v2: 223.11423015594482
 efficientnet_b0: 256.45679998397827
 ```
 
-### References
+### MPS 결과
+
+```
+Time result with device=mps
+vgg16_model: 36.275963306427
+alexnet: 10.713558197021484
+resnet_18: 18.608237743377686
+mobilenet_v2: 45.10530471801758
+efficientnet_b0: 75.51856923103333
+```
+
+속도 개선률을 계산해보면,
+
+| Model        | Speed Up |
+|--------------|----------|
+| vgg16        | 519.02%  |
+| alexnet      | 336.00%  |
+| resnet18     | 224.99%  |
+| mobilenet v2 | 494.65%  |
+| efficientnet | 339.59%  |
+* 2022년 6월 Mac Book Pro M1 Max, 10-core CPU, 32-core GPU 64GB of RAM, 1TB SSD를 사용했습니다. macOS Monterey 12.4, prerelease PyTorch 1.13 환경, batch size=4로 테스트 했습니다.성능 테스트는 특정 컴퓨터 시스템으로 수행되었고 Mac Book Pro의 대략적인 성능을 반영합니다.
+
+**놀랍습니다!**
+
+공식 발표보다 속도 개선이 굉장히 높습니다. 이는 배치 크기가 작아서 생긴 결과 같습니다. 추후에 64 배치로 다시 테스트하여 비교해보겠습니다.
+
+## References
 [Pytorch training on m1 air gpu](https://abhishekbose550.medium.com/pytorch-training-on-m1-air-gpu-c534558acf1e)
