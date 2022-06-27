@@ -27,7 +27,6 @@ const config = {
     defaultLocale: 'en',
     locales: ['en', 'kr'],
   },
-  trailingSlash: false,
 
   presets: [
     [
