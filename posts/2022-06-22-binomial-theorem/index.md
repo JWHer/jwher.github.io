@@ -9,7 +9,7 @@ title: Binomial Theorem
 draft: true
 ---
 
-![]()
+<!-- ![]() -->
 *이항정리 - π값을 구하는 법*
 <!--truncate-->
 
