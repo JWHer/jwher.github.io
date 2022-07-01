@@ -89,6 +89,8 @@ integral( (1-x^2)^(1/2) ) = 1/2((1-x^2)^(1/2)*x+sin(x)^(-1))
 계수(coefficient) 는 (3/2) (three choose two) = 3
 조합 (n/k) = n! / k!(n-k)! 과 같습니다.
 
+> 또는 Π(i=0,k)(n-i)/k!
+
 조합수는 pascal's triangle에서 찾을 수 있습니다.
 ![pascal-triangle](pascal-triangle.png)
 
@@ -122,6 +124,7 @@ integral( (1-x^2)^(1/2) ) = 1/2((1-x^2)^(1/2)*x+sin(x)^(-1))
 이 값은 무한히 전개되므로 구할 수 없습니다.
 하지만 원의 넓이 2π의 1/4, π/2를 나타낸다는 것을 알고 있습니다.
 
+## 원의 넓이3
 정적분의 범위를 [0, 1/2]로 설정하면
 값을 더 빠르게 구할 수 있습니다.
 
@@ -140,5 +143,5 @@ integral( (1-x^2)^(1/2) ) = 1/2((1-x^2)^(1/2)*x+sin(x)^(-1))
 4천조각형을 계산할 때와 뉴턴 급수의 50개의 항을 계산했을때가 같습니다.
 
 ## References
-[Calculating Pi](https://medium.com/swlh/calculating-pi-73ece2d3c9a9)
-[π를 계산하는 특별한 방법](https://www.youtube.com/watch?v=ZWwdAidVsZ8)
+[Calculating Pi](https://medium.com/swlh/calculating-pi-73ece2d3c9a9)  
+[π를 계산하는 특별한 방법](https://www.youtube.com/watch?v=ZWwdAidVsZ8)  
