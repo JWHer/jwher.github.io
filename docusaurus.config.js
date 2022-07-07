@@ -63,6 +63,10 @@ const config = {
           priority: 0.5,
           ignorePatterns: ['/tags/**'],
         },
+        googleAnalytics: {
+          trackingID: 'G-XHBVCY40VB',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
