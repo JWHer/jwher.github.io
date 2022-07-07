@@ -9,14 +9,10 @@ tags:
 title: Golang Setup
 ---
 
-![go](/img/logos/go.svg)
-*고(Golang) 개발환경 구축하기*  
-<!--truncate-->
+![go](/img/logos/go.svg)  
+*고(Golang) 개발환경 구축하기*
 
-# 목차
-* [고 설치하기](#고-설치하기)
-* [IDE 구성하기](#ide-구성하기)
-* [프로젝트 생성](#프로젝트-생성)
+<!--truncate-->
 
 ## 고 설치하기
 
@@ -24,8 +20,9 @@ title: Golang Setup
 [공식 사이트](https://golang.org/doc/install) 에서 최신 버전의 고를 다운받을 수 있습니다.  
 
 ### 커맨드라인
+커맨드라인으로 설치할 수도 있습니다.
 
-```shell
+```bash
 # windows
 > choco install golang
 
@@ -33,11 +30,13 @@ title: Golang Setup
 $ apt install golang-go
 
 # mac
-$ brew install golang
+% brew install golang
 ```
 
+<br/>
+
 설치를 완료하고 확인해 봅시다.
-```shell
+```ps1
 > go version
 go version go1.16.7 windows/amd64
 ```
@@ -58,9 +57,7 @@ go version go1.16.7 windows/amd64
 
 ### Lite IDE
 
-<p align="center">
-<img src="/assets/logos/lite-ide.jpg"/>
-</p>
+![lite-ide](/img/logos/lite-ide.jpg)
 
 고 전용으로 나온 IDE 입니다.
 고를 위해 만들어져 디테일한 편리함이 있습니다.
@@ -72,6 +69,8 @@ go version go1.16.7 windows/amd64
 <br/>
 
 ## 프로젝트 생성
+
+고언어의 프로젝트 구조는 어떻게 될까요?
 
 ### GOPATH
 Go 언어의 `import`를 보면 조금 특이합니다.
@@ -102,7 +101,7 @@ import (
 윈도우에서는 `제어판`->`시스템 및 보안`->`시스템`->`고급 시스템 설정`->`고급`->`환경 변수`
 에서 설정할 수 있습니다. CLI를 사용해도 됩니다.
 
-```shell
+```bash
 # linux/mac
 $ export GOPATH=${project_pwd}
 
@@ -119,7 +118,7 @@ $ go env
 당연하게도 `import`한 인터넷 소스를 다운받지 않고 빌드/실행하면 오류가 발생합니다.
 패키지 관리를 위한 `go.mod` 파일 생성과 소스 다운로드를 하려면, 다음 명령어를 사용합니다.  
 
-```shell
+```bash
 > go mod init ${project}
 go: creating new go.mod: module "project"
 go: to add module requirements and sums:
