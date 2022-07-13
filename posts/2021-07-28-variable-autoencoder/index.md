@@ -94,23 +94,23 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 
 연속 확률 변수의 확률밀도함수(f(x))는 다음 두 조건을 만족합니다.  
 * 모든 실수 x에 대해 f(x)≥0  
-* $  \int_{\infty}^{-\infty}f(x)dx=1 $  
+* $\int_{\infty}^{-\infty}f(x)dx=1$  
 
 정규분포 또한 연속확률분포로 확률밀도함수의 특징을 갖습니다.    
 
 정규분포는 평균(μ, mu)과 표준편차(σ, sigma)로 분포를 표기합니다.  
-* $ N(\mu, \sigma^2) $  
+* $N(\mu, \sigma^2)$  
 
 평균이 0이고 표준편차가 1인 정규분포 N(0,1)을 표준정규분포라 합니다.
 정규분포는 정규화를 통해 표준정규분포를 얻을 수 있습니다.
-* $ Z=\frac{X-\mu}{\sigma} $  
+* $Z=\frac{X-\mu}{\sigma}$  
 
 각 사건이 벌어졌을 때의 이득과 확률을 곱한 값의 합을 **기댓값**이라고 하는데요,
 연속확률변수에서 기댓값은 다음과 같습니다.
-* $ E[X] = \int_{\infty}^{-\infty}xf(x)dx $  
+* $E[X] = \int_{\infty}^{-\infty}xf(x)dx$  
 
 정규분포에서 기댓값을 계산해 보면 모평균과 같습니다.
-* $ E[X]=μ $  
+* $E[X]=μ$  
 <br/>
 
 ### 베이즈 정리
@@ -118,24 +118,24 @@ VAE를 살펴보기 전엔 [확률분포](#확률분포),
 
 베이즈 정리는 두 확률변수의 **사전확률**과 **사후확률** 사이의 관계를 나타냅니다.  
 *A,B는 가측집합이고 P(B)>0일 때,*  
-* $ P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)} $
+* $P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)}$
   
 조건부 확률을 통해 쉽게 증명할 수 있습니다.  
->$ P(A\mid B)=\frac{P(A \bigcap B)}{P(B)} $  
+>$P(A\mid B)=\frac{P(A \bigcap B)}{P(B)}$  
 > &nbsp;  
 >*P(B)>0임을 가정했으므로*  
->$ P(A\mid B)P(B)=P(A \bigcap B)=P(B \bigcap A)=P(B\mid A)P(A) $  
+>$P(A\mid B)P(B)=P(A \bigcap B)=P(B \bigcap A)=P(B\mid A)P(A)$  
 > &nbsp;  
->*첫 식에 $ P(A \bigcap B)=P(B\mid A)P(A) $ 를 이용하면*  
->$ P(A\mid B)=\frac{P(A)\cdot P(B\mid A)}{P(B)} $  
+>*첫 식에 $P(A \bigcap B)=P(B\mid A)P(A)$ 를 이용하면*  
+>$P(A\mid B)=\frac{P(A)\cdot P(B\mid A)}{P(B)}$  
 
 <details markdown="1">
 <summary>TMI</summary>
 
 부가적으로, 사건 A와 사건 B가 독립일 때 조건부 확률
-$ P(A\mid B)=P(A) $  
+$P(A\mid B)=P(A)$  
 이므로  
-$ P(A)P(B)=P(A \bigcap B) $  
+$P(A)P(B)=P(A \bigcap B)$  
 임을 알 수 있습니다.
 </details>
 <br/>
@@ -147,15 +147,16 @@ $ P(A)P(B)=P(A \bigcap B) $
 
 두 확률변수에 대한 확률분포 P, Q에 대해 쿨백-라이블러 발산은 다음과 같이 정의됩니다.  
 
-* 이산확률분포: $ D_{KL}(P\mid\mid Q)=\sum_iP(i)log\frac{P(i)}{Q(i)} $  
-* 연속확률븐포: $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)}dx $  
+* 이산확률분포: $D_{KL}(P\mid\mid Q)=\sum_iP(i)log\frac{P(i)}{Q(i)}$  
+* 연속확률븐포: $D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)}dx$  
 *(p,q는 각각 확률분포의 확률밀도함수입니다)*  
 
 연속일때 조금 더 풀어보면 다움과 같습니다  
-* $ D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\ p(x)dx - \int_{-\infty}^{\infty}p(x)log\ q(x)dx $  
+* $D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\ p(x)dx - \int_{-\infty}^{\infty}p(x)log\ q(x)dx$  
   
+<br/>
 <p align="center">
-<iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/">
+<iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/" style={{width: '900px', height: '350px'}}>
 </iframe>
 </p>
 
@@ -163,9 +164,9 @@ $ P(A)P(B)=P(A \bigcap B) $
 눈으로 이해하기 쉬운 좋은 자료를 만들어 주셨습니다.  
 
 쿨백-라이블러 발산의 중요한 특징은 다음과 같습니다.  
-* $ D_{KL}(p\mid\mid q) ≥ 0 $  
+* $D_{KL}(p\mid\mid q) ≥ 0$  
   
-* $ D_{KL}(p\mid\mid q) ≠ D_{KL}(q\mid\mid p) $
+* $D_{KL}(p\mid\mid q) ≠ D_{KL}(q\mid\mid p)$
 
 ~~증명은 다음에 하겠습니다~~
 
@@ -178,12 +179,12 @@ $ P(A)P(B)=P(A \bigcap B) $
 <img src="/assets/img/variable-autoencoder/latent-vector.png"/>
 </p>
 
-$ z\sim p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확률은 $ p(x\mid z) $ 입니다.
-우리의 목적은 $ p(x\mid z) $일 수도 있는 근사값 $ p_\theta(x\mid z) $를 구하는 것입니다.  
+$z\sim p(z)$의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확률은 $p(x\mid z)$ 입니다.
+우리의 목적은 $p(x\mid z)$일 수도 있는 근사값 $p_\theta(x\mid z)$ 를 구하는 것입니다.  
 <!-- p(x | generator_theta(z)) => p_theta(x | z) -->
-*주의! $ p(x\mid z) $는 생성기(generator)가 아닌 확률분포입니다*  
+*주의! $p(x\mid z)$는 생성기(generator)가 아닌 확률분포입니다*  
 
-그렇다면 $ p(x\mid z) $와 가장 비슷한 $ p_\theta(x\mid z) $를 어떻게 구해야 할까요?
+그렇다면 $p(x\mid z)$와 가장 비슷한 $p_\theta(x\mid z)$를 어떻게 구해야 할까요?
 둘 사이의 MSE(Mean Square Error)가 최소가 되는 분포를 찾으면 가장 비슷할까요?   
 <!--[MLE(Maximum Likelihood Estimation)](https://ko.wikipedia.org/wiki/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84_%EB%B0%A9%EB%B2%95)
 을 적용해 [가능도](https://ko.wikipedia.org/wiki/%EA%B0%80%EB%8A%A5%EB%8F%84)
@@ -193,15 +194,15 @@ $ z\sim p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확
 <img src="/assets/img/variable-autoencoder/mle-example.png"/>
 </p>
 
-파란색 분포를 $ p(x\mid z) $라고 합시다.
+파란색 분포를 $p(x\mid z)$라고 합시다.
 주황색 분포는 변형이 존재하고, 회색 분포는 x축 이동을 했습니다.
 주황색과 회색 분포 중 무엇이 파란색 분포에 더 가까울까요?  
 
 회색 분포는 단순히 이동을 했기 때문에 의미적으로 파란색과 동일합니다.
 하지만 파란색 분포와 다른 확률분포의 차이(MSE)를 계산하면, 오류가 있지만 더 가까이 있는 주황색 분포가 작습니다.  
 
-즉, 사전 확률(prior probability, $ p(z) $) 지표로 학습하면 올바르게 학습되지 않습니다.
-따라서 사후 확률(posterior probability, $ p(z\mid x) $)과 근사값 $ q_\lambda(z\mid x) $를 포함해
+즉, 사전 확률(prior probability, $p(z)$) 지표로 학습하면 올바르게 학습되지 않습니다.
+따라서 사후 확률(posterior probability, $p(z\mid x)$)과 근사값 $q_\lambda(z\mid x)$를 포함해
 [변분법(Calculus of Variational)](https://ko.wikipedia.org/wiki/%EB%B3%80%EB%B6%84%EB%B2%95)
 을 통해 학습합니다.  
 
@@ -210,11 +211,11 @@ $ z\sim p(z) $의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확
 </p>
 
 ~~*왜 앞에있는게 사후확률이야*~~  
-p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\mid x) $ 사후확률)로 z를 학습합니다.
-이때 근사함수 $ q_\lambda(z\mid x), p_\theta(x\mid z) $를 각각 `encoder`, `decoder`로 부르겠습니다.    
+p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($p(z\mid x)$ 사후확률)로 z를 학습합니다.
+이때 근사함수 $q_\lambda(z\mid x), p_\theta(x\mid z)$를 각각 `encoder`, `decoder`로 부르겠습니다.    
 *(신경망은 각각 λ와 θ를 파라미터로 가집니다)*
 
-자, 그럼 이제 변분법을 통해 참 사후조건인 $ p(z\mid x) $를 찾으면 됩니다!
+자, 그럼 이제 변분법을 통해 참 사후조건인 $p(z\mid x)$를 찾으면 됩니다!
 왜 VAE인지 이제 알겠군요!😉  
 <br/>
 
@@ -224,52 +225,52 @@ p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($ p(z\m
 생성해야할 x의 분포 p(x)의 확실한 최소 경계값을 추정하고 최댓값을 구해 유사한 분포를 만들 수 있습니다.  
 
 이상적인 사후조건에 베이즈 정리를 적용해봅시다.  
->$ p(z\mid x) = \frac{ p(z) \cdot p(x\mid z) }{ p(x) } $  
->$ p(x) = \frac{ p(z) \cdot p(x\mid z) }{ p(z\mid x) } $  
+>$p(z\mid x) = \frac{ p(z) \cdot p(x\mid z) }{ p(x) }$  
+>$p(x) = \frac{ p(z) \cdot p(x\mid z) }{ p(z\mid x) }$  
 > &nbsp;  
 >*양변에 로그를 취합니다*  
->$ log\ p(x)=log\frac{p(z) \cdot p(x\mid z)}{p(z\mid x)} $  
+>$log\ p(x)=log\frac{p(z) \cdot p(x\mid z)}{p(z\mid x)}$  
 > &nbsp;  
 > *로그의 성질에 따라*  
->$ \quad = log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) $ &nbsp; &nbsp; &nbsp; -1)    
+>$\quad = log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x)$ &nbsp; &nbsp; &nbsp; -1)    
 <br/>
 
-우리가 알고있는 근사분포 $ q_\lambda(z\mid x) $는 연속확률분포임으로  
->$ \int_{\infty}^{-\infty}q_\lambda(z\mid x)dz=1 $  
+우리가 알고있는 근사분포 $q_\lambda(z\mid x)$는 연속확률분포임으로  
+>$\int_{\infty}^{-\infty}q_\lambda(z\mid x)dz=1$  
 
 입니다.
 <br/>
 
 1이 곱셈의 항등원이라는 점을 이용해 식을 변형해봅시다.  
 >*log p(x) 양변에 1을 곱하면*  
->$ log\ p(x) \cdot 1=\int q_\lambda(z\mid x)log\ p(x)dz $  
+>$log\ p(x) \cdot 1=\int q_\lambda(z\mid x)log\ p(x)dz$  
 > &nbsp;  
 > *식1)을 사용하여*  
->$ \quad = \int q_\lambda(z\mid x) \left [ log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) \right ] dz $  
->$ \quad = \int q_\lambda(z\mid x)log\ p(z)dz + \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\ p(z\mid x)dz $  
+>$\quad = \int q_\lambda(z\mid x) \left [ log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) \right ] dz$  
+>$\quad = \int q_\lambda(z\mid x)log\ p(z)dz + \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\ p(z\mid x)dz$  
 
 0이 덧셈의 항등원이라는 점을 이용해 식을 변형합니다.
-양변에 $ 0=\int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz $을 더합니다.
-이때, 우리가 알아낼 수 있는 것($ p(z), q_\lambda(z\mid x) $)을 생각해 짝지어 줍시다  
+양변에 $0=\int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz$ 을 더합니다.
+이때, 우리가 알아낼 수 있는 것($p(z), q_\lambda(z\mid x)$)을 생각해 짝지어 줍시다  
 >*이전식에서 양변에 0을 더하면*  
->$ log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz $
->$ log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz $  
+>$log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz$
+>$log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz$  
 > &nbsp;  
 >*몬테카를로 추정과 쿨백-라이블러 발산으로 변형하면*   
->$ log\ p(x)= E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $  
+>$log\ p(x)= E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x))$  
 > &nbsp;  
 >*쿨백-라이블러 발산의 특징(≥0)을 이용하면*  
->$ log\ p(x) \geq E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $  
+>$log\ p(x) \geq E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z))$  
 <br/>
 
 자! 길었습니다.😅 여기에서 확실한 최소 경계
-$ ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $
+$ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z))$
 가 ELBO 입니다!  
 
 각 항의 의미는 다음과 같습니다.  
-* $ E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] $: 디코더 $ log\ p(x\mid z) $의 기댓값으로 재생성 에러를 나타냅니다.  
-* $ - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) $: 알수있는 파라미터로 분포를 정규화할수 있습니다.  
-* $ D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) $: 실제(참) 사후조건분포 $ p(z\mid x) $는 계산할 수 없습니다.
+* $E_{q_\lambda(z\mid x)}[log\ p(x\mid z)]$: 디코더 $log\ p(x\mid z)$의 기댓값으로 재생성 에러를 나타냅니다.  
+* $- D_{KL}(q_\lambda(z\mid x)\mid\mid p(z))$: 알수있는 파라미터로 분포를 정규화할수 있습니다.  
+* $D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x))$: 실제(참) 사후조건분포 $p(z\mid x)$는 계산할 수 없습니다.
 따라서 앞의 두 항을 최대화하는 방법을 사용합니다.  
 <br/>
 
@@ -279,9 +280,9 @@ $ ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid
 <img src="/assets/img/variable-autoencoder/elbo-draw.png"/>
 </p>
 
-$ D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) \geq 0 $에 따라
+$D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) \geq 0$에 따라
 확률분포 log p(x)와 ELBO(λ)는 0 이상의 차이(거리)가 있습니다.
-하지만 $ p(z\mid x) $는 계산할 수 없으므로, ELBO를 최대화 하는 방법으로 학습합니다.  
+하지만 $p(z\mid x)$는 계산할 수 없으므로, ELBO를 최대화 하는 방법으로 학습합니다.  
 *(다른말로 디코더의 기댓값 최대화, 이상적인 인코더 생성을 목표로 합니다)*
 <br/>
 
