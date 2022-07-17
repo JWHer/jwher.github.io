@@ -3,6 +3,8 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -24,7 +26,7 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'kr',
     locales: ['en', 'kr'],
   },
 
@@ -39,8 +41,9 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/jwher/jwher.github.io',
+          editUrl: 'https://github.com/jwher/jwher.github.io',
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {
           blogTitle: 'Posts',
@@ -54,6 +57,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/jwher/jwher.github.io',
+            remarkPlugins: [math],
+            rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -69,6 +74,16 @@ const config = {
         },
       }),
     ],
+  ],
+
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
   ],
 
   themeConfig:
@@ -132,38 +147,38 @@ const config = {
 
       //   // Public API key: it is safe to commit it
       //   apiKey: 'YOUR_SEARCH_API_KEY',
-  
+
       //   indexName: 'YOUR_INDEX_NAME',
-  
+
       //   // Optional: see doc section below
       //   contextualSearch: true,
-  
+
       //   // Optional: Specify domains where the navigation should occur through window.location instead on history.push. 여러 문서 사이트를 크롤링하고 window.location.href를 사용하여 해당 사이트로 이동하려는 경우에 유용한 알골리아 설정입니다.
       //   externalUrlRegex: 'external\\.com|domain\\.com',
-  
+
       //   // Optional: Algolia search parameters
       //   searchParameters: {},
-  
+
       //   // Optional: path for search page that enabled by default (`false` to disable it)
       //   searchPagePath: 'search',
       // }
     }),
-    plugins: [
-      'docusaurus-plugin-sass',
-      [
-        '@docusaurus/plugin-client-redirects',
-        {
-          createRedirects(existingPath) {
-            if (existingPath.includes('/posts/')) {
-              return [
-                existingPath.replace('/posts', ''),
-              ];
-            }
-            return undefined;
-          },
+  plugins: [
+    'docusaurus-plugin-sass',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        createRedirects(existingPath) {
+          if (existingPath.includes('/posts/')) {
+            return [
+              existingPath.replace('/posts', ''),
+            ];
+          }
+          return undefined;
         },
-      ],
+      },
     ],
+  ],
 };
 
 module.exports = config;

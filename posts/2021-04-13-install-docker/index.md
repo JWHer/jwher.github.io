@@ -1,19 +1,19 @@
 ---
 authors:
 - jwher
-description: 나에게 필요한 도커 설치하기
+description: Install Docker
 slug: install-docker
 tags:
 - tech
 - docker
 - linux
-title: Install Docker
+title: 나에게 필요한 도커 설치하기
 ---
 
-<!--truncate-->
-
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker.png "docker")  
+![docker](/img/logos/docker.svg)  
 *나에게 필요한 도커 설치하기*  
+
+<!--truncate-->
 
 # 목차
 * [요구사항](#요구사항)
@@ -24,14 +24,14 @@ title: Install Docker
 <br/>
 
 ## 요구사항
-이 글은 다양한 환경에서 내게 필요한 버전의 도커 설치법을 설명합니다. 🎉🙌🎉  
+이 글은 다양한 환경에서 내게 필요한 버전의 도커 설치법을 설명합니다. 🎉  
 도커에 대해 이해가 부족하시다면 [이 글](https://jwher.github.io/2021-06-19-welcome-to-docker/) 을 먼저 읽는 걸 추천합니다!  
 도커를 설치하기 전에 환경을 필요한 점검해 봅시다.
 
 ### OS
-* Ubuntu 16.04(Xenial), 18.04(Bionic), 20.04(Focal) LTS
-* CentOS 7 or 8
 * Windows
+* Ubuntu
+* CentOS
 * *이 외에 Debian, Fedora 기반 linux, Mac*  
 *(장비를 보유하고, 테스트 할 수 있으면 추가로 작성하겠습니다)*
 
@@ -43,29 +43,29 @@ title: Install Docker
 ### Architecture
 * x86_64
 * amd64
-* arm64 (Ubuntu)
+* arm64
 
 <br/>
 
 ## Ubuntu docker 설치
-<div align="center">
+
 ![ubuntu](/img/logos/ubuntu.svg)
-</div>
-<p>1. 이전 버전 확인 & 제거  </p>
+
+1. 이전 버전 확인 & 제거
 
 이미 도커가 설치되어 있다면, 다시 설치할 필요가 없겠죠? :D
-```shell
+```bash
 # Ubuntu
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 <br/>
 
-<p>2. 레포지토리 설정  </p>
+2. 레포지토리 설정
 
 도커를 설치하고 업데이트 하기 위해 필요한 repository 위치를 설정해야 합니다.  
 repository 위치를 설정해 주기 위해 필요한 기본 라이브러리를 설치해 줍시다.
-```shell
+```bash
 # Ubuntu
 $ sudo apt-get update
 
@@ -81,7 +81,7 @@ $ sudo apt-get install \
 <br/>
 
 필요한 패키지를 설치했으면 도커의 official GPG key를 추가해 줍시다.(Ubuntu만)  
-```shell
+```bash
 # Ubuntu
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
 | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -92,7 +92,7 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
 다음 명령어로 stable repository를 설정합니다. nightly나 test repository를 사용하기 위해서는 ```stable``` 다음에
 ```nightly```, ```test```를 추가합니다.
 아키텍처를 설정할 때엔 ```arch``` 다음에 ```amd64```, ```armhf```, ```arm64```를 변경합니다.  
-```shell
+```bash
 # Ubuntu x86_64/amd64 
 $ echo \
 "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -103,10 +103,10 @@ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev
 
 <br/>  
 
-<p>3. 도커 설치  </p>  
+3. 도커 설치  
 
 repository를 추가했으니 ```apt```를 업데이트 하고 설치합니다.  
-```shell
+```bash
 # Ubuntu
 $ sudo apt-get update
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io
@@ -116,8 +116,9 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 **특정 버전**을 설치하기 위해선 다음과 같이 합니다.  
 <br/>
-a. repo에서 가능한 버전을 리스트 합니다.
-```shell
+
+a. repo에서 가능한 버전을 리스트 합니다.  
+```bash
 # Ubuntu
 $ apt-cache madison docker-ce
 
@@ -128,8 +129,8 @@ docker-ce | 5:20.10.4-3-0-ubuntu-focal | https://download.docker.com/linux/ubunt
 ```
 <br/>
 
-b. ```VERSION_STRING```을 사용하여 특정 버전을 설치 합니다.
-```shell
+b. ```VERSION_STRING```을 사용하여 특정 버전을 설치 합니다.  
+```bash
 # Ubuntu
 $ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
 ```
@@ -137,7 +138,7 @@ $ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING>
 <br/>
 
 설치가 완료되었으면 확인해 봅시다. 😊  
-```shell
+```bash
 $ sudo docker run hello-world
 
 Unable to find image 'hello-world:latest' locally
@@ -170,14 +171,12 @@ For more examples and ideas, visit:
 <br/>
 
 ## CentOS docker 설치
-<div align="center">
 ![centos](/img/logos/centos.svg)
-</div>
 
-<p>1. 이전 버전 확인 & 제거  </p>
+1. 이전 버전 확인 & 제거  
 
-설마 apt가 없는 걸 확인하고 오셨나요...?  
-```shell
+~~설마 apt가 없는 걸 확인하고 오셨나요...?~~  
+```bash
 # CentOS
 $  sudo yum remove docker \
                   docker-client \
@@ -191,34 +190,35 @@ $  sudo yum remove docker \
 
 <br/>
 
-<p>2. 레포지토리 설정  </p>
+2. 레포지토리 설정  
 
 도커를 설치하고 업데이트 하기 위해 필요한 repository 위치를 설정해야 합니다.  
-repository 위치를 설정해 주기 위해 필요한 기본 라이브러리를 설치해 줍시다.
-```shell
+repository 위치를 설정해 주기 위해 필요한 기본 라이브러리를 설치해 줍시다.  
+```bash
 # CentOS
 $ sudo yum install -y yum-utils
 ```
 
 <br/>
-  
-CentOS에서 nightly나 test repository를 사용하기 위해서는 ```--enable``` 옵션에 ```docker-ce-nightly```
-또는 ```docker-ce-test```를 추가해 줍니다.  
-```shell
+
+CentOS에서 nightly나 test repository를 사용하기 위해서는 `--enable` 옵션에 `docker-ce-nightly`
+또는 `docker-ce-test`를 추가해 줍니다.  
+
+```bash
 # CentOS
 $ sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
- ```
+```
 
 *[여기](https://docs.docker.com/engine/install/) 에서 버전과 nightly 지원을 확인할 수 있습니다*
 
 <br/>  
 
-<p>3. 도커 설치  </p>  
+3. 도커 설치  
 
 도커 최신 버전을 설치하려면 다음 명령어를 입력합니다.  
-```shell
+```bash
 # CentOS
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
@@ -227,8 +227,9 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 **특정 버전**을 설치하기 위해선 다음과 같이 합니다.  
 <br/>
+
 a. repo에서 가능한 버전을 리스트 합니다.
-```shell
+```bash
 # CentOS
 $ yum list docker-ce --showduplicates | sort -r
 
@@ -251,7 +252,7 @@ Available Packages
 
 b. ```VERSION_STRING```을 사용하여 특정 버전을 설치 합니다.  
 예를 들면 ```docker-ce-17.03.0```입니다.  
-```shell
+```bash
 # CentOS
 $ sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
 ```
@@ -260,7 +261,7 @@ $ sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> con
 
 <p>3. 도커 시작  </p>  
 
-```shell
+```bash
 # CentOS
 $  sudo systemctl start docker
 ```
@@ -268,7 +269,7 @@ $  sudo systemctl start docker
 <br/>
 
 설치가 완료되었으면 확인해 봅시다. 😊  
-```shell
+```bash
 $ sudo docker run hello-world
 
 Hello from Docker!
@@ -296,21 +297,19 @@ For more examples and ideas, visit:
 <br/>
 
 ## Windows docker 설치
-<div align="center">
 ![windows](/img/logos/windows.svg)
-</div>
 
 *맥으로 테스트 해보지 못했으나 동일한 절차일 듯 합니다*  
-[여기](https://www.docker.com/products/docker-desktop) 에서 Docker Desktop for Windows를 다운받습니다.
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-download.png" alt="docker desktop download"/>
-</div>
+
+1. [여기](https://www.docker.com/products/docker-desktop) 에서 Docker Desktop for Windows를 다운받습니다.
+
+![download](docker-desktop-download.png)
+
 <br/>
 
-다운받은 인스톨러를 실행합니다.  
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-install.png" alt="docker desktop install"/>
-</div>
+2. 다운받은 인스톨러를 실행합니다.  
+
+![install](docker-desktop-install.png)
 
 * 첫 번째 옵션(Install required Windows components for WSL 2)은 Docker를 동작하는데 필요한 Windows Subsystem Linux(WSL)의 설치를 진행합니다.
 * 두 번째 옵션(Add shortcut to desktop)은 바탕화면에 바로가기 아이콘을 생성합니다.
@@ -319,15 +318,14 @@ For more examples and ideas, visit:
 
 <br/>
 
-컴퓨터를 재시작되면 Docker Desktop이 실행됩니다. 특별한 사용 방법을 익힐 것이 아니면 Skip tutorial을 눌러줍시다.  
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-installed.png" alt="docker desktop installed"/>
-</div>
+3. 컴퓨터를 재시작되면 Docker Desktop이 실행됩니다. 특별한 사용 방법을 익힐 것이 아니면 Skip tutorial을 눌러줍시다.  
+
+![installed](docker-desktop-installed.png)
 
 <br/>
 
 CLI를 통해 사용 가능한지도 확인해 봅시다.  
-```shell
+```bash
 > docker -v
 Docker version 19.03.12, build 0ed913b8-
 ```
@@ -337,18 +335,20 @@ Docker version 19.03.12, build 0ed913b8-
 ## Tips  
 *북마크 하고 보세요*
 
+### sudo
 도커 실행 권한을 추가해 superuser를 사용하지 않을 수 있습니다.  
-```shell
+```bash
 $ sudo usermod -aG docker $USER
 $ sudo service docker restart
 ```
 
 <br/>
 
+### 용량 확보
 도커를 사용하다보면 build cache와 사용하지 않는 image, container가
 용량을 차지하는 경우가 있습니다.
 다음 명령어로 용량을 확보할 수 있습니다.
-```shell
+```bash
 # 빌드 캐시 삭제하기
 $ docker builder prune
 
@@ -364,9 +364,10 @@ $ docker system prune -a --volumes
 
 <br/>
 
+### 초기화
 불행히 도커를 전부 삭제해야 할 일이 생겼을 수 있습니다.
 모든 도커 캐시, 이미지, 컨테이너, 볼륨, 설정을 삭제하는 방법은 다음과 같습니다.  
-```shell
+```bash
 # Ubuntu
 $ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 
@@ -374,17 +375,16 @@ $ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 
 이미지, 컨테이너, 볼륨, 설정은 자동으로 지워지지 않습니다.
 다음 명령어로 지워주세요.
-```shell
+```bash
 $ sudo rm -rf /var/lib/docker
 $ sudo rm -rf /var/lib/containerd
 ```
 
 <br/>
 
-### Reference  
+## Reference  
 [[공식]Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)  
 [[공식]Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
-
 
 
 <!-- update log -->
