@@ -1,13 +1,13 @@
 ---
 authors:
 - jwher
-description: 쿠버네티스 세계에 오신 걸 환영합니다!
+description: Welcome To Kubernetes
 slug: welcome-to-kubernetes
 tags:
 - tech
 - kubernetes
 - docker
-title: Welcome To Kubernetes
+title: 쿠버네티스 기본 개념과 필요성
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)
@@ -58,7 +58,7 @@ title: Welcome To Kubernetes
 kubernetes는 컨테이너화된 어플리케이션을 자동으로 배포, 스케일링 및 관리해주는 오픈소스 시스템이다.
 -->
 
-# Fix
+> ![container](container.png)
 > 수많은 컨테이너를 혼자 싣긴 힘들겠죠 :relaxed:
 
 <br/>
@@ -163,21 +163,22 @@ API(Application Programming Interface)는 말 그대로 응용 프로그램에�
 <br/>
 
 ## 그래서 어떻게 작동하는데?
-다음 글에서 쿠버네티스 구성요소와 작동방식을 설명하려고 합니다.  
+[다음 글](/posts/kubernetes-architecture)에서 쿠버네티스 구성요소와 작동방식을 이어서 설명합니다.  
 
-(다음 글을 쓰려면 몇달은 걸릴 것 같아서 최근에 찾은 좋은 [설명](https://www.youtube.com/watch?v=rdyUAduXi48)
-을 남겨둡니다)
+아래는 2018년 구글 클라우드 해커톤 자료입니다;)  
+[2018 Cloud Hackathon Tech Session - Kubernetes](https://www.youtube.com/watch?v=rdyUAduXi48)
 
 <br/>
 
 ## Tips
-kubernetes를 줄여 k8s라고 합니다. 이유는 긴 단어를 줄일 때 글자의 개수를 적는게 관례였기 때문이라고 하네요:D  
+kubernetes를 줄여 k8s라고 합니다. 이유는 긴 단어를 줄일 때 글자의 개수를 적는게 관례였기 때문이라고 하네요:D
 [K8s as an abbreviation results from counting the eight letters between the "K" and the "s".](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)  
+
 ~~직접 한번 세보자...~~
 
 <br/>
 
-### Reference  
+## Reference  
 
 [[Redhat]쿠버네티스란?](https://www.redhat.com/ko/topics/containers/what-is-kubernetes)  
 [[공식]쿠버네티스란 무엇인가?](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)  
