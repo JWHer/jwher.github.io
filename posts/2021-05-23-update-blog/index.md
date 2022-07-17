@@ -9,7 +9,7 @@ tags:
 title: 지킬 블로그 업데이트
 ---
 
-![jekyll](Jekyll.png)  
+![jekyll](jekyll.png)  
 *Jekyll 블로그 사용하기*  
 <!--truncate-->
 
