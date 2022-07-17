@@ -1,32 +1,22 @@
 ---
 authors:
 - jwher
-description: GUI 없이 리눅스 서버에 VM 만들기
-slug: install-virtualbox-with-no-gui
+description: Virtualbox With No Gui
+slug: virtualbox-with-no-gui
 tags:
 - tech
 - virtualbox
 - linux
-title: Install Virtualbox With No Gui
+title: GUI 없이 버추얼박스 사용하기
 ---
+
+![virtualbox](/img/logos/virtualbox.svg)  
+*GUI 없이 버추얼박스 사용하기*
 
 <!--truncate-->
 
-<div align="center">
-![virtualbox](/img/logos/virtualbox.svg)
-</div>
-
-*GUI 없이 리눅스 서버에 VM 만들기*
-
 리눅스 서버에 virtualbox로 가상 환경을 구성해야 합니다. 😲  
 CLI는 잘 모르는데 어떡하죠? 한번 같이 vm을 실행시켜 봅시다!  
-~~virtualbox를 설치가 아니라 virtual machine 생성인데 제목을 잘못 지었습니다...~~
-
-# 목차
-* [요구사항](#요구사항)
-* [가상 머신 생성하기](#가상-머신-생성하기)
-* [virtualbox extension pack 설치](#virtualbox-extension-pack-설치)
-* [네트워크 설정과 RDP](#네트워크-설정과-RDP)
 
 <br/>
 
@@ -35,7 +25,7 @@ CLI는 잘 모르는데 어떡하죠? 한번 같이 vm을 실행시켜 봅시다
 가상 머신을 사용하기 위해선 vm 매니저로 virtual box나 vmware가 필요합니다:D  
 oracle virtualbox를 기준으로 설명하겠습니다.  
 
-```shell
+```bash
 # 설치를 자세히 설명하진 않겠습니다
 # https://www.virtualbox.org/wiki/Downloads
 $ sudo apt-get install virtualbox
@@ -49,7 +39,7 @@ $ vboxmanage --version
 ## 가상 머신 생성하기
 
 먼저 설치 가능한 OS Type을 확인해야 합니다.  
-```shell
+```bash
 $ vboxmanage list ostypes
 
 ... 전략 ...
@@ -71,7 +61,7 @@ Family Desc: Linux
 <br/>
 
 확인이 끝났으면 가상 머신을 생성합시다.  
-```shell
+```bash
 # --register 옵션을 사용해 등록까지 한번에 합니다
 # 여러 설정을 지금 해줄 수 있습니다. 추후에 modifyvm 명령어로 수정해도 됩니다
 $ vboxmanage createvm --name "your awesome vm" --register
@@ -83,10 +73,10 @@ Settings file: '/some/path/your awesome vm.vbox'
 
 # 만일 --register를 사용하지 않았다면, 명령어를 한번 더 입력해야 합니다
 $ vboxmanage registervm "/some/path/your awesome vm.vbox"
-
-# 주의! virtualbox는 user마다 사용환경이 분리되어 있어 sudo를 사용하면 생성한 vm이 보이지 않습니다
-# (어떻게 알았냐고요? 저도 알고싶지 않았어요...)
 ```
+*주의! virtualbox는 user마다 사용환경이 분리되어 있어 sudo를 사용하면 생성한 vm이 보이지 않습니다*
+~~(어떻게 알았냐고요? 저도 알고싶지 않았어요...)~~
+
 <br/>
 
 가상 머신 등록을 마쳤으면 여려 spec을 설정합시다.
@@ -99,7 +89,7 @@ $ vboxmanage registervm "/some/path/your awesome vm.vbox"
   on을 설정해야 guest machine에서 cpu를 온전히 잡습니다.
 * ```--pae```: Physical Address Extension. on/off 값으로 메모리 4GB 이상일 때 사용합니다.  
 
-```shell
+```bash
 $ vboxmanage modifyvm "your awesome vm" --ostype ubuntu_64 --cpus 8 --memory 20480 --vram 16 --mouse usbtablet --x2apic on --ioapic on --pae on
 
 # 설정은 다음 명령어로 확인할 수 있습니다
@@ -120,7 +110,7 @@ UUID:                        570ea192-d2ed-4ebd-91e9-b8d98e0498e6
 * ```--format```: 포멧 설정입니다. (default VDI)
 * ```--variant```: Standard/Fixed 값으로 동적할당/정적할당 입니다.  
 
-```shell
+```bash
 $ vboxmanage createmedium disk --filename "awesome storage.vdi" --size 20240 --format VDI --variant fix 
 
 # storage controller를 추가합니다
@@ -146,15 +136,13 @@ $ vboxmanage storageattach "your awesome vm" --storagectl "IDE" --port 1 --devic
 ~~*나중에 고민한 끝에 OS가 설치된 VDI를 연결시키면 된다는걸 알았습니다...*~~
 
 ubuntu server버전으로 headless(No gui, console)로 할 수 있을까 고민해봤지만,  
-마침 이미지 버전도 GUI이고 화면을 사용해 install을 하기로 했습니다!  
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/honest.jpeg" alt="honest"/>
-</div>
+마침 이미지 버전도 **GUI**이고 **그래픽 인터페이스 화면**을 사용해 install을 하기로 했습니다!  
+![honest](honest.jpeg)
 
 <br/>
 GUI를 원격으로 보여주려면 virtualbox extension pack이 설치되어야 합니다.
 
-```shell
+```bash
 # https://www.virtualbox.org/wiki/Downloads에서 버전에 맞는 extension pack을 받습니다
 $ wget -O "확장팩 이름" "url"
 
@@ -163,7 +151,7 @@ $ sudo vboxmanage extpack install "확장팩 이름"
 <br/>
 
 이제 vm이 GUI를 실행시켜 주도록 설정하고 실행합니다.  
-```shell
+```bash
 $ vboxmanage modifyvm "your awesome vm" --vrde on --vrdeport "port number" --vrdemulticon on
 
 $ vboxheadless --startvm "your awesome vm"
@@ -189,7 +177,7 @@ VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component Machin
 저는 VM이 사설망과 연결되어야 했기에 네트워크 어댑터를 설정해 주었습니다.  
 별도로 네트워크 세팅이 필요 없으면 건너뛰어도 됩니다. (기본적으로 NAT로 설정되어 있습니다)
 
-```shell
+```bash
 # nat과 bridge를 둘 다 사용하기 위해 다음과 같이 구성했습니다
 $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapter2 "host interface"
 ```
@@ -198,30 +186,25 @@ $ vboxmanage modifyvm "your awesome vm" --nic1 nat --nic2 bridged --bridgeadapte
 ### RDP(remote desktop protocol) 사용
 *드디어 무중霧中을 빠져나와...*
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc.png" alt="mstsc"/>
-</div>
- 
+![mstsc](mstsc.png)  
 작업중인 로컬 PC에서 원격 데스크톱 연결을 열어줍니다.
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-connection.png" alt="mstsc-connection"/>
-</div>
+<br/>
 
+![mstsc connection](mstsc-connection.png)  
 호스트 컴퓨터의 ip와 vm 설정에 사용한 GUI 포트를 입력합니다.  
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/mstsc-ubuntu.png" alt="mstsc-ubuntu"/>
-</div>
- 
+<br/>
+
+![mstsc ubuntu](mstsc-ubuntu.png)  
 이제 그리웠던 GUI를 사용할 수 있습니다! 😊
 
 <br/>
 
 ## Tips
 
-vboxmanage The machine locked for a session 문제  
-```shell
+### vboxmanage The machine locked for a session 문제  
+```bash
 ~$ vboxheadless --startvm your awesome vm
 Oracle VM VirtualBox Headless Interface 5.2.44
 (C) 2008-2020 Oracle Corporation
@@ -234,13 +217,13 @@ VBoxHeadless: error: Context: "LockMachine(session, LockType_VM)" at line 947 of
 이런 에러와 함께 어떤 명령도 실행되지 않을 때가 있습니다.  
 
 다음 명령어로 VM을 강제종료 할 수 있습니다.
-```shell
+```bash
 $ vboxmanage startvm kube-slave-kf --type emergencystop
 ```
 
 <br/>
 
-### Reference  
+## Reference  
 [[공식]VBoxManage](https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html)  
 
 
