@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[6370],{7722:function(s){s.exports=JSON.parse('{"label":"paper","permalink":"/kr/posts/tags/paper","allTagsPath":"/kr/posts/tags","count":2}')}}]);
