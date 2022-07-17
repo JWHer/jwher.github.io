@@ -1,21 +1,20 @@
 ---
 authors:
 - jwher
-description: 나에게 필요한 쿠버네티스 설치하기
+description: Install Kubernetes
 slug: install-kubernetes
 tags:
 - tech
 - kubernetes
 - docker
 - linux
-title: Install Kubernetes
+title: 나에게 필요한 쿠버네티스 설치하기
 ---
 
-<!--truncate-->
-
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kubernetes.png "docker")  
+![kubernetes](/img/logos/kubernetes.svg)  
 *나에게 필요한 쿠버네티스 설치하기*  
 
+<!--truncate-->
 
 # 목차
 * [배포버전](#배포버전)
@@ -25,36 +24,36 @@ title: Install Kubernetes
 * [Kind 설치](#kind-설치)
 
 ## 배포버전
-이 글은 다양한 환경에서 내게 필요한 버전의 쿠버네티스 설치법을 설명합니다. 🎉🙌🎉  
-쿠버네티스에 대해 이해가 부족하시다면 [이 글](https://jwher.github.io/2021-04-12-welcome-to-kubernetes/) 을 먼저 읽는 걸 추천합니다!
+이 글은 다양한 환경에서 내게 필요한 버전의 쿠버네티스 설치법을 설명합니다. 🎉  
+쿠버네티스에 대해 이해가 부족하시다면 [이 글](/posts/welcome-to-kubernetes/) 을 먼저 읽는 걸 추천합니다!
 
 kubernetes 저사양 node 등에 맞춰 다양한 배포판이 있습니다.
 각각 배포판의 특징을 설명하면 다음과 같습니다.
 * [Kubeadm](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
-  ([git](https://github.com/kubernetes/kubernetes))  
+  ([github](https://github.com/kubernetes/kubernetes))  
   CNCF: Cloud Native Computing Foundation 의 공식 쿠버네티스입니다.
   여러 리눅스 노드에서 동작하는 일반적인 쿠버네티스(k8s) 입니다.
 * [Micro K8s](https://snapcraft.io/microk8s)
-  ([git](https://github.com/ubuntu/microk8s#list-of-available-addons))  
+  ([github](https://github.com/ubuntu/microk8s#list-of-available-addons))  
   *사용해 보지 않았습니다*  
   단일 노드에서 동작하는 경량화된 쿠버네티스입니다. 리눅스 패키지 관리 툴 Snap을 사용해 설치할 수 있습니다.
 * [Mini Kube](https://minikube.sigs.k8s.io/docs/start/)
-  ([git](https://github.com/kubernetes/minikube))  
+  ([github](https://github.com/kubernetes/minikube))  
   리눅스, 윈도우, 맥에서 동작하는 단일 노드 쿠버네티스입니다.
   Virtual box나 VM ware를 사용해 리눅스 머신으로 쿠버네티스를 구성합니다.
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)  
   맥/윈도우에서 동작하는 도커 데스크탑에 포함된 기능입니다.
   실제 동작하는 쿠버네티스 도커 데스크탑 버전에 따라 micro k8s, kind 등 다른 것으로 알고 있습니다.
 * [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
-  ([git](https://github.com/kubernetes-sigs/kind))  
+  ([github](https://github.com/kubernetes-sigs/kind))  
   Kind: Kubernetes in docker 로써 쿠버네티스 클러스터를 도커로(...) 만들었습니다.
   따라서 도커가 동작하는 리눅스, 윈도우, 맥에서 사용할 수 있습니다.
 * [K9s](https://k9scli.io/)
-  ([git](https://github.com/derailed/k9s))  
+  ([github](https://github.com/derailed/k9s))  
   *사용해 보지 않았습니다*  
   CLI를 친숙하게 이용할 수 있게 해주는 도구입니다. (쿠버네티스가 아닙니다!)  
 * [K3s](https://k3s.io/)
-  ([git](https://github.com/k3s-io/k3s))  
+  ([github](https://github.com/k3s-io/k3s))  
   *사용해 보지 않았습니다*  
   다양한 edge 환경(IoT, ARM)에서 사용되는 저사양(512MB 램, 200MB 디스크) 쿠버네티스 입니다.
   어떠한 리눅스 배포에서 동작하도록 만들어졌습니다.
@@ -68,10 +67,8 @@ GCP, AWS에서 PaaS로 쿠버네티스를 사용할 수 있습니다!
 <br/>
 
 ## Kubeadm 설치
-<div align="center">
-![kubeadm](/img/logos/kubeadm.svg)
-</div>
-
+![kubeadm](/img/logos/kubeadm.svg)  
+**Deprecated**  
 *리눅스 서버가 여러대고 on premise 쿠버네티스가 필요할 때*  
 쿠버네티스를 설치하기 전에 환경을 필요한 점검해 봅시다.
 
@@ -87,7 +84,10 @@ GCP, AWS에서 PaaS로 쿠버네티스를 사용할 수 있습니다!
 * 머신 전체 네트워크 연결
 
 ### Software setting  
-▶ [도커 설치][docker-install]  
+*Dockershim은 쿠버네티스 릴리스 1.24부터 제거되었습니다.*
+*[[공식]container runtimes](https://kubernetes.io/ko/docs/setup/production-environment/container-runtimes/)*
+*에서 소개하는 다른 컨테이너 런타임을 사용해 주세요.*  
+~~[도커 설치](/posts/install-docker)~~  
 
 <details>
 <summary>도커 데몬 드라이버 변경</summary>
@@ -95,7 +95,7 @@ GCP, AWS에서 PaaS로 쿠버네티스를 사용할 수 있습니다!
 
 도커 데몬 드라이버를 systemd로 변경해 줍니다.  
 
-```shell
+```bash
 $ sudo vi /etc/docker/daemon.json
 
 # 아래 내용으로 파일을 만듭니다
@@ -133,7 +133,7 @@ $ sudo systemctl restart docker
 쿠버네티스는 스왑 메모리를 지원하지 않습니다.
 따라서 linux 스왑 메모리를 비활성화 해주어야 합니다.
 
-```shell
+```bash
 $ sudo swapoff -a
 
 # 다음 명령어는 잘못 삽입되면 시스템의 정지를 불러올 수 있습니다
@@ -165,7 +165,7 @@ UUID=9AD5-66E5  /boot/efi       vfat    umask=0077      0       1
 
 firewall daemon 을 비활성화 시켜줍시다.  
 
-```shell
+```bash
 # firewalld의 종료 방법입니다
 $ sudo systemctl stop firewalld
 ```
@@ -180,7 +180,7 @@ $ sudo systemctl stop firewalld
 kubernetes 재설치를 진행하다 보면
 간혹 iptables에 이전 rule들이 남아있어 문제가 생깁니다.  
 
-```shell
+```bash
 # kubeadm join이 안될 시 iptables를 확인해 봅니다
 
 # iptables 조회
@@ -198,11 +198,11 @@ $ sudo iptables -F
 
 ### Kubeadm 설치하기
 
-<p>1. 네트워크 확인  </p>
+1. 네트워크 확인  
 쿠버네티스는 MAC과 product_uuid를 사용하여 클러스터의 노드를 식별합니다.
 따라서, 네트워크 인터페이스의 MAC 주소가 고유한지 확인해 주어야 합니다.
 
-```shell
+```bash
 $ ifconfig -a
 
 # 다음 출력은 virtualbox NAT 네트워크로 머신 간 네트워크 어댑터를 설정한 내용입니다
@@ -224,9 +224,9 @@ f570f467-9980-1a47-b9c8-1933b3838dff
 <br/>
 
 사용할 노드간 통신이 원활한지 확인해 봅시다.
-```shell
+```bash
 # ping, curl ,telnet 등을 사용할 수 있습니다
-$ ping {ip-address}
+$ ping <ip-addr>
 
 PING 10.0.2.9 (10.0.2.9) 56(84) bytes of data.
 64 bytes from 10.0.2.9: icmp_seq=1 ttl=64 time=0.777 ms
@@ -257,48 +257,48 @@ PING 10.0.2.9 (10.0.2.9) 56(84) bytes of data.
 
 *NodePort 대역이 30000-32767인 것에 주목합시다*
 
-<p>2. kubeadm, kubelet, kubectl 설치  </p>
+2. kubeadm, kubelet, kubectl 설치  
 
 *해당 내용은 master, worker 노드 둘다 해주어야 합니다*  
   
 쿠버네티스를 설치하고 업데이트 하기 위해 필요한 repository 위치를 설정해 주어야 합니다.  
 repository 위치를 설정해 주기 위해 필요한 기본 라이브러리를 먼저 설치해 줍시다.
-```shell
+```bash
 $ sudo apt-get update
 $ sudo apt-get install -y apt-transport-https ca-certificates curl
 ```
 <br/>
 
 구글 클라우드의 공개 사이닝 키를 다운로드 합니다.  
-```shell
+```bash
 $ sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 ```
 <br/>
 
 쿠버네티스 ```apt``` 레포지토리를 추가합니다.  
-```shell
+```bash
 $ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial master" \
 | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 <br/>
 
 ```apt``` 패키지 색인을 업데이트하고, kubelet, kubeadm, kubectl을 설치하고 해당 버전을 고정합니다.  
-```shell
+```bash
 $ sudo apt-get update
 $ sudo apt-get install -y kubelet kubeadm kubectl
 $ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 <br/>
    
-<p>3. 마스터 노드, 워커 노드 join  </p>
+3. 마스터 노드, 워커 노드 join  
    
 a. 마스터 노드 설정  
-Container Network Interface로 [flannel][flannel-github]를 사용할 예정입니다.
+Container Network Interface로 [flannel](https://github.com/flannel-io/flannel)를 사용할 예정입니다.
 (Calico 플러그인도 존재합니다)  
 flannel의 default cidr 네트워크를 구성할 것이기에 10.244.0.0/16을 사용하여 kubeadm을 init 시켜줍시다.  
 
 api 서버의 노출 주소는 Master 노드의 ip 주소를 적습니다.
-```shell
+```bash
 $ sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.2.9
     
  ... 생략 ...
@@ -326,7 +326,7 @@ $ sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-addre
 <br/>  
 
 kubectl을 사용하기 위해 콘솔 출력 결과대로 설정을 해줍시다.  
-```shell
+```bash
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -346,13 +346,13 @@ kube-system   kube-scheduler-gpuadmin            1/1     Running   0          6m
 <br/>  
 
 CNI 네트워크 에드온 Flannel을 배포합니다.
- ```shell
+ ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
  ```
 <br/>
 
 Flannel을 배포한 후 모든 pod를 조회하면 coredns가 Pending에서 Running으로 바뀌며 동작하는 것을 볼 수 있습니다. 😀
-```shell
+```bash
 $ kubectl get pod -A
 
 NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
@@ -371,7 +371,7 @@ kube-system   kube-scheduler-gpuadmin            1/1     Running   0          46
 b. 워커 노드 설정  
 
 마스터 노드를 설정하며 kubeadm 출력에서 나온 명령어가 있습니다.  
-```shell
+```bash
 $ kubeadm join 10.0.2.9:6443 --token zxdtkt.mi91c5sbky3ubp08 \
       --discovery-token-ca-cert-hash sha256:dc525e7dfce2d699346d6898814936f8276b4b821afa41933f2036ca70f5a04f 
 ```
@@ -380,7 +380,7 @@ $ kubeadm join 10.0.2.9:6443 --token zxdtkt.mi91c5sbky3ubp08 \
 <br/>
 
 마스터 노드에서 노드를 조회해 확인해 봅시다.  
-```shell
+```bash
 $ kubectl get node
 NAME       STATUS     ROLES                  AGE     VERSION
 cwadmin    Ready      control-plane,master   2m41s   v1.21.0
@@ -395,15 +395,9 @@ gpuadmin   Ready    <none>                 113s    v1.21.0
 ```
 
 <br/>
-  
-
-
-
 
 ## Mini Kube 설치
-<div align="center">
 ![minikube](/img/logos/minikube.svg)
-</div>
 
 *한대의 컴퓨터를 가지고 있고 여러 설정이 귀찮을 때*  
 쿠버네티스를 설치하기 전에 환경을 필요한 점검해 봅시다.
@@ -416,91 +410,73 @@ gpuadmin   Ready    <none>                 113s    v1.21.0
 
 ### Mini Kube 설치하기
 
-<p>1. 설치하기</p>
+1. 설치하기
 
 [공식 페이지](https://minikube.sigs.k8s.io/docs/start/) 에서 설치파일을 받습니다.  
 linux는 deb 또는 rpm 패키지, windows는 exe 인스톨러나 Chocolatey로 받을 수 있습니다.  
 [리눅스 패키지 설치](https://jwher.github.io/2021-05-10-install-tar.gz/)
 
-<p>2. 클러스터 시작하기</p>
+2. 클러스터 시작하기
 
 다음 명령어를 입력하여 클러스터를 시작합니다. 참 쉽죠?  
-```shell
+```bash
 > minikube start
 ```
 
-<p>3. 클러스터 사용하기</p>
+3. 클러스터 사용하기
 
 쿠버네티스 컨트롤(kubectl)을 사용해 클러스터와 상호작용 할 수 있습니다.
 kubectl이 없다면 [이 글](https://jwher.github.io/2021-05-28-kubernetes-usage/) 을 읽어보세요. 😊
 
 <br/>
 
-
-
-
-
 ## Docker Desktop 설치
 
-<div align="center">
 ![docker](/img/logos/docker.svg)
-</div>
 
 *한대의 윈도우 컴퓨터를 가지고 있을 때, 커맨드 라인을 보면 어지러울 때*  
 먼저 [도커 데스크탑](https://jwher.github.io/2021-04-13-install-docker/#windows) 이 없다면 설치합시다.
 
 ### Docker Desktop 설치하기
 
-<p>1. 대쉬보드를 열고 설정을 눌러줍니다</p>
+1. 대쉬보드를 열고 설정을 눌러줍니다
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-k8s-setting.png" alt="docker desktop k8s setting"/>
-</div>
+![docker desktop k8s setting](docker-desktop-k8s-setting.png)
 
 <br/>
 
-<p>2. Kubernetes – Enable Kubernetes를 눌러줍니다</p>
+2. Kubernetes – Enable Kubernetes를 눌러줍니다
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-k8s-enable.png" alt="docker desktop k8s enable"/>
-</div>
+![docker desktop k8s enable](docker-desktop-k8s-enable.png)
 
 <br/>
 
-<p>3. Apply & Restart를 눌러줍니다.</p>
+3. Apply & Restart를 눌러줍니다.
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/docker-desktop-k8s-restart.png" alt="docker desktop k8s restart"/>
-</div>
+![docker desktop k8s restart](docker-desktop-k8s-restart.png)
 
 Kubernetes 설치는 많은 량의 docker container를 생성하기 때문에 상당한 시간을 소요로 합니다.  
 완료되면 커맨드라인으로 확인해 봅시다.
 
-*kubectl이 없다면 [이 글](https://jwher.github.io/2021-05-28-kubernetes-usage/) 을 읽어보세요.* 😊
-```shell
+*kubectl이 없다면 [이 글](/posts/kubernetes-usage/) 을 읽어보세요.* 😊
+```bash
 > kubectl version
 ```
 
 <br/>
 
-
-
-
-
 ## Kind 설치
-<div align="center">
 ![kind](/img/logos/kind.svg)
-</div>
 
 *한대의 컴퓨터를 가지고 있고, 쉬운 설치와 그나마 빠른(...) 성능이 필요할 때*
 
 ### Kind 설치하기
 
-<p>1. Install Kind</p>  
+1. Install Kind  
 
 OS에 맞게 설치합니다
 
- ```shell
+ ```bash
 # On Linux
 $ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
 $ chmod +x ./kind
@@ -516,7 +492,7 @@ $ chmod +x ./kind
 > choco install kind
  ```
 
-<p>2. 쿠버네티스 클러스터 생성</p>  
+2. 쿠버네티스 클러스터 생성  
 
 클러스터 생성 시 쿠브플로우를 사용할 것이므로 port-forwarding을 해주어야 합니다.  
 다음 yaml을 작성합니다.  
@@ -541,7 +517,7 @@ nodes:
 <br/>  
 클러스터를 생성합니다.
 
- ```shell
+ ```bash
 > kind create cluster
 # or
 > kind create cluster --config {config}.yaml
@@ -567,10 +543,10 @@ kubectl cluster-info --context kind-kind
 Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
  ```
 
-<p>3. Access Cluster</p>
+3. Access Cluster
 
 쿠버네티스 노드 쉘에 접속합니다.
- ```shell
+ ```bash
 # 디폴트 쉘이 bash가 아니면
 # /bin/bash
 
@@ -593,7 +569,7 @@ Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCom
 <br/>
 쿠버네티스 클러스터를 확인해 봅시다.🎉   
 
- ```shell
+ ```bash
 $ kubectl get node
 
 NAME                 STATUS   ROLES                  AGE   VERSION
@@ -615,25 +591,18 @@ local-path-storage   local-path-provisioner-78776bfc44-pv9gw      1/1     Runnin
 
 <br/>
 
-
-
-
-
-
 ## Tips
-*북마크 하고 보세요!*
-<div align="center">
-<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/cute.jpg" alt="귀여워"/>
-</div>
+*북마크 하고 보세요!*  
+![kitty](kitty.jpeg)
 
 자, 이제 당신도 작고 귀여운 kubernetes를 가지고 있습니다!  
 이제 잘 돌봐줘야겠네요
 
 <br/>
 
-a. worker 노드에서 kubectl 사용  
+### worker 노드에서 kubectl 사용  
 보안 문제로 권장하진 않으나 admin.config를 복사해 worker에서 kubectl을 사용할 수 있습니다.  
-```shell
+```bash
 # 앞서 kubeadm init 때 사용한 명령어 입니다
 # worker 노드에서
 $ mkdir -p $HOME/.kube
@@ -651,11 +620,11 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br/>
 
-b. 토큰 재발급  
+### 토큰 재발급  
 kubeadm에서 생성된 토큰은 만료기간이 하루입니다.  
 따라서 새롭게 노드를 추가할 상황이 온다면 토큰을 재발급 받아야 합니다.  
 
-```shell
+```bash
 # 토큰을 조회합니다
 $ kubeadm token list
 
@@ -674,14 +643,11 @@ $ kubeadm join {k8s API server ip}:{PORT 6443} --token {TOKEN} --discovery-token
 
 <br/>
 
-### Reference  
+## Reference  
 [[레딧]K3s, minikube or microk8s?](https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/)  
 [[공식]kubeadm 설치하기](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)    
 [쿠버네티스(kubernetes) 설치 및 환경 구성하기](https://medium.com/finda-tech/overview-8d169b2a54ff)  
 [쿠버네티스 노드 조인(Join)시 Token 값 확인](https://sarc.io/index.php/cloud/1383-join-token)    
-
-[docker-install]: https://jwher.github.io/2021-04-13-install-docker/
-[flannel-github]: https://github.com/flannel-io/flannel
 
 <!--
 update log
