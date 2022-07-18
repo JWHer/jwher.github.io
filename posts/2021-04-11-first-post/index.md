@@ -6,7 +6,7 @@ slug: first-post
 tags:
 - blog
 - update
-title: First Post
+title: First Post with Jekyll
 ---
 
 <!--truncate-->
