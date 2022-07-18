@@ -57,8 +57,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/jwher/jwher.github.io',
-            remarkPlugins: [math],
-            rehypePlugins: [katex],
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -169,6 +169,11 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
+          if (existingPath.includes('/kr/posts/')) {
+            return [
+              existingPath.replace('/kr/posts', ''),
+            ];
+          }
           if (existingPath.includes('/posts/')) {
             return [
               existingPath.replace('/posts', ''),
