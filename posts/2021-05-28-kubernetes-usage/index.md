@@ -1,19 +1,17 @@
 ---
 authors:
 - jwher
-description: 자주쓰는 쿠버네티스 명령어
+description: Kubernetes Usage
 slug: kubernetes-usage
 tags:
 - tech
 - kubernetes
-title: Kubernetes Usage
+title: 자주쓰는 쿠버네티스 명령어
 ---
 
-<!--truncate-->
-
-<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/assets/img/Kubernetes.svg "kubernetes")  
+![kubernetes](/img/logos/kubernetes.svg)  
 *쿠버네티스 사용하기*  
+<!--truncate-->
 
 # 목차
 * [kubectl 설치](#kubectl-설치)
@@ -22,7 +20,7 @@ title: Kubernetes Usage
 ## kubectl 설치  
 
 설마 kubectl이 없을까요...?  
-쿠버네티스를 처음 접하신다면 쿠버네티스 구조를 다룬 [이글](https://jwher.github.io/welcome-to-kubernetes)
+쿠버네티스를 처음 접하신다면 쿠버네티스 구조를 다룬 [이글](/posts/welcome-to-kubernetes)
 먼저 보시는걸 추천합니다.
 
 ### requirements
@@ -34,7 +32,7 @@ title: Kubernetes Usage
 
 <details markdown="1" open>
 
-<p>1. 바이너리 파일을 다운로드 합니다.</p>
+1. 바이너리 파일을 다운로드 합니다.
 
 ```shell
 # 다음 명령으로 최신 kubectl을 다운받습니다
@@ -53,7 +51,7 @@ kubectl: OK # 성공시
 
 ```
 
-<p>2. 바이너리 파일을 설치합니다.</p>  
+2. 바이너리 파일을 설치합니다.  
 
 ```shell
 # 설치하기, 바이너리 파일을 이동하는 것 처럼 보입니다
@@ -451,11 +449,11 @@ $ kubectl delete pod [-n {namespace}] $(kubectl get pod [-n {namespace}] --field
 
 ## Tips
 
-개념 이해에 도움이 되는 글입니다
-[쿠버네티스 개념](https://jwher.github.io/2021-04-12-welcome-to-kubernetes/)  
-(작성 예정: kubernetes architecture)
+개념 이해에 도움이 되는 글입니다  
+[쿠버네티스 개념](/posts/welcome-to-kubernetes)  
+[쿠버네티스 아키텍처](/posts/kubernetes-architecture)
 
-### Reference  
+## Reference  
 [[공식]리눅스에 kubectl 설치 및 설정](https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)  
 [[공식]kubectl-commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)  
 [[공식]kubectl 치트 시트](https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/)
