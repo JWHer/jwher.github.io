@@ -1,21 +1,20 @@
 ---
 authors:
 - jwher
-description: Nuclio 개념과 아키텍처
+description: Automate the Data Science Pipeline with Serverless Functions
 slug: nuclio
 tags:
 - tech
 - kubernetes
 - docker
-- nuclio
-title: Nuclio
+title: Nuclio 개념과 아키텍처
 ---
 
-<!--truncate-->
 
-<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-superman.png "nuclio superman")  
+![nuclio](/img/logos/nuclio.png)  
 *Automate the Data Science Pipeline with Serverless Functions*  
+
+<!--truncate-->
 
 disclaimer: 필자도 배우는 중입니다. 정확히 이해가 가지 않은 개념은 *기울게?* 표시했습니다. 많은 의견 부탁드립니다! ~~죄송합니다!~~
 
@@ -32,7 +31,7 @@ disclaimer: 필자도 배우는 중입니다. 정확히 이해가 가지 않은 
 딥러닝 모델 알고리즘(function)이 외부와 통신하려면 어떤 방법을 사용해야 할까요?
 당연히 서버와 인터페이스(ex REST API) 프로그램을 추가로 개발해야 합니다.:sob:
 
-> ![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/idiot-homer.jpg "idiot homer")  
+> ![homer-brain](homer-brain.gif)  
 > 나는 딥러닝밖에 모르는데...
 
 이런 딥러닝 모델 개발자, 데이터 과학자를 위해 **서버 없이** 인터페이스를 만들어 주려는 시도는 많았습니다.
@@ -94,7 +93,7 @@ def init_context(context):
 
 ## nuclio architecture
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-function-processor.png "nuclio function processor")
+![function processor](function-processor.png)
 
 nuclio 구조는 function의 성능 최대화, 추상화, 플랫폼간 이식성을 목표하고 있습니다.  
 
@@ -104,7 +103,7 @@ function은 이벤트 기반으로 실행되고, function runtime engine으로 �
 event-source listener는 소켓, 메시지 큐, 외부 이벤트 가져오기(polling)를 할 수 있습니다.
 event listner는 정확히 한번 또는 최소한 한번 실행을 보장하고 오류를 처리합니다.  
 
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-event-src.png "nuclio event src")  
+![event src](event-src.png)  
 
 event source는 동작이나 흐름 관리로 분류할 수 있습니다(divided into classes). nuclio는 다음 event를 지원합니다.
 1. Synchronous Request/Response: HTTP요청이나 Remote Procedure Calls 같이 client가 즉시 응답을 원함
@@ -143,7 +142,7 @@ data binding은 특별한 function 코드 없이 zero-copy, zero-serialization, 
 control framework는 초기화, 다른 프로세서 컴포넌트 컨트롤, 프로세서와 function의 logging 제공, 실행 통계 모니터링,
 작은 원격 관리 포털 서빙을 합니다.
 control framework는 추상화 인터페이스를 제공해 IoT 장치, 컨테이너, 오케스트레이터, cloud간에 이식성을 제공합니다(allowing).  
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/nuclio-build-deploy.png "nuclio build deploy")
+![build deploy](build-deploy.png)
 
 <br/>
 
@@ -160,11 +159,9 @@ worker로 docker container 또는 kubernetes pod를 사용하는 것으로 보�
 OS thread를 사용하는지, PL이 제공하는 경량 thread(goroutine, erlang)를 증가시키는 것인지?
 ⇒ Runtime engine에서 힌트를 얻을 수 있습니다만, 언어에 따라 scale up 방식이 다른 걸까요?
 
-### Reference  
+## Reference  
 [Comparing Nuclio and AWS Lambda](https://theburningmonk.com/2019/04/comparing-nuclio-and-aws-lambda/)  
 [Nuclio Documentation](https://nuclio.io/docs/latest/)
-
-
 
 <!-- update log -->
 <!--
