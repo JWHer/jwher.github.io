@@ -1,0 +1,24 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_4" d="m256,456c-110.49724,0 -200,-89.50276 -200,-200c0,-110.49724 89.50276,-200 200,-200c110.49724,0 200,89.50276 200,200c0,110.49724 -89.50276,200 -200,200z" opacity="undefined" stroke-width="5" stroke="#000" fill="none"/>
+  <line id="svg_5" y2="256" x2="512" y1="256" x1="0" stroke-width="3" stroke="#0000bf" fill="none"/>
+  <line transform="rotate(120 256 256)" opacity="0" id="svg_19" y2="256" x2="456" y1="256" x1="56" stroke-width="3" stroke="#000" fill="none"/>
+  <line transform="rotate(60 256 256)" opacity="0" id="svg_18" y2="256" x2="456" y1="256" x1="56" stroke-width="3" stroke="#000" fill="none"/>
+  <line id="svg_13" y2="256" x2="256" y1="256" x1="256" stroke-width="5" stroke="#ff0000" fill="none"/>
+  <line id="svg_14" y2="256" x2="256" y1="256" x1="256" stroke-width="5" stroke="#ff0000" fill="none"/>
+  <g opacity="0" id="svg_17">
+   <line id="svg_6" y2="82.8" x2="156" y1="256" x1="56" stroke-width="5" stroke="#000" fill="none"/>
+   <line id="svg_7" y2="429.2" x2="156" y1="256" x1="56" stroke-width="5" stroke="#000" fill="none"/>
+   <line id="svg_8" y2="429.2" x2="357" y1="429" x1="157" stroke-width="5" stroke="#000" fill="none"/>
+   <line id="svg_9" y2="83" x2="356" y1="83" x1="156" stroke-width="5" stroke="#000" fill="none"/>
+   <line id="svg_10" y2="256" x2="456" y1="83" x1="356" stroke-width="5" stroke="#000" fill="none"/>
+   <line id="svg_11" y2="256" x2="456" y1="429" x1="356" stroke-width="5" stroke="#000" fill="none"/>
+  </g>
+  <line id="svg_28" y2="512" x2="256" y1="0" x1="256" stroke-width="3" stroke="#0000bf" fill="none"/>
+  <rect id="svg_16" height="1" width="1" y="255.5" x="255.5" stroke-width="5" stroke="#ff0000" fill="none"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_29" y="240" x="472" stroke-width="3" stroke="#000000" fill="none">1</text>
+  <text style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_30" y="240" x="22" stroke-width="3" stroke="#000000" fill="none">-1</text>
+ </g>
+</svg>

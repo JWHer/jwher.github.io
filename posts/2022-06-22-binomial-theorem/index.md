@@ -1,60 +1,93 @@
 ---
 authors:
 - jwher
-description: 이항정리 - π값을 구하는 법
+description: Binomial Theorem
 slug: binomial-theorem
 tags:
 - math
-title: Binomial Theorem
-draft: true
+title: 이항정리 - π값을 구하는 법
 ---
 
-<!-- ![]() -->
+![pi](pi.svg)  
 *이항정리 - π값을 구하는 법*
 <!--truncate-->
 
-##  π
+##  $\pi$
 
-여러분은 π값을 알고 계신가요?  
-중학교 수학이 기억나신다면, 3.14 언저리의 값이라는 것을 알고 계실겁니다.
-원의 반지름과 둘레의 비율을 나타내는 값입니다.
+여러분은 $\pi$값을 알고 계신가요?  
 
-> Pi Day  
+$\pi$는 원의 반지름과 둘레의 비율을 나타내는 값으로,
+3.14 언저리의 값이라는 것을 알고 계실겁니다.
 
-[![pizza-to-pi](pizza_to_pi.gif)](https://twitter.com/AlexKontorovich/status/1236008125645434885?ref_src=twsrc%5Etfw)
+<br/><br/>
+
+> $\pi$ Day  
+>
+> ![pizza-to-pi](pizza_to_pi.gif)  
+> [[트위터]파이데이](https://twitter.com/AlexKontorovich/status/1236008125645434885?ref_src=twsrc%5Etfw)
+
+동영상에서 보듯이, 피자의 둘레를 펴 지름에 놓으면 3판보다 조금 더 큰 것을 알 수 있습니다.
+
+<br/><br/>
 
 그렇다면 파이값을 어떻게 구할 수 있을까요?  
-고대인들도 π값을 알고 있었습니다.
+고대인들도 $π$값을 알고 있었습니다.
 
-![hexagon-inscribed-in-circle](hexagon-inscribed-in-circle.png)
+![hexagon-inscribed-in-circle](hexagon-inscribed-in-circle.svg)
 
 한 변의 길이가 1인 육각형의 둘레는 6입니다.
-육각형에 외접원을 그리면, 육각형보다 큰 원을 그릴 수 있습니다.
+육각형에 외접원을 그리면, 육각형보다 큰 원을 그릴 수 있습니다.  
 같은 지름을 공유하는 원의 둘레가 더 크므로, 다음 부등식을 세울 수 있습니다.
 
-> 2*π > 6
-> π > 3
+$$
+(원의 둘레)=(지름)*π=2π > 6
+$$
+양변을 2로 나누면,
 
-![circumscribed-square](circumscribed-square.png)
+$$
+π > 3
+$$
 
-한 변의 길이가 2인 사각형은 둘레가 8로, 이전에 그렸던 도형보다 큽니다.
+$\pi$ 값은 3보다 크다는걸 알았습니다!
+
+<br/><br/>
+
+![circumscribed-square](circumscribed-square.svg)
+
+한 변의 길이가 2인 사각형은 둘레가 8로, 이전에 그렸던 도형보다 큽니다.  
 사각형의 둘레가 더 크므로, 다음 부등식을 세울 수 있습니다.
 
-> 2*π < 8
-> π < 4
+$$
+2π < 8
+$$
+양변을 2로 나누면,
 
-이 방법은 내접, 외접한 다각형의 변을 늘려가며 더 정확한 근사치를 구할 수 있습니다.
-introduced by Archimedes was an innovative example of iterative computation, introduced by Greek Mathematicians around 2200 years ago now.
+$$
+π < 4
+$$
 
-> 3.1408<π<3.1429
+$\pi$는 4보다 작은 값임을 알아냈습니다!
+
+이렇게 다각형을 이용해 근사하는 방법은 2200년전, BC 250년에 아르키메데스가 계산한 방법으로,
+내접, 외접한 다각형의 변을 늘려가며 더 정확한 근사치를 구할 수 있습니다.
+이 방법은 1000년간 $\pi$ 값을 구하는 방법으로 사용되었습니다.
+
+$$
+{223 \over 71} < \pi < {22 \over 7}
+$$
+$$
+3.1408<π<3.1429
+$$
 
 사실 이정도만 되어도 실용적인 정확도를 넘어섭니다.  
-In 1850, William Shanks took 15 years to estimate Pi to 707 digits. Turns out he made an error at digit 527. Makes all the time “wasted” on video gaming seem like nothing.
+1850년, William Shanks는 15년간 $\pi$값을 계산해 707자리까지 계산합니다.
+하지만 527자리부터 오류가 있었죠. 이걸 계산하는데 사용한 사간은 아무것도 아닌 것에 낭비된 것 처럼 보입니다.
 
-이 외에도 Monte Carlo Simulation, Buffon’s Needles 등 방법이 있지만,
-지금 다룰 주제는 π가 아니니 넘어가겠습니다.
+이 외에도 $\pi$값을 구하는 방법은 [Monte Carlo Simulation](https://en.wikipedia.org/wiki/Monte_Carlo_method),
+[Buffon’s Needles](https://en.wikipedia.org/wiki/Buffon%27s_needle_problem) 등 방법이 있지만,
+지금 다룰 진짜 주제는 $π$가 아니니 넘어가겠습니다.
 
-## 적분
+## 적분의 등장
 
 <!-- 아이작 뉴턴, 고드프리트 빌헬름 라이프니츠 -->
 뉴턴과 라이프니츠는 17세기 미적분학의 기본정리를 완성합니다.
@@ -63,33 +96,64 @@ In 1850, William Shanks took 15 years to estimate Pi to 707 digits. Turns out he
 
 * 정적분은 부정적분의 차로 구할 수 있습니다.
 
+정적분 값을 계산할수 있게 되면서 $\pi$ 값을 구하는 방법은 변하게 됩니다.  
+이전까지는 $(원의 둘레)=2*\pi$를 이용했다면,
+이제부터는 $(원의 넓이)=r^2*\pi$을 이용하게 됩니다.
+
 ## 원의 넓이1
-좌표계에서 원의 방정식을 나타내면 다음과 같습니다
+좌표계에서 단위원의 방정식 $x^2+y^2=1$을 나타내면 다음과 같습니다
 
-![circle](circle.png)
+![circle](circle.svg)
 
-적분가능한 함수로 나타내면
+적분가능한 함수 $y=\sqrt{1-x^2}$로 나타내면
 
-![circle-transpos](circle-tranpos.png)
+![circle-transpos](half-circle.svg)
 
 어떻게 적분할 수 있을까요?
+안타깝게도, 지금 알고있는 지식으로는 적분할수 없습니다.
 
+<details>
+<summary>그래도 궁금하신 분을 위해</summary>
 이 식의 부정적분은 다음과 같습니다.
 
-integral( (1-x^2)^(1/2) ) = 1/2((1-x^2)^(1/2)*x+sin(x)^(-1))
+$$
+\int \sqrt{(1-x^2)}  = {1\over2}(1-x^2)^{1\over2}x+sin(x)^{-1}
+$$
+</details>
 
-## binomial coefficient
+## 이항계수(binomial coefficient)
 
-(1+x)^2 = 1+2x+x^2  
-(1+x)^3 = 1+3x+3x^2+x^3  
-(1+x)^4 = 1+4x+6x^2+4x^3+x^4  
+위의 식을 적분하려면, **이항정리**와 **이항계수**를 알아야 합니다.
 
-(1+x)^n 이 어떤 형태인지 추측할 수 있습니다.
+**이항식**은, 두 단항식의 합인 다항식을 말합니다.
+$$
+ax^m-bx^n
+$$
 
-계수(coefficient) 는 (3/2) (three choose two) = 3
-조합 (n/k) = n! / k!(n-k)! 과 같습니다.
+**이항정리**는, 이항식의 거듭제곱 $(x+y)^n$을 단항식$ax^by^c$들의 합으로 전개하는 정리입니다.
+여기에서 $b+c=n$이고, 단항식의 계수$a$는 **이항계수**라고 불리고
+$a={\begin{pmatrix} n\\b \end{pmatrix}}={\begin{pmatrix} n\\c \end{pmatrix}}$입니다.  
+*n choose b 또는 n개에서 b개를 고르는 조합으로 읽습니다*
 
-> 또는 Π(i=0,k)(n-i)/k!
+<br/>
+
+직접 이항식$(x+1)$의 거듭제곱을 계산해 볼까요?  
+$$
+\begin{aligned}
+&(1+x)^0 = 1 \\
+&(1+x)^1 = 1+x \\
+&(1+x)^2 = 1+2x+x^2 \\
+&(1+x)^3 = 1+3x+3x^2+x^3 \\
+&(1+x)^4 = 1+4x+6x^2+4x^3+x^4 \\
+\end{aligned}
+$$
+
+눈치 빠르신 분이라면 $(1+x)^n$이 어떤 형태인지 추측하셨을 겁니다.
+
+위에서 설명했듯이, n항식의 k항의 계수는 조합 ${\begin{pmatrix} n\\k \end{pmatrix}} = {n! \over k!(n-k)!}$
+또는, ${Π_{i=0}^{k-1}(n-i) \over k!}$와 같습니다.
+
+<br/>
 
 조합수는 pascal's triangle에서 찾을 수 있습니다.
 ![pascal-triangle](pascal-triangle.png)
