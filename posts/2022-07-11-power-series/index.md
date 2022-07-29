@@ -7,7 +7,6 @@ tags:
 - math
 - calculus
 title: 다양한 급수
-draft: true
 ---
 
 ![power series](power-series-formula.png)
