@@ -61,7 +61,7 @@ $$
 \sum_{\color{green}k=0}^{\color{green}n}{f^{(k)}(x_0) \over k!}(x-x_0)^k + \color{green}{R_{n+1}(x)}
 $$
 
-마지막 항인 $\color{green}{R_{n+1}(x)}$dmf $f$의 **나머지 항** 또는 **절단오차**라고 합니다.
+마지막 항인 $\color{green}{R_{n+1}(x)}$을 $f$의 **나머지 항** 또는 **절단오차**라고 합니다.
 $[x_0,x]$ 또는 $[x,x_0]$에 속하는 적당한 실수 b에 대해서 다음과 같이 표현됩니다.
 
 $$
@@ -147,7 +147,7 @@ f(x)=\sum_{n=0}^{\infty}{\color{red}{(\alpha)_k \over n!}}x^n
 $$
 여기서 $\color{red} (\alpha)_k$는 조합(combination)에서 하강계승입니다.
 
-자세한 내용은 [이항정리](/posts/binomial-theorem)를 참고해 주세요.
+자세한 내용은 [이항정리](/posts/binomial-theorem#이항계수binomial-coefficient)를 참고해 주세요.
 
 <br/><br/>
 
