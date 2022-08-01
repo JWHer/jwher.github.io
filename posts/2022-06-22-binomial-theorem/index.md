@@ -105,7 +105,7 @@ $$
 
 ![circle](circle.svg)
 
-적분가능한 함수 $y=\sqrt{1-x^2}$로 나타내면
+적분가능한 함수 $y=(1-x^2)^{1 \over 2}$로 나타내면
 
 ![circle-transpos](half-circle.svg)
 
@@ -121,7 +121,7 @@ $$
 $$
 </details>
 
-## 이항계수(binomial coefficient)
+## 이항정리
 
 위의 식을 적분하려면, **이항정리**와 **이항계수**를 알아야 합니다.
 
@@ -131,13 +131,20 @@ ax^m-bx^n
 $$
 
 **이항정리**는, 이항식의 거듭제곱 $(x+y)^n$을 단항식$ax^by^c$들의 합으로 전개하는 정리입니다.
+
+$$
+(x+y)^n=\sum_{k=0}^n{\begin{pmatrix} n \\ k \end{pmatrix}}x^{n-k}y^k=x^n+nx^{n-1}y+{n(n-1) \over 2}x^{n-1}y^2+ ... + ax^by^c + ... + y^n
+$$
+
 여기에서 $b+c=n$이고, 단항식의 계수$a$는 **이항계수**라고 불리고
 $a={\begin{pmatrix} n\\b \end{pmatrix}}={\begin{pmatrix} n\\c \end{pmatrix}}$입니다.  
 *n choose b 또는 n개에서 b개를 고르는 조합으로 읽습니다*
 
 <br/>
 
-직접 이항식$(x+1)$의 거듭제곱을 계산해 볼까요?  
+### 이항계수(binomial coefficient)
+
+직접 **이항식** $(x+1)$의 거듭제곱을 계산해 볼까요?  
 $$
 \begin{aligned}
 &(1+x)^0 = 1 \\
@@ -156,30 +163,107 @@ $$
 <br/>
 
 조합수는 pascal's triangle에서 찾을 수 있습니다.
-![pascal-triangle](pascal-triangle.png)
+$$
+\begin{array}{c}
+n=0 &1 \\
+n=1 &1 \quad 1 \\
+n=2 &1 \quad 2 \quad 1 \\
+n=3 &1 \quad 3 \quad 3 \quad 1 \\
+n=4 &1 \quad 4 \quad 6 \quad 4 \quad 1 \\
+\end{array}
+$$
 
-1을 y변수로 바꿔주면, 이항식이 됩니다.
+**이항계수**를 구할때, 대수학으로 계산하는 대신 조합수를 사용해 편리하게 계산할 수 있습니다.
 
-(x+y)^n
+## 일반화된 이항정리
 
-이항식의 거듭제곱 n승의 계수를 구할 때,
-대수학으로 계산하는 대신 조합수를 사용해 편리하게 계산할 수 있고,
-이를 이항정리라고 합니다.
+이항식을 거듭제곱하는 지수를 임의의 복소수 $\alpha \in \mathbb{C}$ 까지 확장할 수 있습니다. 일반화된 이항 정리에선 전개가 [무한급수](/posts/power-series)가 됩니다.
 
-## negative number
+*natural numbers($\mathbb N$) - integers($\mathbb Z$) - rational($\mathbb Q$) - real($\mathbb R$) - complex($\mathbb C$)*
 
-<!-- natural numbers(N) - integers(Z) - rational(Q) - real(R) - complex(C) -->
-![pascal-triangle-negative](pascal-triangle-negative.png)
+### 음이향계수
 
-## fraction
+음수일때 계승! 은 정의되지 않지만, 다음과 같이 계산합시다.
+$$
+\begin{aligned}
+&-1! = -1\times-2\times-3\times-4...\\
+&-2! = \quad\quad-2\times-3\times-4...\\
+&-3! = \quad\quad\quad\quad-3\times-4...\\
+\end{aligned}
+$$
 
-분수일 때에도 성립합니다.
+-1차식의 0항의 계수는
+${\begin{pmatrix} -1 \\ 0 \end{pmatrix}} = {-1! \over 0!-1!} = 1$  
+-1차식의 1항의 계수는
+${\begin{pmatrix} -1 \\ 1 \end{pmatrix}} = {-1! \over 1!-2!} = -1$  
+-1차식의 2항의 계수는
+${\begin{pmatrix} -1 \\ 2 \end{pmatrix}} = {-1! \over 2!-3!} = 1$  
+...
+
+<br/>
+
+-2차식의 0항의 계수는
+${\begin{pmatrix} -2 \\ 0 \end{pmatrix}} = {-2! \over 0!-2!} = 1$  
+-2차식의 1항의 계수는
+${\begin{pmatrix} -2 \\ 1 \end{pmatrix}} = {-2! \over 1!-3!} = -2$  
+-2차식의 2항의 계수는
+${\begin{pmatrix} -2 \\ 2 \end{pmatrix}} = {-2! \over 2!-4!} = 3$  
+...
+
+<br/>
+
+위의 계산을 일반화하면
+$$
+\begin{aligned}
+{\begin{pmatrix} -r \\ k \end{pmatrix}}&={(-r)(-r-1)...(-r-k+1) \over k!} \\
+&=(-1)^k{(r)(r+1)...(r+k-1) \over k!} \\
+&=(-1)^k{\begin{pmatrix} r+k-1 \\ k \end{pmatrix}}
+\end{aligned}
+$$
+
+음이항계수를 파스칼의 삼각형에 이어서 그려볼까요?  
+
+$$
+\begin{array}{c}
+n=-4&\qquad\qquad\qquad\qquad\qquad\qquad\qquad 1 \quad -4 ...\\
+n=-3&\qquad\qquad\qquad\qquad\qquad\qquad\qquad 1 \quad -3 \quad\quad 6 ...\\
+n=-2&\qquad\qquad\qquad\qquad\qquad\qquad\qquad 1 \quad -2 \quad\quad 3 \quad -4 ...\\
+n=-1&\qquad\qquad\qquad\qquad\qquad\qquad\quad 1 \quad -1 \quad\quad 1 \quad -1 \quad\quad 1 ...\\
+n=0 &1 \\
+n=1 &1 \qquad 1 \\
+n=2 &1 \qquad 2 \qquad 1 \\
+n=3 &1 \qquad 3 \qquad 3 \qquad 1 \\
+n=4 &1 \qquad 4 \qquad 6 \qquad 4 \qquad 1 \\
+\end{array}\\
+$$
+
+### 분수
+
+이항계수는 분수일 때도 정의할 수 있습니다.
+
+$1\over2$에서 이항계수를 살펴봅시다.
+
+$1\over2$차식의 0항의 계수는
+${\begin{pmatrix} 1\over2 \\ 0 \end{pmatrix}} = {{1\over2}! \over 0!{1\over2}!} = 1$  
+$1\over2$차식의 1항의 계수는
+${\begin{pmatrix} 1\over2 \\ 1 \end{pmatrix}} = {{1\over2}! \over 1!-{1\over2}!} = {1\over2}$  
+$1\over2$차식의 2항의 계수는
+${\begin{pmatrix} 1\over2 \\ 2 \end{pmatrix}} = {{1\over2}! \over 2!-{3\over2}!} = {-{1\over4} \over 2!} = -{1\over8}$  
+...
 
 ## 원의 넓이2
 
-이제 식을 전개할 수 있습니다!
+이항식의 분수 거듭제곱에서 이항계수를 구하는 법을 알았으니,
+$(1-x^2)^{1 \over 2}$식을 전개할 수 있습니다!
 
-![circle-transpos-polynomial](circle-transpos-polynomial.png)
+편의를 위해 $-x^2=t$로 놓으면,
+$$
+(1+t)^{1 \over 2}=1+{1\over 2}t-{1\over 8}t^2+{1\over 16}t^3 - ...
+$$
+다시 x에 대해서로 바꿔줍시다
+$$
+(1-x^2)^{1 \over 2}=1-{1\over 2}x^2-{1\over 8}x^4-{1\over 16}x^6 - ...
+$$
 
 정적분을 구하면
 
