@@ -14,7 +14,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: '@site/static/img/logo.svg', //'img/logo.svg',
+  favicon: '/img/logo.svg', //'img/logo.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -169,11 +169,6 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
-          if (existingPath.includes('/kr/posts/')) {
-            return [
-              existingPath.replace('/kr/posts', ''),
-            ];
-          }
           if (existingPath.includes('/posts/')) {
             return [
               existingPath.replace('/posts', ''),

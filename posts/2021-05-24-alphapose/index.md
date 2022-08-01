@@ -6,7 +6,7 @@ slug: alphapose
 tags:
 - paper
 - ml
-title: Alphapose
+title: Alphapose 논문 리뷰와 사용
 ---
 
 
