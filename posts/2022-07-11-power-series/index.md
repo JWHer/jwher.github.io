@@ -147,7 +147,7 @@ f(x)=\sum_{n=0}^{\infty}{\color{red}{(\alpha)_k \over n!}}x^n
 $$
 여기서 $\color{red} (\alpha)_k$는 조합(combination)에서 하강계승입니다.
 
-자세한 내용은 [이항정리](/posts/binomial-theorem#이항계수binomial-coefficient)를 참고해 주세요.
+자세한 내용은 [이항정리](/posts/binomial-theorem#이항정리)를 참고해 주세요.
 
 <br/><br/>
 
