@@ -9,11 +9,9 @@ tags:
 title: Information Theory
 ---
 
-<!--truncate-->
-
-<!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->
-![Alt](https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/card.jpg "card")  
+![cards](cards.jpg)  
 *정보 이론*  
+<!--truncate-->
 
 <details>
 <summary> TMI </summary>
