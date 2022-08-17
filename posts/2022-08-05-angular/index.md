@@ -42,16 +42,6 @@ $ ng new tx_webapp
   Less   [ http://lesscss.org                                             ]
 ```
 
-## Rx/js
-
-actions:		ng g @ngrx/schematics:action state/<name>/<name> --defaults
-effects:		ng g @ngrx/schematics:effect state/<name>/<name> --skip-tests --module state/<name>/<name>.store.module.ts --defaults
-facade:		    -
-model:			-
-reducer:		ng g @ngrx/schematics:reducer state/<name>/<name> --skip-tests --defaults
-selector:		ng g @ngrx/schematics:selector state/<name>/<name> --skip-tests
-store.module:	ng g m state/<name>/<name>.store --flat
-
 ## Reference
 
 [[공식]Setting up the local environment and workspace](https://angular.io/guide/setup-local)
