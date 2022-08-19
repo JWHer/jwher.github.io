@@ -57,7 +57,13 @@ NgRx store를 사용해야 하는 이유 5가지를 **SHARI**라고 부릅니다
 * Schematics: 앵귤러에서 NgRx 라이브러리를 사용하기 위한 비계(Scaffolding)입니다
 * ESLint Plugin
 
-![ngrx-state-management-lifecycle](state-management-lifecycle.png)
+### TL;DR
+![ngrx-state-management-lifecycle](state-management-lifecycle.png)  
+NgRx는 반응형 웹을 위해서 Redux에서 영감을 받은 **스토어(Store)**를 제공합니다.  
+크게 **액션(Action)**, **리듀서(Reducer)**, **셀렉터(Selector)** 흐름으로 이루어진 스토어와,
+스토어와 외부 상호 작용을 하는(API 호출 등) **이펙트(Effects)**로 이루어집니다.
+
+이펙트에 책임을 위임하는 격리된 구조로 간단한 상태 관리를 제공합니다.
 
 ## 구현
 
