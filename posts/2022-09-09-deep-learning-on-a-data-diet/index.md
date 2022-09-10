@@ -211,6 +211,6 @@ EL2N: error l2 norm
 [[Arxiv]Deep learning on a data diet](https://arxiv.org/pdf/2107.07075.pdf)
 
 #### [[1] Selection via proxy](https://arxiv.org/pdf/1906.11829.pdf)
-#### [[2] Data distribution search to select core-set for machine learning]()
+#### [[2] Data distribution search to select core-set for machine learning](http://manuscriptlink-society-file.s3.amazonaws.com/kism/conference/sma2020/presentation/SMA-2020_paper_50.pdf)
 #### [[8] An empirical study of example forgetting during deep neural network learning](https://arxiv.org/pdf/1812.05159.pdf)
 
