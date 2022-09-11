@@ -10,7 +10,7 @@ title: 학습에 중요한 데이터 찾기
 
 [![deep-learning](network.png)](/posts/deep-learning-on-a-data-diet)  
 *학습에 중요한 데이터 찾기*  
-*이 글은 Deep learning on a data diet을 번역해 작성되었습니다*
+*이 글은 2021 7 15 NeurIPS에 등재된 Deep learning on a data diet을 번역해 작성되었습니다*
 
 <br/>
 
@@ -24,7 +24,6 @@ title: 학습에 중요한 데이터 찾기
 
 <br/>
 <br/>
-<br/>
 
 ## 최근 연구
 데이터 정리(pruning data)에 대한 최근 연구[[1](#1-selection-via-proxy), [2](#2-data-distribution-search-to-select-core-set-for-machine-learning)]는 원본 데이터셋과 동일한 정확도를 유지하는 중심집합(coresets)의 넓은 맥락을 찾는 것이였습니다. 이는 전체 데이터셋에서 학습 오류의 작은 차이를 내는 예제들을 찾는 방법으로 접근합니다. 하지만, 딥러닝의 볼록하지않은(non-convex) 본질 때문에, 이 기법은 약한 이론적 보장과, 실례에서 비효율성은 보수적인 추정을 불러일으킵니다.  
@@ -34,7 +33,6 @@ title: 학습에 중요한 데이터 찾기
 
 넓게 바라보면, 데이터셋 정리 방법은 많은 질문을 남깁니다. 정확도(accuracy) 손상 없이 학습 데이터에서 제거할 수 있는 예제의 본질은 무엇인가? 얼마나 빨리 그런 예제를 알아챌 수 있을까? 얼마나 많은 예제를 찾아야 하고, 어떻게 데이터 분산에 의존하는가? 이에 대한 일반적인 대답은 없을 것입니다. 이 연구에서는 표준 비전 벤치마크와 네트워크 구조에서 경험적인 방법을 찾습니다.
 
-<br/>
 <br/>
 <br/>
 
@@ -105,7 +103,6 @@ Cross entropy를 사용하므로 $\triangledown_{f^{(k)}} l(f_t(x),y)^T=p(W_t,x)
 
 <br/>
 <br/>
-<br/>
 
 ## 데이터 정리를 통한 GraNd와 EL2N 점수의 경험적 평가
 
@@ -116,22 +113,24 @@ Fig. 1은 상하로 두개의 실험과, 3개의 다른 네트워크와 데이�
 
 <br/>
 
-### 시작할때 데이터 정리(Pruning at initialization)
+### 시작할때 데이터 정리
+*Pruning at initialization*  
 모든 설정에서 GraNd 점수를 사용한 것이 무작위로 선택한것 보다 나았습니다. 이는 주목할만한데, GraNd는 초기값의 평균 경사도 노름 정보만 가지고 있기 때문입니다. 이는 무작위 네트워크로 만들어진 학습 분포가 분류 문제에서 기하학적으로 많은 정보를 가진다는 것입니다. EL2N은 일관적인 효과를 거두지 못했고 망각점수(forgetting score)는 정의되지 않습니다.
 
 <br/>
 
-### 학습 초기에 데이터 정리(Pruning early in training)
+### 학습 초기에 데이터 정리
+*Pruning early in training*  
 몇번의 학습 후에, EL2N 점수는 일반화를 위한 중요한 예제 식별에 매우 효과적이였습니다. 중간정도의 데이터를 정리했을 때 전체 데이터셋을 사용한것과 같거나 더 나은(CINIC10+ResNet18 0.3 pruned) 결과를 보였습니다. 많은 데이터를 정리했을 때에도, 학습 궤적마다 정보를 얻는 망각점수에 대해 경쟁력이 있습니다. 흥미로운점은, 극히 많은 데이터가 정리된 상황에서 EL2N과 GraNd 다 급격히 성능이 떨어지는것을 관찰했습니다. 많은 데이터 정리시 데이터 분포에 대해 나쁜 커리리지를 지닌다는 가설을 세울 수 있습니다. 이는 가장 높은 오류 예제만 집중하므로써 테스트 데이터에 존재하는 집합이 제외될 가능성이 높습니다. 어려운 문제만 맞추고 테스트 오류가 좋은 학습 모델을 위한 예제의 다양성을 갖추지 못합니다.
 
 <br/>
 
-### 데이터가 갖는 자산(A property of the data)
-두 결과는 EL2N과 GraNd이 데이터셋에 속한 자산이고 네트워크에 특정되지 않음을 보여줍니다. Appendix D를 살펴보세요.
+### 데이터가 갖는 자산
+*A property of the data*  
+두 결과는 EL2N과 GraNd이 데이터셋에 속한 자산이고 네트워크에 특정되지 않음을 보여줍니다. [Appendix D](#d-additional-experiments)를 살펴보세요.
 
 실험결과로, EL2N 점수는 학습 초기에 계산하는 것이 중요한 예제 식별에 더 정확하다는 것을 보입니다.
 
-<br/>
 <br/>
 <br/>
 
@@ -140,12 +139,10 @@ Fig. 1은 상하로 두개의 실험과, 3개의 다른 네트워크와 데이�
 
 <br/>
 <br/>
-<br/>
 
 ## Optimization landscape and the training dynamics
 *todo: 나중에 작업하겠습니다*
 
-<br/>
 <br/>
 <br/>
 
@@ -200,8 +197,8 @@ $$
 
 실험적으로 봤을때, 이는 네트워크와 관계없이 데이터에 종속적인 값입니다. Data driven AI를 더욱 강조하게 되는 것 같습니다.
 
-GraNd: loss gradient norm  
-EL2N: error l2 norm  
+GraNd: Gradient Norm distance  
+EL2N: Error L2 Norm  
 의 약자로 생각됩니다.
 
 <br/>
