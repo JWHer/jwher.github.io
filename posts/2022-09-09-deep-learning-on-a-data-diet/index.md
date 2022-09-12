@@ -16,6 +16,9 @@ title: 학습에 중요한 데이터 찾기
 
 <!--truncate-->
 
+*최대한 번역된 단어를 통일하였으나 원문을 보는것을 권장합니다.*  
+*개인적으로 첨가한 단락은 기울게 표시했습니다.*  
+
 ## 딥러닝과 데이터
 최근 딥러닝에서 성과 일부는, 더욱더 큰 데이터셋을 사용해서 과매개변수화(overparameterized)된 네트워크를 만들며 이루어졌습니다.  
 *\* 과매개변수화: 데이터로부터 추정할 수 있는 것보다 많은 매개변수를 가지는 모델을 이릅니다*
@@ -106,7 +109,7 @@ Cross entropy를 사용하므로 $\triangledown_{f^{(k)}} l(f_t(x),y)^T=p(W_t,x)
 
 ## 데이터 정리를 통한 GraNd와 EL2N 점수의 경험적 평가
 
-신경망 Depth의 다양성을 위해 ResNet18과 ResNet50을, 데이터셋 난이도의 다양성을 위해 CIFAR-10, CIFAR-100, CINIC-10을 사용하였습니다. 모든 점수는 10회의 독립적인 학습 결과의 평균입니다. 최종 테스트 정확도(accuracy)는 무작위 초기화된 네트워크와 선택된 하위 집합으로 학습해 얻은 결과입니다.
+신경망 Depth의 다양성을 위해 ResNet18과 ResNet50을, 데이터셋 난이도의 다양성을 위해 CIFAR-10, CIFAR-100, CINIC-10을 사용하였습니다. 모든 점수는 10회의 독립적인 학습 결과의 평균입니다. 최종 테스트 정확도(accuracy)는 무작위 초기화된 네트워크와 선택된 부분집합으로 학습해 얻은 결과입니다.
 
 ![figure1](Figure1.png)
 Fig. 1은 상하로 두개의 실험과, 3개의 다른 네트워크와 데이터셋 조합의 결과입니다.
@@ -114,19 +117,19 @@ Fig. 1은 상하로 두개의 실험과, 3개의 다른 네트워크와 데이�
 <br/>
 
 ### 시작할때 데이터 정리
-*Pruning at initialization*  
+**Pruning at initialization**  
 모든 설정에서 GraNd 점수를 사용한 것이 무작위로 선택한것 보다 나았습니다. 이는 주목할만한데, GraNd는 초기값의 평균 경사도 노름 정보만 가지고 있기 때문입니다. 이는 무작위 네트워크로 만들어진 학습 분포가 분류 문제에서 기하학적으로 많은 정보를 가진다는 것입니다. EL2N은 일관적인 효과를 거두지 못했고 망각점수(forgetting score)는 정의되지 않습니다.
 
 <br/>
 
 ### 학습 초기에 데이터 정리
-*Pruning early in training*  
+**Pruning early in training**  
 몇번의 학습 후에, EL2N 점수는 일반화를 위한 중요한 예제 식별에 매우 효과적이였습니다. 중간정도의 데이터를 정리했을 때 전체 데이터셋을 사용한것과 같거나 더 나은(CINIC10+ResNet18 0.3 pruned) 결과를 보였습니다. 많은 데이터를 정리했을 때에도, 학습 궤적마다 정보를 얻는 망각점수에 대해 경쟁력이 있습니다. 흥미로운점은, 극히 많은 데이터가 정리된 상황에서 EL2N과 GraNd 다 급격히 성능이 떨어지는것을 관찰했습니다. 많은 데이터 정리시 데이터 분포에 대해 나쁜 커리리지를 지닌다는 가설을 세울 수 있습니다. 이는 가장 높은 오류 예제만 집중하므로써 테스트 데이터에 존재하는 집합이 제외될 가능성이 높습니다. 어려운 문제만 맞추고 테스트 오류가 좋은 학습 모델을 위한 예제의 다양성을 갖추지 못합니다.
 
 <br/>
 
 ### 데이터가 갖는 자산
-*A property of the data*  
+**A property of the data**  
 두 결과는 EL2N과 GraNd이 데이터셋에 속한 자산이고 네트워크에 특정되지 않음을 보여줍니다. [Appendix D](#d-additional-experiments)를 살펴보세요.
 
 실험결과로, EL2N 점수는 학습 초기에 계산하는 것이 중요한 예제 식별에 더 정확하다는 것을 보입니다.
@@ -135,19 +138,47 @@ Fig. 1은 상하로 두개의 실험과, 3개의 다른 네트워크와 데이�
 <br/>
 
 ## 노이즈 예제 식별
-*todo: 나중에 작업하겠습니다*
+*선별된 데이터는 여러가지 정보를 담는 모델 학습에 좋은 데이터일수 있지만, 그냥 어려운 문제(노이즈)일 수 있습니다*  
+
+이전 단락에서 살펴본 50%의 데이터로 정확도 감소 없이 학습시킬 수 있었던 이유는 뭘까요?
+한 가설은, 높은 점수를 받은 예제가 classifier의 정확도를 달성하기 위해 중요했던 것입니다.
+이 단락에선 그 가설을 반박하고, 레이블 노이즈의 역할을 증명합니다.
+
+높은 점수를 받은 예제가 높은 정확도를 얻기 위해 가장 중요한지 실험을 위해,
+먼저 예제를 적은 횟수의 학습(epoch 10)을 한 후 계산된 EL2N 점수로 정렬합니다. (Appendix E.3에서 GraNd로 실험)
+$f$부터 항상 같은 P%만큼 부분집합을 취하며 $f$를 따라 움직이는 윈도우를 만듭니다.
+이 윈도우는 최고점으로 갈때를 제외하고 높은 백분위로 올라갈수록 좋은 성능을 냅니다.
+최고 성능을 내는 윈도우는 대략 500개의 최고점수를 제외한 것이였습니다.
+
+레이블 분포에 노이즈 수에 따라 어떤 변화가 있는지 더 다양한 상황을 만듭니다.
+무작위 K% 레이블을 다른 무작위 레이블로 교체[[13](#13-understanding-deep-learning-requires-rethinking-generalization)]를 포함해 위의 실험을 반복합니다.
+이때 최적 윈도우는, 더 많은 높은점수 레이블을 제외하는 쪽으로 이동했습니다.
+노이즈가 없을 때 나타나는 효과가 노이즈가 존재할때 강화되는것을 볼 수 있었습니다.
+
+![figure2](Figure2.png)
+Fig. 2 ResNet18+CVFAR-10 데이터셋에서 40%의 부분집합으로 학습한 결과(좌)와
+여기에 10%의 무작위 레이블을 포함한 결과(우)입니다.
+
+이것은 다양한것을 암시합니다. **높은점수 예제만으로 학습한것은 최적의 방법이 아닐 수 있습니다.**
+레이블에 노이즈가 있을 때는 더더욱 그렇습니다.
+모집단이 낮은 베이즈 에러가 있다면, 높은점수 예제만으로 학습하는게 최적의 결과일 것입니다.
 
 <br/>
 <br/>
 
+<!--
 ## Optimization landscape and the training dynamics
 *todo: 나중에 작업하겠습니다*
 
 <br/>
 <br/>
 
+-->
+
+<!--
 ## Discussion
 *todo: 나중에 작업하겠습니다*
+-->
 
 <br/>
 <br/>
@@ -210,4 +241,4 @@ EL2N: Error L2 Norm
 #### [[1] Selection via proxy](https://arxiv.org/pdf/1906.11829.pdf)
 #### [[2] Data distribution search to select core-set for machine learning](http://manuscriptlink-society-file.s3.amazonaws.com/kism/conference/sma2020/presentation/SMA-2020_paper_50.pdf)
 #### [[8] An empirical study of example forgetting during deep neural network learning](https://arxiv.org/pdf/1812.05159.pdf)
-
+#### [[13] Understanding deep learning requires rethinking generalization](https://arxiv.org/abs/1611.03530v2) 
