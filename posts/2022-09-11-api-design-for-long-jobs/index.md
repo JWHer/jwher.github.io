@@ -1,21 +1,22 @@
 ---
 authors:
 - jwher
-description: 오래걸리는 작업 API 설계
+description: 오래걸리는 API 설계
 slug: api-design-for-long-jobs
 tags:
 - web
-title: 오래걸리는 작업 API 설계
+title: 오래걸리는 API 설계
+draft: true
 ---
 
 [![api](api.png)](/posts/api-design-for-long-jobs)  
-*오래걸리는 작업 API 설계*
+*오래걸리는 API 설계*
 
 <!--truncate-->
 
 ## 문제점
-API를 개발하다 보면, 백그라운드에서 오랜 작업이 걸리는 것들이 있습니다.
-특히, AI를 API로 제공할때 많이 발생하게 됩니다.
+API를 개발하다 보면, 백그라운드에서 오랜 시간이 걸리는 것들이 있습니다.
+특히, 학습이나 추론같은 AI를 API로 제공할때 많이 발생하게 됩니다.
 ~~(가장 크게 실패했다고 느낀 점입니다)~~
 
 REST는 요청이 수초 안에 끝나기 때문에, 동기적(synchronous)인 API에 적합한 부분이 있습니다. 작업에 시간이 더 걸린다면, 애플리케이션이 연결 상태를 유지한채 작업이 끝날때가지 멈춰(block)있는 것은 좋은 해결방법이 아닙니다.
