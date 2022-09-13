@@ -6,7 +6,6 @@ slug: api-design-for-long-jobs
 tags:
 - web
 title: 오래걸리는 API 설계
-draft: true
 ---
 
 [![api](api.png)](/posts/api-design-for-long-jobs)  
