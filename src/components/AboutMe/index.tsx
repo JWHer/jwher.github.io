@@ -98,7 +98,7 @@ const FeatureList: FeatureItem[] = [
           <Link href="/categories/cs/algorithm" className={styles.btn__warning}>Algorithm</Link>
           <Link href="/categories/cs/design-pattern" className={styles.btn__warning}>Design Pattern</Link>
           <Link href="/categories/cs/operating-system" className={styles.btn__warning}>OS</Link>
-          <Link href="/categories/cs/parallel-programming" className={styles.btn__warning}>Parallel Programming</Link>
+          <Link href="/categories/cs/concurrent-programming" className={styles.btn__warning}>Concurrent Programming</Link>
         </p>
       </>
     ),
