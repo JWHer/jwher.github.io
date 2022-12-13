@@ -7,12 +7,12 @@ tags:
 title: 다시보는 컴퓨터구성
 ---
 
-[![computer-organization](computer-organization.png)](/categories/cs/computer-organization/)  
+<!-- [![computer-organization](computer-organization.png)](/categories/cs/computer-organization/)   -->
 *다시보는 컴퓨터구성*
 
 <!--truncate-->
 
-![gene amdahl]()
+<!-- ![gene amdahl]() -->
 
 
 os, db, graphics, compilers     : Application Trends

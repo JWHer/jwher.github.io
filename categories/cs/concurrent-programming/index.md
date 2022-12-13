@@ -7,12 +7,12 @@ tags:
 title: 다시보는 동시성프로그래밍
 ---
 
-[![concurrent-programming](concurrent-programming.png)](/categories/cs/concurrent-programming/)  
+<!-- [![concurrent-programming](concurrent-programming.png)](/categories/cs/concurrent-programming/)   -->
 *다시보는 동시성프로그래밍*
 
 <!--truncate-->
 
-![babel]()
+<!-- ![babel]() -->
 
 advanced linux programming, posix
 seven concurrency model
