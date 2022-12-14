@@ -29,7 +29,8 @@ concurrency는 여러개를 한번에 다루는것, parallel은 여러개가 한
 > 수업에서 학생이 읽는것을 들으면서, 반을 조용히시키고, 질문을 하는것은 concurrent 합니다.
 > 만약, 보조 선생님이 한명 추가되어 같은 일을 하면 concurrent하고 parallel 하다고 할 수 있습니다.
 
-concurrency나 parallelism은 전통적인 threads와 locks이 직접적인 parallelism을 지원하지 않기때문에 더 헷갈립니다. 멀티코어 쓰레드와 락을 망치고 싶다면, concurrent 프로그램을 작성해, parallel 하드웨어에서 돌리면 됩니다.
+concurrency나 parallelism은 전통적인 threads와 locks이 직접적인 parallelism을 지원하지 않기때문에 더 헷갈립니다.
+멀티코어를 쓰레드와 락을 사용하고 싶다면, concurrent 프로그램을 작성해 parallel 하드웨어에서 돌리는 방법만 선택할 수 있습니다.
 
 concurrent 프로그램은 종종 *nondeterministic(비결정적)*하기 때문에 불행합니다.
 하지만 parallelism은 비결정적인 것을 도입하지 않아도 됩니다. 예를들어, array가 가진 숫자가 두배가 되는것은 비결정적인 것이 아닙니다. 프로그래밍 언어들은 비결정적이라는 공포를 도입하지 않아도 parallelism을 위해 특별한 지원을 할 수 있습니다.
