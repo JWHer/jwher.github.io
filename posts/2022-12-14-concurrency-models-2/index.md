@@ -250,7 +250,6 @@ race condition과 memory visibility를 살펴보았으니 세번째로 deadlock�
 class Philosopher extends Thread {
   private Chopstick left, right;
   private Random random;
-  private int thinkCount;
 
   public Philosopher(Chopstick left, Chopstick right) {
     this.left = left; this.right = right;
@@ -260,9 +259,6 @@ class Philosopher extends Thread {
   public void run() {
     try {
       while(true) {
-        ++thinkCount;
-        if (thinkCount % 10 == 0)
-          System.out.println("Philosopher " + this + " has thought " + thinkCount + " times");
         Thread.sleep(random.nextInt(1000));     // Think for a while
         synchronized(left) {                    // Grab left chopstick 
           synchronized(right) {                 // Grab right chopstick 
@@ -275,7 +271,147 @@ class Philosopher extends Thread {
 }
 ```
 
-작성중
+다섯명을 동시에 설정하면, 몇시간정도 행복하게 작동하다 어느 순간 모두 멈추게 됩니다.
+잠깐 생각해보면, 모든 철학자가 같은 때에 먹기를 결심할때 왼쪽의 젓가락을 잡고
+오른쪽을 잡으려는 순간, 모두가 한 젓가락을 잡고 자신의 오른쪽에 젓가락을 기다리느라 멈춰있게 됨을 알 수 있습니다.
+Deadlock
+
+행복하게도 데드락에 걸리지 않도록 보장하는 규칙이 있습니다.
+항상 전역으로 고정된 순서대로 락을 얻는 것입니다.
+
+```java
+class Philosopher extends Thread {
+> private Chopstick first, second;
+  private Random random;
+
+  public Philosopher(Chopstick left, Chopstick right) {
+>   if(left.getId() < right.getId()) {
+>     first = left; second = right;
+>   } else {
+>     first = right; second = left;    
+>   }
+    random = new Random();
+  }
+
+  public void run() {
+    try {
+      while(true) {
+        Thread.sleep(random.nextInt(1000));     // Think for a while
+>       synchronized(first) {                   // Grab first chopstick 
+>         synchronized(second) {                // Grab second chopstick 
+            Thread.sleep(random.nextInt(1000)); // Eat for a while
+          }
+        }
+      }
+    } catch(InterruptedException e) {}
+  }
+}
+```
+
+`left`와 `right` 젓가락을 잡는 대신, `first`와 `second`를 젓가락 id 순서대로 잡으면서 락 없이 행복하게 계속될 수 있습니다.
+*(젓가락 1번과 5번 사이에 앉은 사람이 왼쪽 대신에 오른쪽을 먼저 살펴보며 해결됩니다)*
+
+### The Perils of Alien Methods
+
+큰 프로그램은 종종 *listeners*를 만들어 모듈과 디커플링합니다.
+여기에 예제로 *ProgressListeners*가 등록될 수 있는 클래스가 있습니다.
+
+```java
+class Downloader extends Thread {
+private InputStream in;
+    private OutputStream out;
+    private ArrayList<ProgressListener> listeners;
+
+    public Downloader(URL url, String outputFilename) throws IOException {
+        in = url.openConnection().getInputStream();
+        out = new FileOutputStream(outputFilename);
+        listeners = new ArrayList<ProgressListener>();
+    }
+    public synchronized void addListener(ProgressListener listener) {
+        listeners.add(listener);
+    }
+    public synchronized void removeListener(ProgressListener listener) {
+        listeners.remove(listener);
+    }
+    private synchronized void updateProgress(int n) {
+        for (ProgressListener listener: listeners)
+>           listener.onProgress(n);
+    }
+
+    public void run() {
+        int n = 0, total = 0;
+        byte[] buffer = new byte[1024];
+
+        try {
+            while((n = in.read(buffer)) != -1) {
+                out.write(buffer, 0, n);
+                total += n;
+                updateProgress(total);
+            }
+            out.flush();
+        } catch (IOException e) { }
+    }
+}
+```
+`addListener()`, `removeListener()`, `updateProgress()`가 모두 동기화되면서
+여러개의 스레드가 다른 스레드의 발을 밟지 않고 호출될 수 있습니다.
+
+문제는 *alien method*라 불리는 `updateProgress()` 입니다.
+이 메소드는 아무것도 모르고, 다른 락을 요구하는 것을 포함해 모든 것을 할 수 있습니다.
+따라서 우리는 두개의 락이 어떤 순서대로 요구해야하는지 알지 못한다는 것입니다.
+이것은 우리가 방금 본 데드락을 이끌 수 있습니다.
+
+유일한 해결 방법은, 락 없이 alien 메소드를 실행하는 것입니다.
+이를 위해 `listener`의 *defensive copy*를 해야합니다.
+
+```java
+private void updateProgress(int n) {
+    ArrayList<ProgressListener> listenersCopy; synchronized(this) {
+>       listenersCopy = (ArrayList<ProgressListener>)listeners.clone();
+    }
+    for (ProgressListener listener: listenersCopy)
+        listener.onProgress(n);
+}
+```
+
+이 변경은 일석이조의 효과를 가집니다.
+락 없이 alien 메소드를 부를 수 있게 해주고 락을 들고있는 시간을 최소화시켜줍니다.
+필요 이상으로 락을 들고있으면 성능 하락과과 데드락의 위험성을 부릅니다.
+또한, 이 변경은 동시성과 관련 없는 다른 버그를 고칩니다.
+리스너는 `removeListener()`를 `onProgress()` 메소드 실행 중에 `listner`의 복사 없이 호출할 수 있습니다.
+
+## Day1 Wrap-Up
+자바의 멀티스레드의 기초 코드를 다뤘습니다.
+다음에서는 더 나은 선택을 제공하는 표준 라이브러리를 살펴볼 것입니다.
+
+### What We Learned in Day 1
+자바에서 상호 배제 실행을 위해, 모든 자바 객체에 포함된 락을 사용한 스레드를 만드는 법을 다뤘습니다.
+또한 스레드와 락에서 세가지 주요 위험인 race conditions, deadlock, and memory visibility를 보았습니다.
+그리고 이를 피하기 위한 방법에 대해 논의했습니다.
+
+* Synchronize all access to shared variables.
+* Both the writing and the reading threads need to use synchronization.
+* Acquire multiple locks in a fixed, global order.
+* Don’t call alien methods while holding a lock.
+* Hold locks for the shortest possible amount of time.
+
+### Day 1 Self-Study
+
+찾아보기  
+* Check out William Pugh’s “Java memory model” website.
+* Acquaint yourself with the JSR 133 (Java memory model) FAQ.
+* What guarantees does the Java memory model make regarding initialization safety? Is it always necessary to use locks to safely publish objects between threads?
+* What is the double-checked locking anti-pattern? Why is it an anti-pattern?
+
+실습  
+Experiment with the original, broken “dining philosophers” example.
+Try modifying the length of time that philosophers think and eat and the number of philosophers.
+What effect does this have on how long it takes until deadlock?
+Imagine that you were trying to debug this and wanted to increase the likelihood of reproducing the deadlock—what would you do?
+
+(Hard) Create a program that demonstrates writes to memory appearing to be reordered in the absence of synchronization.
+This is difficult because although the Java memory model allows things to be reordered,
+most simple examples won’t be optimized to the point of actually demonstrating the problem.
 
 ## References
 ### [[1]Java Memory Model](http://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4)
