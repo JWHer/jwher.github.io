@@ -2,11 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jwher.github.io/posts</id>
     <title>JWHer Tech Blog Blog</title>
-    <updated>2022-12-14T00:00:00.000Z</updated>
+    <updated>2022-12-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jwher.github.io/posts"/>
     <subtitle>JWHer Tech Blog Blog</subtitle>
     <icon>https://jwher.github.io/img/logo.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[7가지 동시성 모델 3(개선된 락)]]></title>
+        <id>concurrency-models-3</id>
+        <link href="https://jwher.github.io/posts/concurrency-models-3"/>
+        <updated>2022-12-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Seven Concurrency Models in Seven Weeks 3]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="concurrency" src="/assets/images/icing-262e8ab8c3eef2927d9b58ff930d610c.jpeg" width="300" height="400" class="img_E7b_"><br>
+<em>이 글은 Paul Butcher의 Seven Concurrency Models in Seven Weeks을 읽고 작성했습니다</em>  </p><p>Declaring a method as synchronized is just syntactic sugar for surrounding the method’s body</p><h2 class="anchor anchorWithStickyNavbar_mojV" id="day-2-beyond-intrinsic-locks">Day 2: Beyond Intrinsic Locks<a class="hash-link" href="#day-2-beyond-intrinsic-locks" title="Direct link to heading">​</a></h2><p>자바 5는 <code>java.util.concurrent</code>를 도입하며 모든것이 바뀌었습니다.
+이번에는 향상된 락 메커니즘이 제공하는 것을 살펴 보겠습니다.</p><p>고유 락은 편리하지만 제한되었습니다.</p><ul><li>고유 락을 얻기 위해 블락된 스레드를 인터럽트할 수 있는 방법이 없습니다</li><li>고유 락을 요구하는 동안 시간제한을 할 수 있는 방법이 없습니다.</li><li>고유 락을 요구하는 방법은 <code>synchronized</code> 한 방법 뿐입니다. 이 뜻은 락 점유와 해제가 같은 메소드에서 수행되어야 하고 엄격하게 중첩되야 합니다.</li></ul><p><code>ReentrantLock</code>은 명확한 락과 언락 메소드를 <code>synchronized</code> 대신 제공하면서 이런 제한을 넘을 수 있게 해줍니다.
+어떻게 고유 락을 개선할지 보기 전에, 어떻게 <code>ReentrantLock</code>이 <code>synchronized</code>를 대체하는지 살펴봅시다.</p><div class="language-java codeBlockContainer_MPoW theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_B9tL"><pre tabindex="0" class="prism-code language-java codeBlock__0OG thin-scrollbar"><code class="codeBlockLines_gEuF"><span class="token-line" style="color:#393A34"><span class="token plain">Lock lock = new ReentrantLock();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">lock.lock();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">try {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    «use shared resources»</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">} finally {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    lock.unlock();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup_hRr1"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p><code>try ... finally</code> 구문은 언제나 락이 해제되도록 보장하는 좋은 예제입니다.</p><h3 class="anchor anchorWithStickyNavbar_mojV" id="interruptible-locking">Interruptible Locking<a class="hash-link" href="#interruptible-locking" title="Direct link to heading">​</a></h3><p>작성중</p>]]></content>
+        <author>
+            <name>Jeongwon Her</name>
+            <uri>https://github.com/jwher</uri>
+        </author>
+        <category label="tech" term="tech"/>
+        <category label="distributed computing" term="distributed computing"/>
+        <category label="java" term="java"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[7가지 동시성 모델 2(스레드와 락)]]></title>
         <id>concurrency-models-2</id>
@@ -37,7 +55,7 @@ shared memory가 얼마나 기괴해질 수 있는지 기다려보세요.</p><h3
 <code>iconst_1</code>는 따라오는 <code>iadd</code>를 통해 1을 더합니다.
 <code>putfield</code>는 다시 값을 <code>count</code>에 작성하게 됩니다.
 이 패턴은 <em>read-modify-write</em>로 흔히 알려져 있습니다.</p><p>해결법은 <code>count</code>에 <em>synchronize</em> 엑세스를 주는 것입니다.
-그 방법 중 하나는 모든 자바 객체에 본질적인 lock을 사용하며 <code>increment()</code>를 동기화 시키는 것입니다.
+그 방법 중 하나는 모든 자바 객체에 고유 락(intrinsic lock)을 사용하며 <code>increment()</code>를 동기화 시키는 것입니다.
 (<em>mutex</em>, <em>monitor</em>, <em>critical section</em>으로도 들어봤을 것입니다.)</p><div class="language-java codeBlockContainer_MPoW theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_B9tL"><pre tabindex="0" class="prism-code language-java codeBlock__0OG thin-scrollbar"><code class="codeBlockLines_gEuF"><span class="token-line" style="color:#393A34"><span class="token plain">class Counter {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    private int count = 0;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&gt;   public synchronized void increment() { ++count; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public int getCount() { return count; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup_hRr1"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>이제 <code>increment()</code>는 호출할때 <code>Counter</code>의 오브젝트 락을 요구하고, 반환할때 해제합니다.
 따라서 한 스레드만 한 때에 함수 바디를 실행할 수 있습니다.
 다른 스레드가 호출하면 락이 해제될 때까지 <em>block</em> 됩니다.
@@ -87,6 +105,7 @@ most simple examples won’t be optimized to the point of actually demonstrating
         </author>
         <category label="tech" term="tech"/>
         <category label="distributed computing" term="distributed computing"/>
+        <category label="java" term="java"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[7가지 동시성 모델 1(소개)]]></title>
