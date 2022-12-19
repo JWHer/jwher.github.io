@@ -6,14 +6,15 @@ slug: concurrency-models-2
 tags:
 - tech
 - distributed computing
+- java
 title: 7가지 동시성 모델 2(스레드와 락)
 ---
 
 ![concurrency](ford-model-t.jpeg)  
 *이 글은 Paul Butcher의 Seven Concurrency Models in Seven Weeks을 읽고 작성했습니다*  
-<!--truncate-->
 
 Threads-and-locks programming is like a Ford Model T
+<!--truncate-->
 
 # The Simplest Thing That Could Possibly Work
 
@@ -138,7 +139,7 @@ JVM 바이트코드에 익숙하지 않더라도 `getfield`에서 `count` 값을
 이 패턴은 *read-modify-write*로 흔히 알려져 있습니다.
 
 해결법은 `count`에 *synchronize* 엑세스를 주는 것입니다.
-그 방법 중 하나는 모든 자바 객체에 본질적인 lock을 사용하며 `increment()`를 동기화 시키는 것입니다.
+그 방법 중 하나는 모든 자바 객체에 고유 락(intrinsic lock)을 사용하며 `increment()`를 동기화 시키는 것입니다.
 (*mutex*, *monitor*, *critical section*으로도 들어봤을 것입니다.)
 
 ```java
