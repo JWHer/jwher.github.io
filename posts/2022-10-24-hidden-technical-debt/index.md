@@ -9,7 +9,7 @@ tags:
 title: 머신러닝에 숨은 기술 부채
 ---
 
-![ML](/img/brain.jpg)
+[![ML](/img/brain.jpg)](/posts/hidden-technical-debt)  
 *이 글은 Hidden Technical Debt in Machine Learning Systems을 읽고 번역한 내용입니다*  
 <!--truncate-->
 
