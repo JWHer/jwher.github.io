@@ -140,6 +140,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['java'],
       },
       // https://docsearch.algolia.com/apply/
       // algolia: {
