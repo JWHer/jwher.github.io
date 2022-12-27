@@ -8,7 +8,6 @@ tags:
 - distributed computing
 - java
 title: 7가지 동시성 모델(스레드와 락) 거인의 어깨 위에서
-draft: true
 ---
 
 [![concurrency](giant.jpeg)](/posts/concurrency-models-4)  
