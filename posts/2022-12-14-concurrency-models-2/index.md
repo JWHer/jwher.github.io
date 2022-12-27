@@ -1,16 +1,16 @@
 ---
 authors:
 - jwher
-description: Seven Concurrency Models in Seven Weeks 2
+description: Seven Concurrency Models in Seven Weeks - Chapter2 Day1
 slug: concurrency-models-2
 tags:
 - tech
 - distributed computing
 - java
-title: 7가지 동시성 모델 2(스레드와 락)
+title: 7가지 동시성 모델(스레드와 락) 상호 배제와 메모리 모델
 ---
 
-![concurrency](ford-model-t.jpeg)  
+[![concurrency](ford-model-t.jpeg)](/posts/concurrency-models-2)  
 *이 글은 Paul Butcher의 Seven Concurrency Models in Seven Weeks을 읽고 작성했습니다*  
 
 Threads-and-locks programming is like a Ford Model T
@@ -153,7 +153,7 @@ class Counter {
 이제 `increment()`는 호출할때 `Counter`의 오브젝트 락을 요구하고, 반환할때 해제합니다.
 따라서 한 스레드만 한 때에 함수 바디를 실행할 수 있습니다.
 다른 스레드가 호출하면 락이 해제될 때까지 *block* 됩니다.
-(이후에 `java.util.concurrent.atomic` 패키지가 락을 사용하는 대신 좋은 대안을 제공하는것을 보입니다)
+[(이후에 `java.util.concurrent.atomic` 패키지가 락을 사용하는 대신 좋은 대안을 제공하는것을 보입니다)](/posts/concurrency-models-3#atomic-variables)
 
 매번 20000이라는 결과를 얻기에 이제 충분합니다!
 하지만, 이 코드에도 약간의 버그가 남아있습니다.
@@ -161,7 +161,7 @@ class Counter {
 ### Mysterious Memory
 
 이 코드는 어떤 결과를 낼까요?
-```java
+```java showLineNumbers
 public class Puzzle {
     static boolean answerReady = false;
     static int answer = 0;
@@ -247,7 +247,7 @@ race condition과 memory visibility를 살펴보았으니 세번째로 deadlock�
 철학자들은 배고프다고 생각할 수 있고, 배고프면 양쪽의 젓가락을 잡아 잠시 식사합니다.
 다 먹으면 젓가락을 다시 내려놓습니다.
 
-```java
+```java showLineNumbers
 class Philosopher extends Thread {
   private Chopstick left, right;
   private Random random;
@@ -278,7 +278,7 @@ class Philosopher extends Thread {
 Deadlock
 
 행복하게도 데드락에 걸리지 않도록 보장하는 규칙이 있습니다.
-항상 전역으로 고정된 순서대로 락을 얻는 것입니다.
+항상 전역으로 고정된 순서대로 여러 락을 얻는 것입니다.
 
 ```java
 class Philosopher extends Thread {
@@ -405,6 +405,7 @@ private void updateProgress(int n) {
 * What is the double-checked locking anti-pattern? Why is it an anti-pattern?
 
 실습  
+
 Experiment with the original, broken “dining philosophers” example.
 Try modifying the length of time that philosophers think and eat and the number of philosophers.
 What effect does this have on how long it takes until deadlock?

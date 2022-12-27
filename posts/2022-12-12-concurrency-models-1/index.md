@@ -1,15 +1,15 @@
 ---
 authors:
 - jwher
-description: Seven Concurrency Models in Seven Weeks 1
+description: Seven Concurrency Models in Seven Weeks - Chapter1
 slug: concurrency-models-1
 tags:
 - tech
 - distributed computing
-title: 7가지 동시성 모델 1(소개)
+title: 7가지 동시성 모델(소개)
 ---
 
-![concurrency](seven-plate.png)  
+[![concurrency](seven-plate.png)](/posts/concurrency-models-1)  
 *이 글은 Paul Butcher의 Seven Concurrency Models in Seven Weeks을 읽고 작성했습니다*  
 <!--truncate-->
 
