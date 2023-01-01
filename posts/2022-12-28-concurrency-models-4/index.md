@@ -85,4 +85,142 @@ while (true) {
 
 ### Copy on Write
 
+[day1](/posts/concurrency-models-2#the-perils-of-alien-methods)에서 동시성 프로그램에서 어떻게 리스너를 안전하게 부를 수 있는지 살펴봤습니다.
+`updateProgress()`를 변경해 방어적인 복사를 했던 것을 상기해봅시다. [code](/posts/concurrency-models-2#the-perils-of-alien-methods)
+자바 표준 라이브러리가 제공하는 더 세런되고 준비된 `CopyOnWriteArrayList` 해결책이 있습니다.
+
+```java
+private CopyOnWriteArrayList<ProgressListener> listeners;
+
+public void addListener(ProgressListener listener) {
+    listeners.add(listener);
+}
+public void removeListener(ProgressListener listener) {
+    listeners.remove(listener);
+}
+private void updateProgress(int n) {
+    for (ProgressListener listener: listeners)
+        listener.onProgress(n);
+}
+```
+
+이름에서 알 수 있다시피. `CopyOnWriteArrayList`는 이전 방어적 복사 전략을 처음부터 뒤집습니다.
+리스트를 순회하기 전에 복사본을 만드는 대신에, 변경사항이 있으면 복사합니다.
+존재하는 이터레이터는 이전 복사본을 계속 참조할 것입니다.
+이는 많은 사용사례에서 적절한 접근 방법이 아니지만 여기에선 적합한 방법입니다.
+
+첫째로 결과물이 매우 명확하고 간결한 코드를 만든다는 것입니다.
+사실 `listeners`의 정의와 별개로 day1에서 단순하게 만든 스레드 안전하지 않은 버전과 동일합니다.
+둘째로 `updateProgress()`이 호출될 때마다 복사할 필요가 없고, `listeners` 만 수정하면 되어 더 효과적입니다.
+
+<details>
+<summary>How Large Should My Thread Pool Be?</summary>
+
+스레드의 적절한 크기는 실행하는 하드웨어,
+IO나 CPU bound 어떤 것에 관련 있는지,
+기계가 어떤 것을 같은 시간에 실행시키는지,
+기타 다른 요인들에 따라 다릅니다.
+
+그렇지만, 좋은 경험 법칙은 계산 집약적인 작업의 경우 사용 가능한 코어와 거의 같은 수의 스레드를 갖는 것입니다.
+더 많은 숫자가 IO 집약적인 작업에서 적절할 수 있습니다.
+
+이 경험 첩칙을 너머, 실제적인 부하 테스트를 하는것이 최선일 것입니다.
+
+</details>
+
+### A Complete Program
+
+현재까지 격리된 독립적인 도구를 살펴봤습니다.
+다시 상기하자면, 작지만 현실적인 문제를 해결하려고 합니다.
+위키피디아에서 가장 많이 사용되는 단어가 무엇일까요?
+
+이는 찾기 쉬울 것입니다. XML 덤프를 다운로드 받아 단어수를 세는 프로그램을 만듭니다.
+덤프 크기가 40GiB정도 되어 좀 걸리겠지만, 병렬화를 통해 속도를 높일 수 있을 것입니다.
+
+베이스라인을 시작합시다.
+첫 10만장에서 단어를 세는 sequential 프로그램은 얼마나 걸릴까요?
+
+```java
+public class WordCount {
+    private static final HashMap<String, Integer> counts =
+        new HashMap<String, Integer>();
+
+    public static void main(String[] args) throws Exception {
+        Iterable<Page> pages = new Pages(100000, "enwiki.xml");
+        for(Page page: pages) {
+            Iterable<String> words = new Words(page.getText());
+            for (String word: words)
+                countWord(word);
+        }
+    }
+
+    private static void countWord(String word) {
+        Integer currentCount = counts.get(word);
+        if (currentCount == null)
+            counts.put(word, 1);
+        else
+            counts.put(word, currentCount + 1);
+  }
+}
+```
+
+저자의 맥북 프로에선 105초 미만으로 걸립니다.
+
+병렬 버전을 어디에서 시작하면 될까요? 메인 루프에서 각 순회마다 두 작업을 합니다.
+처음엔 XML에서 `Page`를 파싱하고, 텍스트에서 단어를 셉니다.
+
+*producer-comsumer* 패턴은 이 문제를 해결하기 위한 고전적인 패턴입니다.
+한 스레드가 값을 만들고 소비하는 대신, producer와 consumer 두 스레드를 만듭니다.
+
+여기에 producer를 구현한 `Parser`가 있습니다.
+
+```java {10-12}
+class Parser implements Runnable {
+    private BlockingQueue<Page> queue;
+
+    public Parser(BlockingQueue<Page> queue) {
+        this.queue = queue;
+    }
+
+    public void run() {
+        try {
+>           Iterable<Page> pages = new Pages(100000, "enwiki.xml");
+>           for (Page page: pages)
+>               queue.put(page);
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+}
+```
+
+`run()` 메서드는 이전의 sequential 해결책으로 이루어진 외부 루프를 포함합니다.
+대신 새로 파싱된 페이지의 단어를 세는 대신에 큐의 꼬리에 넣습니다.
+
+여기 대응하는 consumer가 있습니다.
+
+```java {13,17-19}
+class Counter implements Runnable {
+    private BlockingQueue<Page> queue;
+    private Map<String, Integer> counts;
+
+    public Counter(BlockingQueue<Page> queue, Map<String, Integer> counts) {
+        this.queue = queue;
+        this.counts = counts;
+    }
+
+    public void run() {
+        try {
+            while(true) {
+>               Page page = queue.take();
+                if (page.isPoisonPill())
+                    break;
+
+>               Iterable<String> words = new Words(page.getText());
+>               for (String word: words)
+>                   countWord(word);
+            }
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+}
+```
+
 작성중
