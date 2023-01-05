@@ -5,6 +5,7 @@ description: 학습에 중요한 데이터 찾기
 slug: deep-learning-on-a-data-diet
 tags:
 - ml
+- paper
 title: 학습에 중요한 데이터 찾기
 ---
 
