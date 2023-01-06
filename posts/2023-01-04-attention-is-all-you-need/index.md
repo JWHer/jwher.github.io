@@ -39,7 +39,7 @@ Transformer는 크고 작은 학습 데이터에서 성공적인 영여권 파�
 
 *transduction <-> induction*
 
-## 1 Introduction
+## 1. Introduction
 
 Recurrent 신경망, long short-term memory [[13]](#13-long-short-term-memory) 와 gated recurrent
 신경망은 특히, sequence 모델링과 언어 모델링, 기계 번역같은 transduction 문제에 sota 접근 방식으로 확고히 자리잡았습니다.
@@ -58,7 +58,7 @@ Attention 메커니즘은 많은 작업에서 매력적인 sequence 모델링과
 이번 작업물에서 Transformer, recurrence를 피하고 입력과 출력 사이에서 전역 종속성을 끌어내기 위해 attention 메커니즘에 전부 의존하는 모델 구조, 를 제안합니다.
 Transformer는 확연히 많은 병렬성과 8대의 P100 GPU를 12시간이라는 적은 시간동안 학습시켜 새로운 번역 품질의 sota를 달성할 수 있습니다.
 
-## 2 Background
+## 2. Background
 
 Sequential 계산을 줄이기 위한 목표는 Extended Neural GPU, Byte Net, ConvS2S [[9]](#9-convolutional-sequence-to-sequence-learning) 의 기초를 형성했고,
 전부 convolutional neural networks를 기본 빌딩 블록으로 사용하고,
@@ -83,12 +83,12 @@ self-attention에 완전히 의존하는 최초의 transduction 모델이란 것
 다음 단락에서 Transformer를 설명하고, self-attention의 동기와 Neural GPUs learn algorithms, ByteNet,
 ConvS2S [[9]](#9-convolutional-sequence-to-sequence-learning) 같은 다른 모델에 비한 장점을 논의합니다.
 
-## 3 Model Architecture
+## 3. Model Architecture
 
 가장 경쟁력있는 신경 sequence transduction 모델은 encoder-decoder구조를 가지고 있습니다.
 여기 인코더는 입력 심볼 표현의 sequence ($x_1, ..., x_n$)을 연속적인 표현 sequence $\mathbb{z} = (z_1,...,z_n)$에 매핑합니다.
 주어진 $z$에 대해 디코더는 출력 sequence ($y_1, ..., y_n$)를 한번에 한 요소씩 생성합니다.
-각 단계에서 모델은 다음을 생성할 때 이전에 생성된 기호를 추가 입력으로 사용해, auto-regressive [[10]](10-generating-sequences-with-recurrent-neural-networks) 합니다.
+각 단계에서 모델은 다음을 생성할 때 이전에 생성된 기호를 추가 입력으로 사용해, auto-regressive [[10]](#10-generating-sequences-with-recurrent-neural-networks) 합니다.
 
 Transformer는 stacked self-attention과 point-wise를 사용해, Figure1의 왼쪽과 오른쪽에서 각각 볼 수 있는, 인코더와 디코더를 위한 fully connected layer 전체 구조를 따릅니다.
 
@@ -239,13 +239,13 @@ $pos$는 위치이고 $i$는 차원입니다. 따라서 각 차원의 positional
 두 버전이 거의 동일한 결과를 냈다는 것을 발견했습니다. (Table 3 열 E를 보세요)
 모델이 훈련 중에 발생하는것 보다 더 긴 sequence 길이를 추정할 수 있기 때문에 사인 곡선 버전을 선택했습니다.
 
-## 4 Why Self-Attention
+## 4. Why Self-Attention
 
-## 5 Training
+## 5. Training
 
-## 6 Results
+## 6. Results
 
-## 7 Conclusion
+## 7. Conclusion
 
 작성중
 
