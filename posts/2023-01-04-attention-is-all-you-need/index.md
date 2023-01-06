@@ -53,7 +53,7 @@ Recurrent 모델은 일반적으로 입출력의 글자 위치를 기반으로 �
 
 Attention 메커니즘은 많은 작업에서 매력적인 sequence 모델링과 transduction 모델의 필수적인 부분이 되었으며,
 입력 또는 출력 시퀀스 거리에 상관없이 종속성을 모델링할 수 있습니다. [[19]](#19-structured-attention-networks)
-그러나 몇몇 경우 [[27]](a-decomposable-attention-model) 를 제외하고 attention 메커니즘은 recurrent 네트워크와 함께 사용됩니다.
+그러나 몇몇 경우 [[27]](#a-decomposable-attention-model) 를 제외하고 attention 메커니즘은 recurrent 네트워크와 함께 사용됩니다.
 
 이번 작업물에서 Transformer, recurrence를 피하고 입력과 출력 사이에서 전역 종속성을 끌어내기 위해 attention 메커니즘에 전부 의존하는 모델 구조, 를 제안합니다.
 Transformer는 확연히 많은 병렬성과 8대의 P100 GPU를 12시간이라는 적은 시간동안 학습시켜 새로운 번역 품질의 sota를 달성할 수 있습니다.
