@@ -13,6 +13,9 @@ title: 머신러닝에 숨은 기술 부채
 *이 글은 Hidden Technical Debt in Machine Learning Systems을 읽고 번역한 내용입니다*  
 <!--truncate-->
 
+*최대한 번역된 단어를 통일하였으나 원문을 보는것을 권장합니다.*  
+*개인적으로 첨가한 단락은 기울게 표시했습니다.*  
+
 ## 기술 부채
 Ward Cunningham 이 도입한 1992년 빠르게 소프트웨어를 만들때 야기되는 장기 비용을 말합니다
 이 부채는 재정 부채와 마찬가지로 전략적으로 사용될 수 있습니다.
@@ -45,7 +48,7 @@ ma에 대한 종속
 
 ## 정의되지 않은 사용처(Undeclared Consumers)
 
-<!-- 아직 작성중에 있습니다! -->
+아직 작성중에 있습니다!
 
 ## References
 [Hidden Technical Debt in Machine Learning Systems](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
