@@ -38,6 +38,7 @@ WMT 2014 영어-프랑스어 번역 작업에선 새 단일 모델 state-of-the-
 Transformer는 크고 작은 학습 데이터에서 성공적인 영여권 파싱을 적용하며 다른 작업을 일반화하기 쉬움을 보입니다.
 
 *transduction <-> induction*
+*BLEU (bilingual evaluation understudy)*
 
 ## 1. Introduction
 

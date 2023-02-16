@@ -13,7 +13,7 @@ title: 7가지 동시성 모델(소개)
 *이 글은 Paul Butcher의 Seven Concurrency Models in Seven Weeks을 읽고 작성했습니다*  
 <!--truncate-->
 
-As Amdahl’s law starts to eclipse Moore’s law, a transition from object-oriented pro- gramming to concurrency-oriented programming is taking place.
+As Amdahl’s law starts to eclipse Moore’s law, a transition from object-oriented programming to concurrency-oriented programming is taking place.
 
 # ch1. introduction
 
