@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[8420],{23179:function(e){e.exports=JSON.parse('{"permalink":"/posts/tags/lecture","page":1,"postsPerPage":5,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Posts"}')}}]);

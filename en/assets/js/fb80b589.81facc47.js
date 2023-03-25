@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[8989],{5240:function(e){e.exports=JSON.parse('{"permalink":"/en/posts/tags/istio","page":1,"postsPerPage":5,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Posts"}')}}]);

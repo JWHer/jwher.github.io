@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[136],{1719:function(a){a.exports=JSON.parse('{"title":"Java","slug":"/category/java","permalink":"/categories/category/java","navigation":{"previous":{"title":"Database Tools","permalink":"/categories/database/database-tools"},"next":{"title":"spring","permalink":"/categories/java/spring"}}}')}}]);

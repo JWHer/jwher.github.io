@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[6135],{36757:function(e){e.exports=JSON.parse('{"title":"MLOps","slug":"/category/mlops","permalink":"/categories/category/mlops","navigation":{"previous":{"title":"openvino","permalink":"/categories/ml/openvino"},"next":{"title":"mlops-tools","permalink":"/categories/mlops/mlops-tools"}}}')}}]);
