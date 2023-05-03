@@ -28,3 +28,16 @@ jobs:
           publish_dir: ./build
           # user_name: github-actions[bot]
           # user_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Copy google site verification
+        uses: actions/checkout@v2
+        env:
+          TARGET_BRANCH: 'gh-pages'
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git fetch
+          git checkout $TARGET_BRANCH
+          git checkout docusaurus -- google2f0d0a0c841af853.html
+          git add -A
+          git push origin $TARGET_BRANCH
