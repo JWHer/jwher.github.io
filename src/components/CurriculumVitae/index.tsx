@@ -127,7 +127,7 @@ export default function CurriculumVitae(): JSX.Element {
         <dd className={styles.page__desc}>
           Available on request
           <p>
-            For more, please look up my <Link href="jeongwon-her.pdf">Curriculum Vitae</Link>.
+            For more, please look up my <a href="/files/jeongwon-her.pdf">Curriculum Vitae</a>.
           </p>
         </dd>
 
