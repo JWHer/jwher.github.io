@@ -27,7 +27,7 @@ export default function BlogPostItem({children, className}) {
   const truncatedPost = !isBlogPostPage && hasTruncateMarker;
 
   // utterances
-  const { isDarkTheme } = useColorMode();
+  const isDarkTheme = useColorMode().colorMode === "dark";
   const utterancesTheme = isDarkTheme ? "github-dark" : "github-light";
   const containerRef = useRef(null);
 
