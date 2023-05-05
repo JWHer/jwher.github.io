@@ -5,6 +5,7 @@ description: Seven Concurrency Models in Seven Weeks - Chapter2 Day1
 slug: concurrency-models-2
 tags:
 - tech
+- parallel computing
 - distributed computing
 - java
 title: 7가지 동시성 모델(스레드와 락) 상호 배제와 메모리 모델
