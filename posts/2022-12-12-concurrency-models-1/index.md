@@ -5,6 +5,7 @@ description: Seven Concurrency Models in Seven Weeks - Chapter1
 slug: concurrency-models-1
 tags:
 - tech
+- parallel computing
 - distributed computing
 title: 7가지 동시성 모델(소개)
 ---

@@ -5,6 +5,7 @@ description: Programming Massively Parallel Processors - Chapter 1
 slug: cudabook-1
 tags:
 - tech
+- parallel computing
 title: 대규모 병렬프로세서 프로그래밍(소개)
 ---
 

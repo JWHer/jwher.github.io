@@ -50,6 +50,10 @@
   text-align: center;
   color: inherit;
   display: block;
+  z-index: 2;
+  &:hover {
+    filter: brightness(1.2);
+  }
 }
 .title__presentation__title {
   font-size: 8em;
@@ -95,4 +99,64 @@
   0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
   100%{-webkit-transform:translate3d(-50%,0,0);
   transform:translate3d(-50%,0,0)}
+}
+
+.arrowup{
+  text-align: center;
+  font-size: 4em;
+  font-weight: 400;
+  cursor: pointer;
+  z-index: 1;
+  animation: arrowLoop 0.5s ease-in-out infinite alternate;
+}
+@keyframes arrowLoop{
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.rainbow{
+  background-image: url('/static/img/about-me/sea-cave.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top:0;
+  height: calc(100vh - 120px);
+
+  &__title, &__text {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+
+    font-size: 3rem;
+    font-weight: bold;
+    color: #E3E3E3;
+    mix-blend-mode: hard-light;
+  }
+  &__title {
+    transition: transform 1s ease-in-out, color 1s ease-in-out;
+  }
+  &__text {
+    opacity: 0;
+    font-size: 2rem;
+    font-weight: normal;
+    transition: opacity 1s ease-in-out, color 1s ease-in-out;
+  }
+
+  &:hover &__title{
+    transform: translateY(-30%);
+    color: #FFF;
+  }
+  &:hover &__text{
+    opacity: 1;
+    color: #FFF;
+  }
 }
