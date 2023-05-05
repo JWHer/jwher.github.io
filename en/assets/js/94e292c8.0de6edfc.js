@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[5150],{38666:function(e){e.exports=JSON.parse('{"label":"hardware","permalink":"/en/posts/tags/hardware","allTagsPath":"/en/posts/tags","count":1}')}}]);

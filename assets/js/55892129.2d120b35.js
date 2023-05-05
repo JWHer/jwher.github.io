@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[3392],{61373:function(e){e.exports=JSON.parse('{"title":"Web","slug":"/category/web","permalink":"/categories/category/web","navigation":{"previous":{"title":"mlops-tools","permalink":"/categories/mlops/mlops-tools"},"next":{"title":"angular","permalink":"/categories/web/angular"}}}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[7351],{43460:function(a){a.exports=JSON.parse('{"label":"java","permalink":"/en/posts/tags/java","allTagsPath":"/en/posts/tags","count":3}')}}]);
