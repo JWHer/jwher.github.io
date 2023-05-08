@@ -17,18 +17,17 @@
   max-width: 800px;
   margin: 40px auto 60px;
 }
-@media (max-width: 800px) {
+@media (max-width: 810px) {
   .page__wrap {
-    padding: 0 10px;
-    width: 100%;
-    max-width: none; /* remove the maximum width limit */
+    width: calc(100% - 10px);
+    margin: 40px 5px 60px;
   }
 }
 
 .pic {
   float: right;
   margin: -30px 0 0 0;
-  width: 30vw;
+  width: 35%;
   max-width: 300px;
 }
 
@@ -78,7 +77,7 @@
 }
 
 .objective {
-  width: 60vw;
+  width: 60%;
   max-width: 500px;
   float: left;
 
@@ -88,6 +87,12 @@
     color: #666;
   }
 }
+@media (max-aspect-ratio: 1/1) {
+  // height > width
+  .objective {
+    width: 100%;
+  }
+}
 
 .page__term {
   font-style: italic;
@@ -95,7 +100,7 @@
   font-size: 18px;
   text-align: right;
   padding: 0 26px 0 0;
-  width: 20vw;
+  width: 20%;
   max-width: 150px;
   float: left;
   height: 100px;
@@ -103,7 +108,7 @@
 }
 
 .page__desc {
-  width: 75vw;
+  width: 75%;
   max-width: 600px;
   float: right;
 
