@@ -160,3 +160,8 @@
     color: #FFF;
   }
 }
+@media (max-width: 810px) {
+  .rainbow__title, .rainbow__text {
+    font-size: 3.5vh;
+  }
+}
