@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[1296],{24633:e=>{e.exports=JSON.parse('{"permalink":"/posts/tags/tech/page/7","page":7,"postsPerPage":5,"totalPages":8,"totalCount":40,"previousPage":"/posts/tags/tech/page/6","nextPage":"/posts/tags/tech/page/8","blogDescription":"Blog","blogTitle":"Posts"}')}}]);
