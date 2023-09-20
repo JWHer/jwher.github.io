@@ -134,3 +134,60 @@ conv할때 180 회전, 메모리 레이아웃...
 * nvidia gpu와 가속기(NPU) 차이
 * gpu 최적화시 10~100배 성능 차이(cuda book)
 * 벤더에서 제공하는 최적화 API(tensor rt)
+
+## Systolic Array
+SIMD와 차이점
+- 각 PE가 다른것을 할 수 있습니다.
+- 일반적인 프로세서(e.g. Intel iWARP)에서 실용적인 구현이 있습니다.
+
+나타난 이유
+- VLSI는 특적 목적의 칩을 저렴하게 했습니다.
+- 알고리즘을 일정한 패턴으로 연결되어 직접 표현할 수 있습니다.
+
+## SIMD 구조
+- 간단하고 작은 프로세서 배열과 각각의 작은 메모리
+- 명령을 발행하는 제어 프로세서에 부착
+- 특수하고 일반화된 통신으로, 저렴한 전역 동기화
+-> SIMT(Single Inst. Multiple Threads)로 발전
+
+## Vector Processors
+
+데이터 하자드 없이 깊은 파이프라인
+명령어 크기가 줄어듬
+메인 메모리 접근을 시작할 때 큰 지연이 완화된다
+
+chaining
+multiple lanes
+scatter-gather op
+
+## MIMD Architecture
+
+Shared-address-space(SAS) = Multi processor
+Message-passing arch = Multi computer
+
+Shared Memory Multiprocessor
+- Dance-hall(UMA)
+- Distributed memory(NUMA)
+
+Cache coherence, Synchronization of shared data
+
+Message Passing Architecture
+- Direct access to private address space
+- Interprocessor communication via explicit messages
+
+High-level block diagram similar to NUMA
+- Easier to build than scalable SAS
+
+## Interconnection Network
+
+2-dim Mesh
+Torus
+Fat tree
+
+Routing Delay
+- Store and forward routing
+- Cut through routing
+
+## Deadlock Avoidance
+
+## Amdahl's Law
