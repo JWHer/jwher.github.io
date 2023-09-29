@@ -7,7 +7,7 @@ tags:
 title: 강화학습
 ---
 
-[![reinforcement-learning](reinforcement-learning.png)](/categories/ml/reinforcement-learning/)  
+[![reinforcement-learning](reinforcement-learning.jpg)](/categories/ml/reinforcement-learning/)  
 *강화학습*
 
 <!--truncate-->
