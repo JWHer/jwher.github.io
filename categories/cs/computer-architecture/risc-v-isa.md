@@ -9,7 +9,7 @@ tags:
 title: RISC V 명령어 셋 아키텍처
 ---
 
-[![computer-architecture](computer-architecture.jpeg)](/categories/cs/risc-v-architecture/)  
+[![computer-architecture](computer-architecture.jpeg)](/categories/cs/computer-architecture/risc-v-isa)  
 *RISC V 명령어 셋 아키텍처*
 
 <!--truncate-->
