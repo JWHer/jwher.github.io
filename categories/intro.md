@@ -23,9 +23,9 @@ slug: /
 
 ### 머신러닝
 
-- [임베디드 딥러닝](/categories/category/embedded-deep-learning)
+- [임베디드 딥러닝] 작성중 <!-- (/categories/category/embedded-deep-learning) -->
 
-- [강화학습](/categories/category/reinforcement-learning)
+- [강화학습] 작성중 <!-- (/categories/category/reinforcement-learning) -->
 
 
 
