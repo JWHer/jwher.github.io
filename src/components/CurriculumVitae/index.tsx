@@ -32,7 +32,7 @@ export default function CurriculumVitae(): JSX.Element {
           Outside of research, I like to spend my time gardening, playing violin, and feeding&care.
 
           I am seeking a career that fits my professional skills, and personality.<br/><br/>
-          For more, please look up my <a className={styles.page__link}>Curriculum Vitae.</a>
+          For more, please look up my <a className={styles.page__link} href="/files/jeongwon-her.pdf">Curriculum Vitae.</a>
         </p>
         <a className={styles.page__link} onClick={() => {
           window.scrollTo({
