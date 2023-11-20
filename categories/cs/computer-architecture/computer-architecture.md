@@ -5,9 +5,10 @@ description: 컴퓨터의 작동원리
 tags:
 - cs
 title: 다시보는 컴퓨터구조1
+draft: true
 ---
 
-[![computer-architecture](computer-architecture.png)](/categories/cs/computer-architecture/)  
+[![computer-architecture](computer-architecture.jpeg)](/categories/cs/computer-architecture/)  
 *다시보는 컴퓨터구조*
 
 <!--truncate-->

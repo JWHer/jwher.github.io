@@ -1,9 +1,16 @@
 ---
-
+sidebar_position: 1
+authors:
+- jwher
+description: RISC V Instruction Set Architecture
+tags:
+- cs
+- computer architecture
+title: RISC V 명령어 셋 아키텍처
 ---
 
 [![computer-architecture](computer-architecture.jpeg)](/categories/cs/risc-v-architecture/)  
-*다시보는 컴퓨터구조*
+*RISC V 명령어 셋 아키텍처*
 
 <!--truncate-->
 
