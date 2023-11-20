@@ -431,7 +431,7 @@ private void mergeCounts() {
 | 7        | 41      | 2.55    |
 
 이 버전은 consumer를 추가했을 때 성능이 더 빨라질 뿐만 아니라, 4개 이상일때도 속도가 증가합니다.
-이는 저자의 맥북 코어가 하다당 두 [하이퍼스레드](/categories/cs/computer-organization)를 지원하기 때문입니다(intel).
+이는 저자의 맥북 코어가 하다당 두 [하이퍼스레드](/categories/category/computer-architecture)를 지원하기 때문입니다(intel).
 `availableProcessors()`는 물리 코어가 4개여서 실제론 8을 반환합니다.
 
 ![word-count-performance](word-count-performance.png)
