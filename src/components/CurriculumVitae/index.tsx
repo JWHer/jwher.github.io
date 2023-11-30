@@ -52,10 +52,22 @@ export default function CurriculumVitae(): JSX.Element {
         <dt className={styles.page__term}>Education</dt>
         <dd className={styles.page__desc}>
           <h2 className={styles.page__header2}>
+            Master's student in Computer Science and Engineering
+          </h2>
+          <p className={styles.page__text}>
+          <Link href="https://cse.snu.ac.kr/">Seoul National University</Link> - Seoul, Korea
+            <br />
+            I've pursued my ardor for <Link href="/categories/ml/embedded-deep-learning">embedded deep learning</Link>,
+            focusing particularly on the intricacies of 3D object detection tailored for autonomous driving systems.
+          </p>
+        </dd>
+
+        <dd className={styles.page__desc}>
+          <h2 className={styles.page__header2}>
             Bachelor's degree in Computer Science and Engineering
           </h2>
           <p className={styles.page__text}>
-            Dongguk University - Seoul, Korea
+            <Link href="https://cse.dongguk.edu/">Dongguk University</Link> - Seoul, Korea
             <br />
             Followed my passion in <Link href="/posts/tags/parallel-computing">parallel computing</Link> classes,
             Worked as an assistant for programming language and parallel computing
@@ -86,19 +98,17 @@ export default function CurriculumVitae(): JSX.Element {
         <dd className={`${styles.clear} ${styles.page__desc}`}></dd>
 
         <dt className={styles.page__term}>Experience</dt>
+        
         <dd className={styles.page__desc}>
           <h2 className={styles.page__header2}>
             <Link href="https://www.upstage.ai/">Upstage</Link>
             <span className={styles.page__right}>
-              Software Development / Remote / 2022 - Current
+              Software Development / Remote / 2022 - 2023
             </span>
           </h2>
           <ul className={styles.page__ulist}>
-            <li>
-              Inspired and won highest peasant death competition among servants
-            </li>
-            <li>Helped coordinate managers to grow cult following</li>
-            <li>Provided untimely deaths to all who opposed</li>
+            <li>Developing a machine learning system with Kubernetes on HCP.</li>
+            <li>Proficient DevOps Engineer well-versed in leveraging ArgoCD.</li>
           </ul>
 
           <h2 className={styles.page__header2}>
@@ -109,8 +119,8 @@ export default function CurriculumVitae(): JSX.Element {
           </h2>
           <ul className={styles.page__ulist}>
             <li>Full stack MLOps developer responsible for end-to-end data ingestion, training, deployment lifecycle.</li>
-            <li>Prototype development and commercialization</li>
-            <li>Drive best practice implementation for across company</li>
+            <li>Prototype development and commercialization.</li>
+            <li>Drive best practice implementation for across company.</li>
           </ul>
         </dd>
 
@@ -138,7 +148,7 @@ export default function CurriculumVitae(): JSX.Element {
 
       <div className={styles.page__header2}>
         <span className={styles.page__right}>
-          Last Update: May 2023
+          Last Update: November 2023
         </span>
       </div>
     </div>
