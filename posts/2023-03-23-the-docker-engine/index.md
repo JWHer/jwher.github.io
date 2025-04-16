@@ -22,15 +22,8 @@ title: 도커 엔진
 
 이 글은 이론에 대해 다루므로, 실습은 없습니다.
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 ## The TLDR
-*커피 한잔 하면서 읽을 수 있는 요약*  
 
 *도커 엔진*은 컨테이너를 실행하고 관리하는 핵심 소프트웨어입니다.
 우리는 자주 간단하게 *도커*라고 부릅니다. VMware에 대해 좀 알고 있다면, ESXi처럼 생각하는게 유용할 것입니다.
@@ -49,12 +42,6 @@ runc와 containerd는 소문자로 표기합니다.
 ![그림1](docker-engine.png)  
 *그림1 High level view*  
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 ## The Deep Dive
 *자세한 설명*  
@@ -72,9 +59,6 @@ LXC는 데몬에 리눅스 커널에 존재하는 컨테이너의 기본 빌딩 
 ![그림2](original-docker-architecture.png)  
 *그림2 Original Docker architecture*  
 
-<br/>
-<br/>
-<br/>
 
 ### LXC 제거하기
 *Getting rid of LXC*
@@ -90,9 +74,6 @@ LXC에 대한 의존성으로 시작해봅시다.
 
 Libcontainer는 도커 0.9에서 기본 *execution dirver*로 LXC를 대체했습니다.
 
-<br/>
-<br/>
-<br/>
 
 ### 단일 도커 데몬 제거하기
 *Getting rid of the monolithic Docker daemon*
@@ -113,9 +94,6 @@ Libcontainer는 도커 0.9에서 기본 *execution dirver*로 LXC를 대체했�
 ![그림3](current-docker-engine.png)
 *그림3 High level view of the current Docker engine*
 
-<br/>
-<br/>
-<br/>
 
 ### OCI의 영향
 *The influence of the Open Container Initiative*
@@ -138,9 +116,6 @@ Libcontainer는 도커 0.9에서 기본 *execution dirver*로 LXC를 대체했�
 
 마찬가지로, 도커 엔진의 *containerd* 컴포넌트는 도커 이미지가 *runc*에서 유효한 OCI 번들로 표현될 수 있게 합니다.
 
-<br/>
-<br/>
-<br/>
 
 ### runc
 
@@ -161,9 +136,6 @@ runc는 컨테이너 생성이라는 하나의 목적을 가집니다. runc는 �
 runc 릴리즈 정보를 다음에서 확인할 수 있습니다.
 * https://github.com/opencontainers/runc/releases
 
-<br/>
-<br/>
-<br/>
 
 ### containerd
 
@@ -188,9 +160,6 @@ containerd는 도커 Inc에서 개발되었고 CNCF에 기부되었습니다.
 여기에서 최신 릴리즈를 확인할 수 있습니다.
 * https://github.com/containerd/containerd/releases
 
-<br/>
-<br/>
-<br/>
 
 ### 새 컨테이너 시작하기
 *Starting a new container*
@@ -225,9 +194,6 @@ runc는 OS 커널과 인터페이스해 모든 컨테이너 구성에 필요한(
 ![그림4](create-container-process.png)  
 *그림4 Starting a new container*
 
-<br/>
-<br/>
-<br/>
 
 ### 이 모델의 한가지 큰 장점
 *One huge benefit of this model*
@@ -241,9 +207,6 @@ runc는 OS 커널과 인터페이스해 모든 컨테이너 구성에 필요한(
 
 다행히, 이제 문제가 아닙니다.
 
-<br/>
-<br/>
-<br/>
 
 ### Shim이 무엇인가요?
 *What's this shim all about*
@@ -261,9 +224,6 @@ Shim은 데몬없는 컨테이너 구현에 필수적입니다(실행중인 컨�
 * 열린 STDIN과 STDOUT 스트림을 유지해 데몬이 재시작되어도, 파이프가 닫히는 등에 따라 컨테이너가 종료되지 않게 합니다.
 * 데몬에 컨테이너의 종료 상태를 보고합니다.
 
-<br/>
-<br/>
-<br/>
 
 ### 리눅스에서 어떻게 구현됬나요?
 *How it's implemented on Linux*
@@ -277,9 +237,6 @@ Shim은 데몬없는 컨테이너 구현에 필수적입니다(실행중인 컨�
 도커 호스트에서 `ps` 명령어를 실행해 리눅스 시스템에서 모두 확인할 수 있습니다.
 당연하게도, 몇몇은 실행중인 컨테이너가 있어야 보일 것입니다.
 
-<br/>
-<br/>
-<br/>
 
 ### 데몬의 요점은 무엇인가요?
 *What's the point of the daemon*
@@ -289,12 +246,6 @@ Shim은 데몬없는 컨테이너 구현에 필수적입니다(실행중인 컨�
 당연하게도, 대답은 시간이 갈수록 점점 기능이 제거되고 모듈화되며 바뀔 것입니다.
 그러나, 현재는 몇가지 중요한 기능이 데몬에 포함되어 있습니다; 이미지 관리, 이미지 빌드, REST API, 인증, 보안, 코어 네트워킹 그리고 오케스트레이션.
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 ## 챕터 요약
 
@@ -319,12 +270,6 @@ runc는 libcontainer에 기반하고, 마찬가지로 다른 프로젝트와 서
 더 많은 것이 시간이 지나며 쪼개질 것입니다.
 현재 도커 데몬 내부 기능으로 포함되어 있지만, 이에 국한되지 않습니다; 도커 API, 이미지 관리, 인증, 보안 기능과 코어 네트워킹.
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 ## References
 
@@ -333,9 +278,3 @@ runc는 libcontainer에 기반하고, 마찬가지로 다른 프로젝트와 서
 ### [runtime-spec](https://github.com/opencontainers/runtime-spec)
 ### [gRPC](https://grpc.io/)
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
