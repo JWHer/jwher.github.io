@@ -1,0 +1,67 @@
+.preview {
+    // --font-size-medium: 0.875rem;
+    // font: 16px Helvetica, Sans-Serif;
+    // line-height: 24px;
+    // color: #202122;
+    // text-decoration: none;
+
+    display: none;
+    position: absolute;
+    background: var(--ifm-background-surface-color);
+    
+    // min-height: 300px;
+    height: fit-content;
+    max-height: 30vh;
+    min-width: 500px;
+    width: 50vh;
+    max-width: 90vw;
+    padding: 7px;
+    padding-top: 15px;
+    // margin-bottom: calc(var(--pointer-height) * -1);
+    // padding-bottom: var(--pointer-height);
+
+    --pseudo-radius: 2px;
+    --pointer-height: 8px;
+    --pointer-width: 16px;
+    --pointer-offset: 26px;
+
+    // Top right chevron
+    --x1: 0;
+    --x2: var(--pseudo-radius);
+    --x3: calc(var(--pointer-offset) - (var(--pointer-width) / 2));
+    --x4: var(--pointer-offset);
+    --x5: calc(var(--pointer-offset) + (var(--pointer-width) / 2));
+    --x6: calc(100% - var(--pseudo-radius));
+    --x7: 100%;
+    --y1: 0;
+    --y2: var(--pointer-height);
+    --y3: calc(var(--pointer-height) + var(--pseudo-radius));
+    --y4: calc(100% - var(--pseudo-radius));
+    --y5: 100%;
+
+    // Bottom left chevron
+    // --x1: 0;
+    // --x2: var(--pseudo-radius);
+    // --x3: calc(100% - var(--pointer-offset) - (var(--pointer-width) / 2));
+    // --x4: calc(100% - var(--pointer-offset));
+    // --x5: calc(100% - var(--pointer-offset) + (var(--pointer-width) / 2));
+    // --x6: calc(100% - var(--pseudo-radius));
+    // --x7: 100%;
+
+    // --y1: 100%;
+    // --y2: calc(100% - var(--pointer-height));
+    // --y3: calc(100% - var(--pointer-height) - var(--pseudo-radius));
+    // --y4: var(--pseudo-radius);
+    // --y5: 0;
+    clip-path: polygon(var(--x2) var(--y2),var(--x3) var(--y2),var(--x4) var(--y1),var(--x5) var(--y2),var(--x6) var(--y2),var(--x7) var(--y3),var(--x7) var(--y4),var(--x6) var(--y5),var(--x2) var(--y5),var(--x1) var(--y4),var(--x1) var(--y3));
+    
+    h1, h2 {
+        display: none;
+        // font-size: 2rem;
+    }
+    * {
+        // background: var(--ifm-background-surface-color);
+        margin-bottom: 0px;
+        z-index: 99999;
+    }
+}
