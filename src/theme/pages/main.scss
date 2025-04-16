@@ -2,7 +2,12 @@
     margin-top: calc(var(--ifm-navbar-height)*-1);
     // flex-direction: column;
 
-    h1, h2, h3 {
-        margin-top: 5rem; // 여기서 2rem은 원하는 마진 크기에 맞게 조절
+    article * {
+        h2 {
+            margin-top: 5rem;
+        }
+        h3 {
+            margin-top: 3rem;
+        }
     }
 }
