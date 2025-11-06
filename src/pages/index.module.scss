@@ -21,8 +21,9 @@
   align-items: center;
   justify-content: center;
   -ms-flex-pack: center;
+
   .filter::after {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgb(0 0 0 / 50%);
     content: "";
     display: block;
     height: 100%;
@@ -33,6 +34,7 @@
     z-index: 1;
   }
 }
+
 .title__center {
   z-index: 1;
   width: 100%;
@@ -43,6 +45,7 @@
 
   display: block;
 }
+
 .title__brand {
   max-width: 730px;
   margin: 0 auto;
@@ -51,10 +54,12 @@
   color: inherit;
   display: block;
   z-index: 2;
+
   &:hover {
     filter: brightness(1.2);
   }
 }
+
 .title__presentation__title {
   font-size: 8em;
   font-weight: 700;
@@ -64,11 +69,13 @@
   /* -webkit-background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
 }
-@media only screen and (max-width: 767px){
+
+@media only screen and (width <= 767px){
   .title__presentation__title {
     font-size: 4em;
   }
 }
+
 .title__presentation__subtitle {
   font-size: 1.7em;
   color: var(--header-text-color);
@@ -79,11 +86,13 @@
   /* font-family: $font-family-sans-serif; */
   font-weight: 300;
 }
+
 .title__presentation__copyright {
   font-size: 1em;
   color: var(--header-text-dark-color);
   text-align: center;
 }
+
 .title__moving__clouds{
   background-image: url('/static/img/clouds.png');
   position: absolute;
@@ -92,13 +101,17 @@
   left: 0;
   width: 250.625em;
   height: 43.75em;
-  -webkit-animation: cloudLoop 80s linear infinite;
-  animation: cloudLoop 80s linear infinite;
+  animation: cloud-loop 80s linear infinite;
 }
-@keyframes cloudLoop{
-  0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-  100%{-webkit-transform:translate3d(-50%,0,0);
-  transform:translate3d(-50%,0,0)}
+
+@keyframes cloud-loop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .arrowup{
@@ -107,12 +120,14 @@
   font-weight: 400;
   cursor: pointer;
   z-index: 1;
-  animation: arrowLoop 0.5s ease-in-out infinite alternate;
+  animation: arrow-loop 0.5s ease-in-out infinite alternate;
 }
-@keyframes arrowLoop{
+
+@keyframes arrow-loop {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(-5px);
   }
@@ -141,9 +156,11 @@
     color: #E3E3E3;
     mix-blend-mode: hard-light;
   }
+
   &__title {
     transition: transform 1s ease-in-out, color 1s ease-in-out;
   }
+
   &__text {
     opacity: 0;
     font-size: 2rem;
@@ -155,12 +172,14 @@
     transform: translateY(-30%);
     color: #FFF;
   }
+
   &:hover &__text{
     opacity: 1;
     color: #FFF;
   }
 }
-@media (max-width: 810px) {
+
+@media (width <= 810px) {
   .rainbow__title, .rainbow__text {
     font-size: 3.5vh;
   }

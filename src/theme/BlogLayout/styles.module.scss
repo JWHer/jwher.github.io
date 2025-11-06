@@ -3,6 +3,7 @@
     background-position: center center;
     background-size: cover;
     min-height: 30vh;
+
     // max-height: 999px;
     overflow: hidden;
     position: relative;
@@ -13,8 +14,9 @@
     align-items: center;
     justify-content: center;
     -ms-flex-pack: center;
+
     .filter::after {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgb(0 0 0 / 50%);
         content: "";
         display: block;
         height: 100%;

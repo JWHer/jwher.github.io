@@ -1,0 +1,23 @@
+// Presentation section styles
+.presentation__title {
+  z-index: 2;
+  font-size: 4em;
+  font-weight: bold;
+  color: var(--header-text-color);
+  text-align: center;
+
+  @media only screen and (width <= 767px) {
+    padding-top: 1em;
+    font-size: 3em;
+  }
+}
+
+.presentation__subtitle {
+  z-index: 2;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--header-text-color);
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -10,14 +10,15 @@
 }
 
 .page__wrap {
-  font: 16px Helvetica, Sans-Serif;
+  font: 16px Helvetica, sans-serif;
   line-height: 24px;
 
   width: 100%;
   max-width: 800px;
   margin: 40px auto 60px;
 }
-@media (max-width: 810px) {
+
+@media (width <= 810px) {
   .page__wrap {
     width: calc(100% - 10px);
     margin: 40px 5px 60px;
@@ -26,14 +27,14 @@
 
 .pic {
   float: right;
-  margin: -30px 0 0 0;
+  margin: -30px 0 0;
   width: 35%;
   max-width: 300px;
 }
 
 .page__header1 {
-  margin: 0 0 16px 0;
-  padding: 0 0 16px 0;
+  margin: 0 0 16px;
+  padding: 0 0 16px;
   font-size: 42px;
   font-weight: bold;
   letter-spacing: -2px;
@@ -42,7 +43,7 @@
 
 .page__header2 {
   font-size: 20px;
-  margin: 0 0 6px 0;
+  margin: 0 0 6px;
   position: relative;
 }
 
@@ -51,14 +52,14 @@
   bottom: 0;
   right: 0;
   font-style: italic;
-  font-family: Georgia, Serif;
+  font-family: Georgia, serif;
   font-size: 16px;
   color: #999;
   font-weight: normal;
 }
 
 .page__text {
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
 }
 
 .page__link {
@@ -82,12 +83,13 @@
   float: left;
 
   * {
-    font-family: Georgia, Serif;
+    font-family: Georgia, serif;
     font-style: italic;
     color: #666;
   }
 }
-@media (max-aspect-ratio: 1/1) {
+
+@media (aspect-ratio <= 1 / 1) {
   // height > width
   .objective {
     width: 100%;

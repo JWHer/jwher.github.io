@@ -1,11 +1,13 @@
 .main-wrapper{
-    margin-top: calc(var(--ifm-navbar-height)*-1);
+    margin-top: calc(var(--ifm-navbar-height) * -1);
+
     // flex-direction: column;
 
     article * {
         h2 {
             margin-top: 5rem;
         }
+
         h3 {
             margin-top: 3rem;
         }

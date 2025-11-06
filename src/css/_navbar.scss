@@ -1,0 +1,42 @@
+// Navbar styles
+.navbar {
+  background: var(--navbar-bg-color);
+  transition: background-color 0.3s, color 0.3s;
+
+  .navbar__inner .navbar__title,
+  .navbar__items,
+  .navbar__item {
+    color: var(--navbar-text-color);
+  }
+}
+
+// Social icon styles using mask for proper color inheritance
+%icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: inherit;
+  content: '';
+  background-color: currentcolor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+}
+
+.icon-github::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/github-brands.svg');
+}
+
+.icon-linkedin::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/linkedin-brands.svg');
+}
+
+.icon-instagram::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/instagram-brands.svg');
+}

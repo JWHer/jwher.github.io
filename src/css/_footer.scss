@@ -1,0 +1,47 @@
+// Footer styles
+.footer {
+  padding: 16px 0;
+}
+
+// Heart animation
+@keyframes heathing {
+  0% {
+    font-size: 0.75em;
+  }
+
+  20% {
+    font-size: 1em;
+  }
+
+  40% {
+    font-size: 0.75em;
+  }
+
+  60% {
+    font-size: 1em;
+  }
+
+  80% {
+    font-size: 0.75em;
+  }
+
+  100% {
+    font-size: 0.75em;
+  }
+}
+
+.heart-icon {
+  position: absolute;
+
+  &::after {
+    color: #f00;
+    content: '♥';
+    animation: 1s infinite heathing;
+  }
+}
+
+.copyright {
+  font-size: 1em;
+  font-weight: bold;
+  color: #e3e3e3;
+}
