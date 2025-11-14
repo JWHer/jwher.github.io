@@ -23,7 +23,7 @@ title: 유클리드 호제법
 
 ### 정리
 
-$a,b\in {\mathbb  {Z}}$이고, 
+$a,b\in \{\mathbb  \{Z\}}$이고, 
 $a$를 $b$로 나눈 나머지가 $r$이라고 하자.
 (여기서 $a\geq b$이고, $r$은 $0\leq r \lt b$인 정수.)
 
@@ -44,7 +44,7 @@ $$
 
 ### 증명
 
-$a,b\in {\mathbb  {Z}}$이고, $a\geq b$라고 하자.
+$a,b\in \{\mathbb  \{Z\}}$이고, $a\geq b$라고 하자.
 
 그러면, $a=bq+ra=bq+r$을 만족하는 유일한 정수 $q,r$이 존재한다.
 이때, $0\leq r \lt b$이다.
@@ -52,11 +52,11 @@ $a,b\in {\mathbb  {Z}}$이고, $a\geq b$라고 하자.
 $\left(a,b\right)=d,a=d\alpha ,b=d\beta$라고 하자.
 즉, $\alpha$와 $\beta$는 서로소이다.
 $$
-\begin{aligned}
+\begin\{aligned\}
 &a=bq+r. \newline
 &\Rightarrow d\alpha =d\beta q+r \newline
 &\Rightarrow d|r.
-\end{aligned}
+\end\{aligned\}
 $$
 (즉, $r$은 $d$의 배수)
 
@@ -66,11 +66,11 @@ $$
 만약 $\left(\beta ,\rho \right)=d'>1$ (서로소가 아닌 수, 즉 다른 공약수를 가지는 수)라면,
 $\beta =d'\beta ',\rho =d'\rho'$으로 두었을 때,
 $$
-\begin{aligned}
+\begin\{aligned\}
 &a=bq+r. \newline
 &\Rightarrow d\alpha =d\beta q+d\rho =dd'\beta 'q+dd'\rho '=dd'\left(\beta 'q+\rho '\right). \newline
 &\Rightarrow \alpha =d'\left(\beta 'q+\rho '\right).
-\end{aligned}
+\end\{aligned\}
 $$
 이 되므로, $d'|\alpha$ 이다. (즉, $\alpha$는 $d'$의 배수)
 

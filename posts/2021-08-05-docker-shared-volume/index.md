@@ -166,10 +166,12 @@ uid 0의 `root`로 오버라이드 된 것을 확인할 수 있습니다!🔥
 
 <br/>
 
-> <p align="center">
+<div align="center">
+
 # Fix
-> 어려워요...
-> </p>
+어려워요...
+
+</div>
 
 <br/>
 
@@ -220,10 +222,12 @@ $ sudo chmod 777 data
 
 <br/>
 
-> <p align="center">
+<div align="center">
+
 # Fix
-> 흠! 하나 해결했군요!
-> </p>
+흠! 하나 해결했군요!
+
+</div>
 
 <br/>
 

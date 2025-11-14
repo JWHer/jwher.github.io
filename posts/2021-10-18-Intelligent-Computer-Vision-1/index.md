@@ -69,7 +69,7 @@ Camera(x, y, z, lambda) = E * R
 
 ### Projection
 
-Camera_projection(x', y', lambda) = Projection(Camera)
+`Camera_projection(x', y', lambda)` = Projection(Camera)
 
 * Perspective: Pinhole  
 =>  Pinhole effect  
@@ -79,16 +79,16 @@ Camera_projection(x', y', lambda) = Projection(Camera)
 * Orthogonal
 
 ### Sensitivity
-V_2(lambda) - lambda
+`V_2(lambda)` - lambda
 
 ### Summary
-The Image function f_c(x', y') (C = R, G, B) is formed as:  
-f_c(x', y') = Int{ Camera_projection * V_c(lambda) } delta lambda
+The Image function `f_c(x', y')` (C = R, G, B) is formed as:
+`f_c(x', y')` = Int{ `Camera_projection` * `V_c(lambda)` } delta lambda
 
 ## Degital Image Formation
 We have to discretize:
-1. x', y' => x'_i, y'_j => Sampling
-2. f_c(x'_i, y'_j) ∈ Range => Quantization
+1. x', y' => `x'_i`, `y'_j` => Sampling
+2. `f_c(x'_i, y'_j)` ∈ Range => Quantization
 
 ### Quantization to P levels
 Typically P = 2^8 = 256 (8bit quantization)

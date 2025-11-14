@@ -68,7 +68,7 @@ minIO는 S3 호환 표준으로 객체(object)가 버킷에서 발생시키는 �
 
 ### kafka 배포
 
-kafka를 모르신다면 앞으로 작성할 [이글](/404) 을 참고하시면 좋을 것 같습니다. ~~없는데 어떻게~~  
+kafka를 모르신다면 앞으로 작성할 글을 참고하시면 좋을 것 같습니다. ~~없는데 어떻게~~  
 
 쿠버네티스에 카프카를 배포해야 사용할 수 있겠죠?
 카프카를 사용하기 위해 zookeeper, 편하게 사용하기 위해 kafka manager가 필요합니다.
@@ -169,30 +169,30 @@ spec:
 배포를 했다면 카프카 클러스터를 추가해 줘야겠죠!
 커맨드라인을 사용해도 되나 시간상 빠르게 사용할 수 있는 CMAK kafka manager를 사용합시다. (야후? 추후 상세히 작성하겠습니다)
 
-Add Cluster를 눌러줍니다  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster.png"/>
+Add Cluster를 눌러줍니다
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster.png"/>
 
 <br/>
 
-minio 문서에 따르면 0.9버전이 호환된다고 합니다.  
-(MinIO requires Kafka version 0.10 or 0.9. Internally MinIO uses the Shopify/sarama library and so has the same version compatibility as provided by this library.)  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster-add.png"/>
+minio 문서에 따르면 0.9버전이 호환된다고 합니다.
+(MinIO requires Kafka version 0.10 or 0.9. Internally MinIO uses the Shopify/sarama library and so has the same version compatibility as provided by this library.)
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-cluster-add.png"/>
 
 <br/>
 
-클러스터를 생성했으면 Topic을 만들어줍시다.  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic.png"/>
+클러스터를 생성했으면 Topic을 만들어줍시다.
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic.png"/>
 
 <br/>
 
-이름은 mlpipeline으로 하겠습니다.  
-<image src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic-add.png"/>
+이름은 mlpipeline으로 하겠습니다.
+<img src="https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/kafka-topic-add.png"/>
 
 ### notification config
 
 이젠 kafka와 minio를 연결시켜야 합니다.
 
-커맨드라인으로 설정할 수도 있고 ```~/.minio/config.json```을 추가해
+커맨드라인으로 설정할 수도 있고 `~/.minio/config.json`을 추가해
 kafka에 minIO 이벤트를 publish 할 수 있습니다.
 
 ```shell
@@ -253,7 +253,7 @@ client.set_bucket_notification('bucket name', noti_config)
 
 QueueConfig 의미는 다음과 같습니다.
 * arn:minio:sqs::1:amqp  
-arn:{type}:{protocol}:{region}:{account-id}:{function}:{function-name}  
+`arn:{type}:{protocol}:{region}:{account-id}:{function}:{function-name}`
 ARN: Amazon Resource Number  
 SQS: Simple Queue Service  
 amqp: Advanced Message Queuing Protocol  
@@ -275,17 +275,24 @@ events = client.listen_bucket_notification(
 
 ```
    
-이때 ```events```는 제너레이터 타입입니다.
+이때 `events`는 제너레이터 타입입니다.
 ```python
 for event in events:
     print(type(event))
     print(event)
-
-<class 'dict'>
-{'Records': [{'eventVersion': '2.0', 'eventSource': 'minio:s3', 'awsRegion': '', 'eventTime': '2021-06-23T09:23:29Z', 'eventName': 's3:ObjectCreated:Put', 'userIdentity': {'principalId': 'minio'}, 'requestParameters': {'accessKey': 'minio', 'region': '', 'sourceIPAddress': '127.0.0.1'}, 'responseElements': {'x-amz-request-id': '168B2BC399599AFD', 'x-minio-deployment-id': 'abf9f200-cda5-4c7a-b16a-ce6baa64123e', 'x-minio-origin-endpoint': 'http://ip:9000'}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': 'Config', 'bucket': {'name': 'test', 'ownerIdentity': {'principalId': 'minio'}, 'arn': 'arn:aws:s3:::test'}, 'object': {'key': 'input.jpg', 'size': 209222, 'eTag': '64575f26c680e43a076cb4907080a091-1', 'contentType': 'image/jpeg', 'userMetadata': {'content-type': 'image/jpeg'}, 'versionId': '1', 'sequencer': '168B2BC399BBFFC8'}}, 'source': {'host': '127.0.0.1', 'port': '', 'userAgent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36'}}]}
-{'key': 'input.jpg', 'size': 209222, 'eTag': '64575f26c680e43a076cb4907080a091-1', 'contentType': 'image/jpeg', 'userMetadata': {'content-type': 'image/jpeg'}, 'versionId': '1', 'sequencer': '168B2BC399BBFFC8'}
 ```
-설정에 따라 객체가 생성, 삭제, 접근 이벤트마다 dict 타입의 ```event```를 수신할 수 있습니다!
+
+Output:
+```
+<class 'dict'>
+```
+```json
+{"Records": [{"eventVersion": "2.0", "eventSource": "minio:s3", "awsRegion": "", "eventTime": "2021-06-23T09:23:29Z", "eventName": "s3:ObjectCreated:Put", "userIdentity": {"principalId": "minio"}, "requestParameters": {"accessKey": "minio", "region": "", "sourceIPAddress": "127.0.0.1"}, "responseElements": {"x-amz-request-id": "168B2BC399599AFD", "x-minio-deployment-id": "abf9f200-cda5-4c7a-b16a-ce6baa64123e", "x-minio-origin-endpoint": "http://ip:9000"}, "s3": {"s3SchemaVersion": "1.0", "configurationId": "Config", "bucket": {"name": "test", "ownerIdentity": {"principalId": "minio"}, "arn": "arn:aws:s3:::test"}, "object": {"key": "input.jpg", "size": 209222, "eTag": "64575f26c680e43a076cb4907080a091-1", "contentType": "image/jpeg", "userMetadata": {"content-type": "image/jpeg"}, "versionId": "1", "sequencer": "168B2BC399BBFFC8"}}, "source": {"host": "127.0.0.1", "port": "", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36"}}]}
+```
+```json
+{"key": "input.jpg", "size": 209222, "eTag": "64575f26c680e43a076cb4907080a091-1", "contentType": "image/jpeg", "userMetadata": {"content-type": "image/jpeg"}, "versionId": "1", "sequencer": "168B2BC399BBFFC8"}
+```
+설정에 따라 객체가 생성, 삭제, 접근 이벤트마다 dict 타입의 `event`를 수신할 수 있습니다!
 
 <br/>
 

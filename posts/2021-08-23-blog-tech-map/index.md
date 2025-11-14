@@ -65,11 +65,12 @@ CNCF에 대한 개요는 [이글](https://jwher.github.io/cncf) 을 참고하세
 
 <br/>
 
-><div>
-><img src="/assets/img/tech/database-deployment.png"/><br/>
-><a href="https://web.archive.org/web/20130225171830/http://www.mysql.com/why-mysql/marketshare/">
->2008 데이터베이스 점유율</a>
-></div> 
+<div>
+
+<img src="/assets/img/tech/database-deployment.png"/><br/>
+<a href="https://web.archive.org/web/20130225171830/http://www.mysql.com/why-mysql/marketshare/">2008 데이터베이스 점유율</a>
+
+</div> 
 
 <br/>
 

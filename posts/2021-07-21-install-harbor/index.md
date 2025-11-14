@@ -529,7 +529,7 @@ spec:
 ### a: unsupported protocol scheme ""
 ```shell
 $ docker login ${endpoint}
-Error response from daemon: Get ${endpoint}/v2/: Get ${endpoint}/service/token?account=apannwitz&client_id=docker&offline_token=true&service=harbor-registry: unsupported protocol scheme ""
+Error response from daemon: Get ${endpoint\}/v2/: Get ${endpoint}/service/token?account=apannwitz&client_id=docker&offline_token=true&service=harbor-registry: unsupported protocol scheme ""
 ```
 
 인증서를 사용하지 않을 때 **서버**에서 발생하는 문제입니다.  
@@ -590,7 +590,7 @@ Error response from daemon: Get https://${url}/v2/: dial tcp ${url}:443: connect
 port가 지정되어 있지 않으면 https 프로토콜의 기본값 443번으로 연결됩니다.
 
 ```shell
-$ helm upgrade -n harbor ${release-name} . --set externalURL=https://${url}:${port}
+$ helm upgrade -n harbor ${release-name} . --set externalURL=https://${url\}:${port}
 ```
 
 두번째로 ```/v2/```에서 400 Bad Request가 발생한다면 ingress의 호스트 문제일 가능성이 큽니다.

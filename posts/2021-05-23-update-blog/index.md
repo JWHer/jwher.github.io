@@ -69,14 +69,14 @@ Ruby 지식 부족으로 인한 시행착오를 겪었지만 2021.05.23일 블�
   *본 블로그에 사용한 beautiful-jekyll*
 
 3. Settings에서 레포지토리를 Rename 합니다.
-  Github Pages 호스팅을 위해 {yourusername}.github.io로 이름이 바뀌어야 합니다.
+  Github Pages 호스팅을 위해 `{yourusername}.github.io`로 이름이 바뀌어야 합니다.
 
 4. 레포지토리의 _config.yml을 수정합니다.
   각각의 테마마다 형식이 다릅니다. 테마별 설명대로 수정해줍니다.
 
 <br/>
 
-자! 이제 {yourusername}.github.io에 접속하면 나만의 블로그를 찾을 수 있습니다.  
+자! 이제 `{yourusername}.github.io`에 접속하면 나만의 블로그를 찾을 수 있습니다.  
 글을 추가하려면 테마마다 다르겠지만 _post 밑에 마크다운`.md` 파일을 작성해 주면 됩니다.
 
 <br/>
@@ -99,11 +99,11 @@ Jekyll의 단점이라면, 정적 사이트로써 블로그 접속자와 소통�
 5. Let's get started를 누르면 What platform is your site on?에서 Jekyll을 선택합니다.  
 6. 설정을 마치고 Configure 버튼을 누릅니다.  
    *Setup Complete! 페이지가 나오면 완료된것입니다*  
-7. 이제 {yourusername}.github.io 저장소 안에 있는 _config.yaml 파일을 열어서 편집합니다.  
+7. 이제 `{yourusername}.github.io` 저장소 안에 있는 _config.yaml 파일을 열어서 편집합니다.  
 disqus: 구문을 찾아서 다음과 같은 식으로 수정합니다.  
 disqus: "Website Name"  
 *혹시나 Disqus를 지원하지 않는 테마이면...*  
-8. {yourusername}.github.io 페이지를 확인헤서 잘 반영되었는지 봅니다.  
+8. `{yourusername}.github.io` 페이지를 확인헤서 잘 반영되었는지 봅니다.  
 테마에 따라 post header에 ```comments: true``` 등을 추가해야 할 수 있습니다.
 
 <br/>

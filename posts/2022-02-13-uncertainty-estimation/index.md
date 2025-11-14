@@ -27,7 +27,7 @@ title: Uncertainty Estimation
 <!-- ![Alt](/assets/img/uncertainty-estimation/LeNet-ResNet.png "LeNet-ResNet") -->
 
 예상되는 정확도와 측정된 신뢰도를 binning 한 히스토그램  
-$ ECE=\sum_{m=1}^{M} {B_{m} \over n} |acc(B_{m}) - conf(B_{m})|$
+$ ECE=\sum_\{m=1\}^\{M\} \{B_\{m\} \over n\} |acc(B_\{m\}) - conf(B_\{m\})|$
 
 ## 구간화(Binning)
 
@@ -54,7 +54,7 @@ Cross-entropy loss가 overfit을 만드는 특징이 있습니다.
 ## Negative Log Likelihood
 NLL = cross-entropy loss
 어떤 확률사건 p의 정보량
-$ I(p) = log({1 \over p}) = -log(p) $
+$ I(p) = log(\{1 \over p\}) = -log(p) $
 
 전체 집합이 가지는 엔트로피
 $ H = \sum(p*I(p)) = \sum(-p*log(p)) $
@@ -63,7 +63,7 @@ Cross-Entropy는 실제 분포 q에 대해 모델링에 대한 분포 p를 통�
 $ H(p,q) = - \sum p(x_i)log(q(x_i)) $
 
 이는 KL Divergence로도 표현할 수 있습니다.
-$ H(p,q) = H(p) + D_{KL}(p||q) $
+$ H(p,q) = H(p) + D_\{KL\}(p||q) $
 
 [정보이론](https://jwher.github.io/information-theory)
 

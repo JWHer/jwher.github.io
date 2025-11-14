@@ -36,9 +36,12 @@ title: Istio
 
 Istio(이스티오)는 오픈 소스 서비스 메시입니다.  
 
-> <p align="center">
-> <img src="/assets/img/istio/sail.jpeg"/><br/>
-> 그리스어로 <a href="https://istio.io/latest/about/faq/">항해</a>를 뜻합니다</p>
+<div align="center">
+
+<img src="/assets/img/istio/sail.jpeg"/><br/>
+그리스어로 <a href="https://istio.io/latest/about/faq/">항해</a>를 뜻합니다
+
+</div>
 
 이스티오는 서비스 보호, 연결, 모니터링에 균일하고 효율적인 방법을 제공합니다.
 이스티오는 서비스 코드 변경이 거의 또는 전혀 없이 로드벨런싱, 잊능, 모니터링 기능을 수행할 수 있습니다.

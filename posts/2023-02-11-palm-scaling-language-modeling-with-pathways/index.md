@@ -349,10 +349,10 @@ hardware performance counters
 *Weight initialization*
 
 커널 가중치(즉, 임베딩과 layer norm scale을 제외한 모든 것)는
-"fan-in variance scaling", 즉 $W ∼ N(0,1/\sqrt{n_{in}})$ 으로 초기화되며, 여기서 $n_{in}$은 입력 커널의 차원입니다.
+"fan-in variance scaling", 즉 $W ∼ N(0,1/\sqrt\{n_\{in\}})$ 으로 초기화되며, 여기서 $n_\{in\}$은 입력 커널의 차원입니다.
 입력 임베딩은 layer normalization이 임베딩에 적용되지 않기 때문에 $E ∼ N(0, 1)$ 으로 초기화됩니다.
 왜냐하면 입력 및 출력 임베딩 레이어가 공유되기 때문에,
-Pre-softmax 출력 로짓(logits)을 $1/\sqrt{n}$ 으로 스케일하며, 여기서 $n$은 임베딩 크기입니다.
+Pre-softmax 출력 로짓(logits)을 $1/\sqrt\{n\}$ 으로 스케일하며, 여기서 $n$은 임베딩 크기입니다.
 
 ### 옵티마이저
 *Optimizer*
@@ -360,7 +360,7 @@ Pre-softmax 출력 로짓(logits)을 $1/\sqrt{n}$ 으로 스케일하며, 여기
 이 모델은 [Adafactor optimzer](#adafactor-adaptive-learning-rates-with-sublinear-memory-cost)에서 factorization을 제외하고 학습되었습니다.
 이것은 parameter matrix에서 root-mean-squre로 learning rate를 scale하는
 "parameter scaling"을 가진 Adam(Adam: A method for stochastic optimization. Kingma & Ba, 2014)과 동일한 효과입니다.
-왜냐하면 가중치 초기화는 $1/\sqrt{n}$에 비례하며,
+왜냐하면 가중치 초기화는 $1/\sqrt\{n\}$에 비례하며,
 이것의 효과는 [Brown et al.](#language-models-are-few-shot-learners)에서와 같이 Adam learning rate의 메뉴얼 scaling down과 유사합니다.
 그러나 parameter scaling은 다른 스케일(임베딩 및 layer norm scales)에서 작동하는 parameter matrices의 learning rate가 같은 속도로 scale down되지 않는다는 이점이 있습니다.
 
@@ -368,9 +368,9 @@ Pre-softmax 출력 로짓(logits)을 $1/\sqrt{n}$ 으로 스케일하며, 여기
 *Optimization hyperparameters*
 
 Adafactor의 learning rate를 0.001로 첫 10,000 단계를 거치고,
-이후에 스텝 횟수 k에 따라 $1/\sqrt{k}$만큼 감소합니다(decayed).
+이후에 스텝 횟수 k에 따라 $1/\sqrt\{k\}$만큼 감소합니다(decayed).
 학습 모멘텀 $\beta_1=0.9$로 학습시킵니다.
-2차 모멘트 보간(interpolation) 값은 스텝 횟수 k에 대해 $\beta_2 = 1.0 − k^{−0.8}$로 계산됩니다.
+2차 모멘트 보간(interpolation) 값은 스텝 횟수 k에 대해 $\beta_2 = 1.0 − k^\{−0.8\}$로 계산됩니다.
 이 값은 큰 언어 모델을 학습할 때 표준 $\beta_2 = 0.99$보다 더 안정적이라는 것을 발견했습니다.
 왜냐하면 희귀한(rare) 임베딩 토큰은 더 짧은 window에서 두 번째(second moments)를 잘못 추정할 수 있기 때문입니다.
 모든 모델에 대해 1.0의 값으로 [global norm gradient clipping](#understanding-the-exploding-gradient-problem)을 사용합니다.
@@ -380,7 +380,7 @@ Adafactor의 learning rate를 0.001로 첫 10,000 단계를 거치고,
 *Loss function*
 
 모델은 레이블 스무딩(label smoothing)없이 모든 토큰의 평균 로그 확률(probability)인 표준 언어 모델링 손실함수로 학습됩니다.
-또한 $z_loss = 10^{−4}·log^2Z$ 보조(auxilizry)손실을 사용하여 softmax normalizer log(Z)가 0에 가까우도록 장려하며,
+또한 $z_loss = 10^\{−4\}·log^2Z$ 보조(auxilizry)손실을 사용하여 softmax normalizer log(Z)가 0에 가까우도록 장려하며,
 이는 학습의 안정성을 증가시키는 것을 발견합니다.
 
 ### 문장 길이
