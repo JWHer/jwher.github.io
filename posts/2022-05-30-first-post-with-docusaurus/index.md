@@ -1,6 +1,7 @@
 ---
 slug: first-post-with-docusaurus
 title: First post with docusaurus
+description: Jekyll에서 Docusaurus로 블로그 마이그레이션 - 더 나은 문서화를 위한 선택
 authors: [jwher]
 tags: [blog, docusaurus]
 ---

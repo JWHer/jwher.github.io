@@ -19,7 +19,7 @@ slug: /
 
 ### 컴퓨터과학
 
-- [컴퓨터 구조](/categories/category/computer-architecture)
+- [컴퓨터 구조](/categories/foundations/computer-architecture)
 
 ### 머신러닝
 

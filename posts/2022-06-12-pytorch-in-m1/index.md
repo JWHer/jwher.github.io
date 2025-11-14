@@ -1,18 +1,31 @@
 ---
 authors:
 - jwher
-description: M1 맥에서 pytorch GPU 가속 사용해보기
+description: M1 Mac에서 PyTorch GPU 가속 사용하기 - Metal Performance Shaders로 최대 500% 성능 향상
 slug: pytorch-in-m1
 tags:
-- tech
-title: Pytorch in M1
+- pytorch
+- m1
+- apple-silicon
+- machine-learning
+- gpu
+title: M1 Mac에서 PyTorch GPU 가속 활용하기
 ---
 
 ![m1](apple_new-m1-chip-graphic.jpg)
-*Pytorch on Mac!*
+*Apple Silicon에서 PyTorch GPU 가속 사용하기*
+
 <!--truncate-->
 
-설치와 사용방법만 보시고 싶은 분은 [공식 발표](#공식-발표) 단락을 봐주세요!
+## TL;DR
+
+M1/M2/M3 Mac에서 PyTorch GPU 가속을 사용하려면:
+1. macOS 12.3 이상 필요
+2. PyTorch 1.12+ 설치
+3. `device = torch.device("mps")` 사용
+4. CPU 대비 2~5배 성능 향상 기대
+
+설치와 사용방법만 보시려면 [설치하기](#설치해보기) 섹션으로 바로 이동하세요!
 
 ## Pytorch
 
@@ -314,5 +327,60 @@ efficientnet_b0: 25.93315291404724
 
 </details>
 
-## References
-[Pytorch training on m1 air gpu](https://abhishekbose550.medium.com/pytorch-training-on-m1-air-gpu-c534558acf1e)
+## 주의사항 및 제한사항
+
+### MPS Backend 제한
+
+**지원되지 않는 기능:**
+- 일부 연산자가 MPS에서 미구현
+- Sparse tensors 미지원
+- 일부 고급 indexing 연산 제한
+
+**해결 방법:**
+```python
+# MPS 지원 여부 확인
+if torch.backends.mps.is_available():
+    device = torch.device("mps")
+elif torch.cuda.is_available():
+    device = torch.device("cuda")
+else:
+    device = torch.device("cpu")
+```
+
+### 메모리 관리
+
+M1/M2/M3는 통합 메모리(Unified Memory)를 사용합니다. GPU와 CPU가 같은 RAM을 공유하므로:
+
+```python
+# 명시적 메모리 해제
+import torch.mps
+
+torch.mps.empty_cache()
+```
+
+## 최신 동향 (2025년 기준)
+
+**PyTorch 2.x에서의 개선:**
+- MPS backend 안정성 크게 향상
+- 더 많은 연산자 지원
+- torch.compile과의 통합
+
+**M3 시리즈 성능:**
+- M3 Max/Ultra에서 더욱 향상된 성능
+- Dynamic Caching으로 메모리 효율성 개선
+- Neural Engine과의 더 나은 통합
+
+## 참고 자료
+
+**공식 문서:**
+- [PyTorch MPS Backend 공식 문서](https://pytorch.org/docs/stable/notes/mps.html)
+- [PyTorch 공식 블로그](https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/)
+- [Apple Metal Performance Shaders](https://developer.apple.com/metal/pytorch/)
+
+**커뮤니티:**
+- [PyTorch Discussions - MPS](https://discuss.pytorch.org/c/mps/25)
+- [M1 GPU Training Medium 가이드](https://abhishekbose550.medium.com/pytorch-training-on-m1-air-gpu-c534558acf1e)
+
+---
+
+*이 글은 2022년 6월 작성되었습니다. PyTorch와 Apple Silicon 지원은 계속 발전하고 있으니 최신 정보는 공식 문서를 참고하세요.*

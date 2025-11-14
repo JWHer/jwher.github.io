@@ -1,13 +1,14 @@
 ---
 authors:
 - jwher
-description: 'CNCF: Cloud Native Computing Foundation'
+description: 'CNCF: Cloud Native Computing Foundation - 클라우드 네이티브 컴퓨팅 재단'
 slug: cncf
 tags:
-- tech
 - kubernetes
-- linux
-title: Cncf
+- cloud-native
+- opensource
+- cncf
+title: CNCF - 클라우드 네이티브 컴퓨팅 재단
 ---
 
 ![cncf](/img/logos/cncf.svg)
@@ -104,30 +105,56 @@ trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"ub
 <br/>
 
 정말 많은 오픈소스가 개발되고 있습니다.
-CNCF는 오픈소스 프로젝트 성숙도를
-샌드박스(Sandbox), 인큐베이팅(Incubating), 졸업(Graduated)으로 나누고 있습니다.  
-[[깃헙]Graduation Criteria](https://github.com/cncf/toc/blob/main/process/graduation_criteria.adoc)
+CNCF는 오픈소스 프로젝트 성숙도를 샌드박스(Sandbox), 인큐베이팅(Incubating), 졸업(Graduated)으로 나누고 있습니다.
 
-<p align="center">
+### 성숙도 레벨
+
+**Graduated (졸업)**
+- 프로덕션에서 광범위하게 사용됨
+- 다양한 기업이 기여
+- 엄격한 보안 및 거버넌스 기준 충족
+- 예: Kubernetes, Prometheus, Envoy, Helm
+
+**Incubating (인큐베이팅)**
+- 프로덕션 사용 가능
+- 활발한 커뮤니티 성장 중
+- 예: cert-manager, Argo, Flux
+
+**Sandbox (샌드박스)**
+- 초기 단계 프로젝트
+- 혁신적인 아이디어 실험
+- 예: OpenCost, KubeEdge
+
 ![chasm](/img/chasm.svg)
-프로젝트 캐즘
-</p>
+*프로젝트 성숙도와 캐즘(Chasm)*
 
-## Tips
+## CNCF 회원
 
-현재 애플, AWS, 삼성 등 더 많은 기업이 CNCF 멤버로 함께하고 있습니다.  
-[[삼성]클라우드 네이티브](https://www.samsungsds.com/kr/insights/101917_RD_Cloudnative.html)  
+2025년 현재, 전 세계 700개 이상의 기업과 조직이 CNCF 멤버로 참여하고 있습니다.
 
-각 프로젝트를 상세히 알고 싶으면 [이글](https://jwher.github.io/blog-tech-map) 을 보세요.
+**주요 회원사:**
+- 플래티넘: Google, AWS, Microsoft, Huawei, VMware 등
+- 골드: Apple, Samsung, Intel, Oracle, IBM 등
+- 실버: 수백 개의 기술 기업들
 
-### Reference  
-[[레드햇]클라우드 네이티브 앱](https://www.redhat.com/ko/topics/cloud-native-apps)  
-[[위키]유비쿼터스 컴퓨팅](https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%B9%84%EC%BF%BC%ED%84%B0%EC%8A%A4_%EC%BB%B4%ED%93%A8%ED%8C%85)  
-[[위키]Cloud Native Computing Foundation](https://en.wikipedia.org/wiki/Cloud_Native_Computing_Foundation)  
-[[깃헙]CNCF charter](https://github.com/cncf/foundation/blob/master/charter.md)
+## 더 알아보기
 
+CNCF 프로젝트와 생태계에 대해 더 알고 싶다면 [블로그 기술 맵](/posts/blog-tech-map)을 참고하세요.
 
-<!-- update log -->
-<!--
-본문에 추가할 내용을 적는다.
--->
+## 참고 자료
+
+**공식 자료:**
+- [CNCF 공식 웹사이트](https://www.cncf.io/)
+- [CNCF 랜드스케이프](https://landscape.cncf.io/)
+- [CNCF GitHub](https://github.com/cncf/foundation)
+- [프로젝트 성숙도 기준](https://github.com/cncf/toc/blob/main/process/graduation_criteria.adoc)
+
+**참고 문서:**
+- [레드햇 - 클라우드 네이티브 앱](https://www.redhat.com/ko/topics/cloud-native-apps)
+- [삼성SDS - 클라우드 네이티브](https://www.samsungsds.com/kr/insights/101917_RD_Cloudnative.html)
+- [위키백과 - 유비쿼터스 컴퓨팅](https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%B9%84%EC%BF%BC%ED%84%B0%EC%8A%A4_%EC%BB%B4%ED%93%A8%ED%8C%85)
+- [Wikipedia - CNCF](https://en.wikipedia.org/wiki/Cloud_Native_Computing_Foundation)
+
+---
+
+*이 글은 2021년 8월 작성되었습니다. CNCF는 빠르게 성장하고 있어 최신 정보는 [공식 웹사이트](https://www.cncf.io/)를 참고하세요.*
