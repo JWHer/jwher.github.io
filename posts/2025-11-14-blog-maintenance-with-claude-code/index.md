@@ -57,7 +57,7 @@ posts/2021-04-11-first-post/        # Jekyll 구조
 categories/infrastructure/kubernetes/  # Docusaurus 구조
 ```
 
-- **경로 혼용**: `/posts/*`와 `/categories/*` 링크가 섞임
+- **경로 혼용**: `/posts/*`와 `/docs/*` 링크가 섞임
 - **구조 불일치**: 일부는 `.md` 파일, 일부는 `index.md` 폴더
 - **메타데이터 누락**: description, slug 등 필수 필드 빠짐
 
@@ -143,9 +143,9 @@ mv react.md react/index.md
 ...
 
 # After (정확한 경로)
-/categories/development/concurrency/concurrency-models-1/concurrency-models-1
-/categories/development/concurrency/concurrency-models-3/concurrency-models-3#atomic-variables
-/categories/infrastructure/kubernetes/kubernetes-architecture/kubernetes-architecture
+/docs/development/concurrency/concurrency-models-1/concurrency-models-1
+/docs/development/concurrency/concurrency-models-3/concurrency-models-3#atomic-variables
+/docs/infrastructure/kubernetes/kubernetes-architecture/kubernetes-architecture
 ...
 ```
 
@@ -156,13 +156,13 @@ mv react.md react/index.md
 
 ```bash
 # Concurrency-models 시리즈 (15개 링크)
-sed -i '' 's|/posts/concurrency-models-|/categories/.../|g'
+sed -i '' 's|/posts/concurrency-models-|/docs/.../|g'
 
 # Kubernetes 시리즈 (20개 링크)
-sed -i '' 's|/posts/kubernetes-|/categories/.../|g'
+sed -i '' 's|/posts/kubernetes-|/docs/.../|g'
 
 # Mathematics, C++, Web 등
-find categories -exec sed -i '' 's|/posts/...|/categories/...|g' {} \;
+find categories -exec sed -i '' 's|/posts/...|/docs/...|g' {} \;
 ```
 
 **수정된 링크:**
@@ -343,7 +343,7 @@ npm run build  # ✅ 성공
 - API 버전 업그레이드
 
 **2. 패턴 기반 리팩토링**
-- `/posts/*` → `/categories/*` 같은 일관된 패턴
+- `/posts/*` → `/docs/*` 같은 일관된 패턴
 - 함수명, 변수명 일괄 변경
 - 구조 변경 (파일 → 폴더)
 

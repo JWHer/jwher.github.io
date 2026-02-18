@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import {blogPostContainerID} from '@docusaurus/utils-common';
-import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
+import {useBlogPost} from '@docusaurus/theme-common/internal';
 import MDXContent from '@theme/MDXContent';
 export default function BlogPostItemContent({children, className}) {
   const {isBlogPostPage} = useBlogPost();

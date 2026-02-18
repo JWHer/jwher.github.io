@@ -26,11 +26,11 @@ const FeatureList: FeatureItem[] = [
         ∙ Drive best practice implementation for across company
         <br /><br />
         <p style={{fontWeight:"bold"}}>Skills:&nbsp;
-          <Link href="https://jwher.github.io/categories/server/fastapi" className={styles.btn__warning}>FastAPI</Link>
-          <Link href="https://jwher.github.io/categories/mlops/mlflow" className={styles.btn__warning}>MLflow</Link>
-          <Link href="https://jwher.github.io/categories/pytorch" className={styles.btn__warning}>Pytorch</Link>
-          <Link href="https://jwher.github.io/categories/web/angular" className={styles.btn__warning}>Angular</Link>
-          <Link href="https://jwher.github.io/categories/ml/deepstream" className={styles.btn__warning}>Deepstream</Link>
+          <Link href="https://jwher.github.io/docs/server/fastapi" className={styles.btn__warning}>FastAPI</Link>
+          <Link href="https://jwher.github.io/docs/mlops/mlflow" className={styles.btn__warning}>MLflow</Link>
+          <Link href="https://jwher.github.io/docs/pytorch" className={styles.btn__warning}>Pytorch</Link>
+          <Link href="https://jwher.github.io/docs/web/angular" className={styles.btn__warning}>Angular</Link>
+          <Link href="https://jwher.github.io/docs/ml/deepstream" className={styles.btn__warning}>Deepstream</Link>
         </p>
       </>
     ),
@@ -50,11 +50,11 @@ const FeatureList: FeatureItem[] = [
         ∙ Deploy model using serverless framework
         <br /><br />
         <p style={{fontWeight:"bold"}}>Skills:&nbsp;
-          <Link href="/categories/kubernetes" className={styles.btn__success}>Kubernetes</Link>
-          <Link href="/categories/kubernetes/kubeflow" className={styles.btn__success}>Kubeflow</Link>
-          <Link href="/categories/ml/openvino" className={styles.btn__warning}>OpenVINO</Link>
-          <Link href="/categories/ml/nuclio" className={styles.btn__success}>Nuclio</Link>
-          <Link href="/categories/web/angular" className={styles.btn__warning}>React</Link>
+          <Link href="/docs/kubernetes" className={styles.btn__success}>Kubernetes</Link>
+          <Link href="/docs/kubernetes/kubeflow" className={styles.btn__success}>Kubeflow</Link>
+          <Link href="/docs/ml/openvino" className={styles.btn__warning}>OpenVINO</Link>
+          <Link href="/docs/ml/nuclio" className={styles.btn__success}>Nuclio</Link>
+          <Link href="/docs/web/angular" className={styles.btn__warning}>React</Link>
         </p>
       </>
     ),
@@ -72,8 +72,8 @@ const FeatureList: FeatureItem[] = [
         ∙ Develope logic to find a specific transaction on distributed ledger
         <br /><br />
         <p style={{fontWeight:"bold"}}>Skills:&nbsp;
-          <Link href="/categories/java/spring" className={styles.btn__success}>Spring</Link>
-          <Link href="/categories/web/node" className={styles.btn__success}>Node.js</Link>
+          <Link href="/docs/java/spring" className={styles.btn__success}>Spring</Link>
+          <Link href="/docs/web/node" className={styles.btn__success}>Node.js</Link>
         </p>
       </>
     ),
@@ -95,10 +95,10 @@ const FeatureList: FeatureItem[] = [
         ∙ Military service from Feb. 2016 until Nov. 2017
         <br /><br />
         <p style={{fontWeight:"bold"}}>Skills:&nbsp;
-          <Link href="/categories/cs/algorithm" className={styles.btn__warning}>Algorithm</Link>
-          <Link href="/categories/cs/design-pattern" className={styles.btn__warning}>Design Pattern</Link>
-          <Link href="/categories/cs/operating-system" className={styles.btn__warning}>OS</Link>
-          <Link href="/categories/cs/concurrent-programming" className={styles.btn__warning}>Concurrent Programming</Link>
+          <Link href="/docs/cs/algorithm" className={styles.btn__warning}>Algorithm</Link>
+          <Link href="/docs/cs/design-pattern" className={styles.btn__warning}>Design Pattern</Link>
+          <Link href="/docs/cs/operating-system" className={styles.btn__warning}>OS</Link>
+          <Link href="/docs/cs/concurrent-programming" className={styles.btn__warning}>Concurrent Programming</Link>
         </p>
       </>
     ),

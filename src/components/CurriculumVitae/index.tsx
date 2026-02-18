@@ -57,7 +57,7 @@ export default function CurriculumVitae(): JSX.Element {
           <p className={styles.page__text}>
           <Link href="https://cse.snu.ac.kr/">Seoul National University</Link> - Seoul, Korea
             <br />
-            I've pursued my ardor for <Link href="/categories/ml/embedded-deep-learning">embedded deep learning</Link>,
+            I've pursued my ardor for <Link href="/docs/ml/embedded-deep-learning">embedded deep learning</Link>,
             focusing particularly on the intricacies of 3D object detection tailored for autonomous driving systems.
           </p>
         </dd>
@@ -69,7 +69,7 @@ export default function CurriculumVitae(): JSX.Element {
           <p className={styles.page__text}>
             <Link href="https://cse.dongguk.edu/">Dongguk University</Link> - Seoul, Korea
             <br />
-            Followed my passion in <Link href="/posts/tags/parallel-computing">parallel computing</Link> classes,
+            Followed my passion in <Link href="/docs/cs/computer-architecture">parallel computing</Link> classes,
             Worked as an assistant for programming language and parallel computing
           </p>
         </dd>
@@ -80,7 +80,7 @@ export default function CurriculumVitae(): JSX.Element {
         <dd className={styles.page__desc}>
           <h2 className={styles.page__header2}>Office skills</h2>
           <p className={styles.page__text}>
-            Skill in project management methodologies, including <Link href="/posts/agile">Agile</Link> and Waterfall.
+            Skill in project management methodologies, including <Link href="/docs/development/practices/agile">Agile</Link> and Waterfall.
             Knowledge of how to design systems that meet business requirements,
             Developed and executed test plans and test cases to ensure quality of systems.
           </p>
@@ -88,10 +88,10 @@ export default function CurriculumVitae(): JSX.Element {
           <h2 className={styles.page__header2}>Technical skills</h2>
           <p className={styles.page__text}>
             As a full stack developer,
-            I have experience with <Link href="/posts/welcome-to-kubernetes">Kubernetes</Link> on HPC servers,
-            PyTorch and ONNX/TensorRT with deepstream for <Link href="/posts/tags/paper">machine learning</Link> frameworks,
+            I have experience with <Link href="/docs/infrastructure/kubernetes/welcome-to-kubernetes">Kubernetes</Link> on HPC servers,
+            PyTorch and ONNX/TensorRT with deepstream for <Link href="/docs/machine-learning/deep-learning/quantization">machine learning</Link> frameworks,
             and Django/FastAPI for web frameworks.
-            In addition, I have skills in <Link href="/posts/ngrx">Angular</Link>, React, and Vue for front-end development.
+            In addition, I have skills in <Link href="/docs/development/web/ngrx">Angular</Link>, React, and Vue for front-end development.
           </p>
         </dd>
 

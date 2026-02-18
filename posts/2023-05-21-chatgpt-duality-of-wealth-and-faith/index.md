@@ -20,7 +20,7 @@ title: "ChatGPT: 부와 신앙의 이중성에 대해"
 
 요즘 ChatGPT는 뜨거운 감자입니다. 2022년 11월 30일 첫 출시되었으니, 이 글을 쓰는 시점으로 6개월 정도 되었습니다.
 
-ChatGPT의 GPT는 Generative Pre-trained [Transformer](/categories/machine-learning/deep-learning/attention-is-all-you-need/attention-is-all-you-need)의 약자입니다. 고성능의 Large Language Model은 이전부터 연구되어 왔으나, ChatGPT가 유명해진데는 대중이 사용할 수 있게(Chat) 공개된 첫 LLM이였기 때문일 것입니다.
+ChatGPT의 GPT는 Generative Pre-trained [Transformer](/docs/machine-learning/deep-learning/attention-is-all-you-need)의 약자입니다. 고성능의 Large Language Model은 이전부터 연구되어 왔으나, ChatGPT가 유명해진데는 대중이 사용할 수 있게(Chat) 공개된 첫 LLM이였기 때문일 것입니다.
 
 ChatGPT가 공개된 이후 대중들은 뛰어난 성능에 감탄했습니다. 이전까지는 정보를 찾기 위해 인터넷 검색에 의존해야 했고, 이는 검색엔진에 맞는 쿼리를 잘 작성하는 능력이 필요했습니다. 또한, 이렇게 검색해 얻은 결과도 전부 필요한 내용이 아니기 때문에 추려내는 노력과 시간이 소비되었습니다.
 
