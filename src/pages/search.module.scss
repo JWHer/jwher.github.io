@@ -1,0 +1,74 @@
+// ── Search UI ─────────────────────────────────────────────────────────────────
+
+.container {
+  padding: 2rem 6%;
+
+  @media (max-width: 800px) {
+    padding: 2rem 4%;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--ifm-color-primary);
+  }
+}
+
+// ── Popular tags ──────────────────────────────────────────────────────────────
+
+.popularTags {
+  margin-top: 1.5rem;
+}
+
+.popularTagsLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 0.6rem;
+}
+
+.popularTagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.popularTag {
+  font-size: 0.78rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.2rem 0.55rem;
+  color: var(--ifm-color-content-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: var(--ifm-link-color);
+    color: var(--ifm-link-color);
+  }
+}
+
+// ── Results ───────────────────────────────────────────────────────────────────
+
+.count {
+  margin: 0.75rem 0 0;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.875rem;
+}
+
+.results {
+  margin-top: 1.5rem;
+}

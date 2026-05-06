@@ -18,7 +18,7 @@ const JUNK_PATTERNS = [
 
 const STOPWORDS = new Set([
   'the', 'a', 'an', 'to', 'for', 'in', 'of', 'and', 'or', 'with',
-  'posts', 'docs', 'blog', 'www', 'http', 'https',
+  'docs', 'blog', 'www', 'http', 'https',
 ]);
 
 function isJunkUrl(pathname) {
@@ -114,7 +114,7 @@ export default function NotFound() {
                     </div>
                   )}
                   <p>
-                    <Link to="/posts">모든 블로그 글 보기</Link>
+                    <Link to="/blog">모든 블로그 글 보기</Link>
                     {' · '}
                     <Link to="/docs">문서 전체 보기</Link>
                   </p>
