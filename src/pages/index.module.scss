@@ -1,186 +1,411 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
- :root{
-   --header-text-color: #e3e3e3;
-   --header-text-dark-color: #9A9A9A;
- }
+// ── Art canvas: fixed full-screen background ──────────────────────────────────
 
- .title__header {
-  background: url('/static/img/bamboo-road.jpg');
-  background-position: center center;
-  background-size: cover;
-  min-height: 100vh;
-  max-height: 999px;
-  overflow: hidden;
-  position: relative;
+.canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   width: 100%;
+  height: 100%;
+}
+
+// ── Page wrapper (below hero) ─────────────────────────────────────────────────
+
+.page {
+  position: relative;
   z-index: 1;
+  padding: 3rem 0 2rem;
+}
+
+// ── Content column (Obenauer: max-width 1100px, padding 70px) ─────────────────
+// Centered container matching alexanderobenauer.com layout.
+
+.col {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 70px;
+
+  @media (max-width: 800px) {
+    padding: 0 15px;
+  }
+}
+
+// ── Section ───────────────────────────────────────────────────────────────────
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.colHead {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.5rem;
+}
+
+// ── Two-column layout ──────────────────────────────────────────────────────────
+// Left column: text rows at fixed TEXT_ROW_HEIGHT (130px), stacked uniformly
+// Right column: images absolutely positioned via JS stacking algorithm
+// Connector: single SVG <path> per item — L-shaped with distributed bendX
+
+.twoCol {
+  display: flex;
+  align-items: flex-start;
+  position: relative;        // positioning context for SVG overlay
+}
+
+// ── Left: text column ──────────────────────────────────────────────────────────
+
+.textCol {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.textRow {
+  height: 130px;               // must match TEXT_ROW_HEIGHT in index.tsx
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  &.isHovered .itemTitle {
+    color: var(--ifm-color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+// Title row: title text + horizontal connector to image column
+.itemTitleRow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  -ms-flex-pack: center;
-
-  .filter::after {
-    background-color: rgb(0 0 0 / 50%);
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
+  min-width: 0;
 }
 
-.title__center {
-  z-index: 1;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-
-  display: block;
-}
-
-.title__brand {
-  max-width: 730px;
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
-  color: inherit;
-  display: block;
-  z-index: 2;
+.itemTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  line-height: 1.45;
+  flex-shrink: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
-    filter: brightness(1.2);
+    color: var(--ifm-color-primary);
   }
 }
 
-.title__presentation__title {
-  font-size: 8em;
-  font-weight: 700;
+
+.itemDesc {
+  font-size: 0.78rem;
+  color: var(--ifm-color-content-secondary);
   margin: 0;
-  padding: 15px;
-  color: var(--header-text-color);
-  /* -webkit-background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-style: normal;
 }
 
-@media only screen and (width <= 767px){
-  .title__presentation__title {
-    font-size: 4em;
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.1rem;
+}
+
+.itemDate {
+  font-size: 0.72rem;
+  color: var(--ifm-color-content-secondary);
+  font-style: normal;
+}
+
+.itemTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.itemTagBadge {
+  font-size: 0.68rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.1rem 0.4rem;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: var(--ifm-link-color);
+    color: var(--ifm-link-color);
+    text-decoration: none;
   }
 }
 
-.title__presentation__subtitle {
-  font-size: 1.7em;
-  color: var(--header-text-color);
-  text-align: center;
+// ── Right: image column ────────────────────────────────────────────────────────
 
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  /* font-family: $font-family-sans-serif; */
-  font-weight: 300;
+.imageCol {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;          // absolute imgWrap base
 }
 
-.title__presentation__copyright {
-  font-size: 1em;
-  color: var(--header-text-dark-color);
-  text-align: center;
-}
-
-.title__moving__clouds{
-  background-image: url('/static/img/clouds.png');
+// SVG connector overlay — one <path> per text-image connection
+.connectorSvg {
   position: absolute;
-  z-index: 1;
-  bottom: 0;
+  top: 0;
   left: 0;
-  width: 250.625em;
-  height: 43.75em;
-  animation: cloud-loop 80s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
 }
 
-@keyframes cloud-loop {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+.connPath {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.33);
+  stroke-width: 1;
+  transition: stroke 0.2s;
 }
 
-.arrowup{
-  text-align: center;
-  font-size: 4em;
-  font-weight: 400;
+.connPathHover {
+  stroke: var(--ifm-color-primary);
+}
+
+// Image wrapper: absolutely positioned by JS, above connLine (z-index: 1)
+// imgWrap covers the right portion of connLine's horizontal segment
+.imgWrap {
+  position: absolute;
+  right: 0;        // overridden by inline style for odd/even offset
+  width: auto;     // shrinks to content width
   cursor: pointer;
+  z-index: 1;      // above connLine — covers horizontal connector under image
+}
+
+// └ image frame: border-left + border-bottom (Obenauer .thumb)
+// imgWrap is right: 0; width: auto, so itemThumb wraps tightly around the image.
+// border-left is at the image's left edge — connector is right next to the image.
+.itemThumb {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+  padding-left: 16px;          // Obenauer: padding-left: 16px
+  padding-bottom: 16px;        // Obenauer: padding-bottom: 16px
+  transition: border-color 0.2s;
+
+  img {
+    display: block;
+    height: 264px;             // IMG_HEIGHT(280) - padding-bottom(16) = 264px
+    width: auto;               // natural aspect ratio — no distortion, no letterbox
+    background: var(--ifm-color-emphasis-100);
+    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+}
+
+.isHovered .itemThumb {
+  border-bottom-color: var(--ifm-color-primary);
+
+  img {
+    transform: scale(1.02);
+    opacity: 0.9;
+    box-shadow: 0 24px 60px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+// CSS hover supplement — Link-based imgWrap needs this in addition to JS isHovered
+.imgWrap:hover .itemThumb {
+  border-bottom-color: var(--ifm-color-primary);
+
+  img {
+    transform: scale(1.02);
+    opacity: 0.9;
+    box-shadow: 0 24px 60px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+// Dark mode: invert border/connector colors to 33% white
+[data-theme='dark'] {
+  .itemThumb {
+    border-bottom-color: rgba(255, 255, 255, 0.33);
+
+    img {
+      background: var(--ifm-color-emphasis-200);
+    }
+  }
+  .connPath {
+    stroke: rgba(255, 255, 255, 0.33);
+  }
+  .connPathHover {
+    stroke: var(--ifm-color-primary);
+  }
+  .isHovered .itemThumb {
+    border-bottom-color: var(--ifm-color-primary);
+  }
+  .imgWrap:hover .itemThumb {
+    border-bottom-color: var(--ifm-color-primary);
+  }
+}
+
+// Mobile (≤800px): hide image column, text takes full width
+@media (max-width: 800px) {
+  .twoCol {
+    display: block;
+    min-height: 0 !important; // override inline minHeight from JS stacking algorithm
+  }
+
+  .textCol {
+    max-width: 100%;
+  }
+
+  .textRow {
+    height: auto;
+    min-height: 80px;
+    overflow: visible;
+  }
+
+  .itemTitle {
+    white-space: normal;
+  }
+
+  .imageCol {
+    display: none;
+  }
+
+  .connectorSvg {
+    display: none;
+  }
+}
+
+// ── Footer nav ────────────────────────────────────────────────────────────────
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--ifm-hr-border-color);
+  margin-top: 0.5rem;
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
+}
+
+.navLink {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--ifm-font-color-base);
+    text-decoration: none;
+  }
+}
+
+// ── Brief intro section (shyr.io-inspired) ────────────────────────────────────
+
+.introWrap {
+  position: relative;
   z-index: 1;
-  animation: arrow-loop 0.5s ease-in-out infinite alternate;
-}
+  background: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-hr-border-color);
+  padding: 5rem 0 6rem;
 
-@keyframes arrow-loop {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-5px);
+  @media (max-width: 800px) {
+    padding: 3rem 0 4rem;
   }
 }
 
-.rainbow{
-  background-image: url('/static/img/about-me/sea-cave.jpg');
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  margin-top:0;
-  height: calc(100vh - 120px);
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  padding: 0;
+}
 
-  &__title, &__text {
-    position: absolute;
-    height: inherit;
+.introBio {
+  flex: 1;
+  min-width: 0;
+}
+
+.introIllustration {
+  flex: 0 0 auto;
+  width: 160px;
+  opacity: 0.35;
+  color: var(--ifm-font-color-base);
+
+  svg {
+    display: block;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-
-    font-size: 3rem;
-    font-weight: bold;
-    color: #E3E3E3;
-    mix-blend-mode: hard-light;
+    height: auto;
   }
 
-  &__title {
-    transition: transform 1s ease-in-out, color 1s ease-in-out;
-  }
-
-  &__text {
-    opacity: 0;
-    font-size: 2rem;
-    font-weight: normal;
-    transition: opacity 1s ease-in-out, color 1s ease-in-out;
-  }
-
-  &:hover &__title{
-    transform: translateY(-30%);
-    color: #FFF;
-  }
-
-  &:hover &__text{
-    opacity: 1;
-    color: #FFF;
+  @media (max-width: 800px) {
+    display: none;
   }
 }
 
-@media (width <= 810px) {
-  .rainbow__title, .rainbow__text {
-    font-size: 3.5vh;
+.introName {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  font-family: 'Noto Serif KR', Georgia, serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ifm-font-color-base);
+  margin: 0 0 1.25rem;
+}
+
+.introText {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.65;
+  margin: 0 0 1.75rem;
+  max-width: 540px;
+}
+
+.introLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.introSocialLink {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  transition: color 0.2s;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:hover {
+    color: var(--ifm-font-color-base);
+    text-decoration: none;
+  }
+}
+
+[data-theme='dark'] .introSocialLink {
+  color: rgba(255, 255, 255, 0.3);
+
+  &:hover {
+    color: var(--ifm-font-color-base);
   }
 }
