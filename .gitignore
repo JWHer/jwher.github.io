@@ -21,3 +21,6 @@ yarn-error.log*
 
 # Local reference & research files (not for deployment)
 /references
+
+# Google Search Console verification (served via static/, root copy is local only)
+/google2f0d0a0c841af853.html
