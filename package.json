@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "prestart": "node scripts/generate-content-index.js",
     "start": "docusaurus start",
+    "prebuild": "node scripts/generate-content-index.js",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -19,6 +21,8 @@
     "@docusaurus/plugin-client-redirects": "^3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@mdx-js/react": "^3.1.0",
+    "@types/three": "^0.183.1",
+    "animejs": "^4.3.6",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
     "hast-util-is-element": "^3.0.0",
@@ -27,7 +31,8 @@
     "react-dom": "^18.3.1",
     "rehype-katex": "^5.0.0",
     "remark-math": "^3.0.1",
-    "sass": "^1.93.3"
+    "sass": "^1.93.3",
+    "three": "^0.183.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
@@ -37,7 +42,10 @@
     "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
+    "gray-matter": "^4.0.3",
+    "osmtogeojson": "^3.0.0-beta.5",
     "prettier": "^3.6.2",
+    "sharp": "^0.33.5",
     "stylelint": "^16.25.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "typescript": "^5.6.3"
