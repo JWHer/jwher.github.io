@@ -4,50 +4,38 @@ import Layout from '@theme-original/Navbar/Layout';
 /**
  * Navbar Layout wrapper that handles scroll-based styling.
  *
- * This component adds a scroll listener that changes navbar background
- * and text colors based on scroll position:
- * - Transparent navbar when scrolled < 150px
+ * - Transparent navbar when scrolled < 150px (over hero)
  * - Solid background navbar when scrolled >= 150px
- *
- * Memory leak prevention: Event listener is properly cleaned up on unmount
+ * - Logo filter: white when over hero, natural color when scrolled (light mode)
  */
 export default function LayoutWrapper(props) {
   useEffect(() => {
     const SCROLL_THRESHOLD = 150;
+    const navbar = document.querySelector('.navbar');
+    const root = document.documentElement;
+    let wasAtTop = null; // track previous state to skip redundant updates
 
     const handleScroll = () => {
       const isAtTop = window.scrollY < SCROLL_THRESHOLD;
+      if (isAtTop === wasAtTop) return; // no state change — skip
+      wasAtTop = isAtTop;
 
       if (isAtTop) {
-        document.documentElement.style.setProperty(
-          '--navbar-bg-color',
-          'transparent'
-        );
-        document.documentElement.style.setProperty(
-          '--navbar-text-color',
-          '#e3e3e3'
-        );
+        root.style.setProperty('--navbar-bg-color', 'transparent');
+        root.style.setProperty('--navbar-text-color', '#ffffff');
+        navbar?.classList.add('navbar--over-hero');
       } else {
-        document.documentElement.style.setProperty(
-          '--navbar-bg-color',
-          'var(--ifm-background-surface-color)'
-        );
-        document.documentElement.style.setProperty(
-          '--navbar-text-color',
-          'var(--ifm-navbar-link-color)'
-        );
+        root.style.setProperty('--navbar-bg-color', 'var(--ifm-background-color)');
+        root.style.setProperty('--navbar-text-color', 'var(--ifm-navbar-link-color)');
+        navbar?.classList.remove('navbar--over-hero');
       }
     };
 
-    // Add scroll listener
-    document.addEventListener('scroll', handleScroll);
-
-    // Initial call to set correct state
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Cleanup function to prevent memory leaks
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
