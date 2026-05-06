@@ -1,6 +1,6 @@
 // Navbar styles
 .navbar {
-  background: var(--navbar-bg-color);
+  background-color: var(--navbar-bg-color);
   transition: background-color 0.3s, color 0.3s;
 
   .navbar__inner .navbar__title,
@@ -8,6 +8,23 @@
   .navbar__item {
     color: var(--navbar-text-color);
   }
+}
+
+// Logo visibility:
+// Default (scrolled, light mode): teal logo on cream bg → natural color
+.navbar__logo img {
+  filter: none;
+  transition: filter 0.3s;
+}
+
+// Dark mode (solid navbar): dark bg → invert logo to white
+[data-theme='dark'] .navbar__logo img {
+  filter: brightness(0) invert(1);
+}
+
+// Over hero (transparent navbar): always white logo regardless of theme
+.navbar--over-hero .navbar__logo img {
+  filter: brightness(0) invert(1);
 }
 
 // Social icon styles using mask for proper color inheritance
@@ -39,4 +56,10 @@
   @extend %icon;
 
   mask-image: url('/static/img/instagram-brands.svg');
+}
+
+.icon-search::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/search-icon.svg');
 }

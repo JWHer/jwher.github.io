@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes: prismThemes } = require('prism-react-renderer');
+const lightCodeTheme = prismThemes.github;
+const darkCodeTheme = prismThemes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,8 +12,14 @@ const config = {
   url: 'https://jwher.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: '/img/logo.svg', //'img/logo.svg',
+
+  markdown: {
+    format: 'detect',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -25,7 +32,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'kr',
-    locales: ['en', 'kr'],
+    locales: ['kr'],
   },
 
   presets: [
@@ -44,11 +51,8 @@ const config = {
           rehypePlugins: [require('rehype-katex')],
         },
         blog: {
-          blogTitle: 'Posts',
-          path: 'posts',
-          routeBasePath: '/posts',
           showReadingTime: true,
-          blogSidebarTitle: 'All posts',
+          blogSidebarTitle: 'All Posts',
           blogSidebarCount: 'ALL',
           postsPerPage: 5,
           // Please change this to your repo.
@@ -66,15 +70,36 @@ const config = {
           priority: 0.5,
           ignorePatterns: ['/tags/**'],
         },
-        googleAnalytics: {
-          trackingID: 'G-XHBVCY40VB',
-          anonymizeIP: true,
-        },
+        // googleAnalytics is UA-only; GA4 is handled via headTags below
       }),
     ],
   ],
 
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        async: 'true',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-XHBVCY40VB',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XHBVCY40VB');
+      `,
+    },
+  ],
+
   stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&display=swap',
+      type: 'text/css',
+    },
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
       type: 'text/css',
@@ -87,6 +112,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: 'JWHer Tech Blog',
         logo: {
@@ -101,14 +131,25 @@ const config = {
           //   position: 'right',
           // },
           {
-            to: '/posts',
-            label: 'Posts',
+            to: '/blog',
+            label: 'Blog',
             position: 'right'
           },
           {
             to: '/docs',
             label: 'Docs',
             position: 'right'
+          },
+          {
+            to: '/art',
+            label: 'Art',
+            position: 'right',
+          },
+          {
+            to: '/search',
+            className: 'icon-search',
+            'aria-label': '검색',
+            position: 'right',
           },
           {
             href: 'https://github.com/jwher',

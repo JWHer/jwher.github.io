@@ -1,6 +1,14 @@
-// Footer styles
+// Footer styles — PaperMod / Obenauer-aligned
 .footer {
-  padding: 16px 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--ifm-hr-border-color);
+
+  // Override Docusaurus' built-in dark/light variants so the footer always
+  // follows the global background variable set in _variables.scss
+  &.footer--dark,
+  &.footer--light {
+    background: var(--ifm-background-color);
+  }
 }
 
 // Heart animation
@@ -41,7 +49,7 @@
 }
 
 .copyright {
-  font-size: 1em;
-  font-weight: bold;
-  color: #e3e3e3;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ifm-color-content-secondary);
 }

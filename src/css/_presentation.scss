@@ -1,5 +1,6 @@
 // Presentation section styles
 .presentation__title {
+  position: relative;
   z-index: 2;
   font-size: 4em;
   font-weight: bold;
@@ -13,6 +14,7 @@
 }
 
 .presentation__subtitle {
+  position: relative;
   z-index: 2;
   font-size: 1em;
   font-weight: bold;
