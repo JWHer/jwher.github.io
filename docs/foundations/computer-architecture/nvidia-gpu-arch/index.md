@@ -2,7 +2,6 @@
 authors:
 - jwher
 description: Nvidia GPU Architectures
-slug: nvidia-gpu-architectures
 tags:
   - hardware
   - gpu
@@ -10,7 +9,7 @@ tags:
 title: Nvidia GPU 아키텍처
 ---
 
-[![gpu](gpu.jpeg)](/docs/foundations/computer-architecture/nvidia-gpu-arch/nvidia-gpu-architectures)  
+[![gpu](gpu.jpeg)](/docs/foundations/computer-architecture/nvidia-gpu-arch)  
 *Graphic Processing Unit*  
 
 <!--truncate-->
