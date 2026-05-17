@@ -16,7 +16,6 @@ title: Istio
 # 목차
 * [서비스 메시](#서비스-메시)
 * [Istio](#istio)
-* [Envoy](#envoy)
 
 ## 서비스 메시
 

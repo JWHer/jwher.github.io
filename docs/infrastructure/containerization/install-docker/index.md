@@ -17,7 +17,7 @@ title: 나에게 필요한 도커 설치하기
 
 # 목차
 * [요구사항](#요구사항)
-* [Ubuntu docker 설치](#ubnutu-docker-설치)
+* [Ubuntu docker 설치](#ubuntu-docker-설치)
 * [CentOS docker 설치](#centos-docker-설치)
 * [Windows docker 설치](#windows-docker-설치)
 

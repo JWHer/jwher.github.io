@@ -15,7 +15,7 @@ title: Welcome To Kubeflow
 <!--truncate-->
 
 # 목차
-* [MLOps](#MLOps)
+* [MLOps](#mlops)
   
 <br/>
 

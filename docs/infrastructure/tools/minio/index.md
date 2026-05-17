@@ -18,7 +18,7 @@ title: Minio
 
 
 # 목차
-* [minIO](#minIO)
+* [minIO](#minio)
 
 <br/>
 

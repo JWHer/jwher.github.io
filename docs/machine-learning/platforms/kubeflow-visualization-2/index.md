@@ -22,7 +22,7 @@ title: Kubeflow Visualization 2
 * [이전 이야기](#이전-이야기)
 * [시각화 대상 선정](#시각화-대상-선정)
 * [스토리지 선정](#스토리지-선정)
-* [Message Queue 선정](#Message-Queue-선정)
+* [Message Queue 선정](#message-queue-선정)
 
 <br/>
 

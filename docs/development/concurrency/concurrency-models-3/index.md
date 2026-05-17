@@ -404,7 +404,7 @@ public class Counting {
 <summary>Volatile은 어떤가요?</summary>
 
 자바는 변수를 *volatile*로 표시해 읽고 쓰는 순서가 바뀌지 않게 보장합니다.
-[`Puzzle`](/docs/development/concurrency/concurrency-models-2/#-mysterious-memory)의 `answerReady`를 volatile로 만들어 해결할 수 있습니다.
+[`Puzzle`](/docs/development/concurrency/concurrency-models-2/#mysterious-memory)의 `answerReady`를 volatile로 만들어 해결할 수 있습니다.
 
 Volatile은 동기화에 매우 약합니다.
 예를들어 `count`를 volatile로 만들어도 `count++`가 atomic하게 동작하는것을 보장하지 않기 때문에,
