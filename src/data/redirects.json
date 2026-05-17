@@ -1,0 +1,210 @@
+[
+  {
+    "from": "/posts/install-docker",
+    "to": "/docs/infrastructure/containerization/install-docker"
+  },
+  {
+    "from": "/posts/welcome-to-docker",
+    "to": "/docs/infrastructure/containerization/welcome-to-docker"
+  },
+  {
+    "from": "/posts/docker-shared-volume",
+    "to": "/docs/infrastructure/containerization/docker-shared-volume"
+  },
+  {
+    "from": "/posts/the-docker-engine",
+    "to": "/docs/infrastructure/containerization/the-docker-engine"
+  },
+  {
+    "from": "/posts/docker-networking",
+    "to": "/docs/infrastructure/containerization/docker-networking"
+  },
+  {
+    "from": "/posts/welcome-to-kubernetes",
+    "to": "/docs/infrastructure/kubernetes/welcome-to-kubernetes"
+  },
+  {
+    "from": "/posts/install-kubernetes",
+    "to": "/docs/infrastructure/kubernetes/install-kubernetes"
+  },
+  {
+    "from": "/posts/kubernetes-usage",
+    "to": "/docs/infrastructure/kubernetes/kubernetes-usage"
+  },
+  {
+    "from": "/posts/dex",
+    "to": "/docs/infrastructure/kubernetes/dex"
+  },
+  {
+    "from": "/posts/envoy",
+    "to": "/docs/infrastructure/kubernetes/envoy"
+  },
+  {
+    "from": "/posts/istio",
+    "to": "/docs/infrastructure/kubernetes/istio"
+  },
+  {
+    "from": "/posts/kubernetes-architecture",
+    "to": "/docs/infrastructure/kubernetes/kubernetes-architecture"
+  },
+  {
+    "from": "/posts/requirement-levels",
+    "to": "/docs/infrastructure/kubernetes/requirement-levels"
+  },
+  {
+    "from": "/posts/nuclio",
+    "to": "/docs/infrastructure/tools/nuclio"
+  },
+  {
+    "from": "/posts/minio",
+    "to": "/docs/infrastructure/tools/minio"
+  },
+  {
+    "from": "/posts/install-harbor",
+    "to": "/docs/infrastructure/tools/install-harbor"
+  },
+  {
+    "from": "/posts/install-helm",
+    "to": "/docs/infrastructure/tools/install-helm"
+  },
+  {
+    "from": "/posts/ensemble-methods",
+    "to": "/docs/machine-learning/fundamentals/ensemble-methods"
+  },
+  {
+    "from": "/posts/uncertainty-estimation",
+    "to": "/docs/machine-learning/fundamentals/uncertainty-estimation"
+  },
+  {
+    "from": "/posts/attention-is-all-you-need",
+    "to": "/docs/machine-learning/deep-learning/attention-is-all-you-need"
+  },
+  {
+    "from": "/posts/quantization",
+    "to": "/docs/machine-learning/deep-learning/quantization"
+  },
+  {
+    "from": "/posts/variable-autoencoder",
+    "to": "/docs/machine-learning/research-papers/variable-autoencoder"
+  },
+  {
+    "from": "/posts/deep-learning-on-a-data-diet",
+    "to": "/docs/machine-learning/research-papers/deep-learning-on-a-data-diet"
+  },
+  {
+    "from": "/posts/hidden-technical-debt",
+    "to": "/docs/machine-learning/research-papers/hidden-technical-debt"
+  },
+  {
+    "from": "/posts/alphapose",
+    "to": "/docs/machine-learning/computer-vision/alphapose"
+  },
+  {
+    "from": "/posts/install-kubeflow",
+    "to": "/docs/machine-learning/platforms/install-kubeflow"
+  },
+  {
+    "from": "/posts/kubeflow-visualization-1",
+    "to": "/docs/machine-learning/platforms/kubeflow-visualization-1"
+  },
+  {
+    "from": "/posts/welcome-to-kubeflow",
+    "to": "/docs/machine-learning/platforms/welcome-to-kubeflow"
+  },
+  {
+    "from": "/posts/kubeflow-visualization-2",
+    "to": "/docs/machine-learning/platforms/kubeflow-visualization-2"
+  },
+  {
+    "from": "/posts/sagemaker",
+    "to": "/docs/machine-learning/platforms/sagemaker"
+  },
+  {
+    "from": "/posts/kubeflow-guide",
+    "to": "/docs/machine-learning/platforms/kubeflow-guide"
+  },
+  {
+    "from": "/posts/ngrx",
+    "to": "/docs/development/web/ngrx"
+  },
+  {
+    "from": "/posts/api-design-for-long-jobs",
+    "to": "/docs/development/web/api-design-for-long-jobs"
+  },
+  {
+    "from": "/posts/concurrency-models-1",
+    "to": "/docs/development/concurrency/concurrency-models-1"
+  },
+  {
+    "from": "/posts/concurrency-models-2",
+    "to": "/docs/development/concurrency/concurrency-models-2"
+  },
+  {
+    "from": "/posts/concurrency-models-3",
+    "to": "/docs/development/concurrency/concurrency-models-3"
+  },
+  {
+    "from": "/posts/concurrency-models-4",
+    "to": "/docs/development/concurrency/concurrency-models-4"
+  },
+  {
+    "from": "/posts/github-issue",
+    "to": "/docs/development/practices/github-issue"
+  },
+  {
+    "from": "/posts/agile",
+    "to": "/docs/development/practices/agile"
+  },
+  {
+    "from": "/posts/golang-setup",
+    "to": "/docs/development/languages/golang-setup"
+  },
+  {
+    "from": "/posts/build-opencv-with-java",
+    "to": "/docs/development/languages/build-opencv-with-java"
+  },
+  {
+    "from": "/posts/programming-massively-parallel-processors",
+    "to": "/docs/development/languages/programming-massively-parallel-processors"
+  },
+  {
+    "from": "/posts/cpp-coding-basic1",
+    "to": "/docs/development/languages/cpp-coding-basic1"
+  },
+  {
+    "from": "/posts/cpp-coding-basic2",
+    "to": "/docs/development/languages/cpp-coding-basic2"
+  },
+  {
+    "from": "/posts/information-theory",
+    "to": "/docs/foundations/mathematics/information-theory"
+  },
+  {
+    "from": "/posts/binomial-theorem",
+    "to": "/docs/foundations/mathematics/binomial-theorem"
+  },
+  {
+    "from": "/posts/power-series",
+    "to": "/docs/foundations/mathematics/power-series"
+  },
+  {
+    "from": "/posts/euclidean-algorithm",
+    "to": "/docs/foundations/mathematics/euclidean-algorithm"
+  },
+  {
+    "from": "/posts/nvidia-gpu-arch",
+    "to": "/docs/foundations/computer-architecture/nvidia-gpu-arch"
+  },
+  {
+    "from": "/posts/virtualbox-with-no-gui",
+    "to": "/docs/foundations/linux/virtualbox-with-no-gui"
+  },
+  {
+    "from": "/posts/linux-disk-free",
+    "to": "/docs/foundations/linux/linux-disk-free"
+  },
+  {
+    "from": "/posts/uuid",
+    "to": "/docs/foundations/linux/uuid"
+  }
+]

@@ -208,6 +208,12 @@ const config = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: require('./src/data/redirects.json'),
+      },
+    ],
   ],
 };
 
