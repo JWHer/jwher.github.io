@@ -562,7 +562,7 @@ export default function Seoul() {
   const bgColor = theme === 'dark' ? '#000' : '#F7F2E8';
 
   return (
-    <ArtLayout title="서울 Seoul" year={2026}>
+    <ArtLayout artworkId="seoul" title="서울 Seoul" year={2026}>
       {/* Override ArtLayout's hardcoded dark background for light mode */}
       <style>{`
         #__docusaurus { background: ${bgColor}; }

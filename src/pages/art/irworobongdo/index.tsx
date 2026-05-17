@@ -395,7 +395,7 @@ export default function Irworobongdo() {
   React.useEffect(() => setMounted(true), []);
 
   return (
-    <ArtLayout title="일월오봉도" subtitle="Sun, Moon and Five Peaks" year={2026}>
+    <ArtLayout artworkId="irworobongdo" title="일월오봉도" subtitle="Sun, Moon and Five Peaks" year={2026}>
       {mounted && <IrworobongdoCanvas />}
     </ArtLayout>
   );

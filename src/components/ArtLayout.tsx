@@ -1,6 +1,13 @@
 import React from 'react';
+import { getArtwork } from '@site/src/data/artworks';
 
 interface ArtLayoutProps {
+  /**
+   * Artwork id (matches ARTWORKS entries in src/data/artworks.ts).
+   * When provided, the layout consults the artwork's `published` flag and
+   * renders a "준비중" notice instead of children if false.
+   */
+  artworkId?: string;
   title: string;
   subtitle?: string;
   year?: number;
@@ -11,7 +18,10 @@ interface ArtLayoutProps {
  * Shared layout for full-screen art pages.
  * Hides navbar/footer, shows back link and title overlay.
  */
-export default function ArtLayout({ title, subtitle, year, children }: ArtLayoutProps) {
+export default function ArtLayout({ artworkId, title, subtitle, year, children }: ArtLayoutProps) {
+  const artwork = artworkId ? getArtwork(artworkId) : undefined;
+  const isUnpublished = artwork ? !artwork.published : false;
+
   return (
     <>
       <style>{`
@@ -64,7 +74,33 @@ export default function ArtLayout({ title, subtitle, year, children }: ArtLayout
         {year && <div style={{ opacity: 0.6 }}>{year}</div>}
       </div>
 
-      {children}
+      {isUnpublished ? <ComingSoon /> : children}
     </>
+  );
+}
+
+function ComingSoon() {
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#fff',
+        background: '#000',
+        textAlign: 'center',
+        padding: '2rem',
+      }}
+    >
+      <div style={{ fontSize: '2rem', letterSpacing: '0.2em', marginBottom: '0.6rem' }}>
+        COMING SOON
+      </div>
+      <div style={{ fontSize: '0.85rem', opacity: 0.6, letterSpacing: '0.05em' }}>
+        준비중입니다.
+      </div>
+    </div>
   );
 }

@@ -884,7 +884,7 @@ export default function Machine() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <ArtLayout title="Machine" year={2026}>
+    <ArtLayout artworkId="machine" title="Machine" year={2026}>
       {mounted && <MachineCanvas />}
     </ArtLayout>
   );

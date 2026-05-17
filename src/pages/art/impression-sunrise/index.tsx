@@ -196,6 +196,7 @@ export default function ImpressionSunrise() {
 
   return (
     <ArtLayout
+      artworkId="impression-sunrise"
       title="Impression, Sunrise — Claude Monet, 1872"
       subtitle="Cinemagraph"
       year={2026}

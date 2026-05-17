@@ -15,6 +15,14 @@
   margin: 0 auto;
 }
 
+.empty {
+  text-align: center;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  margin: 4rem auto;
+}
+
 // ── Card ─────────────────────────────────────────────────────────────────────
 
 .card {
