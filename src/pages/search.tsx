@@ -36,7 +36,7 @@ export default function SearchPage() {
   return (
     <Layout title="검색" description="블로그 콘텐츠 검색">
       <SiteHero
-        bgImage="/img/about-me/sea-cave.jpg"
+        bgImage="/img/about-me/sea-cave.webp"
         title="Search"
         subtitle="It is the glory of God to conceal a thing: but the honour of kings is to search out a matter."
       />

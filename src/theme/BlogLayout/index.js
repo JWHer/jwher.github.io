@@ -10,7 +10,7 @@ export default function BlogLayout(props) {
   return (
     <Layout {...layoutProps}>
       <SiteHero
-        bgImage="/img/blog/library.jpg"
+        bgImage="/img/blog/library.webp"
         title="Blog"
         subtitle="Let thine heart retain my words: Keep my commandments, and live."
       />

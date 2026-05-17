@@ -14,7 +14,7 @@ export default function DocTagDocListPage({tag}) {
   return (
     <Layout title={`${tag.label} — Docs`}>
       <SiteHero
-        bgImage="/img/docs/category.jpg"
+        bgImage="/img/docs/category.webp"
         title="Docs"
         subtitle="God shall bless us; and all the ends of the earth shall fear him."
       />

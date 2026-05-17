@@ -272,7 +272,7 @@ export default function Home() {
       <ArtCanvas />
 
       <SiteHero
-        bgImage="/img/bamboo-road.jpg"
+        bgImage="/img/bamboo-road.webp"
         title={<><span style={{fontSize: '0.45em', display: 'block', marginBottom: '-0.35em', letterSpacing: '0.08em'}}>JWHer</span>Tech Blog</>}
         subtitle={<>허정원 기술블로그<br /><span style={{fontWeight: 300, fontSize: '0.8em', opacity: 0.85}}>Copyright © 2021, JeongWon Her and/or its subsidiaries or affiliates.</span></>}
         style={{ paddingTop: '4rem' }}
