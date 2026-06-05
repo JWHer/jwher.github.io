@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import { CONTENT_INDEX, ContentItem } from '@site/src/data/content-index';
 import SiteHero from '@site/src/components/SiteHero';
 import { kebabCase } from '@site/src/utils/kebabCase';
@@ -269,6 +270,13 @@ function BriefIntro() {
 export default function Home() {
   return (
     <Layout title="JWHer Tech Blog" description="허정원 기술블로그">
+      <Head>
+        <meta property="og:image" content="https://jwher.github.io/img/bamboo-road.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:description" content="허정원 기술블로그 — MLOps, 병렬 프로그래밍, HPC" />
+        <meta name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp" />
+      </Head>
       <ArtCanvas />
 
       <SiteHero

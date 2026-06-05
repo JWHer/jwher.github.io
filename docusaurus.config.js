@@ -112,6 +112,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Default OG image (blog posts override via frontmatter `image:` field)
+      image: 'img/bamboo-road.webp',
+      metadata: [
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@jwher96' },
+        { property: 'og:site_name', content: 'JWHer Tech Blog' },
+        { property: 'og:type', content: 'website' },
+      ],
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
