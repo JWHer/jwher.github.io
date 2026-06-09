@@ -22,7 +22,7 @@ const fs = require('fs');
 const path = require('path');
 
 const OUTPUT = path.join(__dirname, '..', 'src', 'data', 'ga-views.ts');
-const TOP_N = 10; // fetch top 10, landing page uses top 5
+const TOP_N = 30; // fetch top 30 to have enough after filtering nav pages
 
 // ── Graceful exit if not configured ──────────────────────────────────────────
 const { GA_PROPERTY_ID, GA_SERVICE_ACCOUNT_KEY } = process.env;
@@ -38,11 +38,27 @@ if (!GA_PROPERTY_ID || !GA_SERVICE_ACCOUNT_KEY) {
     const key = JSON.parse(Buffer.from(GA_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'));
     const jwt = createJWT(key.private_key, key.client_email);
     const accessToken = await getAccessToken(jwt);
-    const rows = await fetchTopPages(accessToken, GA_PROPERTY_ID);
-    const views = rows.map(row => ({
-      path: row.dimensionValues[0].value,
-      views: parseInt(row.metricValues[0].value, 10),
-    }));
+
+    // Progressively widen the date range until we have at least 5 content pages
+    const DATE_RANGES = ['90daysAgo', '180daysAgo', '365daysAgo', '2020-01-01'];
+    const MIN_RESULTS = 5;
+    let views = [];
+
+    for (const startDate of DATE_RANGES) {
+      const rows = await fetchTopPages(accessToken, GA_PROPERTY_ID, startDate);
+      views = rows
+        .map(row => ({
+          path: row.dimensionValues[0].value,
+          views: parseInt(row.metricValues[0].value, 10),
+        }))
+        .filter(v =>
+        (v.path.startsWith('/blog/') || v.path.startsWith('/docs/')) &&
+        !v.path.includes('/tags')
+      );
+      console.log(`[fetch-ga-views] ${startDate}: found ${views.length} content pages`);
+      if (views.length >= MIN_RESULTS) break;
+    }
+
     writeOutput(views);
     console.log(`[fetch-ga-views] Wrote ${views.length} entries to ga-views.ts`);
   } catch (err) {
@@ -93,11 +109,11 @@ async function getAccessToken(jwt) {
   return json.access_token;
 }
 
-async function fetchTopPages(accessToken, propertyId) {
+async function fetchTopPages(accessToken, propertyId, startDate) {
   const body = JSON.stringify({
     dimensions: [{ name: 'pagePath' }],
     metrics: [{ name: 'screenPageViews' }],
-    dateRanges: [{ startDate: '90daysAgo', endDate: 'today' }],
+    dateRanges: [{ startDate, endDate: 'today' }],
     limit: TOP_N,
     orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
   });

@@ -7,7 +7,36 @@ export type GaView = {
   views: number;
 };
 
-export const GA_VIEWS: GaView[] = [];
+export const GA_VIEWS: GaView[] = [
+  {
+    "path": "/blog/chatgpt-duality-of-wealth-and-faith",
+    "views": 7
+  },
+  {
+    "path": "/docs/algorithms/data_streaming",
+    "views": 4
+  },
+  {
+    "path": "/blog/blog-tech-map",
+    "views": 3
+  },
+  {
+    "path": "/docs/cs/computer-architecture/",
+    "views": 3
+  },
+  {
+    "path": "/blog/cncf",
+    "views": 2
+  },
+  {
+    "path": "/docs/development/concurrency/concurrency-models-1",
+    "views": 2
+  },
+  {
+    "path": "/docs/development/languages/build-opencv-with-java/",
+    "views": 2
+  }
+];
 
 // Format: 'YYYY. MM' (e.g. '2026. 06'), empty string if GA4 not configured
-export const GA_UPDATED_AT: string = '';
+export const GA_UPDATED_AT: string = '2026. 06';
