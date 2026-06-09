@@ -6,6 +6,7 @@ export default function SiteHero({ bgImage, title, subtitle, style, fixed }) {
     <div
       className={`${styles.header}${fixed ? ` ${styles.headerFixed}` : ''}`}
       style={{ backgroundImage: `url(${bgImage})`, ...style }}
+      data-hero={fixed ? 'fixed' : 'static'}
     >
       <div className={styles.filter} />
       {fixed ? (

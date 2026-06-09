@@ -14,8 +14,16 @@ export default function LayoutWrapper(props) {
 
     const handleScroll = () => {
       const navbarH = navbar?.offsetHeight || 60;
-      // Trigger earlier: when content covers ~50% of navbar height past the hero
-      const isAtTop = window.scrollY < (window.innerHeight - navbarH * 1.5);
+      const hero = document.querySelector('[data-hero]');
+      let threshold;
+      if (!hero) {
+        threshold = 0; // no hero → always solid
+      } else if (hero.dataset.hero === 'fixed') {
+        threshold = window.innerHeight - navbarH * 1.5; // home page full-viewport hero
+      } else {
+        threshold = hero.offsetHeight - navbarH * 0.5; // blog/docs/art: shorter hero
+      }
+      const isAtTop = window.scrollY < threshold;
       if (isAtTop === wasAtTop) return;
       wasAtTop = isAtTop;
 
