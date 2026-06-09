@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Install Tar.Gz
 tags:
   - linux
   - package-management
   - tutorial
 title: 타르(tar) 파일 설치하기
+date: '2022-06-02'
 ---
 
 ![gnuzip](gzip.png)  

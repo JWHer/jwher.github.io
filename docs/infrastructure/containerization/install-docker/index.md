@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Install Docker
 tags:
   - docker
@@ -8,6 +8,7 @@ tags:
   - tutorial
   - installation
 title: 나에게 필요한 도커 설치하기
+date: '2022-06-02'
 ---
 
 ![docker](/img/logos/docker.svg)  

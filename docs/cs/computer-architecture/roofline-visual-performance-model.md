@@ -1,12 +1,13 @@
 ---
 sidebar_position: 7
 authors:
-- jwher
+  - jwher
 description: 가속기
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: 가속기 디자인
+date: '2026-02-18'
 ---
 
 [![computer-architecture](/img/computer-architecture.jpeg)](/docs/cs/computer-architecture/)  

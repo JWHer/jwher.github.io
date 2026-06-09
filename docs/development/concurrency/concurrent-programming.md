@@ -1,10 +1,11 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 분산처리시스템과 고성능 클러스터
 tags:
-- cs
+  - cs
 title: 다시보는 동시성프로그래밍
+date: '2022-12-12'
 ---
 
 <!-- [![concurrent-programming](concurrent-programming.png)](/docs/cs/concurrent-programming/)   -->

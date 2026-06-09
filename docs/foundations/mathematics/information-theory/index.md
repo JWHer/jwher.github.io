@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 정보 이론
 tags:
   - mathematics
   - information-theory
   - theory
 title: Information Theory
+date: '2022-06-02'
 ---
 
 ![cards](cards.jpg)  

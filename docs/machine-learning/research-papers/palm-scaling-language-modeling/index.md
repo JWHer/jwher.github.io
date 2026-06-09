@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'PaLM: Scaling Language Modeling with Pathways'
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - llm
   - research
 title: Pathways를 이용한 언어모델 스케일링
+date: '2023-02-16'
 ---
 
 [![palm](palm.jpeg)](/docs/machine-learning/research-papers/palm-scaling-language-modeling)  

@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 고(Golang) 개발환경 구축하기
 tags:
   - go
@@ -8,6 +8,7 @@ tags:
   - setup
   - tutorial
 title: Golang Setup
+date: '2022-06-02'
 ---
 
 ![go](/img/logos/go.svg)  

@@ -1,11 +1,12 @@
 ---
 sidebar_position: 3
 authors:
-- jwher
+  - jwher
 description: Markov Decision Process
 tags:
-- ml
+  - ml
 title: 마르코프 결정 과정
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/markov-decision-process)  

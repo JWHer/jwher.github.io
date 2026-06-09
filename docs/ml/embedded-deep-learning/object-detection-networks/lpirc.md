@@ -1,12 +1,13 @@
 ---
 sidebar_position: 5
 authors:
-- jwher
+  - jwher
 description: LPIRC에서 우승하는 방법
 tags:
-- cs
-- ml
+  - cs
+  - ml
 title: Low-power Image Recognition Challenge
+date: '2026-02-18'
 ---
 
 [![jetson](jetson.jpeg)](/docs/ml/embedded-deep-learning/object-detection-networks/lpirc)  

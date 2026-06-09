@@ -1,12 +1,13 @@
 ---
 sidebar_position: 10
 authors:
-- jwher
+  - jwher
 description: On-policy Control with Approximation
 tags:
-- ml
-- rl
+  - ml
+  - rl
 title: 근사를 통한 on-policy 제어
+date: '2026-02-18'
 ---
 
 ## Episodic semi-gradient control

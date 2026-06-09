@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 도커 컨테이너와 공유 볼륨
 tags:
   - docker
@@ -8,6 +8,7 @@ tags:
   - storage
   - quick-reference
 title: Docker Shared Volume
+date: '2022-06-02'
 ---
 
 ![docker](/img/logos/docker.svg)

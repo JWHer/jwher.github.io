@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'Helm: 쿠버네티스 패키지 매니저'
 tags:
   - kubernetes
@@ -8,6 +8,7 @@ tags:
   - installation
   - tutorial
 title: Install Helm
+date: '2022-06-02'
 ---
 
 ![helm](/img/logos/helm.svg)

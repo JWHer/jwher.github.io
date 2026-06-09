@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Virtualbox With No Gui
 tags:
   - linux
   - virtualization
   - tutorial
 title: GUI 없이 버추얼박스 사용하기
+date: '2022-06-02'
 ---
 
 ![virtualbox](/img/logos/virtualbox.svg)  

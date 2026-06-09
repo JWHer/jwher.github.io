@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Ensemble Methods
 tags:
   - machine-learning
   - ensemble
   - theory
 title: Ensemble Methods
+date: '2022-06-02'
 ---
 
 *Ensemble Methods*

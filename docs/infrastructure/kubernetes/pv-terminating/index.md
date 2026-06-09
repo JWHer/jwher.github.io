@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'K8s tip: PersistentVolume terminating'
 tags:
   - kubernetes
   - storage
   - troubleshooting
 title: K8S Tip Pv Terminating
+date: '2022-06-02'
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)

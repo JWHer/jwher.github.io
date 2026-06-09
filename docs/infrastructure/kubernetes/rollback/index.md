@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'K8s tip: Rollback'
 tags:
   - kubernetes
   - deployment
   - quick-reference
 title: K8S Tip Rollback
+date: '2022-06-02'
 ---
 
 <!--truncate-->

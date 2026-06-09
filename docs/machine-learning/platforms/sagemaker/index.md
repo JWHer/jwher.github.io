@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: '아마존 세이지메이커: 머신러닝 자동화'
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - aws
   - sagemaker
 title: Sagemaker
+date: '2022-06-02'
 ---
 
 ![sagemaker](/img/logos/sagemaker.svg)

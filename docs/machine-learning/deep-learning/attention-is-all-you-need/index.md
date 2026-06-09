@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Attention is all you need
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - transformers
   - research
 title: Attention 다시보기
+date: '2023-01-05'
 ---
 
 [![attention](scaled-dot-product-attention.png)](/docs/machine-learning/deep-learning/attention-is-all-you-need)  

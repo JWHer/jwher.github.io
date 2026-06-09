@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Seven Concurrency Models in Seven Weeks - Chapter2 Day1
 tags:
   - concurrency
   - parallelism
   - theory
 title: 7가지 동시성 모델(스레드와 락) 상호 배제와 메모리 모델
+date: '2022-12-14'
 ---
 
 [![concurrency](ford-model-t.jpeg)](/docs/development/concurrency/concurrency-models-2)  

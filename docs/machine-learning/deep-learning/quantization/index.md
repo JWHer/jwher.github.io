@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 양자화를 통한 딥러닝 모델 경량화
 tags:
   - machine-learning
   - deep-learning
   - optimization
 title: 정확한 추론을 위한 양자화 기법
+date: '2025-04-16'
 ---
 
 [![quantization](quantization.png)](/docs/machine-learning/deep-learning/quantization)  

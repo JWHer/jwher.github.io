@@ -1,13 +1,14 @@
 ---
 authors:
-- jwher
-description: "The Case for the Reduced Instruction Set Computer"
+  - jwher
+description: The Case for the Reduced Instruction Set Computer
 tags:
   - machine-learning
   - hardware
   - architecture
   - research
 title: RISC 컴퓨터를 위한 사례
+date: '2023-11-20'
 ---
 
 [![risc](risc.jpeg)](/docs/machine-learning/deep-learning/risc-for-ml)  

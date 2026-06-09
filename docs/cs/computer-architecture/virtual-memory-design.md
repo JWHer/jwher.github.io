@@ -1,12 +1,13 @@
 ---
 sidebar_position: 5
 authors:
-- jwher
+  - jwher
 description: Virtual Memory Design
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: 가상 메모리 디자인
+date: '2026-02-18'
 ---
 
 ## 가상 메모리

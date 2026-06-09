@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 최대공약수와 최소공배수를 구하는 방법
 tags:
   - mathematics
   - algorithms
   - theory
 title: 유클리드 호제법
+date: '2023-05-24'
 ---
 
 [![euclid](/img/euclid.jpeg)](/docs/foundations/mathematics/euclidean-algorithm)  

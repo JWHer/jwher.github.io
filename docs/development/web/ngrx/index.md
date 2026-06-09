@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: NGRX
 tags:
   - typescript
@@ -8,6 +8,7 @@ tags:
   - state-management
   - angular
 title: NGRX 반응형 웹을 위한 상태 관리
+date: '2022-08-17'
 ---
 
 [![ngrx](ngrx.svg)](/docs/development/web/ngrx)  

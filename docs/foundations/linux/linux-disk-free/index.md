@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 리눅스 디스크 정리하기
 tags:
   - linux
   - disk-management
   - quick-reference
 title: Linux Disk Free
+date: '2022-06-02'
 ---
 
 <!--truncate-->

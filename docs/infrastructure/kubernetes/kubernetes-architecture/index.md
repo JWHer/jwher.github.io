@@ -1,11 +1,12 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Kubernetes Architecture
 tags:
   - kubernetes
   - architecture
 title: 쿠버네티스 아키텍처
+date: '2022-06-02'
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)

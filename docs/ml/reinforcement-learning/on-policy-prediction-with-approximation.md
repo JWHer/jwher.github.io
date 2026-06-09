@@ -1,12 +1,13 @@
 ---
 sidebar_position: 9
 authors:
-- jwher
+  - jwher
 description: On-policy Prediction with Approximation
 tags:
-- ml
-- rl
+  - ml
+  - rl
 title: 근사를 통한 on-policy 예측
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/on-policy-prediction-with-approximation)  

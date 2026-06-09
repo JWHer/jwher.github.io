@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'K8s tip: nodeSelector'
 tags:
   - kubernetes
   - scheduling
   - quick-reference
 title: K8S Tip Nodeselector
+date: '2022-06-02'
 ---
 
 <!--truncate-->

@@ -1,12 +1,13 @@
 ---
 sidebar_position: 4
 authors:
-- jwher
+  - jwher
 description: Memory Hierarchy Design
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: 메모리 계층 디자인
+date: '2026-02-18'
 ---
 
 ## 6개의 기본적인 캐시 최적화

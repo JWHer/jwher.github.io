@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Kubeflow 시각화 개발 2편
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - kubeflow
   - visualization
 title: Kubeflow Visualization 2
+date: '2022-06-02'
 ---
 
 <!--truncate-->

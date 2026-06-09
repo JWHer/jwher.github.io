@@ -1,11 +1,12 @@
 ---
 sidebar_position: 1
 authors:
-- jwher
+  - jwher
 description: Reinforcement Learning
 tags:
-- ml
+  - ml
 title: 강화학습
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning)  

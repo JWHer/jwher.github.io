@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'Istio: 서비스 메시'
 tags:
   - kubernetes
   - service-mesh
   - networking
 title: Istio
+date: '2022-06-02'
 ---
 
 ![istio](/img/logos/istio.svg)

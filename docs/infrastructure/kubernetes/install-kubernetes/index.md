@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Install Kubernetes
 tags:
   - kubernetes
   - installation
   - tutorial
 title: 나에게 필요한 쿠버네티스 설치하기
+date: '2022-06-02'
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)  

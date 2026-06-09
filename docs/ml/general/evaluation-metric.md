@@ -1,11 +1,12 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Evaluation Metric
 tags:
-- general
-- ml
+  - general
+  - ml
 title: 평가 지표
+date: '2026-02-18'
 ---
 
 #### 혼동 행렬 {#confusion-matrix-head}

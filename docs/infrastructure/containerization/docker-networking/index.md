@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 도커 딥 다이브
 tags:
   - docker
   - containerization
   - networking
 title: 도커 네트워킹
+date: '2025-04-16'
 ---
 
 [![docker networking](/img/logos/docker.svg)](/docs/infrastructure/containerization/docker-networking)  

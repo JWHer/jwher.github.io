@@ -1,12 +1,13 @@
 ---
 sidebar_position: 1
 authors:
-- jwher
+  - jwher
 description: Acceleration By Approximation
 tags:
-- cs
-- ml
+  - cs
+  - ml
 title: 근사를 통한 가속
+date: '2026-02-18'
 ---
 
 [![acceleration](acceleration.jpeg)](/docs/ml/embedded-deep-learning/software/approximation)  

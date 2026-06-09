@@ -1,12 +1,13 @@
 ---
 sidebar_position: 8
 authors:
-- jwher
+  - jwher
 description: Planning and Learning with Tabular Methods
 tags:
-- ml
-- rl
+  - ml
+  - rl
 title: 테이블 방법을 통한 계획과 학습
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/planning-and-learning-tabular-methods)  

@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 쿠브플로우 가이드
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - kubeflow
   - tutorial
 title: Kubeflow Guide
+date: '2022-06-02'
 ---
 
 ![kubeflow](/img/logos/kubeflow.svg)

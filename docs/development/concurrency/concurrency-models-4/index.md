@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Seven Concurrency Models in Seven Weeks - Chapter2 Day3
 tags:
   - concurrency
   - parallelism
   - theory
 title: 7가지 동시성 모델(스레드와 락) 거인의 어깨 위에서
+date: '2022-12-28'
 ---
 
 [![concurrency](giant.jpeg)](/docs/development/concurrency/concurrency-models-4)  

@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 애자일
 tags:
   - methodology
   - agile
   - best-practices
 title: Agile
+date: '2022-06-07'
 ---
 
 ![agile](agile.png)

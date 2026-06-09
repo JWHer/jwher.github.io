@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: C/C++ 재활 훈련
 tags:
   - cpp
@@ -8,6 +8,7 @@ tags:
   - tutorial
   - basics
 title: 코딩 기초 트레이닝2
+date: '2023-05-18'
 ---
 
 [![programmers](/img/logos/programmers.png)](/docs/development/languages/cpp-coding-basic2)  

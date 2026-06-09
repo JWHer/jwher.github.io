@@ -1,12 +1,13 @@
 ---
 sidebar_position: 3
 authors:
-- jwher
+  - jwher
 description: Data Level Parallelism
 tags:
-- cs
-- computer architecture
-title: 데이터 수준 병렬화 
+  - cs
+  - computer architecture
+title: 데이터 수준 병렬화
+date: '2026-02-18'
 ---
 
 [![computer-architecture](/img/computer-architecture.jpeg)](/docs/cs/computer-architecture/data-level-parallelism)  

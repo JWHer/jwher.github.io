@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'VAE: Variable Auto Encoder'
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - vae
   - research
 title: Variable Autoencoder
+date: '2022-06-02'
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Hidden Technical Debt in Machine Learning Systems
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - best-practices
   - research
 title: 머신러닝에 숨은 기술 부채
+date: '2022-12-13'
 ---
 
 [![ML](/img/brain.jpg)](/docs/machine-learning/research-papers/hidden-technical-debt)  

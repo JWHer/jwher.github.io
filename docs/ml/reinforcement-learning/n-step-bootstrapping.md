@@ -1,12 +1,13 @@
 ---
 sidebar_position: 7
 authors:
-- jwher
+  - jwher
 description: n-step Bootstrapping
 tags:
-- ml
-- rl
+  - ml
+  - rl
 title: n-단계 부트스트래핑
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/n-step-bootstrapping)  

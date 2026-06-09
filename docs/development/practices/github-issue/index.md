@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 깃허브 이슈로 협업하기
 tags:
   - git
@@ -8,6 +8,7 @@ tags:
   - workflow
   - best-practices
 title: Github Issue
+date: '2022-06-02'
 ---
 
 ![github](/img/logos/github.svg)

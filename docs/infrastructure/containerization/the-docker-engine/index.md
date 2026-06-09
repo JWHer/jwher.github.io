@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 도커 딥 다이브
 tags:
   - docker
   - containerization
   - architecture
 title: 도커 엔진
+date: '2023-03-26'
 ---
 
 [![the docker engine](/img/logos/docker.svg)](/docs/infrastructure/containerization/the-docker-engine)  

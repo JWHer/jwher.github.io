@@ -1,12 +1,13 @@
 ---
 sidebar_position: 8
 authors:
-- jwher
+  - jwher
 description: asic
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: 도메인에 맞는 아키텍처
+date: '2026-02-18'
 ---
 
 [![computer-architecture](/img/computer-architecture.jpeg)](/docs/cs/computer-architecture/)  

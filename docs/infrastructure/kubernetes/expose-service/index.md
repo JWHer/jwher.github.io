@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'K8s tip: Expose Service'
 tags:
   - kubernetes
   - networking
   - quick-reference
 title: K8S Tip Expose Service
+date: '2022-06-02'
 ---
 
 <!--truncate-->

@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: '쿠브플로우: 머신러닝 자동화'
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - kubeflow
   - introduction
 title: Welcome To Kubeflow
+date: '2022-06-02'
 ---
 
 ![kubeflow](/img/logos/kubeflow.svg)

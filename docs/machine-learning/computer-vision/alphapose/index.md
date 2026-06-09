@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Alphapose 논문 리뷰와 사용
 tags:
   - machine-learning
   - computer-vision
   - pose-estimation
 title: Alphapose 논문 리뷰와 사용
+date: '2022-06-02'
 ---
 
 

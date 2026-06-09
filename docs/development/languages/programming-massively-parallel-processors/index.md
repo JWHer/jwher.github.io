@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Programming Massively Parallel Processors - Chapter 1
 tags:
   - cuda
@@ -8,6 +8,7 @@ tags:
   - parallel-computing
   - tutorial
 title: 대규모 병렬프로세서 프로그래밍(소개)
+date: '2023-02-09'
 ---
 
 [![a100](nvidia_a100.png)](/docs/development/languages/programming-massively-parallel-processors)  

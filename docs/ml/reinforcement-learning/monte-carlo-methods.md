@@ -1,11 +1,12 @@
 ---
 sidebar_position: 5
 authors:
-- jwher
+  - jwher
 description: Monte Carlo Methods
 tags:
-- ml
+  - ml
 title: 몬테 카를로 방법
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/)  

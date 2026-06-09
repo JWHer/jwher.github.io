@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 쿠버네티스 누클리오에 ML 모델 배포하기
 tags:
   - kubernetes
@@ -8,6 +8,7 @@ tags:
   - serverless
   - deployment
 title: Deploying Ml Model On Kubernetes Nuclio
+date: '2022-06-02'
 ---
 
 <!-- image repository: https://raw.githubusercontent.com/JWHer/jwher.github.io/master/_posts/images/ -->

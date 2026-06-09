@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 쿠버네티스에 Harbor 설치하기
 tags:
   - kubernetes
@@ -8,6 +8,7 @@ tags:
   - installation
   - tutorial
 title: Install Harbor
+date: '2022-06-02'
 ---
 
 ![harbor](/img/logos/harbor-stacked-black.svg)

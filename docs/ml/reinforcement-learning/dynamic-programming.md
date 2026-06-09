@@ -1,13 +1,14 @@
 ---
 sidebar_position: 4
 authors:
-- jwher
+  - jwher
 description: Dynamic Programming
 tags:
-- ml
-- rl
-- reinforcement
+  - ml
+  - rl
+  - reinforcement
 title: 다이나믹 프로그래밍
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/)  

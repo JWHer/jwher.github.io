@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Nvidia GPU Architectures
 tags:
   - hardware
   - gpu
   - architecture
 title: Nvidia GPU 아키텍처
+date: '2022-06-22'
 ---
 
 [![gpu](gpu.jpeg)](/docs/foundations/computer-architecture/nvidia-gpu-arch)  

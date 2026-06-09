@@ -1,12 +1,13 @@
 ---
 sidebar_position: 6
 authors:
-- jwher
+  - jwher
 description: Temporal-Difference Learning
 tags:
-- ml
-- rl
+  - ml
+  - rl
 title: 시간차 학습
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/temporal-difference-learning)  

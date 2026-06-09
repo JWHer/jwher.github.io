@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'Envoy proxy: 대규모 서비스를 위한 L7 프록시'
 tags:
   - kubernetes
   - service-mesh
   - networking
 title: Envoy
+date: '2022-06-02'
 ---
 
 ![envoy-proxy](/img/logos/envoy-proxy.svg)

@@ -1,5 +1,6 @@
 ---
-title: 'Gradient'
+title: Gradient
+date: '2026-02-18'
 ---
 
 #### Gradient {#gradient-head}

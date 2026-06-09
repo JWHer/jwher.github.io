@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: UUID 범용 고유 식별자
 tags:
   - linux
   - system
   - quick-reference
 title: Uuid
+date: '2022-06-02'
 ---
 
 <!--truncate-->

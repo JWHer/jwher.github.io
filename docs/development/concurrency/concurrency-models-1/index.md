@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Seven Concurrency Models in Seven Weeks - Chapter1
 tags:
   - concurrency
   - parallelism
   - theory
 title: 7가지 동시성 모델(소개)
+date: '2022-12-13'
 ---
 
 [![concurrency](seven-plate.png)](/docs/development/concurrency/concurrency-models-1)  

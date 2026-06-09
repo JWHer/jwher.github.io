@@ -1,11 +1,12 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Key words for use in RFCs to Indicate Requirement Levels
 tags:
   - kubernetes
   - best-practices
 title: 요구사항에 사용하는 RFC 키워드
+date: '2022-12-28'
 ---
 
 [![rfc](rfc.jpeg)](/docs/infrastructure/kubernetes/requirement-levels)  

@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'K8s tip: ConfigMap'
 tags:
   - kubernetes
   - configuration
   - quick-reference
 title: K8S Tip Configmap
+date: '2022-06-02'
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)

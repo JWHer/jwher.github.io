@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: OpenCV 자바로 빌드하기
 tags:
   - java
@@ -8,6 +8,7 @@ tags:
   - computer-vision
   - tutorial
 title: Build OpenCV with Java
+date: '2022-06-29'
 ---
 
 ![opencv](OpenCV_Logo_with_text.png)  

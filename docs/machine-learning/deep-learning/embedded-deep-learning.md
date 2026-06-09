@@ -1,11 +1,12 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 하드웨어 소프트웨어 통합 설계와 병렬 처리
 tags:
-- cs
-- ml
+  - cs
+  - ml
 title: 임베디드 딥러닝
+date: '2023-11-30'
 ---
 
 [![embedded-deep-learning](/img/logos/cap_logo.png)](/docs/ml/embedded-deep-learning/)  

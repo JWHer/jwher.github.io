@@ -1,12 +1,13 @@
 ---
 sidebar_position: 2
 authors:
-- jwher
+  - jwher
 description: You Only Look Once
 tags:
-- cs
-- ml
+  - cs
+  - ml
 title: You Only Look Once
+date: '2026-02-18'
 ---
 
 [![object-detection](lenna.png)](/docs/ml/embedded-deep-learning/object-detection-networks/yolo)  

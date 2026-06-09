@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Intelligent Computer Vision 1(개요)
 tags:
   - machine-learning
   - computer-vision
   - lecture
 title: Intelligent Computer Vision 1
+date: '2022-06-02'
 ---
 
 ![computer-vision](/img/logos/computer-vision.svg)

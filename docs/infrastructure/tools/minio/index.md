@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: minIO 오브젝트 스토리지
 tags:
   - kubernetes
   - storage
   - object-storage
 title: Minio
+date: '2022-06-02'
 ---
 
 <!--truncate-->

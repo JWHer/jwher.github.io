@@ -1,12 +1,13 @@
 ---
 sidebar_position: 2
 authors:
-- jwher
+  - jwher
 description: Multi-armed Bandits
 tags:
-- ml
-- rl
+  - ml
+  - rl
 title: 여러대의 슬롯머신
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/multi-armed-bandits)  

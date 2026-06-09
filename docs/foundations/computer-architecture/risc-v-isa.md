@@ -1,12 +1,13 @@
 ---
 sidebar_position: 1
 authors:
-- jwher
+  - jwher
 description: RISC V Instruction Set Architecture
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: RISC V 명령어 셋 아키텍처
+date: '2023-09-26'
 ---
 
 *RISC V 명령어 셋 아키텍처*

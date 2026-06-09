@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 도커의 세계에 오신 걸 환영합니다!
 tags:
   - docker
   - containerization
   - introduction
 title: Welcome To Docker
+date: '2022-06-02'
 ---
 
 ![docker](/img/logos/docker.svg)

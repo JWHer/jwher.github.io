@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Uncertainty Estimation
 tags:
   - machine-learning
   - uncertainty
   - theory
 title: Uncertainty Estimation
+date: '2022-06-02'
 ---
 
 *Uncertainty Estimation*  

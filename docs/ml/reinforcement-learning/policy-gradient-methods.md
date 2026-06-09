@@ -1,13 +1,14 @@
 ---
 sidebar_position: 13
 authors:
-- jwher
+  - jwher
 description: Policy Gradient Methods
 tags:
-- ml
-- rl
-- reinforcement
+  - ml
+  - rl
+  - reinforcement
 title: 정책 기울기 방법들
+date: '2026-02-18'
 ---
 
 [![reinforcement-learning](reinforcement-learning.jpg)](/docs/ml/reinforcement-learning/policy-gradient-methods)  

@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 학습에 중요한 데이터 찾기
 tags:
   - machine-learning
@@ -8,6 +8,7 @@ tags:
   - data-efficiency
   - research
 title: 학습에 중요한 데이터 찾기
+date: '2022-09-10'
 ---
 
 [![deep-learning](network.png)](/docs/machine-learning/research-papers/deep-learning-on-a-data-diet)  

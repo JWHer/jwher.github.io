@@ -54,8 +54,8 @@ function docsPath(filePath) {
   if (parts[parts.length - 1] === 'index.md') {
     parts = parts.slice(0, -1);
   } else {
-    // Strip extension and numeric prefix
-    let last = parts[parts.length - 1].replace(/\.md$/, '').replace(/^\d+\./, '');
+    // Strip extension and numeric prefix (dot or underscore: "4.note4" → "note4", "07_stream" → "stream")
+    let last = parts[parts.length - 1].replace(/\.md$/, '').replace(/^\d+[._]/, '');
     // Docusaurus 3 treats {folder}/{folder}.md the same as {folder}/index.md
     // (category-index equivalent) — use the folder path to avoid duplicate segments
     const parentFolder = parts.length >= 2 ? parts[parts.length - 2] : '';
@@ -132,6 +132,7 @@ function scanDocs() {
       description: fm.description || fm.title,
       tags: Array.isArray(fm.tags) ? fm.tags : [],
       keywords,
+      ...(fm.date ? { date: String(fm.date).slice(0, 10) } : {}),
       ...(fm.image && fm.image.startsWith('/') ? { image: fm.image } : {}),
     });
   }
@@ -178,9 +179,9 @@ function scanBlog() {
 const docsItems = scanDocs();
 const blogItems = scanBlog();
 
-// Blog: newest first; Docs: alphabetical by title
+// Both: newest first
 blogItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-docsItems.sort((a, b) => a.title.localeCompare(b.title, 'ko'));
+docsItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
 const allItems = [...blogItems, ...docsItems];
 

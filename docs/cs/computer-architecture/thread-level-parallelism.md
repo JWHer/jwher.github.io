@@ -1,12 +1,13 @@
 ---
 sidebar_position: 6
 authors:
-- jwher
+  - jwher
 description: Thread Level Parallelism
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: 쓰레드 수준 병렬화
+date: '2026-02-18'
 ---
 
 

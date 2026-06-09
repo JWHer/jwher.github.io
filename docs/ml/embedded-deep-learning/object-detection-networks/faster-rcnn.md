@@ -1,12 +1,13 @@
 ---
 sidebar_position: 1
 authors:
-- jwher
+  - jwher
 description: Faster R-CNN
 tags:
-- cs
-- ml
+  - cs
+  - ml
 title: Faster R-CNN
+date: '2026-02-18'
 ---
 
 [![object-detection](lenna.png)](/docs/ml/embedded-deep-learning/object-detection-networks/faster-rcnn)  

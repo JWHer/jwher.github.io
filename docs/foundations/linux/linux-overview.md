@@ -1,10 +1,11 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Linux overview
 tags:
-- linux
+  - linux
 title: 운영체제의 개요
+date: '2023-01-04'
 ---
 
 <!-- [![linux](linux.png)](/docs/linux/linux-overview)   -->

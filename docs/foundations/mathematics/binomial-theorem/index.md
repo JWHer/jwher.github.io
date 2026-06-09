@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Binomial Theorem
 tags:
   - mathematics
   - calculus
   - theory
 title: 이항정리 - π값을 구하는 법
+date: '2022-06-23'
 ---
 
 ![pi](pi.svg)  

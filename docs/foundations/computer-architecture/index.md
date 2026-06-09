@@ -1,10 +1,11 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 컴퓨터의 작동원리
 tags:
-- cs
+  - cs
 title: 다시보는 컴퓨터구조1
+date: '2023-09-26'
 ---
 
 [![computer-architecture](/img/computer-architecture.jpeg)](/docs/cs/computer-architecture/)  

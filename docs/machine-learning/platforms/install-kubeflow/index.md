@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Install Kubeflow
 tags:
   - machine-learning
@@ -9,6 +9,7 @@ tags:
   - installation
   - tutorial
 title: 쿠브플로우를 설치하는 다양한 방법
+date: '2022-06-02'
 ---
 
 

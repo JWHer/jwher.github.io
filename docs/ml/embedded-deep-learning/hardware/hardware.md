@@ -1,11 +1,12 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 하드웨어 가속 기술
 tags:
-- cs
-- ml
+  - cs
+  - ml
 title: 임베디드 딥러닝
+date: '2026-02-18'
 ---
 
 [![embedded-deep-learning](/img/logos/cap_logo.png)](/docs/ml/embedded-deep-learning/hardware)  

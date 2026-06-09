@@ -1,12 +1,13 @@
 ---
 sidebar_position: 9
 authors:
-- jwher
+  - jwher
 description: 하드웨어 레벨의 병렬화
 tags:
-- cs
-- computer architecture
+  - cs
+  - computer architecture
 title: 구글 TPU
+date: '2026-02-18'
 ---
 
 [![computer-architecture](/img/computer-architecture.jpeg)](/docs/cs/computer-architecture/)  

@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Welcome To Kubernetes
 tags:
   - kubernetes
   - containerization
   - introduction
 title: 쿠버네티스 기본 개념과 필요성
+date: '2022-06-02'
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)

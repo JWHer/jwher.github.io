@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Automate the Data Science Pipeline with Serverless Functions
 tags:
   - kubernetes
   - serverless
   - tutorial
 title: Nuclio 개념과 아키텍처
+date: '2022-06-02'
 ---
 
 

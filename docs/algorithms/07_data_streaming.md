@@ -1,6 +1,7 @@
 ---
 title: 데이터 스트리밍 알고리즘
 description: 대규모 데이터 처리를 위한 스트리밍 모델과 알고리즘
+date: '2026-02-18'
 ---
 
 ## Large Data Restrictions and Models

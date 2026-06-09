@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: Kubernetes Usage
 tags:
   - kubernetes
   - tutorial
   - quick-reference
 title: 자주쓰는 쿠버네티스 명령어
+date: '2022-06-02'
 ---
 
 ![kubernetes](/img/logos/kubernetes.svg)  

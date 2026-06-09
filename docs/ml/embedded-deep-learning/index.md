@@ -2,10 +2,11 @@
 sidebar_position: 1
 description: 임베디드 딥러닝 강의 노트
 tags:
-- ml
-- embedded
-- deep-learning
+  - ml
+  - embedded
+  - deep-learning
 title: 임베디드 딥러닝
+date: '2026-02-18'
 ---
 
 [![embedded-deep-learning](/img/logo.svg)](/docs/ml/embedded-deep-learning/)

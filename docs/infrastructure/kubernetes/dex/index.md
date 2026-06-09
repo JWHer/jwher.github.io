@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 'Dex: OpenID 커넥터'
 tags:
   - kubernetes
   - security
   - authentication
 title: Dex
+date: '2022-06-02'
 ---
 
 ![dex](/img/logos/dex.svg)

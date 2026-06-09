@@ -1,6 +1,6 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 오래걸리는 API 설계
 tags:
   - api
@@ -8,6 +8,7 @@ tags:
   - architecture
   - best-practices
 title: 오래걸리는 API 설계
+date: '2022-09-11'
 ---
 
 [![api](api.png)](/docs/development/web/api-design-for-long-jobs)  

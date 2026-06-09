@@ -1,13 +1,14 @@
 ---
 authors:
-- jwher
-description: "LLaMA: Open and Efficient Foundation Language Models"
+  - jwher
+description: 'LLaMA: Open and Efficient Foundation Language Models'
 tags:
   - machine-learning
   - deep-learning
   - llm
   - research
 title: LLaMa 공개된 효율적인 언어 모델
+date: '2023-09-26'
 ---
 
 [![llama](/img/llama.jpeg)](/docs/machine-learning/research-papers/llama-foundation-models)  

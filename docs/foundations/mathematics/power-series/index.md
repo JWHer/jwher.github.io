@@ -1,12 +1,13 @@
 ---
 authors:
-- jwher
+  - jwher
 description: 다양한 급수
 tags:
   - mathematics
   - calculus
   - theory
 title: 다양한 급수
+date: '2022-07-13'
 ---
 
 ![power series](power-series-formula.png)
