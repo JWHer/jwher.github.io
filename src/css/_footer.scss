@@ -1,13 +1,18 @@
-// Footer styles — PaperMod / Obenauer-aligned
+// Footer sits on top of the fixed hero image — transparent bg, white text
 .footer {
+  position: relative;
+  z-index: 1;
   padding: 1.5rem 0;
-  border-top: 1px solid var(--ifm-hr-border-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  // Override Docusaurus footer color variables so all child text inherits white
+  --ifm-footer-color: var(--header-text-color);
+  --ifm-footer-link-color: var(--header-text-color);
+  --ifm-footer-title-color: var(--header-text-color);
+  color: var(--header-text-color);
 
-  // Override Docusaurus' built-in dark/light variants so the footer always
-  // follows the global background variable set in _variables.scss
   &.footer--dark,
   &.footer--light {
-    background: var(--ifm-background-color);
+    background: transparent;
   }
 }
 
@@ -51,5 +56,5 @@
 .copyright {
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--ifm-color-content-secondary);
+  color: var(--header-text-color);
 }

@@ -2,22 +2,21 @@ import React, { useEffect } from 'react';
 import Layout from '@theme-original/Navbar/Layout';
 
 /**
- * Navbar Layout wrapper that handles scroll-based styling.
- *
- * - Transparent navbar when scrolled < 150px (over hero)
- * - Solid background navbar when scrolled >= 150px
- * - Logo filter: white when over hero, natural color when scrolled (light mode)
+ * Transparent navbar while the fixed hero is visible.
+ * Switches to solid when scroll reaches the bottom of the hero
+ * (hero height = 100vh - navbar height).
  */
 export default function LayoutWrapper(props) {
   useEffect(() => {
-    const SCROLL_THRESHOLD = 150;
     const navbar = document.querySelector('.navbar');
     const root = document.documentElement;
-    let wasAtTop = null; // track previous state to skip redundant updates
+    let wasAtTop = null;
 
     const handleScroll = () => {
-      const isAtTop = window.scrollY < SCROLL_THRESHOLD;
-      if (isAtTop === wasAtTop) return; // no state change — skip
+      const navbarH = navbar?.offsetHeight || 60;
+      // Trigger earlier: when content covers ~50% of navbar height past the hero
+      const isAtTop = window.scrollY < (window.innerHeight - navbarH * 1.5);
+      if (isAtTop === wasAtTop) return;
       wasAtTop = isAtTop;
 
       if (isAtTop) {
@@ -33,10 +32,7 @@ export default function LayoutWrapper(props) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return <Layout {...props} />;

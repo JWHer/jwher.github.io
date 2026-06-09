@@ -1,7 +1,8 @@
-// Navbar styles
+// Navbar: transparent over hero, solid when content scrolls past
 .navbar {
   background-color: var(--navbar-bg-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
+  box-shadow: none;
 
   .navbar__inner .navbar__title,
   .navbar__items,
