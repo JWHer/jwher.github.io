@@ -1287,6 +1287,24 @@ export const CONTENT_INDEX: ContentItem[] = [
     ]
   },
   {
+    "title": "DDPM: Denoising Diffusion Probabilistic Models",
+    "path": "/docs/ml/deep-learning-papers/ddpm",
+    "description": "노이즈를 단계적으로 제거해 데이터를 생성하는 Diffusion 모델",
+    "tags": [
+      "deep learning",
+      "generative model",
+      "diffusion",
+      "ddpm"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "ddpm"
+    ]
+  },
+  {
     "title": "Deploying Ml Model On Kubernetes Nuclio",
     "path": "/docs/infrastructure/tools/deploying-ml-model-nuclio",
     "description": "쿠버네티스 누클리오에 ML 모델 배포하기",
@@ -1391,6 +1409,23 @@ export const CONTENT_INDEX: ContentItem[] = [
     ]
   },
   {
+    "title": "GANs: Generative Adversarial Networks",
+    "path": "/docs/ml/deep-learning-papers/gans",
+    "description": "Generator와 Discriminator의 적대적 학습으로 데이터를 생성하는 GAN",
+    "tags": [
+      "deep learning",
+      "generative model",
+      "gan"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "gans"
+    ]
+  },
+  {
     "title": "Github Issue",
     "path": "/docs/development/practices/github-issue",
     "description": "깃허브 이슈로 협업하기",
@@ -1422,6 +1457,25 @@ export const CONTENT_INDEX: ContentItem[] = [
       "languages",
       "golang",
       "setup"
+    ]
+  },
+  {
+    "title": "GPT: Improving Language Understanding by Generative Pre-Training",
+    "path": "/docs/ml/deep-learning-papers/gpt",
+    "description": "언어 모델 사전학습으로 GPT 시리즈의 시작을 연 논문",
+    "tags": [
+      "deep learning",
+      "nlp",
+      "transformer",
+      "gpt",
+      "pretraining"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "gpt"
     ]
   },
   {
@@ -1707,6 +1761,25 @@ export const CONTENT_INDEX: ContentItem[] = [
     ]
   },
   {
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "path": "/docs/ml/deep-learning-papers/lora",
+    "description": "대형 모델을 저랭크 행렬 분해로 효율적으로 파인튜닝하는 기법",
+    "tags": [
+      "deep learning",
+      "fine-tuning",
+      "lora",
+      "peft",
+      "llm"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "lora"
+    ]
+  },
+  {
     "title": "Low-power Image Recognition Challenge",
     "path": "/docs/ml/embedded-deep-learning/object-detection-networks/lpirc",
     "description": "LPIRC에서 우승하는 방법",
@@ -1825,6 +1898,44 @@ export const CONTENT_INDEX: ContentItem[] = [
       "scaling",
       "language",
       "modeling"
+    ]
+  },
+  {
+    "title": "PEFT: Parameter-Efficient Fine-Tuning",
+    "path": "/docs/ml/deep-learning-papers/peft",
+    "description": "대형 모델의 파라미터 일부만 학습하는 효율적 파인튜닝 기법 모음",
+    "tags": [
+      "deep learning",
+      "fine-tuning",
+      "peft",
+      "lora",
+      "llm"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "peft"
+    ]
+  },
+  {
+    "title": "RAG: Retrieval-Augmented Generation",
+    "path": "/docs/ml/deep-learning-papers/rag",
+    "description": "외부 문서 검색을 결합해 LLM의 지식을 확장하는 RAG 기법",
+    "tags": [
+      "deep learning",
+      "nlp",
+      "rag",
+      "llm",
+      "retrieval"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "rag"
     ]
   },
   {
@@ -1948,6 +2059,24 @@ export const CONTENT_INDEX: ContentItem[] = [
       "papers",
       "variable",
       "autoencoder"
+    ]
+  },
+  {
+    "title": "ViT: An Image is Worth 16x16 Words",
+    "path": "/docs/ml/deep-learning-papers/vit",
+    "description": "이미지를 패치로 분할해 Transformer를 비전에 적용한 논문",
+    "tags": [
+      "deep learning",
+      "vision",
+      "transformer",
+      "image classification"
+    ],
+    "keywords": [
+      "ml",
+      "deep",
+      "learning",
+      "papers",
+      "vit"
     ]
   },
   {

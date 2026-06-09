@@ -1,3 +1,5 @@
+@import '../../css/variables';
+
 .presentation__title {
     font-size: 4em;
     font-weight: bold;
@@ -8,7 +10,7 @@
     z-index: 2;
 }
 
-@media only screen and (width <=767px) {
+@media (max-width: $bp-mobile) {
     .presentation__title {
         padding-top: 1em;
         font-size: 3em;

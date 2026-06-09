@@ -1,9 +1,11 @@
+@import '../css/variables';
+
 // ── Search UI ─────────────────────────────────────────────────────────────────
 
 .container {
   padding: 2rem 6%;
 
-  @media (max-width: 800px) {
+  @media (max-width: $bp-mobile) {
     padding: 2rem 4%;
   }
 }

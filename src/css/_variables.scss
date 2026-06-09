@@ -1,4 +1,9 @@
-// Color variables
+// ── Breakpoints ──────────────────────────────────────────────────────────────
+// Mobile: ≤799px  |  Desktop: ≥800px
+// Usage: @media (max-width: $bp-mobile) { ... }
+$bp-mobile: 799px;
+
+// ── Color variables ───────────────────────────────────────────────────────────
 :root {
   // Primary colors
   --ifm-color-primary: #2e8555;

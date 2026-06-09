@@ -1,3 +1,5 @@
+@import '../css/variables';
+
 .preview {
     display: block;
     position: absolute;
@@ -16,7 +18,7 @@
     padding: 12px;
     overflow: hidden;
 
-    @media (max-width: 768px) {
+    @media (max-width: $bp-mobile) {
         display: none !important;
     }
 

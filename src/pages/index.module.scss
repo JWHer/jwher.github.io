@@ -1,3 +1,5 @@
+@import '../css/variables';
+
 // ── Art canvas: fixed full-screen background ──────────────────────────────────
 
 .canvas {
@@ -25,7 +27,7 @@
   margin: 0 auto;
   padding: 0 70px;
 
-  @media (max-width: 800px) {
+  @media (max-width: $bp-mobile) {
     padding: 0 15px;
   }
 }
@@ -258,7 +260,7 @@
 }
 
 // Mobile (≤800px): hide image column, text takes full width
-@media (max-width: 800px) {
+@media (max-width: $bp-mobile) {
   .twoCol {
     display: block;
     min-height: 0 !important; // override inline minHeight from JS stacking algorithm
@@ -296,7 +298,7 @@
   border-top: 1px solid var(--ifm-hr-border-color);
   margin-top: 0.5rem;
 
-  @media (max-width: 480px) {
+  @media (max-width: $bp-mobile) {
     gap: 1rem;
   }
 }
@@ -324,7 +326,7 @@
   border-top: 1px solid var(--ifm-hr-border-color);
   padding: 5rem 0 6rem;
 
-  @media (max-width: 800px) {
+  @media (max-width: $bp-mobile) {
     padding: 3rem 0 4rem;
   }
 }
@@ -354,7 +356,7 @@
     height: auto;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: $bp-mobile) {
     display: none;
   }
 }
@@ -387,7 +389,7 @@
 .introSocialLink {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
-  color: rgba(0, 0, 0, 0.25);
+  color: var(--ifm-color-content-secondary);
   text-decoration: none;
   padding: 0.4rem 1rem;
   transition: color 0.2s;
@@ -399,13 +401,5 @@
   &:hover {
     color: var(--ifm-font-color-base);
     text-decoration: none;
-  }
-}
-
-[data-theme='dark'] .introSocialLink {
-  color: rgba(255, 255, 255, 0.3);
-
-  &:hover {
-    color: var(--ifm-font-color-base);
   }
 }
