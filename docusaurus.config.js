@@ -180,7 +180,7 @@ const config = {
         style: 'dark',
         copyright: `
         <div class="copyright">
-          Copyright © ${new Date().getFullYear()}, made by JWHer.<span class="heart-icon"></span>
+          Copyright &copy; 2021 &ndash; ${new Date().getFullYear()}, JeongWon Her.<span class="heart-icon"></span>
         </div>
         `,
       },
