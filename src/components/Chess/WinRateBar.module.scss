@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+}
+
+.barInner {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+.bar {
+  display: flex;
+  height: 20px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  background: #ddd;
+}
+
+.white {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.4s ease;
+}
+
+.draw {
+  background: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.4s ease;
+}
+
+.black {
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.4s ease;
+}
+
+.pct {
+  font-size: 0.62rem;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.65);
+
+  .black & {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.count {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-500);
+  white-space: nowrap;
+  min-width: 34px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.mateBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--ifm-font-family-monospace);
+  color: #c83232;
+  letter-spacing: 0.03em;
+  border: 1px solid currentcolor;
+  border-radius: 3px;
+  padding: 1px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rainbow {
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.rainbowBorder {
+  padding: 1px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff);
+
+  .bar {
+    border-radius: 1px;
+    background: var(--ifm-background-color);
+    overflow: hidden;
+  }
+}

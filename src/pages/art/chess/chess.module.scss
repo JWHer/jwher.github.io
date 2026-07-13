@@ -1,0 +1,224 @@
+$desktop: 799px;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--ifm-navbar-height));
+  overflow: hidden;
+  background: var(--ifm-background-color);
+}
+
+.openingRow {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  min-height: 50px;
+  gap: 12px;
+}
+
+.openingEmpty {
+  height: 50px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+// ── Desktop: 3-column ──────────────────────────────────────
+// Panels grow proportionally: sidebar 18%, movecol 23%, capped for very wide screens
+.grid {
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: clamp(240px, 23%, 360px) 1fr clamp(240px, 23%, 360px);
+  grid-template-rows: 1fr;
+
+  @media (max-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}
+
+// ── Column: Game Sidebar ─────────────────────────────────
+.sidebarCol {
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $desktop) {
+    order: 3;
+    border-right: none;
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    flex-shrink: 0;
+  }
+}
+
+// ── Column: Chess Board ──────────────────────────────────
+.boardCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  overflow: hidden;
+
+  @media (max-width: $desktop) {
+    order: 1;
+    padding: 12px;
+    flex-shrink: 0;
+  }
+}
+
+// Board scales to fit the center column; capped at 480px, square via aspect-ratio
+.boardWrapper {
+  width: min(100%, calc(100vh - var(--ifm-navbar-height) - 80px));
+  max-width: 480px;
+
+  @media (max-width: $desktop) {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.noPgn {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 24px;
+}
+
+// ── Column: Move Panel ───────────────────────────────────
+.moveCol {
+  border-left: 1px solid var(--ifm-color-emphasis-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $desktop) {
+    order: 2;
+    border-left: none;
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    flex-shrink: 0;
+    max-height: 320px;
+  }
+}
+
+// ── Right panel: control row ─────────────────────────────
+.controlRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  flex-shrink: 0;
+}
+
+.controlBtn {
+  background: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-font-color-base);
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ifm-background-color);
+  line-height: 1.2;
+  transition: opacity 0.12s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.75;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+}
+
+.controlSpacer {
+  flex: 1;
+}
+
+// ── Current game move badge ──────────────────────────────
+.currentMoveBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: #c8961c;
+  color: #1a0f00;
+  border-bottom: 1px solid #a8780f;
+  flex-shrink: 0;
+}
+
+.currentMoveNum {
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.currentMoveSan {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+// ── Panel headers & info ─────────────────────────────────
+.panelHeader {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-700);
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  flex-shrink: 0;
+}
+
+// ── Terminal state (checkmate / stalemate / draw) ────────
+.gameOverBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 24px 16px;
+  text-align: center;
+  flex: 1;
+}
+
+.gameOverTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+
+  .checkmate & { color: #b94040; }
+  .stalemate & { color: var(--ifm-color-emphasis-600); }
+  .draw & { color: var(--ifm-color-emphasis-600); }
+}
+
+.gameOverSub {
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.gameInfo {
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  flex-shrink: 0;
+
+  h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin: 0 0 3px;
+    color: var(--ifm-font-color-base);
+  }
+
+  p {
+    margin: 0 0 2px;
+    color: var(--ifm-color-emphasis-700);
+    font-size: 0.76rem;
+  }
+}

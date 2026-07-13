@@ -49,6 +49,15 @@ export const ARTWORKS: Artwork[] = [
     gradient: 'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #333333 100%)',
     published: false,
   },
+  {
+    id: 'chess',
+    title: '체스 기보',
+    titleEn: 'Chess Explorer',
+    year: 2026,
+    description: '기보 탐색기. 오프닝 분류, 수순별 승률.',
+    gradient: 'linear-gradient(135deg, #2c2c2c 0%, #4a3728 50%, #6b4c35 100%)',
+    published: true,
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {

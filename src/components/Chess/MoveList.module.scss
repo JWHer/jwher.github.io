@@ -1,0 +1,111 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  font-size: 0.84rem;
+  overflow: hidden;
+}
+
+.empty {
+  padding: 24px 12px;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px 8px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+  border-left: 3px solid transparent;
+  transition: border-color 0.1s;
+
+  &:hover {
+    background: var(--ifm-color-emphasis-100);
+    border-left-color: var(--ifm-color-primary);
+  }
+
+  &:active {
+    background: var(--ifm-color-emphasis-200);
+  }
+}
+
+// Game's next move: light green highlight with left accent
+.gameRow {
+  background: rgba(72, 187, 120, 0.12);
+  border-left-color: #48bb78;
+
+  &:hover {
+    background: rgba(72, 187, 120, 0.22);
+    border-left-color: #38a169;
+  }
+}
+
+.san {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.barWrap {
+  margin-left: auto;
+  flex: 0 1 clamp(160px, 15vw, 240px);
+  min-width: 0;
+}
+
+@media (max-width: 799px) {
+  .barWrap {
+    flex: 0 1 60vw;
+  }
+}
+
+.pageNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  flex-shrink: 0;
+}
+
+.pageBtn {
+  background: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 3px 10px;
+
+  &:hover:not(:disabled) {
+    background: var(--ifm-color-emphasis-100);
+  }
+
+  &:disabled {
+    color: var(--ifm-color-emphasis-400);
+    cursor: default;
+    border-color: var(--ifm-color-emphasis-200);
+  }
+}
+
+.pageLabel {
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
+  min-width: 40px;
+  text-align: center;
+}
