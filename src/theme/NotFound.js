@@ -5,7 +5,7 @@ import { useLocation } from '@docusaurus/router';
 import { PageMetadata } from '@docusaurus/theme-common';
 import { CONTENT_INDEX } from '@site/src/data/content-index';
 import { trackEvent } from '@site/src/analytics/tracking';
-import styles from './notfound.module.scss';
+import SiteHero from '@site/src/components/SiteHero';
 
 const JUNK_PATTERNS = [
   /\.(php|asp|aspx|env|xml|bak|cgi|pl|sh|sql|zip|tar|gz|rar|7z|exe|dll|ini|conf|cfg|log)$/i,
@@ -69,7 +69,7 @@ export default function NotFound() {
     <>
       <PageMetadata title="페이지를 찾을 수 없습니다" />
       <Layout>
-        <div className={styles.notfound__header} />
+        <SiteHero bgImage="/img/notfound/under-construction.webp" />
         <main className="container margin-vert--xl">
           <div className="row">
             <div className="col col--6 col--offset-3">
