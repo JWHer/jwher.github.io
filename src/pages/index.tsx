@@ -124,7 +124,9 @@ function BriefIntro() {
         </div>
       </div>
       <div className={styles.introIllustration}>
-        <img src='img/about-me/jeongwon-her2.png' alt='Jeongwon Her' />
+        <Link to='/cave'>
+          <img src='img/about-me/jeongwon-her2.png' alt='Jeongwon Her' />
+        </Link>
       </div>
     </section>
   );
