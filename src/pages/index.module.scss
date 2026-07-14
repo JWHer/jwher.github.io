@@ -1,4 +1,5 @@
 @import '../css/variables';
+@import '../css/mixins';
 
 // ── Layout ────────────────────────────────────────────────────────────────────
 
@@ -6,19 +7,20 @@
   position: relative;
   z-index: 1;
   background: var(--ifm-background-color);
+
   // Push content below the fixed full-viewport hero (hero = 100vh, but visible hero
   // area below navbar = 100vh - navbar-height, so content starts at that offset)
   margin-top: calc(100vh - var(--ifm-navbar-height));
-  padding: 3rem 0 2rem;
+  padding: calc(var(--jw-rhythm) * 2) 0 var(--jw-rhythm);
 }
 
 .col {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 70px;
+  padding: 0 7ch; // horizontal spacing in character units (≈ previous 70px)
 
   @media (max-width: $bp-mobile) {
-    padding: 0 16px;
+    padding: 0 2ch;
   }
 }
 
@@ -37,6 +39,7 @@
   font-size: 0.72rem;
   color: var(--ifm-color-content-secondary);
   letter-spacing: 0.02em;
+  font-variant-numeric: var(--jw-numeric);
 }
 
 .readMore {
@@ -55,25 +58,18 @@
 
 .featured {
   border-bottom: 1px solid var(--ifm-hr-border-color);
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  padding-bottom: var(--jw-rhythm);
+  margin-bottom: var(--jw-rhythm);
 }
 
 .featuredTitle {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
-  font-family: var(--ifm-font-family-base);
   line-height: 1.25;
   margin: 0 0 0.75rem;
 
   a {
-    color: var(--ifm-font-color-base);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--ifm-color-primary);
-      text-decoration: none;
-    }
+    @include title-link;
   }
 }
 
@@ -81,7 +77,7 @@
   font-size: 1rem;
   line-height: 1.7;
   color: var(--ifm-color-content-secondary);
-  max-width: 72ch;
+  max-width: var(--jw-measure);
   margin: 0 0 1rem;
 }
 
@@ -99,7 +95,7 @@
   justify-content: space-between;
   gap: 2rem;
   border-bottom: 1px solid var(--ifm-hr-border-color);
-  padding-bottom: 2rem;
+  padding-bottom: var(--jw-rhythm);
   margin-bottom: 0;
 
   @media (max-width: $bp-mobile) {
@@ -120,13 +116,7 @@
   margin: 0.25rem 0 0.4rem;
 
   a {
-    color: var(--ifm-font-color-base);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--ifm-color-primary);
-      text-decoration: none;
-    }
+    @include title-link;
   }
 }
 
@@ -147,7 +137,7 @@
 .divider {
   border: none;
   border-top: 1px solid var(--ifm-hr-border-color);
-  margin: 2rem 0;
+  margin: var(--jw-rhythm) 0;
 }
 
 // ── Section head ──────────────────────────────────────────────────────────────
@@ -227,13 +217,7 @@
   margin: 0 0 0.3rem;
 
   a {
-    color: var(--ifm-font-color-base);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--ifm-color-primary);
-      text-decoration: none;
-    }
+    @include title-link;
   }
 }
 
@@ -288,18 +272,13 @@
 }
 
 .topReadTitle {
+  @include title-link;
+
   display: block;
   font-size: 0.88rem;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--ifm-font-color-base);
-  text-decoration: none;
   margin-bottom: 0.2rem;
-
-  &:hover {
-    color: var(--ifm-color-primary);
-    text-decoration: none;
-  }
 }
 
 .topReadDesc {
@@ -320,7 +299,7 @@
   gap: 2rem;
   padding-top: 0.6rem;
   border-top: 1px solid var(--ifm-hr-border-color);
-  margin-top: 2rem;
+  margin-top: var(--jw-rhythm);
 
   @media (max-width: $bp-mobile) {
     gap: 1rem;
@@ -348,10 +327,10 @@
   z-index: 1;
   background: var(--ifm-background-surface-color);
   border-top: 1px solid var(--ifm-hr-border-color);
-  padding: 5rem 0 6rem;
+  padding: calc(var(--jw-rhythm) * 3) 0 calc(var(--jw-rhythm) * 4);
 
   @media (max-width: $bp-mobile) {
-    padding: 3rem 0 4rem;
+    padding: calc(var(--jw-rhythm) * 2) 0 calc(var(--jw-rhythm) * 3);
   }
 }
 
@@ -360,6 +339,7 @@
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
+
   // (1) Fixed section height — never grows, even when the bio wraps taller.
   height: 12rem;
 
@@ -371,6 +351,7 @@
 .introBio {
   flex: 1;
   min-width: 0;
+
   // (2) Distribute the bio across the fixed height. The gaps between name /
   // text / links carry the slack and shrink toward 0 as the text wraps to more
   // lines, so a narrow viewport tightens the spacing instead of growing the
@@ -390,6 +371,7 @@
 .introIllustration {
   flex: 0 0 33%;
   max-width: 33%;
+
   // Centre the photo in the fixed-height column via flexbox — no absolute
   // positioning, so there are no top/transform offsets to reason about.
   display: flex;
@@ -414,7 +396,6 @@
 .introName {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
-  font-family: var(--ifm-font-family-base);
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--ifm-font-color-base);
@@ -423,7 +404,6 @@
 
 .introText {
   font-size: 1.05rem;
-  font-weight: 300;
   color: var(--ifm-color-content-secondary);
   line-height: 1.65;
   margin: 0;

@@ -77,6 +77,13 @@ const config = {
 
   headTags: [
     {
+      // Apply saved typeface mode before first paint (FOUC guard).
+      // localStorage['typeface'] is the SSOT; see src/utils/typeface.ts
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(localStorage.getItem('typeface')==='serif')document.documentElement.dataset.typeface='serif';}catch(e){}})();`,
+    },
+    {
       tagName: 'script',
       attributes: {
         async: 'true',
@@ -97,7 +104,9 @@ const config = {
 
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&display=swap',
+      // Serif mode: Noto Serif KR / Sans mode: Noto Sans Mono + Nanum Gothic Coding (Hangul).
+      // Google Fonts serves unicode-range subsets, so sans-mode fonts download only when rendered.
+      href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+Mono:wght@400;700&family=Nanum+Gothic+Coding:wght@400;700&display=swap',
       type: 'text/css',
     },
     {
@@ -213,6 +222,7 @@ const config = {
     }),
   clientModules: [
     require.resolve('./src/analytics/tracking.ts'),
+    require.resolve('./src/clientModules/typeface.ts'),
   ],
   plugins: [
     'docusaurus-plugin-sass',

@@ -43,8 +43,8 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  border-top: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   padding: 0.5em 1.5em;
 
   // Thin outer lines — top and bottom only (no left/right)
@@ -55,7 +55,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: #ffffff;
+    background: #fff;
   }
 
   &::before { top: -6px; }
@@ -68,16 +68,17 @@
   bottom: 5rem;   // moved up ~1.5 chevron heights
   left: 50%;
   z-index: 2;
+
   // Equal width & height → symmetric V pointing down when rotated 45°
   width: 40px;
   height: 40px;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   transform: translateX(-50%) rotate(45deg);
-  animation: chevronFade 1.8s ease-in-out infinite;
+  animation: chevron-fade 1.8s ease-in-out infinite;
 }
 
-@keyframes chevronFade {
+@keyframes chevron-fade {
   0%, 100% { opacity: 0.9; }
   50%       { opacity: 0.2; }
 }

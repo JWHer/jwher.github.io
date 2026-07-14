@@ -2,7 +2,8 @@
   position: relative;
   z-index: 1;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgb(0 0 0 / 10%);
+
   --ifm-footer-color: var(--ifm-font-color-base);
   --ifm-footer-link-color: var(--ifm-font-color-base);
   --ifm-footer-title-color: var(--ifm-font-color-base);
@@ -16,7 +17,8 @@
 
 // Landing page: :has([data-hero="fixed"]) = only page with fixed hero
 html:has([data-hero="fixed"]) .footer {
-  border-top-color: rgba(255, 255, 255, 0.25);
+  border-top-color: rgb(255 255 255 / 25%);
+
   --ifm-footer-color: var(--header-text-color);
   --ifm-footer-link-color: var(--header-text-color);
   --ifm-footer-title-color: var(--header-text-color);

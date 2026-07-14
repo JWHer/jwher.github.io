@@ -1,0 +1,13 @@
+// Shared SCSS mixins
+
+// Card/list title link: base ink, primary on hover.
+// Used by homepage cards (index.module.scss) and ContentCard.
+@mixin title-link {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
+  }
+}
