@@ -5,7 +5,11 @@ This document explains the styling architecture and customizations in this Docus
 ## Table of Contents
 
 - [Architecture Overview](#architecture-overview)
+- [Design Philosophy](#design-philosophy)
 - [Typography Modes](#typography-modes)
+- [Color System](#color-system)
+- [Responsive Breakpoints](#responsive-breakpoints)
+- [CSS Authoring Principles](#css-authoring-principles)
 - [Style File Organization](#style-file-organization)
 - [Custom Components](#custom-components)
 - [Development Workflow](#development-workflow)
@@ -19,6 +23,35 @@ The blog uses a modular SCSS architecture with:
 - **Typography modes**: Two site-wide typography systems switched by one attribute
 - **Component styles**: Scoped styles for specific components
 - **Swizzled components**: Customized Docusaurus components with enhanced functionality
+
+## Design Philosophy
+
+New pages and components should be *designed*, not assembled from defaults. This
+follows the [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)
+skill's principles, tailored to this site:
+
+- **Ground in the subject.** Pull structure, vocabulary, and texture from the
+  page's actual topic — its materials, instruments, artifacts — not a generic
+  template. (See [/art/chess](src/pages) and [/cave](src/pages/cave) for
+  examples that commit to a subject.)
+- **Typography carries personality.** This site already commits to that: the
+  two typeface modes (terminal-monospace / proportional-serif) *are* the brand.
+  Reuse the `--jw-*` tokens; don't introduce ad-hoc fonts or sizes.
+- **Structure encodes meaning.** Devices like the `§ ` h1 marker or numbered
+  sequences should appear only when they say something true about the content —
+  never as decoration.
+- **Spend boldness once.** Give a page a single signature element; keep the rest
+  quiet and disciplined.
+- **Motion is deliberate.** One orchestrated moment beats scattered effects.
+- **Copy is functional.** Words exist to aid understanding — active voice,
+  specific over clever, consistent vocabulary.
+
+Avoid the three AI-default looks: cream + serif + terracotta, near-black + neon
+accent, and generic broadsheet hairlines. The palette and type system below are
+the deliberate choice — extend them, don't replace them per-page.
+
+**Process for a new page:** sketch a plan (color, type, layout, signature
+element), critique it against the page's single purpose, *then* write code.
 
 ## Typography Modes
 
@@ -87,6 +120,90 @@ aesthetic) and `'§ '` in serif, with `content: var(--jw-h1-marker)`. Notes:
   (`.hash-link`), so a leading `#` would mirror it — symmetry or duplication,
   depending on taste. `§ ` avoids the collision entirely.
 
+## Color System
+
+Defined as CSS custom properties in
+[src/css/_variables.scss](src/css/_variables.scss) (Infima `--ifm-*` tokens).
+Light mode uses forest green; dark mode shifts to teal. Color mode
+(`data-theme`) is orthogonal to typeface mode.
+
+### Primary (green / teal)
+
+| Step | Light | Dark |
+|---|---|---|
+| **base** | `#2e8555` | `#25c2a0` |
+| dark | `#29784c` | `#21af90` |
+| darker | `#277148` | `#1fa588` |
+| darkest | `#205d3b` | `#1a8870` |
+| light | `#33925d` | `#29d5b0` |
+| lighter | `#359962` | `#32d8b4` |
+| lightest | `#3cad6e` | `#4fddbf` |
+
+### Secondary (red — accent / warning)
+
+| Step | Light | Dark |
+|---|---|---|
+| **base** | `#c43d4a` | `#f74c5d` |
+| dark | `#b13642` | `#f62d41` |
+| darker | `#a8333e` | `#f51e33` |
+| darkest | `#8a2a33` | `#d80a1e` |
+| light | `#ca515c` | `#f86b79` |
+| lighter | `#cd5b66` | `#f97a87` |
+| lightest | `#d67881` | `#fba9b1` |
+
+### Surface, text, border
+
+| Role | Light | Dark |
+|---|---|---|
+| Page background (Obenauer cream) | `#faf8f4` | `#1d1e20` |
+| Card / panel surface | `#f0ece4` | `#2e2e33` |
+| Base text | `#1c1b1a` | `#dadadb` |
+| Secondary text | `#777` | `#9b9c9d` |
+| HR / border | `rgb(0 0 0 / 9%)` | `rgb(255 255 255 / 9%)` |
+
+Navbar/header tokens (`--navbar-*`, `--header-text-*`) are rewritten at runtime
+by the scroll-aware navbar — see [Navbar Layout](#navbar-layout).
+
+## Responsive Breakpoints
+
+Two-tier by design — a blog only needs mobile vs. desktop. The single SCSS
+variable lives in [src/css/_variables.scss](src/css/_variables.scss):
+
+| Variable | Value | Range |
+|---|---|---|
+| `$bp-mobile` | `799px` | ≤799px = mobile |
+| (default) | — | ≥800px = desktop |
+
+```scss
+@media (max-width: $bp-mobile) {
+  // mobile-only overrides
+}
+```
+
+## CSS Authoring Principles
+
+- **Override only size inside media queries.** Don't repeat color, font-family,
+  or other properties that don't change across breakpoints.
+- **Prefer tokens over literals.** Use `--jw-*` typography tokens and `--ifm-*`
+  color tokens; avoid hard-coded fonts, sizes, or hexes in component styles.
+- **Co-locate component styles** as CSS modules (`*.module.scss`); keep global
+  rules in `src/css/`.
+- **Don't over-box.** Extra wrappers add whitespace and lengthen scroll.
+- **Upload images at native size, shape them in CSS** — avoids re-uploading to
+  tweak later.
+
+```scss
+// Good — the media query redefines size only
+.section-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+@media (max-width: $bp-mobile) {
+  .section-title { font-size: 22px; }
+}
+```
+
 ## Style File Organization
 
 ### Main Entry Point
@@ -98,7 +215,6 @@ This is the main stylesheet imported by Docusaurus. It imports all partial SCSS 
 ```scss
 @import 'variables';
 @import 'typography';
-@import 'layout';
 @import 'navbar';
 @import 'footer';
 @import 'presentation';
@@ -124,12 +240,17 @@ Defines all CSS custom properties (variables) used throughout the site:
 --navbar-bg-color: transparent;
 ```
 
-#### 2. Layout (`src/css/_layout.scss`)
+#### 2. Typography (`src/css/_typography.scss`)
 
-Controls the main page layout:
+Holds the whole typeface system (see [Typography Modes](#typography-modes)):
 
-- **Main wrapper**: Adjusts for fixed navbar with negative top margin
-- **Article spacing**: Heading margins in multiples of the rhythm token (h2: 3×, h3: 2× `--jw-rhythm`)
+- **`--jw-*` tokens**: the two-mode source of truth (fonts, measure, rhythm)
+- **Prose rules**: `.markdown` body styling — paragraphs, lists, code, `hr`
+- **Article heading margins**: in multiples of `--jw-rhythm` (e.g. h2 gets
+  `calc(var(--jw-rhythm) * 2)` top margin)
+
+There is no separate `_layout.scss`; the negative-margin overlay for the fixed
+transparent navbar lives in `_navbar.scss`.
 
 #### 3. Navbar (`src/css/_navbar.scss`)
 
@@ -334,7 +455,6 @@ src/
 │   ├── _variables.scss       # CSS custom properties (colors)
 │   ├── _typography.scss      # Typeface mode tokens + prose rules
 │   ├── _mixins.scss          # Shared mixins (title-link)
-│   ├── _layout.scss          # Layout styles
 │   ├── _navbar.scss          # Navbar styles
 │   ├── _footer.scss          # Footer styles
 │   └── _presentation.scss    # Hero/presentation styles

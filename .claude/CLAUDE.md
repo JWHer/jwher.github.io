@@ -1,76 +1,51 @@
 # CLAUDE.md
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+Project guide for **jwher.github.io** — a Docusaurus-based personal blog/docs
+site. This file stays short on purpose: it points to the detailed docs under
+`.claude/` so you can pull in more context only when a task needs it.
 
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+General working style (think before coding, simplicity first, surgical changes,
+goal-driven execution) lives in the user's global `~/.claude/CLAUDE.md` and
+applies here too — not repeated below.
 
-## 1. Think Before Coding
-
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
-
-Before implementing:
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them - don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
-
-## 2. Simplicity First
-
-**Minimum code that solves the problem. Nothing speculative.**
-
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
-
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
-
-## 3. Surgical Changes
-
-**Touch only what you must. Clean up only your own mess.**
-
-When editing existing code:
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it - don't delete it.
-
-When your changes create orphans:
-- Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
-
-The test: Every changed line should trace directly to the user's request.
-
-## 4. Goal-Driven Execution
-
-**Define success criteria. Loop until verified.**
-
-Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
-
-For multi-step tasks, state a brief plan:
-```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
-```
-
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
-
----
-
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
-
----
-
-## Project: jwher.github.io
-
-Docusaurus-based personal blog/docs site.
+## Layout
 
 - **Blog:** `blog/` — post slugs use Korean-friendly URLs
 - **Docs:** `docs/` — organized under `ml/`, `cs/`, `development/`, etc.
+- **Styles:** `src/css/` (global SCSS partials) + co-located `*.module.scss`
 - **Redirects:** `redirects.json` — old URL → new URL mappings
 - **Deploy:** GitHub Pages via `docusaurus.config.js`
+
+## Commands
+
+- `npm start` — dev server (hot reload)
+- `npm run build` — production build (static site in `build/`)
+- `npm run typecheck` — TypeScript check
+- `npx stylelint "src/**/*.scss" --fix` — lint/fix styles
+
+## Design & styling
+
+Before designing or restyling any page, read
+[.claude/styling-guide.md](.claude/styling-guide.md) — it covers the two-mode
+typography system, color tokens, breakpoints, CSS authoring rules, and the
+site's design philosophy (grounded in the
+[`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)
+skill). Reuse existing `--jw-*` / `--ifm-*` tokens; don't invent per-page fonts
+or colors.
+
+## Writing content
+
+Before writing or editing a blog post or doc, read
+[.claude/writing-guide.md](.claude/writing-guide.md) — front matter conventions,
+the recommended article structure, tone (impactful, explain hard ideas with
+analogies), and the blog-vs-docs distinction.
+
+## Reference docs (read when relevant)
+
+| Doc | Read it when… |
+|---|---|
+| [.claude/writing-guide.md](.claude/writing-guide.md) | writing/editing a blog post or doc — front matter, structure, tone |
+| [.claude/styling-guide.md](.claude/styling-guide.md) | styling, typography, colors, layout, or designing a new page |
+| [.claude/seo-runbook.md](.claude/seo-runbook.md) | SEO tasks — sitemaps, metadata, search console |
+| [.claude/ga4-setup.md](.claude/ga4-setup.md) | the GA4 "popular posts" pipeline / analytics automation |
+| [.claude/chess-explorer.md](.claude/chess-explorer.md) | working on `/art/chess` — architecture, data flow, remaining work |
