@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
@@ -113,8 +113,8 @@ function BriefIntro() {
       <div className={styles.introBio}>
         <h2 className={styles.introName}>Jeongwon Her</h2>
         <p className={styles.introText}>
-          Software engineer with a focus on MLOps, parallel programming, and HPC.
-          From embedded devices to large-scale distributed systems.
+          AI engineer with a focus on model inference optimization and parallel
+          programming. From embedded devices to large-scale distributed systems.
         </p>
         <div className={styles.introLinks}>
           <a href="https://github.com/jwher"           className={styles.introSocialLink} target="_blank" rel="noreferrer">GitHub</a>
@@ -122,6 +122,7 @@ function BriefIntro() {
           <a href="https://www.instagram.com/jwher96"  className={styles.introSocialLink} target="_blank" rel="noreferrer">Instagram</a>
           <a href="/files/jeongwon-her.pdf"            className={styles.introSocialLink}>CV</a>
         </div>
+        <Link to='/cave' className={styles.introCave}>&gt; Why I believe in Jesus</Link>
       </div>
       <div className={styles.introIllustration}>
         <Link to='/cave'>
@@ -139,13 +140,22 @@ export default function Home() {
   const recentBlog = blogItems.slice(0, 3);
   const topReads = getTopReads();
 
+  // Scope the proximity scroll-snap (see .snapRoot) to the home page only —
+  // it lives on <html>, the document scroll container, so it must be removed
+  // when navigating away.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add(styles.snapRoot);
+    return () => root.classList.remove(styles.snapRoot);
+  }, []);
+
   return (
     <Layout title="JWHer Tech Blog" description="허정원 기술블로그">
       <Head>
         <meta property="og:image" content="https://jwher.github.io/img/bamboo-road.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:description" content="허정원 기술블로그 — MLOps, 병렬 프로그래밍, HPC" />
+        <meta property="og:description" content="허정원 기술블로그 - AI Engineer, from inference kernels to the user" />
         <meta name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp" />
       </Head>
 
@@ -160,6 +170,7 @@ export default function Home() {
         <div className={styles.col}>
 
           {/* Card 1: latest docs */}
+          <h3 className={styles.sectionHead}>최신 문서</h3>
           {latestDoc && <FeaturedCard item={latestDoc} />}
 
           {/* Card 2: second latest docs */}
@@ -170,7 +181,7 @@ export default function Home() {
           {/* Card 3: blog posts + top reads */}
           <div className={styles.bottomGrid}>
             <section>
-              <h3 className={styles.sectionHead}>최근 포스트</h3>
+              <h3 className={styles.sectionHead}>최신 포스트</h3>
               {recentBlog.map(item => <BlogCard key={item.path} item={item} />)}
             </section>
             <aside className={styles.topReads}>

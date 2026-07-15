@@ -3,6 +3,15 @@
 
 // ── Layout ────────────────────────────────────────────────────────────────────
 
+// Applied to <html> only while the home page is mounted (see index.tsx). Gentle
+// `proximity` snap — guides the first page-down from the hero to the newsroom
+// without trapping the scroll. scroll-padding-top keeps the newsroom's top clear
+// of the fixed navbar when it snaps into place.
+.snapRoot {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--ifm-navbar-height);
+}
+
 .page {
   position: relative;
   z-index: 1;
@@ -12,6 +21,12 @@
   // area below navbar = 100vh - navbar-height, so content starts at that offset)
   margin-top: calc(100vh - var(--ifm-navbar-height));
   padding: calc(var(--jw-rhythm) * 2) 0 var(--jw-rhythm);
+
+  // Fill at least one screen (below the navbar) so the newsroom reads as a full
+  // panel; grows past it when content is taller — no clipping. Its top edge is a
+  // snap point (see .snapRoot) so the first page-down settles here.
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  scroll-snap-align: start;
 }
 
 .col {
@@ -352,19 +367,16 @@
   flex: 1;
   min-width: 0;
 
-  // (2) Distribute the bio across the fixed height. The gaps between name /
-  // text / links carry the slack and shrink toward 0 as the text wraps to more
-  // lines, so a narrow viewport tightens the spacing instead of growing the
-  // section. overflow guards against clipping the layout if it ever overflows.
+  // (2) Content-driven height — align-self keeps it from stretching to the fixed
+  // section, so the bio grows with its rows (name / text / links / cave-link)
+  // instead of clipping. A simple gap spaces the rows.
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
+  gap: 0.75rem;
 
   @media (max-width: $bp-mobile) {
-    justify-content: flex-start;
     gap: 1.25rem;
-    overflow: visible;
   }
 }
 
@@ -408,6 +420,12 @@
   line-height: 1.65;
   margin: 0;
   max-width: 540px;
+
+  // Mobile: the photo is hidden, so let the text run to the full width instead
+  // of leaving the 540px cap's right-hand gap.
+  @media (max-width: $bp-mobile) {
+    max-width: none;
+  }
 }
 
 .introLinks {
@@ -430,6 +448,23 @@
 
   &:hover {
     color: var(--ifm-font-color-base);
+    text-decoration: none;
+  }
+}
+
+// Quiet confession link to the /cave story — a `>` prompt marker in keeping
+// with the terminal aesthetic.
+.introCave {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--ifm-color-primary);
     text-decoration: none;
   }
 }
