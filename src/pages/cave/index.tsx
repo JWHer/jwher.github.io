@@ -63,7 +63,9 @@ export default function Cave() {
 
         <div className={styles.stages}>
           <p className={`${styles.text} ${styles.verse} ${stage === 1 ? styles.show : ''}`}>
-            Come unto me, all ye that labour and are heavy laden, and I will give you rest
+            <span className={styles.balance}>
+              Come to me, all you who are weary and burdened, and I will give you rest
+            </span>
           </p>
 
           <div className={`${styles.text} ${styles.words} ${stage === 2 ? styles.show : ''}`}>
@@ -82,7 +84,14 @@ export default function Cave() {
         <section className={styles.snap} data-stage="1" />
         <section className={styles.snap} data-stage="2" />
 
-        <div className={`${styles.chevron} ${stage < STAGE_COUNT - 1 ? styles.chevronShow : ''}`} aria-hidden />
+        <div
+          className={[
+            styles.chevron,
+            stage < STAGE_COUNT - 1 ? styles.chevronShow : '',
+            stage === 0 ? styles.chevronDouble : '',
+          ].filter(Boolean).join(' ')}
+          aria-hidden
+        />
       </div>
     </Layout>
   );

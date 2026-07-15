@@ -51,51 +51,89 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+
   // The "old" font — system sans, distinct from the site's monospace stack.
   font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
-  color: #f4f4f4;
-  text-shadow: 0 2px 24px rgb(0 0 0 / 70%);
+  // Soft off-white + hard-light blend — the old `.rainbow__text` look: the text
+  // fuses with the cave behind it instead of sitting flatly on top.
+  color: #e3e3e3;
+  mix-blend-mode: hard-light;
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 0.8s ease-in-out;
 
+  // Rest below full opacity so the text reads soft, not harsh. With the blend
+  // above this can go back to 1 if it ends up soft enough on its own.
   &.show {
-    opacity: 1;
+    opacity: 0.8;
     transform: translateY(0);
   }
 }
 
 .verse {
-  font-size: clamp(1.6rem, 4.5vw, 3rem);
+  // Larger, bolder, airier than the body — echoes the old `.rainbow__text`
+  // (3rem / bold / soft off-white). Wide tracking gives it an inscription feel.
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.35;
+  letter-spacing: 0.04em;
+}
+
+// Balanced, responsive line breaks — even line lengths at any width, so no hard
+// <br> that would re-wrap awkwardly on narrow screens. Ref: CSS `text-wrap:
+// balance` (best for short blocks like quotes/headings; caps at ~6 lines).
+.balance {
+  display: block;
+  text-wrap: balance;
 }
 
 .words {
-  font-size: clamp(1.15rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 3vw, 4rem);
   font-weight: 700;
   line-height: 2;
 }
 
-// Bouncing scroll hint, only while on the bare cave.
+// Bouncing scroll hint. A stacked pair of arrowheads on the bare cave (stage 0,
+// .chevronDouble), a single one on the verse (stage 1), hidden on the last stage.
 .chevron {
   position: fixed;
   bottom: 3rem;
   left: 50%;
   z-index: 2;
-  width: 32px;
-  height: 32px;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
-  transform: translateX(-50%) rotate(45deg);
+  width: 28px;
+  height: 34px;
+  transform: translateX(-50%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   animation: chevronBounce 1.8s ease-in-out infinite;
 }
 
+// Each arrowhead — a rotated corner. ::after is the primary (shown whenever the
+// hint is visible); ::before is the upper one, revealed only in the double state.
+.chevron::before,
+.chevron::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-right: 1.5px solid #e3e3e3;
+  border-bottom: 1.5px solid #e3e3e3;
+  transform: translateX(-50%) rotate(45deg);
+  mix-blend-mode: hard-light; // fuse with the cave like the text, so it recedes
+  transition: opacity 0.8s ease-in-out; // fade the second head in/out smoothly
+}
+
+.chevron::after  { top: 12px; }
+.chevron::before { top: 2px; opacity: 0; } // hidden unless doubled
+
 .chevronShow {
-  opacity: 0.85;
+  opacity: 0.45;
+}
+
+.chevronDouble::before {
+  opacity: 1;
 }
 
 @keyframes chevronBounce {
