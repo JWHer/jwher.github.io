@@ -22,7 +22,7 @@
 .row {
   display: flex;
   align-items: center;
-  padding: 8px 10px 8px 10px;
+  padding: 8px 10px;
   cursor: pointer;
   border-bottom: 1px solid var(--ifm-color-emphasis-100);
   border-left: 3px solid transparent;
@@ -40,11 +40,11 @@
 
 // Game's next move: light green highlight with left accent
 .gameRow {
-  background: rgba(72, 187, 120, 0.12);
+  background: rgb(72 187 120 / 12%);
   border-left-color: #48bb78;
 
   &:hover {
-    background: rgba(72, 187, 120, 0.22);
+    background: rgb(72 187 120 / 22%);
     border-left-color: #38a169;
   }
 }
@@ -66,7 +66,7 @@
   min-width: 0;
 }
 
-@media (max-width: 799px) {
+@media (width <= 799px) {
   .barWrap {
     flex: 0 1 60vw;
   }
