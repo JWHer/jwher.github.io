@@ -22,6 +22,9 @@ yarn-error.log*
 # Local reference & research files (not for deployment)
 /references
 
+# Word-vector source data for /art/word-questions (4.5GB, see scripts/build-word-data.py)
+/scripts/word-source
+
 # Local scratch / migration files (not for deployment)
 /_local
 

@@ -1,0 +1,148 @@
+@use '../../css/variables' as *;
+
+// Header row height — the pinned latest row sticks right below it.
+$thead-h: 2.2rem;
+
+.table {
+  display: table;
+  width: 100%;
+  table-layout: fixed; // enforce the 1:4:2:5 column grid (monospace rhythm)
+  border-collapse: separate; // `collapse` drops the sticky header's border while scrolling
+  border-spacing: 0;
+  font-variant-numeric: tabular-nums lining-nums; // data column alignment in both typeface modes
+
+  th,
+  td {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: left;
+    border-bottom: 1px solid var(--ifm-hr-border-color);
+  }
+
+  // Infima stripes even rows by default — the bar fills carry the rhythm here
+  tr:nth-child(2n) {
+    background: transparent;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    height: $thead-h;
+    padding-block: 0;
+    vertical-align: middle;
+    white-space: nowrap; // a wrapped header would outgrow the sticky offset
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ifm-color-content-secondary);
+    background: var(--ifm-background-color);
+    border-bottom: var(--jw-border-w) solid var(--ifm-font-color-base);
+  }
+}
+
+// Columns follow a 1:4:2:5 ratio (12-division grid) → 8.33% / 33.33% / 16.67% / 41.67%.
+.order {
+  width: 8.33%;
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.word {
+  width: 33.33%;
+  font-weight: 500;
+  word-break: keep-all;
+}
+
+.sim {
+  width: 16.67%;
+  text-align: right;
+  white-space: nowrap; // keep "100.00" on one line
+}
+
+// ── Signature element: the rank cell is a bar chart ────────────────────────
+// The similarity fill spans the whole cell behind the rank label — each row
+// shows at a glance how far the word sits between 1,000th and 2nd place.
+.rank {
+  position: relative;
+  width: 41.67%;
+}
+
+.bar {
+  position: absolute;
+  inset: 0 0 1px; // keep the row hairline visible
+  z-index: 0;
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  background: color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
+  transition: width 0.4s ease;
+}
+
+.rankLabel {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+}
+
+// Cold guesses (1000위 이상) recede
+.rankFar {
+  color: var(--ifm-color-content-secondary);
+}
+
+// Latest guess: pinned in the DOM *and* on screen — sticks below the header
+// with an ink accent, so the newest feedback never scrolls out of view.
+.latest {
+  font-weight: 600;
+
+  td {
+    position: sticky;
+    top: calc(#{$thead-h} - 1px); // tuck under the header: no seam at fractional scroll
+    z-index: 2; // above scrolling rows' .rankLabel (z-index 1)
+    background: var(--ifm-background-surface-color);
+  }
+
+  td:first-child {
+    box-shadow: inset 3px 0 0 var(--ifm-color-primary);
+  }
+}
+
+.answer {
+  .word,
+  .rankLabel {
+    font-weight: 700;
+    color: var(--ifm-color-secondary);
+  }
+
+  .barFill {
+    background: color-mix(in srgb, var(--ifm-color-secondary) 24%, transparent);
+  }
+}
+
+.flash td {
+  animation: flash 0.6s ease;
+}
+
+@keyframes flash {
+  50% {
+    background-color: var(--ifm-color-emphasis-300);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .table th,
+  .table td {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  // Column widths keep the 1:4:2:5 ratio from the base rules on mobile too.
+  .rankLabel {
+    font-size: 0.8rem;
+  }
+}

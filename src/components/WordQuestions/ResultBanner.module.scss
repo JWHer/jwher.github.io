@@ -1,0 +1,32 @@
+.banner {
+  padding: 0.9rem 1.2rem;
+  border: var(--jw-border-w) solid var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+  animation: banner-in 0.4s ease-out;
+
+  p {
+    margin: 0;
+    word-break: keep-all;
+  }
+
+  strong {
+    color: var(--ifm-color-primary);
+  }
+}
+
+// Give-up reveal: quieter than the win moment
+.gaveUp {
+  border-color: var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+
+  strong {
+    color: inherit;
+  }
+}
+
+@keyframes banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.4rem);
+  }
+}

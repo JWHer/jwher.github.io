@@ -35,7 +35,9 @@
     "sass": "^1.93.3",
     "sql.js-httpvfs": "^0.8.12",
     "stockfish": "^18.0.8",
-    "three": "^0.183.1"
+    "three": "^0.183.1",
+    "vis-data": "^8.0.4",
+    "vis-network": "^10.1.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",

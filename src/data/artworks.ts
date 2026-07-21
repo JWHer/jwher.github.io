@@ -4,7 +4,12 @@ export interface Artwork {
   titleEn: string;
   year: number;
   description: string;
+  /** Fallback card thumbnail when no `image` is set. */
   gradient: string;
+  /** Card/OG thumbnail (light). Falls back to `gradient` when absent. */
+  image?: string;
+  /** Dark-theme variant of `image`. */
+  imageDark?: string;
   /**
    * Whether this artwork is finished and should be visible in the gallery.
    * When false: hidden from /art listing, individual page shows "준비중" notice.
@@ -56,6 +61,17 @@ export const ARTWORKS: Artwork[] = [
     year: 2026,
     description: '기보 탐색기. 오프닝 분류, 수순별 승률.',
     gradient: 'linear-gradient(135deg, #2c2c2c 0%, #4a3728 50%, #6b4c35 100%)',
+    published: true,
+  },
+  {
+    id: 'word-questions',
+    title: '뜻밖에',
+    titleEn: 'Word Questions',
+    year: 2026,
+    description: 'word2vec 의미 유사도로 오늘의 단어 맞히기.',
+    gradient: 'linear-gradient(135deg, #1b3a2d 0%, #2e8555 50%, #25c2a0 100%)',
+    image: '/img/art/wq-og-light.png',
+    imageDark: '/img/art/wq-og-dark.png',
     published: true,
   },
 ];
