@@ -84,25 +84,11 @@
   flex-shrink: 0;
 }
 
-.rainbow {
-  flex: 1;
-  background: linear-gradient(
-    90deg,
-    #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s linear infinite;
-}
 
-@keyframes shimmer {
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
-}
-
-.rainbowBorder {
+.irisBorder {
   padding: 1px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff);
+  background: var(--ifm-color-primary);
 
   .bar {
     border-radius: 1px;

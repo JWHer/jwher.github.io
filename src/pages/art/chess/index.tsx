@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Chess } from 'chess.js';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useChessModel } from '@site/src/hooks/useChessModel';
 import { usePositionData } from '@site/src/hooks/usePositionData';
 import { useOpening } from '@site/src/hooks/useOpening';
@@ -61,7 +63,7 @@ export default function ChessExplorer() {
   const [flipped, setFlipped] = useState(false);
 
   // Delay DB/SF queries until PGN is ready to avoid spurious FEN changes that restart Stockfish.
-  const { entries: continuations, loading: posLoading } = usePositionData(activeFen, mounted && pgnReady);
+  const { entries: continuations, loading: posLoading, sfLoading } = usePositionData(activeFen, mounted && pgnReady);
   const opening = useOpening(activeFen);
 
   const boardChess = useMemo(() => {
@@ -125,8 +127,15 @@ export default function ChessExplorer() {
       ? { eco: '→', name: `${game.title} — 자유 탐색중` }
       : opening;
 
+  const ogImage = useBaseUrl('/img/art/chess-og.webp', { absolute: true });
+
   return (
     <Layout title="Chess Explorer" description="Chess game explorer">
+      <Head>
+        <meta property="og:image" content={ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        {/* Photo: Aatu Dorochenko, CC BY-SA 4.0, via Wikimedia Commons */}
+      </Head>
       <div className={styles.page}>
       {mounted && (
         <>
@@ -175,7 +184,7 @@ export default function ChessExplorer() {
                   className={styles.controlBtn}
                   onClick={() => setFlipped((f) => !f)}
                   title="Flip board"
-                >↻</button>
+                >⇅</button>
               </div>
 
               {gameMoveDisplay && (
@@ -207,6 +216,7 @@ export default function ChessExplorer() {
                     key={activeFen}
                     entries={continuations}
                     loading={posLoading}
+                    sfLoading={sfLoading}
                     turnPrefix={turnPrefix}
                     gameNextMove={gameNextMove}
                     onMoveSelect={selectMove}

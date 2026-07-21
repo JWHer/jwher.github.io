@@ -15,15 +15,7 @@ interface WinRateBarProps {
 }
 
 export default function WinRateBar({ stats, loading, aiEstimate }: WinRateBarProps) {
-  if (loading) {
-    return (
-      <span className={styles.container} title="AI 분석 중...">
-        <span className={styles.bar}>
-          <span className={styles.rainbow} />
-        </span>
-      </span>
-    );
-  }
+  if (loading) return null;
 
   if (!stats) return null;
 
@@ -47,7 +39,7 @@ export default function WinRateBar({ stats, loading, aiEstimate }: WinRateBarPro
 
   return (
     <span className={styles.container} title={title}>
-      <span className={clsx(styles.barInner, aiEstimate && styles.rainbowBorder)}>
+      <span className={clsx(styles.barInner, aiEstimate && styles.irisBorder)}>
         <span className={styles.bar}>
           <span className={styles.white} style={{ width: `${wPct}%` }}>
             <span className={styles.pct}>{wPct}%</span>

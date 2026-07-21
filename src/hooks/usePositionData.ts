@@ -65,5 +65,5 @@ export function usePositionData(fen: string, enabled: boolean) {
     return [...fromDb, ...fromSf];
   }, [posStats.moves, posStats.ready, sfResult.moveStats, sfResult.loading, fen]);
 
-  return { entries, loading: posStats.loading };
+  return { entries, loading: posStats.loading, sfLoading: sfResult.loading };
 }

@@ -1,0 +1,37 @@
+.iris {
+  display: block;
+  flex-shrink: 0;
+
+  .petal {
+    fill: var(--iris-empty, transparent);
+    stroke: none;
+    transition: fill 0.4s ease;
+  }
+
+  &.fallPetal { --pc: var(--iris-fall, #632e85); }
+  &.stdPetal  { --pc: var(--iris-std,  #bf95da); }
+}
+
+// Per-petal color variable
+.fall { --pc: var(--iris-fall, #632e85); }
+.std  { --pc: var(--iris-std,  #bf95da); }
+
+.petal {
+  fill: var(--iris-empty, transparent);
+  stroke: none;
+  transition: fill 0.4s ease;
+}
+
+@keyframes irisWave {
+  0%, 100% { fill: var(--iris-empty, transparent); }
+  35%, 65%  { fill: var(--pc); }
+}
+
+.wave .petal {
+  animation: irisWave 3.2s infinite;
+}
+
+.done .petal {
+  fill: var(--pc);
+  animation: none;
+}

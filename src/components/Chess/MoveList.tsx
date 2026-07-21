@@ -9,6 +9,7 @@ export type { ContinuationEntry };
 interface MoveListProps {
   entries: ContinuationEntry[];
   loading: boolean;
+  sfLoading?: boolean;
   turnPrefix: string;
   gameNextMove?: string | null;
   onMoveSelect: (san: string) => void;
@@ -23,6 +24,7 @@ function stripAnnotations(san: string): string {
 export default function MoveList({
   entries,
   loading,
+  sfLoading = false,
   turnPrefix,
   gameNextMove,
   onMoveSelect,
@@ -41,6 +43,28 @@ export default function MoveList({
   const totalPages = Math.max(1, Math.ceil(sortedEntries.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages - 1);
   const visible = sortedEntries.slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE);
+  const visibleDb      = visible.filter((e) => e.source !== 'pending');
+  const visiblePending = visible.filter((e) => e.source === 'pending');
+
+  function renderRow(entry: ContinuationEntry) {
+    const isGameMove = gameNextStripped !== null && stripAnnotations(entry.san) === gameNextStripped;
+    const barAiEstimate = entry.source === 'stockfish';
+    return (
+      <div
+        key={entry.san}
+        className={clsx(styles.row, isGameMove && styles.gameRow)}
+        onClick={() => onMoveSelect(entry.san)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && onMoveSelect(entry.san)}
+      >
+        <span className={styles.san}>{turnPrefix}{entry.san}</span>
+        <div className={styles.barWrap}>
+          <WinRateBar stats={entry.stats} aiEstimate={barAiEstimate} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.panel}>
@@ -49,31 +73,18 @@ export default function MoveList({
       )}
 
       <div className={styles.list}>
-        {visible.map((entry) => {
-          const isGameMove = gameNextStripped !== null && stripAnnotations(entry.san) === gameNextStripped;
-          const barLoading = entry.source === 'pending';
-          const barAiEstimate = entry.source === 'stockfish';
+        {visibleDb.map(renderRow)}
 
-          return (
-            <div
-              key={entry.san}
-              className={clsx(styles.row, isGameMove && styles.gameRow)}
-              onClick={() => onMoveSelect(entry.san)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onMoveSelect(entry.san)}
-            >
-              <span className={styles.san}>{turnPrefix}{entry.san}</span>
-              <div className={styles.barWrap}>
-                <WinRateBar
-                  stats={entry.stats}
-                  loading={barLoading}
-                  aiEstimate={barAiEstimate}
-                />
+        {visiblePending.length > 0 && (
+          <div className={styles.pendingSection}>
+            {visiblePending.map(renderRow)}
+            {sfLoading && (
+              <div className={styles.irisOverlay}>
+                <span className={styles.spinner} />
               </div>
-            </div>
-          );
-        })}
+            )}
+          </div>
+        )}
       </div>
 
       {totalPages > 1 && (

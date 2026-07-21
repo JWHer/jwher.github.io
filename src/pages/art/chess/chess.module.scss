@@ -50,6 +50,9 @@ $desktop: 799px;
     border-right: none;
     border-top: 1px solid var(--ifm-color-emphasis-200);
     flex-shrink: 0;
+    // 최소 3개 항목 + 패널 헤더가 보이는 bounded scroll 영역
+    min-height: 200px;
+    max-height: clamp(200px, 40vh, 380px);
   }
 }
 
@@ -90,7 +93,7 @@ $desktop: 799px;
 // ── Column: Move Panel ───────────────────────────────────
 .moveCol {
   border-left: 1px solid var(--ifm-color-emphasis-200);
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 
@@ -99,7 +102,6 @@ $desktop: 799px;
     border-left: none;
     border-top: 1px solid var(--ifm-color-emphasis-200);
     flex-shrink: 0;
-    max-height: 320px;
   }
 }
 

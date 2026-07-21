@@ -61,6 +61,7 @@ export const ARTWORKS: Artwork[] = [
     year: 2026,
     description: '기보 탐색기. 오프닝 분류, 수순별 승률.',
     gradient: 'linear-gradient(135deg, #2c2c2c 0%, #4a3728 50%, #6b4c35 100%)',
+    image: '/img/art/chess-og.webp',
     published: true,
   },
   {
