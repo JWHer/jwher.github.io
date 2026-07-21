@@ -3,9 +3,6 @@
 `/art/word-questions`. 정답 단어와의 **의미 유사도**(word2vec 코사인)로 오늘의
 숨은 단어를 맞히는 낱말 게임. semantle / 꼬맨틀에서 영감.
 
-> 파일명이 `_`로 시작하는 이유: Docusaurus `pages` 플러그인은 `_` 접두 파일을
-> 라우트로 만들지 않는다. 이 문서가 공개 페이지가 되는 것을 막기 위함.
-
 ## 핵심 제약
 
 **정적 사이트(GitHub Pages), 서버 없음.** 유사도·순위 계산을 전부 클라이언트에서
@@ -97,10 +94,11 @@ python3 scripts/build-word-data.py --secrets-only   # 화이트리스트만 반�
 - **정답/포기 시 이웃 그래프**: `WordGraph`(vis-network)가 정답 단어 중심의 최근접
   이웃을 force-directed로 표시. 안정화 후 physics를 끄고 **커서 반발 필드**(포인터
   주변 노드가 밀려났다 제자리로 복귀, `moveNode`로 매 프레임 위치를 직접 이징 —
-  radius 150 / strength 55 / ease 0.05) + hover 색 강조. vis-network는 **정답 순간에만
-  dynamic import**(초기 27MB 로딩 보호). light/dark 테마 대응, `prefers-reduced-motion`
-  시 반발 루프 생략. 이웃 목록은 `useWordGame.graphNeighbors`(어간 중복 제거).
-  튜닝 데모: `_local/hover-demo.js`.
+  radius 150 / strength 55 / ease 0.05) + hover 색 강조. `fit()` 후 스케일을 살짝
+  줄여(`FIT_MARGIN`) 노드 라벨이 위아래로 잘리지 않게 여백 확보. vis-network는
+  **정답 순간에만 dynamic import**(초기 27MB 로딩 보호). light/dark 테마 대응,
+  `prefers-reduced-motion` 시 반발 루프 생략. 이웃 목록은
+  `useWordGame.graphNeighbors`(어간 중복 제거). 튜닝 데모: `_local/hover-demo.js`.
 - **OG/카드 이미지**: `static/img/art/wq-og-{light,dark}.png`(1200×630). 세로 워드마크
   "뜻/밖/에" + 세로 부제 + 우주 이웃 그래프. `Artwork.image`/`imageDark`로 `/art` 카드
   썸네일(테마별 전환), 페이지에 `og:image` + `twitter:card` 메타. `_local/make-og.js`로

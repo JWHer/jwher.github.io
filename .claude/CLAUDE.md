@@ -49,3 +49,4 @@ analogies), and the blog-vs-docs distinction.
 | [.claude/seo-runbook.md](.claude/seo-runbook.md) | SEO tasks — sitemaps, metadata, search console |
 | [.claude/ga4-setup.md](.claude/ga4-setup.md) | the GA4 "popular posts" pipeline / analytics automation |
 | [.claude/chess-explorer.md](.claude/chess-explorer.md) | working on `/art/chess` — architecture, data flow, remaining work |
+| [.claude/word-questions.md](.claude/word-questions.md) | working on `/art/word-questions` (뜻밖에) — data pipeline, client architecture, cache policy |

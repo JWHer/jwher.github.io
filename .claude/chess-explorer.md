@@ -54,10 +54,12 @@ src/
   components/Chess/
     ChessBoard.tsx           ← skin prop 래퍼
     BoardSkin.ts / ClassicSkin.tsx (+.module.scss)  ← SVG 기물 + transition
-    MoveList.tsx             ← 수 목록 + WinRateBar + 무한 스크롤
+    MoveList.tsx             ← 수 목록 + WinRateBar; 전체 수를 스크롤 없이 표시;
+                                pending 수 섹션 중앙에 spinner 오버레이 (sfLoading 기반)
     GameSidebar.tsx          ← 기보 목록 사이드바
     OpeningBadge.tsx         ← 오프닝/게임 이름 뱃지
-    WinRateBar.tsx           ← 승률 바 (shimmer / aiEstimate / DB 모드)
+    WinRateBar.tsx           ← 승률 바 (loading → null 반환 / aiEstimate → primary border / DB 모드)
+    IrisIcon.tsx (+.module.scss)  ← 붓꽃 6-petal SVG 로딩 아이콘 (보존, 현재 미사용)
 
 static/chess/
   games/                     ← PGN 파일
@@ -114,7 +116,7 @@ interface MoveHistoryEntry {
 interface ContinuationEntry {
   san: string;
   source: 'db' | 'stockfish' | 'pending';
-  // db=DB 수(totalGames순) · stockfish=SF 완료(winrate순) · pending=SF 계산중(shimmer)
+  // db=DB 수(totalGames순) · stockfish=SF 완료(winrate순) · pending=SF 계산중(spinner 오버레이)
   winrate: number | null;  // 0–1, 현재 플레이어 기준. pending이면 null.
   stats: MoveStats | null; // WinRateBar 렌더링용
 }
@@ -172,11 +174,14 @@ const sfResult = useStockfish(fen, enabled && posStats.ready);
 // posStats.ready = DB 쿼리 완료 신호. Stockfish의 false→true→false 재시작 방지.
 ```
 
+반환: `{ entries, loading: posStats.loading, sfLoading: sfResult.loading }`.
+`sfLoading`은 chess page → MoveList로 전달되어 pending 섹션 spinner 표시 조건으로 사용.
+
 - **DB 항목**: 선택 빈도(totalGames) 내림차순.
 - **SF 항목**: DB에 없는 legal move를 승률 내림차순으로 채움. 계산 전이면
-  `source='pending'`(shimmer).
-- 반환 순서: DB 먼저, SF 뒤. `MoveList`가 `PAGE_SIZE = 10`씩 무한 스크롤
-  (IntersectionObserver)로 소비.
+  `source='pending'`.
+- 반환 순서: DB 먼저, SF 뒤. MoveList는 전체를 스크롤 없이 표시(자연 높이).
+  pending 수들은 별도 섹션으로 묶이고, `sfLoading` 중일 때 섹션 중앙에 spinner 오버레이.
 
 ### 기존 훅 (안정, 변경 드묾)
 
@@ -261,7 +266,7 @@ flowchart TB
     usePositionData --> usePositionStats["usePositionStats (localStorage→SQLite, ready)"]
     usePositionStats -->|ready| useStockfish["useStockfish (enabled=ready)"]
     AF --> ChessBoard
-    usePositionData --> MoveList["MoveList (무한 스크롤 + WinRateBar)"]
+    usePositionData --> MoveList["MoveList (전체 수 표시 + WinRateBar + sfLoading spinner)"]
     useOpening --> OpeningBadge
     MoveList -->|onMoveSelect| Controller["Controller 액션"]
     GameSidebar -->|onSelect| Controller
@@ -285,6 +290,13 @@ flowchart TB
 | positions.db 재빌드 | `LICHESS_TOKEN=<token> node scripts/prefetch-lichess-stats.js` |
 | PGN 게임 추가 | Fischer-Karpov, Morphy 등 |
 | `index.tsx` 잔여 정리 | URL sync 외 이벤트 핸들러 혼재 — 필요 시 훅으로 추출 |
+| IrisIcon 재활용 | 현재 체스 페이지에서는 미사용; 다른 로딩 UI에 붙일 수 있음 |
+
+**완료된 항목:**
+- OG 썸네일: `static/img/art/chess-og.webp` (1200×630, CC BY-SA 4.0 Aatu Dorochenko via Wikimedia)
+- Flip board 버튼: `↻` → `⇅`
+- AI 예측 border: rainbow → `var(--ifm-color-primary)` 단색
+- `--iris-fall: #632e85`, `--iris-std: #bf95da` 전역 CSS 변수 추가 (`_variables.scss`)
 
 ---
 
