@@ -15,17 +15,30 @@
 
 | 파일 | 내용 | 크기 |
 |---|---|---|
-| `words-v1.json` | 단어 배열, 인덱스 = 단어 id(빈도순) | ~1.2MB |
-| `vecs-v1.bin` | id 순 int8[300] 연속 배열 | ~27MB |
+| `words-v1.json` | 단어 배열, 인덱스 = 단어 id(빈도순) | ~1MB |
+| `vecs-v1.bin` | id 순 int8[300] 연속 배열 | ~24MB |
 | `secrets-v1.json` | 데일리 정답 후보 단어 id 목록 | ~35KB |
 
 - 출처: FastText `cc.ko.300.vec`(공개, 빈도순). 상위 90,000단어를 `[가-힣]{2,}`
-  필터 + NFC로 수락.
+  필터 + NFC로 수락한 뒤, 크롤 노이즈를 걸러 **~79,000단어**로 축소(아래 의미 필터).
 - 벡터는 단어별 int8 양자화(`q = round(v / (max|v|/127))`). 코사인은 양수 스케일에
   불변이라 scale은 저장하지 않는다.
 - **정답 풀은 화이트리스트**(`scripts/secret-words.txt`)가 source of truth.
   파일이 있으면 그대로 쓰고, 없으면 kiwipiepy로 "사전 등재 일반명사(NNG)"만 자동
   추출해 파일을 생성한다. 큐레이션으로 어색한 단어(은어·미등재어)를 제거함.
+
+### 의미 필터 (`semantic_filter`, 정확도 우선)
+
+빈도(wordfreq)는 한국어 zipf 분포가 양극단이라 정상어까지 날려 **쓰지 않는다**. 대신
+고정밀 신호 3종으로 크롤 노이즈만 제거한다(정답 풀은 전부 생존):
+
+1. **OOV** — kiwipiepy가 사전에서 못 찾는 형태소(`id==2`)가 하나라도 있으면 제거.
+   붙은 스크래핑어(`보기힐튼`, `트립어드바이저`)를 빈도와 무관하게 잡는다. (~2.7k)
+2. **희귀 고유명사** — 단일 토큰 NNP인데 빈도순위가 `--nnp-cutoff`(기본 8,000) 이상.
+   `박연차`·`손흥민`은 빠지고 `미국`·`서울`은 남는다. (~7.6k)
+3. **blocklist** — 위 둘이 못 잡는(모든 하위 형태소가 실제 단어인) 명사 붙은말.
+   LLM으로 판별해 `scripts/vocab-blocklist.txt`에 적어둔 것(`호텔스닷컴`,
+   `일반지도위성지도`, `회원정보수정` 등). (~0.6k)
 
 ### 파이프라인 — `scripts/build-word-data.py`
 
@@ -36,11 +49,13 @@ curl -L -o scripts/word-source/cc.ko.300.vec.gz \
 gunzip -k scripts/word-source/cc.ko.300.vec.gz
 pip install numpy kiwipiepy
 
-python3 scripts/build-word-data.py --verify        # 전체 재생성
+python3 scripts/build-word-data.py --verify        # 전체 재생성(의미 필터 포함)
 python3 scripts/build-word-data.py --secrets-only   # 화이트리스트만 반영(원본 불필요)
 ```
 
-정답 풀 큐레이션: `scripts/secret-words.txt`에서 줄을 지우고 `--secrets-only` 재실행.
+- 정답 풀 큐레이션: `scripts/secret-words.txt`에서 줄을 지우고 `--secrets-only` 재실행.
+- 붙은말 추가 제거: `scripts/vocab-blocklist.txt`에 단어를 추가/삭제하고 전체 재생성.
+  이때 벡터가 바뀌므로 아래 캐시 정책대로 `CACHE_NAME`을 올려야 한다.
 
 ## 클라이언트 구조
 
@@ -76,10 +91,14 @@ python3 scripts/build-word-data.py --secrets-only   # 화이트리스트만 반�
 
 ### 캐시 정책 (중요)
 
-- `words-v1.json` / `vecs-v1.bin`은 불변 → Cache Storage(`wq-v1`)에 저장, 재방문 즉시.
-  **단어장/벡터를 다시 빌드하면 파일명을 `-v2`로 올려야 한다.**
+- `words-v1.json` / `vecs-v1.bin`은 한 세대 안에서 불변 → Cache Storage에 저장, 재방문
+  즉시. **단어장/벡터를 다시 빌드하면 `useWordData.ts`의 `CACHE_NAME`을 올려야 한다**
+  (`wq-v1`→`wq-v2`…). 공개 파일명(`-v1`)은 그대로 두고 내부 캐시 버킷 이름만 올리며,
+  로드 시 `STALE_CACHES`의 옛 버킷을 삭제해 재방문자가 새 벡터를 다시 받게 한다.
+  (파일명을 바꾸지 않으므로 재빌드 시 캐시된 옛 벡터가 새 secrets 인덱스와 어긋나는
+  것을 이 승격으로 막는다.)
 - `secrets-v1.json`은 큐레이션으로 자주 바뀌므로 **항상 재검증**(`cache: 'no-cache'`)
-  하고, 구버전이 캐시에 있으면 로드 시 삭제한다.
+  하고, 캐시 버킷을 통째로 비울 때 함께 삭제된다.
 
 ## 기능 (구현 완료)
 
