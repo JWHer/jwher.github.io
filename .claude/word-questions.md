@@ -69,10 +69,14 @@ python3 scripts/build-word-data.py --secrets-only   # 화이트리스트만 반�
 | `src/components/WordQuestions/GuessTable.tsx` | 추측 표 + 유사도 막대 |
 | `src/components/WordQuestions/ResultBanner.tsx` | 정답/포기 배너 |
 
-### 정답 선택
+### 정답 선택 — 정답 풀 인덱스(poolIdx)로 통일
+
+정답은 **정답 풀 인덱스**(secretIds 안에서의 위치 = `secret-words.txt` 순서)로 식별한다.
+이 인덱스는 **재빌드와 무관하게 고정**(전체 어휘 id는 필터/빌드마다 바뀜)이고 항상 명사다.
 
 - **데일리**: `dailySecretIdx(seoulDateString(), 정답풀크기)` = `FNV-1a('YYYY-MM-DD:word-questions-v1') % N`. KST 자정에 바뀜.
-- **커스텀**: `?word={전체 어휘 id}`. 범위 밖/비정수면 데일리로 폴백 + 안내.
+- **커스텀/공유**: `?word={poolIdx}` (0 ~ 정답풀크기-1). 범위 밖/비정수면 데일리로 폴백 + 안내.
+  커스텀도 정답 풀에서만 뽑히므로 비명사가 정답이 되지 않는다.
 
 ### 유사도·순위·힌트
 
@@ -84,9 +88,10 @@ python3 scripts/build-word-data.py --secrets-only   # 화이트리스트만 반�
 
 ### 저장 (localStorage)
 
-- 데일리: `wq:v1:daily` → `{ date, secretId, guessWords, solved, gaveUp, startedAt, solvedAt }`.
-  복원 시 날짜 또는 secretId 불일치면 폐기(정답 풀이 바뀌면 자동 리셋).
-- 커스텀: `wq:v1:custom:{id}` → 동일 구조(date 없음).
+- 데일리: `wq:v1:daily` → `{ date, secret, guessWords, solved, gaveUp, startedAt, solvedAt }`.
+  복원 시 날짜 또는 정답 **단어**(`secret`) 불일치면 폐기. 단어로 검증하므로 어휘를
+  재빌드해도(전체 어휘 id가 바뀌어도) 기록이 유지된다.
+- 커스텀: `wq:v1:custom:{poolIdx}` → 동일 구조(date 없음).
 - 페이지를 열어둔 채 날짜가 바뀌면 `stale` 잠금 + 새로고침 안내.
 
 ### 캐시 정책 (중요)

@@ -7,10 +7,14 @@ import { seoulDateString, dailySecretIdx } from '@site/src/utils/dailyWord';
 /**
  * Game state for /art/word-questions.
  *
- * The daily game draws its secret from the curated noun pool (secretIds);
- * `?word={id}` starts a custom game whose secret is the word with that
- * full-vocabulary id. Progress persists in localStorage — daily and custom
- * games under separate keys — and the game locks after solving or giving up.
+ * The secret is identified by its POOL INDEX (position in the curated noun
+ * pool, secretIds). The daily game derives that index from the date; a
+ * `?word={poolIndex}` link starts a custom game at that pool entry. Pool
+ * indices are stable across vocabulary rebuilds (they follow secret-words.txt
+ * order, not the shifting full-vocab ids) and always resolve to a curated
+ * noun. Progress persists in localStorage — daily and custom under separate
+ * keys — validated by the answer word so saves survive rebuilds; the game
+ * locks after solving or giving up.
  */
 
 export interface Guess {
@@ -29,7 +33,7 @@ export type GuessOutcome =
 
 interface StoredGame {
   date?: string; // daily games only
-  secretId: number;
+  secret: string; // the answer word (stable id across vocab rebuilds)
   guessWords: string[];
   solved: boolean;
   gaveUp: boolean;
@@ -85,13 +89,14 @@ export function useWordGame(active: boolean) {
     if (!data) return null;
     if (customParam !== null) {
       const v = Number(customParam);
-      if (Number.isInteger(v) && v >= 0 && v < data.numWords) {
-        return { secretId: v, isCustom: true, invalidCustom: false };
+      if (Number.isInteger(v) && v >= 0 && v < data.secretIds.length) {
+        return { secretId: data.secretIds[v], poolIdx: v, isCustom: true, invalidCustom: false };
       }
     }
     const poolIdx = dailySecretIdx(dateStr, data.secretIds.length);
     return {
       secretId: data.secretIds[poolIdx],
+      poolIdx,
       isCustom: false,
       invalidCustom: customParam !== null,
     };
@@ -122,7 +127,7 @@ export function useWordGame(active: boolean) {
 
   const storageKey = game
     ? game.isCustom
-      ? `wq:v1:custom:${game.secretId}`
+      ? `wq:v1:custom:${game.poolIdx}`
       : 'wq:v1:daily'
     : null;
 
@@ -137,7 +142,7 @@ export function useWordGame(active: boolean) {
     setSolvedAt(null);
 
     const stored = lsGet(storageKey);
-    if (!stored || stored.secretId !== game.secretId) return;
+    if (!stored || stored.secret !== data.getWord(game.secretId)) return;
     if (!game.isCustom && stored.date !== dateStr) return;
 
     const restored: Guess[] = [];
@@ -161,10 +166,10 @@ export function useWordGame(active: boolean) {
       startedAt: number | null;
       solvedAt: number | null;
     }) => {
-      if (!game || !storageKey) return;
+      if (!data || !game || !storageKey) return;
       lsSet(storageKey, {
         ...(game.isCustom ? {} : { date: dateStr }),
-        secretId: game.secretId,
+        secret: data.getWord(game.secretId),
         guessWords: next.guesses.map((g) => g.word),
         solved: next.solved,
         gaveUp: next.gaveUp,
@@ -172,7 +177,7 @@ export function useWordGame(active: boolean) {
         ...(next.solvedAt !== null ? { solvedAt: next.solvedAt } : {}),
       });
     },
-    [game, storageKey, dateStr],
+    [data, game, storageKey, dateStr],
   );
 
   // Detect KST date rollover while the page stays open (daily games only).
@@ -238,15 +243,13 @@ export function useWordGame(active: boolean) {
     persist({ guesses, solved, gaveUp: true, startedAt, solvedAt });
   }, [locked, guesses, solved, startedAt, solvedAt, persist]);
 
-  /** Full-vocab id of a random secret-pool word, for the "다른 문제 풀기" link. */
+  /** Random pool index for the "다른 문제 풀기" link (a stable ?word= value). */
   const randomGameId = useCallback(() => {
     if (!data) return null;
-    const pool = data.secretIds;
-    let id = pool[Math.floor(Math.random() * pool.length)];
-    if (game && id === game.secretId) {
-      id = pool[(pool.indexOf(id) + 1) % pool.length];
-    }
-    return id;
+    const n = data.secretIds.length;
+    let k = Math.floor(Math.random() * n);
+    if (game && k === game.poolIdx) k = (k + 1) % n;
+    return k;
   }, [data, game]);
 
   return {
@@ -260,6 +263,8 @@ export function useWordGame(active: boolean) {
     isCustom: game?.isCustom ?? false,
     invalidCustom: game?.invalidCustom ?? false,
     secretId: game?.secretId ?? null,
+    /** Stable share/link identifier (pool index); daily and custom alike. */
+    poolIdx: game?.poolIdx ?? null,
     hint: sims
       ? { sim1: sims.simAtRank(1), sim10: sims.simAtRank(10), sim1000: sims.simAtRank(1000) }
       : null,

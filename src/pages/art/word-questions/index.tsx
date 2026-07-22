@@ -87,8 +87,8 @@ export default function WordQuestions() {
   // Always share the index-based link so the recipient gets the same word,
   // regardless of the day. Solved games share the result; otherwise an invite.
   const handleShare = async () => {
-    if (game.secretId === null) return;
-    const idx = game.secretId;
+    if (game.poolIdx === null) return;
+    const idx = game.poolIdx;
     const url = `${window.location.origin}/art/word-questions?word=${idx}`;
     let text: string;
     if (game.solved) {
@@ -136,7 +136,7 @@ export default function WordQuestions() {
                   <>
                     <p>
                       {game.isCustom
-                        ? `#${game.secretId} 정답 단어를 맞혀보세요.`
+                        ? `#${game.poolIdx} 정답 단어를 맞혀보세요.`
                         : `${formatDate(game.dateStr)} 정답 단어를 맞혀보세요.`}
                     </p>
                     {game.hint && (
