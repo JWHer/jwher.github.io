@@ -11,7 +11,11 @@ import { useEffect, useReducer } from 'react';
  */
 
 const DIMS = 300;
-const CACHE_NAME = 'wq-v1';
+// Internal Cache Storage bucket. Bump this (NOT the public -v1 filenames) when
+// words/vecs are regenerated, so revisitors re-download instead of serving a
+// stale vector set that no longer matches the freshly-fetched secrets.
+const CACHE_NAME = 'wq-v2';
+const STALE_CACHES = ['wq-v1'];
 const WORDS_URL = '/word-questions/words-v1.json';
 const VECS_URL = '/word-questions/vecs-v1.bin';
 const SECRETS_URL = '/word-questions/secrets-v1.json';
@@ -161,16 +165,16 @@ function setState(next: Partial<LoadState>): void {
 async function startLoad(): Promise<void> {
   setState({ status: 'loading', progress: 0 });
   try {
-    // Drop the secrets entry older builds cached (it must always be fresh).
+    // Evict word/vector sets cached by superseded builds (see CACHE_NAME).
     try {
-      await (await caches.open(CACHE_NAME)).delete(SECRETS_URL);
+      await Promise.all(STALE_CACHES.map((name) => caches.delete(name)));
     } catch {
       // Cache Storage unavailable
     }
     // The secret pool is curated over time (scripts/secret-words.txt), so it
     // must NOT go through Cache Storage — fetch with revalidation every visit.
-    // words/vecs are immutable per version suffix; vocabulary changes require
-    // bumping the -v1 filenames.
+    // words/vecs are immutable within a CACHE_NAME generation; regenerating
+    // them means bumping CACHE_NAME (public -v1 filenames stay put).
     const [wordsBuf, secretsBuf] = await Promise.all([
       cachedFetch(WORDS_URL),
       fetch(SECRETS_URL, { cache: 'no-cache' }).then((res) => {

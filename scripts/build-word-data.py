@@ -10,13 +10,17 @@ Word ids are frequency order (cc.ko.300.vec is sorted by corpus frequency).
 Vectors are per-word symmetric int8 quantized (q = round(v / (max|v| / 127))).
 No scale is stored: cosine similarity is invariant under per-vector positive scaling.
 
-The guessable vocabulary is intentionally broad (any Hangul token, including
-particle-attached forms and verbs). Daily secrets are restricted to clean
-common nouns, curated via scripts/secret-words.txt (one word per line,
-committed): when that file exists it IS the secret pool (whitelist); when it
-doesn't, an automatic pick (kiwipiepy: single NNG morpheme within the frequent
-band) generates both the pool and the file for human review. To prune bad
-answers, delete lines from the file and re-run with --secrets-only.
+The guessable vocabulary is broad (Hangul tokens including particle-attached
+forms and verbs) but pruned of crawl noise via kiwipiepy: tokens absent from
+its dictionary (glued scraping fragments like "보기힐튼", "트립어드바이저") and
+obscure proper nouns (single-token NNP ranked below the frequent band, e.g.
+"박연차" — while common ones like "미국"/"서울" stay) are dropped. Daily secrets
+are restricted to clean common nouns, curated via scripts/secret-words.txt (one
+word per line, committed): when that file exists it IS the secret pool
+(whitelist); when it doesn't, an automatic pick (kiwipiepy: single NNG morpheme
+within the frequent band) generates both the pool and the file for human
+review. To prune bad answers, delete lines from the file and re-run with
+--secrets-only.
 
 Usage:
   1. Download the source vectors (kept out of git, ~1.3GB gz / ~4.5GB unpacked):
@@ -26,7 +30,7 @@ Usage:
        gunzip -k scripts/word-source/cc.ko.300.vec.gz
   2. pip install numpy kiwipiepy   (tested with numpy 1.26.4, kiwipiepy 0.23.2, Python 3.9)
   3. python3 scripts/build-word-data.py [--vec PATH] [--vocab 90000]
-       [--secret-band 30000] [--verify]
+       [--secret-band 30000] [--nnp-cutoff 8000] [--verify]
 
 Regenerate only secrets-v1.json after editing secret-words.txt (no .vec needed):
   python3 scripts/build-word-data.py --secrets-only
@@ -45,6 +49,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_VEC = os.path.join(ROOT, 'scripts', 'word-source', 'cc.ko.300.vec')
 OUT_DIR = os.path.join(ROOT, 'static', 'word-questions')
 WHITELIST = os.path.join(ROOT, 'scripts', 'secret-words.txt')
+# Curated list of glued scraping fragments to drop (LLM-reviewed noun compounds
+# that OOV/NNP rules can't catch, e.g. "호텔스닷컴", "일반지도위성지도"), one word
+# per line. Optional: absent = no extra pruning.
+BLOCKLIST = os.path.join(ROOT, 'scripts', 'vocab-blocklist.txt')
 DIMS = 300
 HANGUL_RE = re.compile(r'[가-힣]{2,}')
 PROBE_WORDS = ['학교', '바다', '축구', '행복']
@@ -79,6 +87,51 @@ def parse_vec(path, vocab_size):
 # Kiwi assigns this morpheme id to out-of-vocabulary tokens it *guesses* to be
 # nouns (crawl noise like "티드립"); registered dictionary nouns get real ids.
 KIWI_UNK_ID = 2
+
+
+def load_blocklist():
+    """Curated glued-fragment words to drop (see BLOCKLIST); empty set if absent."""
+    if not os.path.exists(BLOCKLIST):
+        return set()
+    with open(BLOCKLIST, encoding='utf-8') as f:
+        block = {unicodedata.normalize('NFC', line.strip()) for line in f
+                 if line.strip() and not line.startswith('#')}
+    print(f'blocklist: {len(block):,} words from {BLOCKLIST}')
+    return block
+
+
+def semantic_filter(words, vecs_f32, nnp_cutoff, blocklist):
+    """Drop crawl noise, keeping the original frequency order (dense reindex).
+
+    Signals:
+      - OOV: any morpheme is KIWI_UNK_ID (dictionary miss) -> glued scraping
+        fragments ("보기힐튼", "트립어드바이저"), regardless of crawl frequency.
+      - obscure proper noun: a single-token NNP whose frequency rank (index in
+        `words`; cc.ko.300.vec is frequency-sorted) is >= nnp_cutoff -> names /
+        brands like "박연차", "손흥민". Common NNPs ("미국", "서울") rank above
+        the cutoff and stay.
+      - blocklist: LLM-reviewed glued noun compounds that the above miss because
+        every sub-morpheme is a real word ("호텔스닷컴", "일반지도위성지도").
+    """
+    from kiwipiepy import Kiwi
+
+    kiwi = Kiwi()
+    keep = []
+    n_oov = n_nnp = n_block = 0
+    for rank, (word, tokens) in enumerate(zip(words, kiwi.tokenize(words))):
+        if word in blocklist:
+            n_block += 1
+            continue
+        if any(t.id == KIWI_UNK_ID for t in tokens):
+            n_oov += 1
+            continue
+        if len(tokens) == 1 and tokens[0].tag == 'NNP' and rank >= nnp_cutoff:
+            n_nnp += 1
+            continue
+        keep.append(rank)
+    print(f'semantic filter: removed {n_oov:,} OOV + {n_nnp:,} rare NNP '
+          f'(cutoff {nnp_cutoff:,}) + {n_block:,} blocklist; kept {len(keep):,}')
+    return [words[i] for i in keep], vecs_f32[np.array(keep)]
 
 
 def pick_secrets(words, secret_band):
@@ -178,6 +231,8 @@ def main():
     ap.add_argument('--vec', default=DEFAULT_VEC)
     ap.add_argument('--vocab', type=int, default=90000)
     ap.add_argument('--secret-band', type=int, default=30000)
+    ap.add_argument('--nnp-cutoff', type=int, default=8000,
+                    help='drop single-token proper nouns ranked at/after this index')
     ap.add_argument('--secrets-only', action='store_true',
                     help='rebuild secrets-v1.json from existing words-v1.json (no .vec needed)')
     ap.add_argument('--verify', action='store_true')
@@ -202,6 +257,7 @@ def main():
         sys.exit(f'source not found: {args.vec}\nsee usage in the header of this script')
 
     words, vecs_f32 = parse_vec(args.vec, args.vocab)
+    words, vecs_f32 = semantic_filter(words, vecs_f32, args.nnp_cutoff, load_blocklist())
     q = quantize(vecs_f32)
     secrets = load_or_pick_secrets(words, args.secret_band)
 
