@@ -61,6 +61,9 @@ const config = {
             'https://github.com/jwher/jwher.github.io/tree/main',
           remarkPlugins: [require('remark-math')],
           rehypePlugins: [require('rehype-katex')],
+          // No blog-only feed — a site-wide feed (docs + blog) is emitted by
+          // ./scripts/site-feed-plugin.js at /rss.xml and /atom.xml.
+          feedOptions: { type: null },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -76,6 +79,25 @@ const config = {
   ],
 
   headTags: [
+    {
+      // Feed autodiscovery for the site-wide feed (see scripts/site-feed-plugin.js).
+      tagName: 'link',
+      attributes: {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        href: '/rss.xml',
+        title: 'JWHer Tech Blog RSS Feed',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        href: '/atom.xml',
+        title: 'JWHer Tech Blog Atom Feed',
+      },
+    },
     {
       // Apply saved typeface mode before first paint (FOUC guard).
       // localStorage['typeface'] is the SSOT; see src/utils/typeface.ts
@@ -183,6 +205,12 @@ const config = {
             className: 'icon-instagram',
             position: 'right',
           },
+          {
+            href: 'pathname:///rss.xml',
+            className: 'icon-rss',
+            'aria-label': 'RSS feed',
+            position: 'right',
+          },
         ],
       },
       footer: {
@@ -226,6 +254,7 @@ const config = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    require('./scripts/site-feed-plugin'),
     [
       '@docusaurus/plugin-client-redirects',
       {

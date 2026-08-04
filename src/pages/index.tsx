@@ -121,6 +121,7 @@ function BriefIntro() {
           <a href="https://www.linkedin.com/in/jwher"  className={styles.introSocialLink} target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://www.instagram.com/jwher96"  className={styles.introSocialLink} target="_blank" rel="noreferrer">Instagram</a>
           <a href="/files/jeongwon-her.pdf"            className={styles.introSocialLink}>CV</a>
+          <a href="/rss.xml" className={styles.introSocialLink}>RSS</a>
         </div>
         <Link to='/cave' className={styles.introCave}>&gt; Why I believe in Jesus</Link>
       </div>

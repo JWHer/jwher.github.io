@@ -80,3 +80,9 @@
 
   mask-image: url('/static/img/search-icon.svg');
 }
+
+.icon-rss::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/rss-icon.svg');
+}
