@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>JWHer Tech Blog</title>
+        <link>https://jwher.github.io/</link>
+        <description>허정원 기술블로그 — docs + blog 전체 글</description>
+        <lastBuildDate>Wed, 18 Feb 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>ko</language>
+        <image>
+            <title>JWHer Tech Blog</title>
+            <url>https://jwher.github.io/img/bamboo-road.webp</url>
+            <link>https://jwher.github.io/</link>
+        </image>
+        <copyright>Copyright © 2021 – 2026, JeongWon Her</copyright>
+        <item>
+            <title><![CDATA[시간차 학습]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/temporal-difference-learning</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/temporal-difference-learning</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Temporal-Difference Learning]]></description>
+            <category>ml</category>
+            <category>rl</category>
+        </item>
+        <item>
+            <title><![CDATA[강화학습]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Reinforcement Learning]]></description>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[정책 기울기 방법들]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/policy-gradient-methods</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/policy-gradient-methods</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Policy Gradient Methods]]></description>
+            <category>ml</category>
+            <category>rl</category>
+            <category>reinforcement</category>
+        </item>
+        <item>
+            <title><![CDATA[테이블 방법을 통한 계획과 학습]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/planning-and-learning-tabular-methods</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/planning-and-learning-tabular-methods</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Planning and Learning with Tabular Methods]]></description>
+            <category>ml</category>
+            <category>rl</category>
+        </item>
+        <item>
+            <title><![CDATA[근사를 통한 on-policy 예측]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-prediction-with-approximation</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-prediction-with-approximation</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[On-policy Prediction with Approximation]]></description>
+            <category>ml</category>
+            <category>rl</category>
+        </item>
+        <item>
+            <title><![CDATA[근사를 통한 on-policy 제어]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-control-with-approximation</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-control-with-approximation</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[On-policy Control with Approximation]]></description>
+            <category>ml</category>
+            <category>rl</category>
+        </item>
+        <item>
+            <title><![CDATA[n-단계 부트스트래핑]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/n-step-bootstrapping</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/n-step-bootstrapping</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[n-step Bootstrapping]]></description>
+            <category>ml</category>
+            <category>rl</category>
+        </item>
+        <item>
+            <title><![CDATA[여러대의 슬롯머신]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/multi-armed-bandits</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/multi-armed-bandits</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Multi-armed Bandits]]></description>
+            <category>ml</category>
+            <category>rl</category>
+        </item>
+        <item>
+            <title><![CDATA[몬테 카를로 방법]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/monte-carlo-methods</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/monte-carlo-methods</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Monte Carlo Methods]]></description>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[마르코프 결정 과정]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/markov-decision-process</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/markov-decision-process</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Markov Decision Process]]></description>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[적격자 추적]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/eligibility-trace</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/eligibility-trace</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eligibility Traces]]></description>
+            <category>ml</category>
+            <category>rl</category>
+            <category>reinforcement</category>
+        </item>
+        <item>
+            <title><![CDATA[다이나믹 프로그래밍]]></title>
+            <link>https://jwher.github.io/docs/ml/reinforcement-learning/dynamic-programming</link>
+            <guid>https://jwher.github.io/docs/ml/reinforcement-learning/dynamic-programming</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Dynamic Programming]]></description>
+            <category>ml</category>
+            <category>rl</category>
+            <category>reinforcement</category>
+        </item>
+        <item>
+            <title><![CDATA[확률]]></title>
+            <link>https://jwher.github.io/docs/ml/machine-learning/probability</link>
+            <guid>https://jwher.github.io/docs/ml/machine-learning/probability</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[기본적인 확률 이론에 대해서]]></description>
+            <category>math</category>
+            <category>machine learning</category>
+        </item>
+        <item>
+            <title><![CDATA[Gradient]]></title>
+            <link>https://jwher.github.io/docs/ml/general/gradient</link>
+            <guid>https://jwher.github.io/docs/ml/general/gradient</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Gradient]]></description>
+        </item>
+        <item>
+            <title><![CDATA[평가 지표]]></title>
+            <link>https://jwher.github.io/docs/ml/general/evaluation-metric</link>
+            <guid>https://jwher.github.io/docs/ml/general/evaluation-metric</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Evaluation Metric]]></description>
+            <category>general</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[근사를 통한 가속]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning/software/approximation</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning/software/approximation</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Acceleration By Approximation]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[You Only Look Once]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/yolo</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/yolo</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[You Only Look Once]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[Single Shot Detector]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/ssd</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/ssd</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Single Shot Detector]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[Low-power Image Recognition Challenge]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/lpirc</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/lpirc</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[LPIRC에서 우승하는 방법]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[Faster R-CNN]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/faster-rcnn</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/faster-rcnn</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Faster R-CNN]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[임베디드 딥러닝]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[임베디드 딥러닝 강의 노트]]></description>
+            <category>ml</category>
+            <category>embedded</category>
+            <category>deep-learning</category>
+        </item>
+        <item>
+            <title><![CDATA[임베디드 딥러닝]]></title>
+            <link>https://jwher.github.io/docs/ml/embedded-deep-learning/hardware</link>
+            <guid>https://jwher.github.io/docs/ml/embedded-deep-learning/hardware</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[하드웨어 가속 기술]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[실시간시스템]]></title>
+            <link>https://jwher.github.io/docs/cs/real-time-system/aperiodic</link>
+            <guid>https://jwher.github.io/docs/cs/real-time-system/aperiodic</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[실시간 시스템 - 우선순의 기반 시스템에서 비주기적 스케줄링]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[실시간시스템]]></title>
+            <link>https://jwher.github.io/docs/cs/real-time-system/worst-case-execution-time</link>
+            <guid>https://jwher.github.io/docs/cs/real-time-system/worst-case-execution-time</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[실시간 시스템 - 최악 실행 시간 분석]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[실시간시스템]]></title>
+            <link>https://jwher.github.io/docs/cs/real-time-system/thread</link>
+            <guid>https://jwher.github.io/docs/cs/real-time-system/thread</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[실시간 시스템 - 스레드]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[실시간시스템]]></title>
+            <link>https://jwher.github.io/docs/cs/real-time-system/fixed-priority1</link>
+            <guid>https://jwher.github.io/docs/cs/real-time-system/fixed-priority1</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[실시간 시스템 - 고정된 우선순위]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[실시간시스템]]></title>
+            <link>https://jwher.github.io/docs/cs/real-time-system/definition</link>
+            <guid>https://jwher.github.io/docs/cs/real-time-system/definition</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[실시간 시스템 - 정의]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[확장형 고성능 컴퓨팅 소개]]></title>
+            <link>https://jwher.github.io/docs/cs/high-performance-computing/introduction</link>
+            <guid>https://jwher.github.io/docs/cs/high-performance-computing/introduction</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[확장가능한 프로그래밍]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[통합설계]]></title>
+            <link>https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim</link>
+            <guid>https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[디지털 시스템 설계방법론 - 통합설계]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[소개]]></title>
+            <link>https://jwher.github.io/docs/cs/digital-system-design-methodology/intro</link>
+            <guid>https://jwher.github.io/docs/cs/digital-system-design-methodology/intro</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[디지털 시스템 설계방법론 - 소개]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[가상 메모리 디자인]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/virtual-memory-design</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/virtual-memory-design</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Virtual Memory Design]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[쓰레드 수준 병렬화]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/thread-level-parallelism</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/thread-level-parallelism</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Thread Level Parallelism]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[가속기 디자인]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/roofline-visual-performance-model</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/roofline-visual-performance-model</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[가속기]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[메모리 계층 디자인]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/memory-hierarchy-design</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/memory-hierarchy-design</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Memory Hierarchy Design]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[명령어 수준 병렬화]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/instruction-level-parallelism</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/instruction-level-parallelism</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Instruction Level Parallelism]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[컴퓨터 구조]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[컴퓨터 구조 강의 노트]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[구글 TPU]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/google-tpu-v1</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/google-tpu-v1</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[하드웨어 레벨의 병렬화]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[도메인에 맞는 아키텍처]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/domain-specific-architecture</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/domain-specific-architecture</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[asic]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[데이터 수준 병렬화]]></title>
+            <link>https://jwher.github.io/docs/cs/computer-architecture/data-level-parallelism</link>
+            <guid>https://jwher.github.io/docs/cs/computer-architecture/data-level-parallelism</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Data Level Parallelism]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[데이터 스트리밍 알고리즘]]></title>
+            <link>https://jwher.github.io/docs/algorithms/data_streaming</link>
+            <guid>https://jwher.github.io/docs/algorithms/data_streaming</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[대규모 데이터 처리를 위한 스트리밍 모델과 알고리즘]]></description>
+        </item>
+        <item>
+            <title><![CDATA[정확한 추론을 위한 양자화 기법]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/deep-learning/quantization</link>
+            <guid>https://jwher.github.io/docs/machine-learning/deep-learning/quantization</guid>
+            <pubDate>Wed, 16 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[양자화를 통한 딥러닝 모델 경량화]]></description>
+            <category>machine-learning</category>
+            <category>deep-learning</category>
+            <category>optimization</category>
+        </item>
+        <item>
+            <title><![CDATA[도커 네트워킹]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/containerization/docker-networking</link>
+            <guid>https://jwher.github.io/docs/infrastructure/containerization/docker-networking</guid>
+            <pubDate>Wed, 16 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[도커 딥 다이브]]></description>
+            <category>docker</category>
+            <category>containerization</category>
+            <category>networking</category>
+        </item>
+        <item>
+            <title><![CDATA[임베디드 딥러닝]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/deep-learning/embedded-deep-learning</link>
+            <guid>https://jwher.github.io/docs/machine-learning/deep-learning/embedded-deep-learning</guid>
+            <pubDate>Thu, 30 Nov 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[하드웨어 소프트웨어 통합 설계와 병렬 처리]]></description>
+            <category>cs</category>
+            <category>ml</category>
+        </item>
+        <item>
+            <title><![CDATA[RISC 컴퓨터를 위한 사례]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/deep-learning/risc-for-ml</link>
+            <guid>https://jwher.github.io/docs/machine-learning/deep-learning/risc-for-ml</guid>
+            <pubDate>Mon, 20 Nov 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Case for the Reduced Instruction Set Computer]]></description>
+            <category>machine-learning</category>
+            <category>hardware</category>
+            <category>architecture</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[LLaMa 공개된 효율적인 언어 모델]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/research-papers/llama-foundation-models</link>
+            <guid>https://jwher.github.io/docs/machine-learning/research-papers/llama-foundation-models</guid>
+            <pubDate>Tue, 26 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[LLaMA: Open and Efficient Foundation Language Models]]></description>
+            <category>machine-learning</category>
+            <category>deep-learning</category>
+            <category>llm</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[RISC V 명령어 셋 아키텍처]]></title>
+            <link>https://jwher.github.io/docs/foundations/computer-architecture/risc-v-isa</link>
+            <guid>https://jwher.github.io/docs/foundations/computer-architecture/risc-v-isa</guid>
+            <pubDate>Tue, 26 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[RISC V Instruction Set Architecture]]></description>
+            <category>cs</category>
+            <category>computer architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[다시보는 컴퓨터구조1]]></title>
+            <link>https://jwher.github.io/docs/foundations/computer-architecture</link>
+            <guid>https://jwher.github.io/docs/foundations/computer-architecture</guid>
+            <pubDate>Tue, 26 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[컴퓨터의 작동원리]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[유클리드 호제법]]></title>
+            <link>https://jwher.github.io/docs/foundations/mathematics/euclidean-algorithm</link>
+            <guid>https://jwher.github.io/docs/foundations/mathematics/euclidean-algorithm</guid>
+            <pubDate>Wed, 24 May 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[최대공약수와 최소공배수를 구하는 방법]]></description>
+            <category>mathematics</category>
+            <category>algorithms</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[ChatGPT: 부와 신앙의 이중성에 대해]]></title>
+            <link>https://jwher.github.io/blog/chatgpt-duality-of-wealth-and-faith</link>
+            <guid>https://jwher.github.io/blog/chatgpt-duality-of-wealth-and-faith</guid>
+            <pubDate>Sun, 21 May 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Zior Park 크리스쳔 가사에 대한 고찰]]></description>
+            <category>tech</category>
+            <category>theology</category>
+            <enclosure url="https://jwher.github.io/img/logos/chatgpt.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[코딩 기초 트레이닝2]]></title>
+            <link>https://jwher.github.io/docs/development/languages/cpp-coding-basic2</link>
+            <guid>https://jwher.github.io/docs/development/languages/cpp-coding-basic2</guid>
+            <pubDate>Thu, 18 May 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[C/C++ 재활 훈련]]></description>
+            <category>cpp</category>
+            <category>c++</category>
+            <category>tutorial</category>
+            <category>basics</category>
+        </item>
+        <item>
+            <title><![CDATA[코딩 기초 트레이닝1]]></title>
+            <link>https://jwher.github.io/docs/development/languages/cpp-coding-basic1</link>
+            <guid>https://jwher.github.io/docs/development/languages/cpp-coding-basic1</guid>
+            <pubDate>Tue, 16 May 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[C/C++ 재활 훈련]]></description>
+            <category>cpp</category>
+            <category>c++</category>
+            <category>tutorial</category>
+            <category>basics</category>
+        </item>
+        <item>
+            <title><![CDATA[지도자의 부르심]]></title>
+            <link>https://jwher.github.io/blog/discipleship-training-1</link>
+            <guid>https://jwher.github.io/blog/discipleship-training-1</guid>
+            <pubDate>Sat, 01 Apr 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[새싹목자훈련 1주차]]></description>
+            <category>theology</category>
+        </item>
+        <item>
+            <title><![CDATA[도커 엔진]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/containerization/the-docker-engine</link>
+            <guid>https://jwher.github.io/docs/infrastructure/containerization/the-docker-engine</guid>
+            <pubDate>Sun, 26 Mar 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[도커 딥 다이브]]></description>
+            <category>docker</category>
+            <category>containerization</category>
+            <category>architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[Pathways를 이용한 언어모델 스케일링]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/research-papers/palm-scaling-language-modeling</link>
+            <guid>https://jwher.github.io/docs/machine-learning/research-papers/palm-scaling-language-modeling</guid>
+            <pubDate>Thu, 16 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[PaLM: Scaling Language Modeling with Pathways]]></description>
+            <category>machine-learning</category>
+            <category>deep-learning</category>
+            <category>llm</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[대규모 병렬프로세서 프로그래밍(소개)]]></title>
+            <link>https://jwher.github.io/docs/development/languages/programming-massively-parallel-processors</link>
+            <guid>https://jwher.github.io/docs/development/languages/programming-massively-parallel-processors</guid>
+            <pubDate>Thu, 09 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Programming Massively Parallel Processors - Chapter 1]]></description>
+            <category>cuda</category>
+            <category>gpu</category>
+            <category>parallel-computing</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Attention 다시보기]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/deep-learning/attention-is-all-you-need</link>
+            <guid>https://jwher.github.io/docs/machine-learning/deep-learning/attention-is-all-you-need</guid>
+            <pubDate>Thu, 05 Jan 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Attention is all you need]]></description>
+            <category>machine-learning</category>
+            <category>deep-learning</category>
+            <category>transformers</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[운영체제의 개요]]></title>
+            <link>https://jwher.github.io/docs/foundations/linux/linux-overview</link>
+            <guid>https://jwher.github.io/docs/foundations/linux/linux-overview</guid>
+            <pubDate>Wed, 04 Jan 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Linux overview]]></description>
+            <category>linux</category>
+        </item>
+        <item>
+            <title><![CDATA[요구사항에 사용하는 RFC 키워드]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/requirement-levels</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/requirement-levels</guid>
+            <pubDate>Wed, 28 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Key words for use in RFCs to Indicate Requirement Levels]]></description>
+            <category>kubernetes</category>
+            <category>best-practices</category>
+        </item>
+        <item>
+            <title><![CDATA[7가지 동시성 모델(스레드와 락) 거인의 어깨 위에서]]></title>
+            <link>https://jwher.github.io/docs/development/concurrency/concurrency-models-4</link>
+            <guid>https://jwher.github.io/docs/development/concurrency/concurrency-models-4</guid>
+            <pubDate>Wed, 28 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter2 Day3]]></description>
+            <category>concurrency</category>
+            <category>parallelism</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[7가지 동시성 모델(스레드와 락) 고유 락 개선하기]]></title>
+            <link>https://jwher.github.io/docs/development/concurrency/concurrency-models-3</link>
+            <guid>https://jwher.github.io/docs/development/concurrency/concurrency-models-3</guid>
+            <pubDate>Mon, 19 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter2 Day2]]></description>
+            <category>concurrency</category>
+            <category>parallelism</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[7가지 동시성 모델(스레드와 락) 상호 배제와 메모리 모델]]></title>
+            <link>https://jwher.github.io/docs/development/concurrency/concurrency-models-2</link>
+            <guid>https://jwher.github.io/docs/development/concurrency/concurrency-models-2</guid>
+            <pubDate>Wed, 14 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter2 Day1]]></description>
+            <category>concurrency</category>
+            <category>parallelism</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[머신러닝에 숨은 기술 부채]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/research-papers/hidden-technical-debt</link>
+            <guid>https://jwher.github.io/docs/machine-learning/research-papers/hidden-technical-debt</guid>
+            <pubDate>Tue, 13 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hidden Technical Debt in Machine Learning Systems]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>best-practices</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[7가지 동시성 모델(소개)]]></title>
+            <link>https://jwher.github.io/docs/development/concurrency/concurrency-models-1</link>
+            <guid>https://jwher.github.io/docs/development/concurrency/concurrency-models-1</guid>
+            <pubDate>Tue, 13 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter1]]></description>
+            <category>concurrency</category>
+            <category>parallelism</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[다시보는 동시성프로그래밍]]></title>
+            <link>https://jwher.github.io/docs/development/concurrency/concurrent-programming</link>
+            <guid>https://jwher.github.io/docs/development/concurrency/concurrent-programming</guid>
+            <pubDate>Mon, 12 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[분산처리시스템과 고성능 클러스터]]></description>
+            <category>cs</category>
+        </item>
+        <item>
+            <title><![CDATA[오래걸리는 API 설계]]></title>
+            <link>https://jwher.github.io/docs/development/web/api-design-for-long-jobs</link>
+            <guid>https://jwher.github.io/docs/development/web/api-design-for-long-jobs</guid>
+            <pubDate>Sun, 11 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[오래걸리는 API 설계]]></description>
+            <category>api</category>
+            <category>web</category>
+            <category>architecture</category>
+            <category>best-practices</category>
+        </item>
+        <item>
+            <title><![CDATA[학습에 중요한 데이터 찾기]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/research-papers/deep-learning-on-a-data-diet</link>
+            <guid>https://jwher.github.io/docs/machine-learning/research-papers/deep-learning-on-a-data-diet</guid>
+            <pubDate>Sat, 10 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[학습에 중요한 데이터 찾기]]></description>
+            <category>machine-learning</category>
+            <category>deep-learning</category>
+            <category>data-efficiency</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[NGRX 반응형 웹을 위한 상태 관리]]></title>
+            <link>https://jwher.github.io/docs/development/web/ngrx</link>
+            <guid>https://jwher.github.io/docs/development/web/ngrx</guid>
+            <pubDate>Wed, 17 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[NGRX]]></description>
+            <category>typescript</category>
+            <category>web</category>
+            <category>state-management</category>
+            <category>angular</category>
+        </item>
+        <item>
+            <title><![CDATA[GitHub Sponsors 시작하기]]></title>
+            <link>https://jwher.github.io/blog/github-sponsors</link>
+            <guid>https://jwher.github.io/blog/github-sponsors</guid>
+            <pubDate>Thu, 28 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[GitHub Sponsors 시작하기 - 오픈소스 후원 문화]]></description>
+            <category>github</category>
+            <category>opensource</category>
+            <category>funding</category>
+            <enclosure url="https://jwher.github.io/img/logos/github.svg" length="0" type="image/svg"/>
+        </item>
+        <item>
+            <title><![CDATA[다양한 급수]]></title>
+            <link>https://jwher.github.io/docs/foundations/mathematics/power-series</link>
+            <guid>https://jwher.github.io/docs/foundations/mathematics/power-series</guid>
+            <pubDate>Wed, 13 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[다양한 급수]]></description>
+            <category>mathematics</category>
+            <category>calculus</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[Nmap - 네트워크 스캐닝 도구 완전 가이드]]></title>
+            <link>https://jwher.github.io/blog/nmap</link>
+            <guid>https://jwher.github.io/blog/nmap</guid>
+            <pubDate>Tue, 12 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Nmap 네트워크 스캐너 사용법과 옵션 가이드]]></description>
+            <category>network</category>
+            <category>security</category>
+            <category>tools</category>
+            <category>linux</category>
+        </item>
+        <item>
+            <title><![CDATA[Build OpenCV with Java]]></title>
+            <link>https://jwher.github.io/docs/development/languages/build-opencv-with-java</link>
+            <guid>https://jwher.github.io/docs/development/languages/build-opencv-with-java</guid>
+            <pubDate>Wed, 29 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[OpenCV 자바로 빌드하기]]></description>
+            <category>java</category>
+            <category>opencv</category>
+            <category>computer-vision</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[이항정리 - π값을 구하는 법]]></title>
+            <link>https://jwher.github.io/docs/foundations/mathematics/binomial-theorem</link>
+            <guid>https://jwher.github.io/docs/foundations/mathematics/binomial-theorem</guid>
+            <pubDate>Thu, 23 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Binomial Theorem]]></description>
+            <category>mathematics</category>
+            <category>calculus</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[Nvidia GPU 아키텍처]]></title>
+            <link>https://jwher.github.io/docs/foundations/computer-architecture/nvidia-gpu-arch</link>
+            <guid>https://jwher.github.io/docs/foundations/computer-architecture/nvidia-gpu-arch</guid>
+            <pubDate>Wed, 22 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Nvidia GPU Architectures]]></description>
+            <category>hardware</category>
+            <category>gpu</category>
+            <category>architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[M1 Mac에서 PyTorch GPU 가속 활용하기]]></title>
+            <link>https://jwher.github.io/blog/pytorch-in-m1</link>
+            <guid>https://jwher.github.io/blog/pytorch-in-m1</guid>
+            <pubDate>Sun, 12 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[M1 Mac에서 PyTorch GPU 가속 사용하기 - Metal Performance Shaders로 최대 500% 성능 향상]]></description>
+            <category>pytorch</category>
+            <category>m1</category>
+            <category>apple-silicon</category>
+            <category>machine-learning</category>
+            <category>gpu</category>
+        </item>
+        <item>
+            <title><![CDATA[Agile]]></title>
+            <link>https://jwher.github.io/docs/development/practices/agile</link>
+            <guid>https://jwher.github.io/docs/development/practices/agile</guid>
+            <pubDate>Tue, 07 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[애자일]]></description>
+            <category>methodology</category>
+            <category>agile</category>
+            <category>best-practices</category>
+        </item>
+        <item>
+            <title><![CDATA[Variable Autoencoder]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder</link>
+            <guid>https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[VAE: Variable Auto Encoder]]></description>
+            <category>machine-learning</category>
+            <category>deep-learning</category>
+            <category>vae</category>
+            <category>research</category>
+        </item>
+        <item>
+            <title><![CDATA[Welcome To Kubeflow]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/platforms/welcome-to-kubeflow</link>
+            <guid>https://jwher.github.io/docs/machine-learning/platforms/welcome-to-kubeflow</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[쿠브플로우: 머신러닝 자동화]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>kubeflow</category>
+            <category>introduction</category>
+        </item>
+        <item>
+            <title><![CDATA[Sagemaker]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/platforms/sagemaker</link>
+            <guid>https://jwher.github.io/docs/machine-learning/platforms/sagemaker</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[아마존 세이지메이커: 머신러닝 자동화]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>aws</category>
+            <category>sagemaker</category>
+        </item>
+        <item>
+            <title><![CDATA[Kubeflow Visualization 2]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-2</link>
+            <guid>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-2</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Kubeflow 시각화 개발 2편]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>kubeflow</category>
+            <category>visualization</category>
+        </item>
+        <item>
+            <title><![CDATA[Kubeflow Visualization 1]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-1</link>
+            <guid>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-1</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Kubeflow 시각화 개발 1편]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>kubeflow</category>
+            <category>visualization</category>
+        </item>
+        <item>
+            <title><![CDATA[Kubeflow Guide]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-guide</link>
+            <guid>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-guide</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[쿠브플로우 가이드]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>kubeflow</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[쿠브플로우를 설치하는 다양한 방법]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow</link>
+            <guid>https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Install Kubeflow]]></description>
+            <category>machine-learning</category>
+            <category>mlops</category>
+            <category>kubeflow</category>
+            <category>installation</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Uncertainty Estimation]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/fundamentals/uncertainty-estimation</link>
+            <guid>https://jwher.github.io/docs/machine-learning/fundamentals/uncertainty-estimation</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Uncertainty Estimation]]></description>
+            <category>machine-learning</category>
+            <category>uncertainty</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[Ensemble Methods]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/fundamentals/ensemble-methods</link>
+            <guid>https://jwher.github.io/docs/machine-learning/fundamentals/ensemble-methods</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ensemble Methods]]></description>
+            <category>machine-learning</category>
+            <category>ensemble</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[Intelligent Computer Vision 1]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/computer-vision/intelligent-cv-fundamentals</link>
+            <guid>https://jwher.github.io/docs/machine-learning/computer-vision/intelligent-cv-fundamentals</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Intelligent Computer Vision 1(개요)]]></description>
+            <category>machine-learning</category>
+            <category>computer-vision</category>
+            <category>lecture</category>
+        </item>
+        <item>
+            <title><![CDATA[Alphapose 논문 리뷰와 사용]]></title>
+            <link>https://jwher.github.io/docs/machine-learning/computer-vision/alphapose</link>
+            <guid>https://jwher.github.io/docs/machine-learning/computer-vision/alphapose</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Alphapose 논문 리뷰와 사용]]></description>
+            <category>machine-learning</category>
+            <category>computer-vision</category>
+            <category>pose-estimation</category>
+        </item>
+        <item>
+            <title><![CDATA[Nuclio 개념과 아키텍처]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/tools/nuclio</link>
+            <guid>https://jwher.github.io/docs/infrastructure/tools/nuclio</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Automate the Data Science Pipeline with Serverless Functions]]></description>
+            <category>kubernetes</category>
+            <category>serverless</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Minio]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/tools/minio</link>
+            <guid>https://jwher.github.io/docs/infrastructure/tools/minio</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[minIO 오브젝트 스토리지]]></description>
+            <category>kubernetes</category>
+            <category>storage</category>
+            <category>object-storage</category>
+        </item>
+        <item>
+            <title><![CDATA[Install Helm]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/tools/install-helm</link>
+            <guid>https://jwher.github.io/docs/infrastructure/tools/install-helm</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Helm: 쿠버네티스 패키지 매니저]]></description>
+            <category>kubernetes</category>
+            <category>helm</category>
+            <category>installation</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Install Harbor]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/tools/install-harbor</link>
+            <guid>https://jwher.github.io/docs/infrastructure/tools/install-harbor</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[쿠버네티스에 Harbor 설치하기]]></description>
+            <category>kubernetes</category>
+            <category>registry</category>
+            <category>installation</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Deploying Ml Model On Kubernetes Nuclio]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/tools/deploying-ml-model-nuclio</link>
+            <guid>https://jwher.github.io/docs/infrastructure/tools/deploying-ml-model-nuclio</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[쿠버네티스 누클리오에 ML 모델 배포하기]]></description>
+            <category>kubernetes</category>
+            <category>machine-learning</category>
+            <category>serverless</category>
+            <category>deployment</category>
+        </item>
+        <item>
+            <title><![CDATA[쿠버네티스 기본 개념과 필요성]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/welcome-to-kubernetes</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/welcome-to-kubernetes</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome To Kubernetes]]></description>
+            <category>kubernetes</category>
+            <category>containerization</category>
+            <category>introduction</category>
+        </item>
+        <item>
+            <title><![CDATA[K8S Tip Rollback]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/rollback</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/rollback</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[K8s tip: Rollback]]></description>
+            <category>kubernetes</category>
+            <category>deployment</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[K8S Tip Pv Terminating]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/pv-terminating</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/pv-terminating</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[K8s tip: PersistentVolume terminating]]></description>
+            <category>kubernetes</category>
+            <category>storage</category>
+            <category>troubleshooting</category>
+        </item>
+        <item>
+            <title><![CDATA[K8S Tip Nodeselector]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/nodeselector</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/nodeselector</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[K8s tip: nodeSelector]]></description>
+            <category>kubernetes</category>
+            <category>scheduling</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[자주쓰는 쿠버네티스 명령어]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-usage</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-usage</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Kubernetes Usage]]></description>
+            <category>kubernetes</category>
+            <category>tutorial</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[쿠버네티스 아키텍처]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-architecture</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-architecture</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Kubernetes Architecture]]></description>
+            <category>kubernetes</category>
+            <category>architecture</category>
+        </item>
+        <item>
+            <title><![CDATA[Istio]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/istio</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/istio</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Istio: 서비스 메시]]></description>
+            <category>kubernetes</category>
+            <category>service-mesh</category>
+            <category>networking</category>
+        </item>
+        <item>
+            <title><![CDATA[나에게 필요한 쿠버네티스 설치하기]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/install-kubernetes</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/install-kubernetes</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Install Kubernetes]]></description>
+            <category>kubernetes</category>
+            <category>installation</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[K8S Tip Expose Service]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/expose-service</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/expose-service</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[K8s tip: Expose Service]]></description>
+            <category>kubernetes</category>
+            <category>networking</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[Envoy]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/envoy</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/envoy</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Envoy proxy: 대규모 서비스를 위한 L7 프록시]]></description>
+            <category>kubernetes</category>
+            <category>service-mesh</category>
+            <category>networking</category>
+        </item>
+        <item>
+            <title><![CDATA[Dex]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/dex</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/dex</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Dex: OpenID 커넥터]]></description>
+            <category>kubernetes</category>
+            <category>security</category>
+            <category>authentication</category>
+        </item>
+        <item>
+            <title><![CDATA[K8S Tip Configmap]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/kubernetes/configmap</link>
+            <guid>https://jwher.github.io/docs/infrastructure/kubernetes/configmap</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[K8s tip: ConfigMap]]></description>
+            <category>kubernetes</category>
+            <category>configuration</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[Welcome To Docker]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/containerization/welcome-to-docker</link>
+            <guid>https://jwher.github.io/docs/infrastructure/containerization/welcome-to-docker</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[도커의 세계에 오신 걸 환영합니다!]]></description>
+            <category>docker</category>
+            <category>containerization</category>
+            <category>introduction</category>
+        </item>
+        <item>
+            <title><![CDATA[나에게 필요한 도커 설치하기]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/containerization/install-docker</link>
+            <guid>https://jwher.github.io/docs/infrastructure/containerization/install-docker</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Install Docker]]></description>
+            <category>docker</category>
+            <category>containerization</category>
+            <category>tutorial</category>
+            <category>installation</category>
+        </item>
+        <item>
+            <title><![CDATA[Docker Shared Volume]]></title>
+            <link>https://jwher.github.io/docs/infrastructure/containerization/docker-shared-volume</link>
+            <guid>https://jwher.github.io/docs/infrastructure/containerization/docker-shared-volume</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[도커 컨테이너와 공유 볼륨]]></description>
+            <category>docker</category>
+            <category>containerization</category>
+            <category>storage</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[Information Theory]]></title>
+            <link>https://jwher.github.io/docs/foundations/mathematics/information-theory</link>
+            <guid>https://jwher.github.io/docs/foundations/mathematics/information-theory</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[정보 이론]]></description>
+            <category>mathematics</category>
+            <category>information-theory</category>
+            <category>theory</category>
+        </item>
+        <item>
+            <title><![CDATA[GUI 없이 버추얼박스 사용하기]]></title>
+            <link>https://jwher.github.io/docs/foundations/linux/virtualbox-with-no-gui</link>
+            <guid>https://jwher.github.io/docs/foundations/linux/virtualbox-with-no-gui</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Virtualbox With No Gui]]></description>
+            <category>linux</category>
+            <category>virtualization</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Uuid]]></title>
+            <link>https://jwher.github.io/docs/foundations/linux/uuid</link>
+            <guid>https://jwher.github.io/docs/foundations/linux/uuid</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[UUID 범용 고유 식별자]]></description>
+            <category>linux</category>
+            <category>system</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[Linux Disk Free]]></title>
+            <link>https://jwher.github.io/docs/foundations/linux/linux-disk-free</link>
+            <guid>https://jwher.github.io/docs/foundations/linux/linux-disk-free</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[리눅스 디스크 정리하기]]></description>
+            <category>linux</category>
+            <category>disk-management</category>
+            <category>quick-reference</category>
+        </item>
+        <item>
+            <title><![CDATA[타르(tar) 파일 설치하기]]></title>
+            <link>https://jwher.github.io/docs/foundations/linux/install-tar-gz</link>
+            <guid>https://jwher.github.io/docs/foundations/linux/install-tar-gz</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Install Tar.Gz]]></description>
+            <category>linux</category>
+            <category>package-management</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[Github Issue]]></title>
+            <link>https://jwher.github.io/docs/development/practices/github-issue</link>
+            <guid>https://jwher.github.io/docs/development/practices/github-issue</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[깃허브 이슈로 협업하기]]></description>
+            <category>git</category>
+            <category>github</category>
+            <category>workflow</category>
+            <category>best-practices</category>
+        </item>
+        <item>
+            <title><![CDATA[Golang Setup]]></title>
+            <link>https://jwher.github.io/docs/development/languages/golang-setup</link>
+            <guid>https://jwher.github.io/docs/development/languages/golang-setup</guid>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[고(Golang) 개발환경 구축하기]]></description>
+            <category>go</category>
+            <category>golang</category>
+            <category>setup</category>
+            <category>tutorial</category>
+        </item>
+        <item>
+            <title><![CDATA[First post with docusaurus]]></title>
+            <link>https://jwher.github.io/blog/first-post-with-docusaurus</link>
+            <guid>https://jwher.github.io/blog/first-post-with-docusaurus</guid>
+            <pubDate>Mon, 30 May 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Jekyll에서 Docusaurus로 블로그 마이그레이션 - 더 나은 문서화를 위한 선택]]></description>
+            <category>blog</category>
+            <category>docusaurus</category>
+        </item>
+        <item>
+            <title><![CDATA[CNCF - 클라우드 네이티브 컴퓨팅 재단]]></title>
+            <link>https://jwher.github.io/blog/cncf</link>
+            <guid>https://jwher.github.io/blog/cncf</guid>
+            <pubDate>Mon, 23 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[CNCF: Cloud Native Computing Foundation - 클라우드 네이티브 컴퓨팅 재단]]></description>
+            <category>kubernetes</category>
+            <category>cloud-native</category>
+            <category>opensource</category>
+            <category>cncf</category>
+            <enclosure url="https://jwher.github.io/img/logos/cncf.svg" length="0" type="image/svg"/>
+        </item>
+        <item>
+            <title><![CDATA[Blog Tech Map]]></title>
+            <link>https://jwher.github.io/blog/blog-tech-map</link>
+            <guid>https://jwher.github.io/blog/blog-tech-map</guid>
+            <pubDate>Mon, 23 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[허정원 기술블로그]]></description>
+            <category>blog</category>
+            <category>tech</category>
+            <enclosure url="https://jwher.github.io/img/logo.svg" length="0" type="image/svg"/>
+        </item>
+        <item>
+            <title><![CDATA[Free Wildcard Dns]]></title>
+            <link>https://jwher.github.io/blog/free-wildcard-dns</link>
+            <guid>https://jwher.github.io/blog/free-wildcard-dns</guid>
+            <pubDate>Wed, 21 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[무료 와일드카드 DNS]]></description>
+            <category>dev</category>
+            <category>short</category>
+            <enclosure url="https://jwher.github.io/img/wildcard.svg" length="0" type="image/svg"/>
+        </item>
+        <item>
+            <title><![CDATA[기술 블로그 운영 회고 - 나에게 필요한 연재]]></title>
+            <link>https://jwher.github.io/blog/blog-essay</link>
+            <guid>https://jwher.github.io/blog/blog-essay</guid>
+            <pubDate>Thu, 27 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[기술 블로그 운영 회고와 개선 방향]]></description>
+            <category>blog</category>
+            <category>retrospective</category>
+            <enclosure url="https://jwher.github.io/img/pen.svg" length="0" type="image/svg"/>
+        </item>
+        <item>
+            <title><![CDATA[지킬 블로그 업데이트]]></title>
+            <link>https://jwher.github.io/blog/update-blog</link>
+            <guid>https://jwher.github.io/blog/update-blog</guid>
+            <pubDate>Sun, 23 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Update Blog]]></description>
+            <category>blog</category>
+            <category>update</category>
+        </item>
+        <item>
+            <title><![CDATA[Jekyll로 시작하는 첫 포스트]]></title>
+            <link>https://jwher.github.io/blog/first-post</link>
+            <guid>https://jwher.github.io/blog/first-post</guid>
+            <pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Jekyll로 시작하는 기술 블로그]]></description>
+            <category>blog</category>
+            <category>jekyll</category>
+        </item>
+    </channel>
+</rss>

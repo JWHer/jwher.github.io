@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjwher_blog=self.webpackChunkjwher_blog||[]).push([[3243],{13887:e=>{e.exports=JSON.parse('{"label":"parallel computing","permalink":"/en/posts/tags/parallel-computing","allTagsPath":"/en/posts/tags","count":5}')}}]);

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="kr" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-foundations/mathematics/power-series/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">다양한 급수 | JWHer Tech Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" property="og:url" content="https://jwher.github.io/docs/foundations/mathematics/power-series/"><meta data-rh="true" property="og:locale" content="kr"><meta data-rh="true" name="docusaurus_locale" content="kr"><meta data-rh="true" name="docsearch:language" content="kr"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="twitter:site" content="@jwher96"><meta data-rh="true" property="og:site_name" content="JWHer Tech Blog"><meta data-rh="true" property="og:type" content="website"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="다양한 급수 | JWHer Tech Blog"><meta data-rh="true" name="description" content="다양한 급수"><meta data-rh="true" property="og:description" content="다양한 급수"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://jwher.github.io/docs/foundations/mathematics/power-series/"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/foundations/mathematics/power-series/" hreflang="kr"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/foundations/mathematics/power-series/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"다양한 급수","item":"https://jwher.github.io/docs/foundations/mathematics/power-series/"}]}</script><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="JWHer Tech Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="JWHer Tech Blog Atom Feed">
+<script>!function(){try{"serif"===localStorage.getItem("typeface")&&(document.documentElement.dataset.typeface="serif")}catch(e){}}()</script>
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-XHBVCY40VB"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-XHBVCY40VB")</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9ca37fef.css">
+<script src="/assets/js/runtime~main.c2506c8b.js" defer="defer"></script>
+<script src="/assets/js/main.57dd7301.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">JWHer Tech Blog</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs">Docs</a><a class="navbar__item navbar__link" href="/art">Art</a><a class="navbar__item navbar__link icon-search" aria-label="검색" href="/search"></a><a href="https://github.com/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-github"></a><a href="https://www.linkedin.com/in/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-linkedin"></a><a href="https://www.instagram.com/jwher96" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-instagram"></a><a href="/rss.xml" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-rss" aria-label="RSS feed"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_BF9v"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="header_nO4s" style="background-image:url(/img/docs/category.webp)" data-hero="static"><div class="filter_ZZSb"></div><h2 class="presentation__title">Docs</h2><h6 class="presentation__subtitle">God shall bless us; and all the ends of the earth shall fear him.</h6></div><div class="docRoot_Rg9N"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span title="소개" class="linkLabel_WmDU">소개</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/algorithms/data_streaming"><span title="algorithms" class="categoryLinkLabel_W154">algorithms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cs/computer-architecture/"><span title="cs" class="categoryLinkLabel_W154">cs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/development/concurrency/concurrency-models-1/"><span title="development" class="categoryLinkLabel_W154">development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/foundations/computer-architecture/"><span title="foundations" class="categoryLinkLabel_W154">foundations</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/foundations/computer-architecture/"><span title="다시보는 컴퓨터구조1" class="categoryLinkLabel_W154">다시보는 컴 퓨터구조1</span></a><button aria-label="Expand sidebar category &#x27;다시보는 컴퓨터구조1&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/foundations/linux/install-tar-gz/"><span title="linux" class="categoryLinkLabel_W154">linux</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/foundations/mathematics/binomial-theorem/"><span title="mathematics" class="categoryLinkLabel_W154">mathematics</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/foundations/mathematics/binomial-theorem/"><span title="이항정리 - π값을 구하는 법" class="linkLabel_WmDU">이항정리 - π값을 구하는 법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/foundations/mathematics/euclidean-algorithm/"><span title="유클리드 호제법" class="linkLabel_WmDU">유클리드 호제법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/foundations/mathematics/information-theory/"><span title="Information Theory" class="linkLabel_WmDU">Information Theory</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/foundations/mathematics/power-series/"><span title="다양한 급수" class="linkLabel_WmDU">다양한 급수</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/infrastructure/containerization/docker-networking/"><span title="infrastructure" class="categoryLinkLabel_W154">infrastructure</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/machine-learning/computer-vision/alphapose/"><span title="machine-learning" class="categoryLinkLabel_W154">machine-learning</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ml/embedded-deep-learning/"><span title="ml" class="categoryLinkLabel_W154">ml</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">foundations</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">mathematics</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">다양한 급수</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>다양한 급수</h1></header><p><img decoding="async" loading="lazy" alt="power series" src="/assets/images/power-series-formula-05433843c5a24ecea5d7005629574a35.png" width="1662" height="782" class="img_ev3q">
+<em>다양한 급수</em></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="급수">급수<a href="#급수" class="hash-link" aria-label="Direct link to 급수" title="Direct link to 급수" translate="no">​</a></h2>
+<p><strong>급수</strong>(級數)는 수열의 모든 항을 더한 값입니다.
+여기에서는 무한한 항의 합인 <strong>무한급수</strong> 에 대해 다룹니다.</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="멱급수">멱급수<a href="#멱급수" class="hash-link" aria-label="Direct link to 멱급수" title="Direct link to 멱급수" translate="no">​</a></h2>
+<p><strong>멱급수</strong> 또는 <strong>거듭제곱 급수</strong>(Power series)는 주어진 변수를 거듭제곱한 항들의 무한급수이자,
+중심이 같은 멱함수를 항으로 하는 무한급수입니다.</p>
+<p>실수체 또는 복소수체 $\mathbb{K} \in {\mathbb{R,C}}$에서 중심 $x_0 \in \mathbb{K}$의 멱급수는 다음과 같이 정의됩니다.</p>
+<p>$$
+\huge
+\sum_{n=0}^{\infty}{\color{red}a_n}(x-{\color{blue} x_0})^n
+$$</p>
+<p>자세히 살펴보면 등차수열$\color{red}a_n$과 등비수열$(x-{\color{blue} x_0})^n$로 이루어져 있습니다.
+이 멱급수가 수렴하게 만드는 $x \in \mathbb{K}$의 집합을 멱급수의 수렴영역(domain of convergence)이라고 합니다.
+실수 영역에선 <strong>수렴구간</strong>(interval of convergence)
+복소수 영역에선 <strong>수렴원판</strong>(disc of convergence)라고 구분하기도 합니다.</p>
+<p><br><br><br><br><br><br></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="테일러-급수">테일러 급수<a href="#테일러-급수" class="hash-link" aria-label="Direct link to 테일러 급수" title="Direct link to 테일러 급수" translate="no">​</a></h2>
+<p><strong>테일러 급수</strong>(Taylor series) 또는 <strong>테일러 전개</strong>(Taylor expansion)는 도함수들의 한 점에서 계산된 항의 무한합으로 해석함수를 나타냅니다.
+복잡한 함수를 다루기 쉬운 다항함수로 바꿔줌으로써, 정적분의 값을 근사적으로 구할 수 있습니다.</p>
+<p>매끄러운 함수(Smooth function) $f:\mathbb{R} \rightarrow \mathbb{R}$ 및 실수 $a \in \mathbb{R}$
+(또는, 복소수계의 정칙함수)이 주어졌을 때,
+$f$의 테일러 급수는 다음과 같이 정의됩니다.</p>
+<p>$$
+\huge
+f(x)=\sum_{n=0}^{\infty}{\color{red}{f^{(n)}(x_0) \over n!}}(x-{\color{blue} x_0})^n
+$$</p>
+<p>여기에서 $\color{red}{f^{(n)}(x_0)}$는 $f$의 $x_0$에서 $n$계 도함수를 말합니다.
+특히 0계 도함수는 원래 함수 자신입니다.</p>
+<p>테일러 급수는 오차를 가지고 있습니다.</p>
+<p>$$
+\huge
+\sum_{\color{green}k=0}^{\color{green}n}{f^{(k)}(x_0) \over k!}(x-x_0)^k + \color{green}{R_{n+1}(x)}
+$$</p>
+<p>마지막 항인 $\color{green}{R_{n+1}(x)}$을 $f$의 <strong>나머지 항</strong> 또는 <strong>절단오차</strong>라고 합니다.
+$[x_0,x]$ 또는 $[x,x_0]$에 속하는 적당한 실수 b에 대해서 다음과 같이 표현됩니다.</p>
+<p>$$
+\huge
+{R_{n+1}(x)} = {f^{\color{green}(n+1)}({\color{green}b}) \over \color{green}(n+1)!}(x-x_0)^{\color{green}n+1}
+$$</p>
+<p>이 오차가 0으로 원래 함수로 수렴하는 경우 <strong>해석 함수</strong>라고 합니다.</p>
+<p><br><br><br></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="테일러-전개">테일러 전개<a href="#테일러-전개" class="hash-link" aria-label="Direct link to 테일러 전개" title="Direct link to 테일러 전개" translate="no">​</a></h3>
+<p>다항식이 아닌 함수를 테일러 급수로 만들어 봅시다.<br>
+예를 들어 <strong>자연상수 e의 거듭제곱</strong></p>
+<p>$$
+f(x)=e^x
+$$
+$$
+a_n={f^{(n)}(x_0) \over n!}
+$$
+를 살펴봅시다.</p>
+<p>$\bold{e^x}$를 무한개의 항을 가진 <strong>다항식</strong>으로 가정하면,
+$$
+e^x=a_0+a_1x+a_2x^2+a_3x^3+a_4x^4+...
+$$
+입니다.</p>
+<p><br><br><br><br></p>
+<p>$\bold{a_0}$를 계산해 볼까요? $a_0={f(0) \over 0!}=e^0=1$ 이므로,
+$$
+e^x=1+a_1x+a_2x^2+a+3x^3+a_4x^4+...
+$$
+다항식을 미분하면
+$$
+e^x=a_1+a_22x+a_33x^2+a_44x^3+...
+$$
+입니다.</p>
+<p><br><br><br><br></p>
+<p>$\bold{a_1}$도 계산해 봅시다. $a_1={f&#x27;(0) \over 1!}=1$ 이므로
+$$
+e^x=1+2a_2x+3a_3x^2+4a_4x^3+...
+$$
+다항식을 미분하면
+$$
+e^x=2<em>a_2+(2</em>3)a_3x+(4*3)a_4x^2+...
+$$
+마찬가지로 $a_2={f&#x27;&#x27;(0) \over 2!}$이고 $a_n={1 \over n!}$임을 알 수 있습니다.</p>
+<p><br><br><br><br></p>
+<p>따라서 $e^x$는 처음 식에서
+$$
+e^x=1+x+{x^2 \over 2!}+{x^3 \over 3!}+{x^4 \over 4!}+...
+$$
+로 테일러 전개 되는 것을 알 수 있습니다.</p>
+<p><br><br><br><br><br><br></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="매클로린-급수">매클로린 급수<a href="#매클로린-급수" class="hash-link" aria-label="Direct link to 매클로린 급수" title="Direct link to 매클로린 급수" translate="no">​</a></h2>
+<p>$x_0=0$일 때의 테일러 급수를 <strong>매클로린 급수</strong>라고 합니다.</p>
+<p>$$
+\huge
+f(x)=\sum_{n=0}^{\infty}{f^{(n)}({\color{green} 0}) \over n!}x^n
+$$</p>
+<p>모든 다  항식에서 매클로린 급수는 다항식 자기 자신이 됩니다.</p>
+<p><br><br><br><br><br><br></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="이항급수">이항급수<a href="#이항급수" class="hash-link" aria-label="Direct link to 이항급수" title="Direct link to 이항급수" translate="no">​</a></h2>
+<p>복소수 $a \in \mathbb C$가 주어졌을 때, 이항급수는 $(1+x)^\alpha$의 매클로린 급수입니다.
+$$
+\huge
+f(x)=\sum_{n=0}^{\infty}{\color{red}{(\alpha)_k \over n!}}x^n
+$$
+여기서 $\color{red} (\alpha)_k$는 조합(combination)에서 하강계승입니다.</p>
+<p>자세한 내용은 <a class="" href="/docs/foundations/mathematics/binomial-theorem#%EC%9D%B4%ED%95%AD%EC%A0%95%EB%A6%AC">이항정리</a>를 참고해 주세요.</p>
+<p><br><br></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<p><a href="https://ko.wikipedia.org/wiki/%EB%A9%B1%EA%B8%89%EC%88%98" target="_blank" rel="noopener noreferrer" class="">[wiki]멱급수</a><br>
+<a href="https://ko.wikipedia.org/wiki/%ED%85%8C%EC%9D%BC%EB%9F%AC_%EA%B8%89%EC%88%98" target="_blank" rel="noopener noreferrer" class="">[wiki]테일러 급수</a><br>
+<a href="https://ko.wikipedia.org/wiki/%EB%A7%A4%ED%81%B4%EB%A1%9C%EB%A6%B0_%EA%B8%89%EC%88%98" target="_blank" rel="noopener noreferrer" class="">[wiki]매클로린 급수</a><br>
+<a href="https://ko.wikipedia.org/wiki/%EC%9D%B4%ED%95%AD_%EA%B8%89%EC%88%98" target="_blank" rel="noopener noreferrer" class="">[wiki]이항 급수</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/mathematics">mathematics</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/calculus">calculus</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/theory">theory</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/jwher/jwher.github.io/tree/main/docs/foundations/mathematics/power-series/index.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/foundations/mathematics/information-theory/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Information Theory</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/infrastructure/containerization/docker-networking/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">도커 네트워킹</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#급수" class="table-of-contents__link toc-highlight">급수</a></li><li><a href="#멱급수" class="table-of-contents__link toc-highlight">멱급수</a></li><li><a href="#테일러-급수" class="table-of-contents__link toc-highlight">테일러 급수</a><ul><li><a href="#테일러-전개" class="table-of-contents__link toc-highlight">테일러 전개</a></li></ul></li><li><a href="#매클로린-급수" class="table-of-contents__link toc-highlight">매클로린 급수</a></li><li><a href="#  이항급수" class="table-of-contents__link toc-highlight">이항급수</a></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">
+        <div class="copyright">
+          Copyright &copy; 2021 &ndash; 2026, JeongWon Her.<span class="heart-icon"></span>
+        </div>
+        </div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="kr" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-machine-learning/deep-learning/quantization/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">정확한 추론을 위한 양자화 기법 | JWHer Tech Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" property="og:url" content="https://jwher.github.io/docs/machine-learning/deep-learning/quantization/"><meta data-rh="true" property="og:locale" content="kr"><meta data-rh="true" name="docusaurus_locale" content="kr"><meta data-rh="true" name="docsearch:language" content="kr"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="twitter:site" content="@jwher96"><meta data-rh="true" property="og:site_name" content="JWHer Tech Blog"><meta data-rh="true" property="og:type" content="website"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="정확한 추론을 위한 양자화 기법 | JWHer Tech Blog"><meta data-rh="true" name="description" content="양자화를 통한 딥러닝 모델 경량화"><meta data-rh="true" property="og:description" content="양자화를 통한 딥러닝 모델 경량화"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://jwher.github.io/docs/machine-learning/deep-learning/quantization/"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/machine-learning/deep-learning/quantization/" hreflang="kr"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/machine-learning/deep-learning/quantization/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"정확한 추론을 위한 양자화 기법","item":"https://jwher.github.io/docs/machine-learning/deep-learning/quantization/"}]}</script><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="JWHer Tech Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="JWHer Tech Blog Atom Feed">
+<script>!function(){try{"serif"===localStorage.getItem("typeface")&&(document.documentElement.dataset.typeface="serif")}catch(e){}}()</script>
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-XHBVCY40VB"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-XHBVCY40VB")</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9ca37fef.css">
+<script src="/assets/js/runtime~main.c2506c8b.js" defer="defer"></script>
+<script src="/assets/js/main.57dd7301.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">JWHer Tech Blog</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs">Docs</a><a class="navbar__item navbar__link" href="/art">Art</a><a class="navbar__item navbar__link icon-search" aria-label="검색" href="/search"></a><a href="https://github.com/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-github"></a><a href="https://www.linkedin.com/in/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-linkedin"></a><a href="https://www.instagram.com/jwher96" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-instagram"></a><a href="/rss.xml" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-rss" aria-label="RSS feed"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_BF9v"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="header_nO4s" style="background-image:url(/img/docs/category.webp)" data-hero="static"><div class="filter_ZZSb"></div><h2 class="presentation__title">Docs</h2><h6 class="presentation__subtitle">God shall bless us; and all the ends of the earth shall fear him.</h6></div><div class="docRoot_Rg9N"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span title="소개" class="linkLabel_WmDU">소개</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/algorithms/data_streaming"><span title="algorithms" class="categoryLinkLabel_W154">algorithms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cs/computer-architecture/"><span title="cs" class="categoryLinkLabel_W154">cs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/development/concurrency/concurrency-models-1/"><span title="development" class="categoryLinkLabel_W154">development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/foundations/computer-architecture/"><span title="foundations" class="categoryLinkLabel_W154">foundations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/infrastructure/containerization/docker-networking/"><span title="infrastructure" class="categoryLinkLabel_W154">infrastructure</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/machine-learning/computer-vision/alphapose/"><span title="machine-learning" class="categoryLinkLabel_W154">machine-learning</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/computer-vision/alphapose/"><span title="computer-vision" class="categoryLinkLabel_W154">computer-vision</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/machine-learning/deep-learning/attention-is-all-you-need/"><span title="deep-learning" class="categoryLinkLabel_W154">deep-learning</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/deep-learning/attention-is-all-you-need/"><span title="Attention 다시보기" class="linkLabel_WmDU">Attention 다시보기</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/deep-learning/embedded-deep-learning"><span title="임베디드 딥러닝" class="linkLabel_WmDU">임베디드 딥러닝</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/machine-learning/deep-learning/quantization/"><span title="정확한 추론을 위한 양자화 기법" class="linkLabel_WmDU">정확한 추론을 위한 양자화 기법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/deep-learning/risc-for-ml/"><span title="RISC 컴퓨터를 위한 사례" class="linkLabel_WmDU">RISC 컴퓨터를 위한 사례</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/fundamentals/ensemble-methods/"><span title="fundamentals" class="categoryLinkLabel_W154">fundamentals</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/platforms/openvino"><span title="platforms" class="categoryLinkLabel_W154">platforms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/research-papers/deep-learning-on-a-data-diet/"><span title="research-papers" class="categoryLinkLabel_W154">research-papers</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ml/embedded-deep-learning/"><span title="ml" class="categoryLinkLabel_W154">ml</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">machine-learning</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">deep-learning</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">정확한 추론을 위한 양자화 기법</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>정확한 추론을 위한 양자화 기법</h1></header><p><a class="" href="/docs/machine-learning/deep-learning/quantization"><img decoding="async" loading="lazy" alt="quantization" src="/assets/images/quantization-255e007b87478f2564468980d0be1f79.png" width="516" height="290" class="img_ev3q"></a><br>
+<em>정확한 추론을 위한 양자화 기법</em></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="신경망-경량화-기법">신경망 경량화 기법<a href="#신경망-경량화-기법" class="hash-link" aria-label="Direct link to 신경망 경량화 기법" title="Direct link to 신경망 경량화 기법" translate="no">​</a></h2>
+<p>지난 10년간, 다양한 문제들에 대해 **신경망(Neural Network, NN)**의 정확도가 상당히 향상되었습니다. 이러한 정확도 향상은 대부분 매우 과대매개변수화된(over-parameterized) 모델에 의해 이루어졌습니다. 하지만 이러한 대규모 모델은 리소스가 제한된 환경에서는 배포가 어려운 문제를 일으킵니다. 이로 인해 실시간 추론, 낮은 에너지 소비, 높은 정확도를 요구하는 리소스 제약 환경에서 딥러닝의 보편적 적용에는 한계가 존재합니다.</p>
+<blockquote>
+<p>효율적인 실시간 NN을 달성하려면, NN의 설계, 학습, 배포 방식을 다시 생각해야 합니다.</p>
+</blockquote>
+<p>이를 해결하기 위한 다양한 연구가 진행되어 왔으며, 지연(latency), 메모리 사용량, 에너지 소비 측면에서 NN 모델을 더욱 효율적으로 만들면서도 최적의 정확도/일반화 균형을 유지하고자 했습니다.</p>
+<ul>
+<li class="">효율적인 NN 아키텍처 설게</li>
+<li class="">NN 아키텍처와 하드웨어의 공동 설계</li>
+<li class="">프루닝</li>
+<li class="">Knowledge Distillation</li>
+<li class=""><strong>양자화</strong></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="효율적인-nn-아키텍처-설계">효율적인 NN 아키텍처 설계<a href="#효율적인-nn-아키텍처-설계" class="hash-link" aria-label="Direct link to 효율적인 NN 아키텍처 설계" title="Direct link to 효율적인 NN 아키텍처 설계" translate="no">​</a></h3>
+<ul>
+<li class="">마이크로 아키텍처 (커널 종류 예: Depthwise convolution, low-rank factorization)</li>
+<li class="">매크로 아키텍처 (모듈 종류 예: Residual, Inception)</li>
+</ul>
+<p>초기에는 수작업으로 모듈을 찾았지만 이는 확장성이 떨어집니다.
+최근(21년)에는 AutoML 및 **NAS (Neural Architecture Search)**를 통해 자동화된 NN 구조 탐색 노력이 이뤄졌습니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nn-아키텍처와-하드웨어의-공동-설계">NN 아키텍처와 하드웨어의 공동 설계<a href="#nn-아키텍처와-하드웨어의-공동-설계" class="hash-link" aria-label="Direct link to NN 아키텍처와 하드웨어의 공동 설계" title="Direct link to NN 아키텍처와 하드웨어의 공동 설계" translate="no">​</a></h3>
+<p><em>Co-design</em>
+NN 연산의 오버헤드는 하드웨어에 따라 다르므로 특정 하드웨어 플랫폼에 적합한 NN 구조를 공동 설계하는 방법이 있습니다.</p>
+<p>예: 캐시 계층이 있는 하드웨어는 bandwidth-bound 연산에 유리</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="프루닝">프루닝<a href="#프루닝" class="hash-link" aria-label="Direct link to 프루닝" title="Direct link to 프루닝" translate="no">​</a></h3>
+<p><em>Pruning</em>
+중요도가 낮은 레이어를 제거하여 희소한 그래프 생성합니다.</p>
+<ul>
+<li class="">비구조적(unstructured) 프루닝: 텐서 단위 제거 → 가속이 어려움</li>
+<li class="">구조적(structured) 프루닝: 필터 단위 제거 → 밀집 연산 유지 가능하지만 정확도 저하 우려</li>
+</ul>
+<p>여전히 고수준 프루닝에서 정확도를 유지하는 것은 미해결 과제입니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="knowledge-distillation">Knowledge Distillation<a href="#knowledge-distillation" class="hash-link" aria-label="Direct link to Knowledge Distillation" title="Direct link to Knowledge Distillation" translate="no">​</a></h3>
+<p>큰 모델(teacher)의 soft 확률 출력을 이용해 작은 모델(student)을 훈련합니다.
+하지만 KD만으로는 높은 압축률 달성이 어렵습니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="양자화">양자화<a href="#양자화" class="hash-link" aria-label="Direct link to 양자화" title="Direct link to 양자화" translate="no">​</a></h3>
+<p><em>Quantization</em></p>
+<p>양자화는 훈련 및 추론 모두에서 일관된 성공을 보이는 접근 방식입니다.
+과거부터 존재하던 수치 표현 문제와 양자화가, NN의 도입으로 새로운 방법으로 주목받고 있습니다.</p>
+<p>이 글에서는 추론 시 양자화를 이야기 하지만, LLM같은 큰 모델이 등장하며 훈련 시 양자화도 중요하게 되었습니다.
+특히 반정밀도(FP16)/혼합정밀도 훈련의 성공으로 AI 가속기의 처리량이 획기적으로 증가했습니다.
+하지만 반정밀도 아래로 가는 것은 아직 어렵고 많은 튜닝이 필요합니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="양자화의-이점">양자화의 이점<a href="#양자화의-이점" class="hash-link" aria-label="Direct link to 양자화의 이점" title="Direct link to 양자화의 이점" translate="no">​</a></h2>
+<p><em>Benefits of Lower Precision Data Types</em></p>
+<p>실시간 추론과 에너지 효율이 필수적인 응용 환경에서는 정확도를 유지하면서도 모델의 경량화 및 최적화가 중요해졌습니다. 이러한 흐름 속에서 양자화(Quantization)는 정확도-성능-메모리 사용량 간 균형을 맞출 수 있는 실용적 기법으로 주목받고 있습니다.</p>
+<p>대표적으로 추론에 사용되는 데이터 타입은 다음과 같습니다.</p>
+<ul>
+<li class=""><strong>Precision Types</strong>: FP32, FP16, BF16, INT8</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="fp32" src="/assets/images/fp32-6ac27bec0499a4fb141369c575a50672.png" width="886" height="114" class="img_ev3q">
+<em>IEEE 754: Standard for floating-point arithmetic</em></p>
+<p>NVIDIA Turing GPU의 실험에 따르면:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Input Data Type</th><th>Math Throughput</th><th>Bandwidth Reduction</th></tr></thead><tbody><tr><td>FP32</td><td>1x</td><td>1x</td></tr><tr><td>INT8</td><td>16x</td><td>4x</td></tr></tbody></table>
+<p>INT8 연산은 FP32에 비해 메모리 대역폭도 4배 절약되며(32-&gt;8bit), exponent align이 필요한 실수 연산은 최대 16배 빠른 처리량을 제공합니다.</p>
+<p>메모리 대역폭 향상은 Memory bound 작업인 LLM에,
+실수 연산 처리량은 arithmetic intensive한 행렬곱(GEMM)과 컨볼루션 연산에 큰 영향을 미칩니다.</p>
+<p>이처럼 양자화는 추론 속도 향상, 모델 경량화, 메모리 절감의 장점을 가집니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-fundamentals">Quantization Fundamentals<a href="#quantization-fundamentals" class="hash-link" aria-label="Direct link to Quantization Fundamentals" title="Direct link to Quantization Fundamentals" translate="no">​</a></h2>
+<p>실수값을 정수 표현으로 변환하기 위해 다음과 같은 선형 변환 방식이 사용됩니다.</p>
+<p>$$
+s = \frac{2^b - 1}{\alpha - \beta}
+$$</p>
+<p>$$
+z = -\text{round}(\beta \cdot s) - 2^{b-1}
+$$</p>
+<p>여기서 $s$는 <strong>스케일(scale)</strong>, $z$는 <strong>제로포인트(zero-point)</strong>, $b$는 <strong>정수 표현의 비트 수</strong>를 의미합니다.</p>
+<p>예를 들어, 32비트 부동소수점(FP32)을 8비트 정수(INT8)로 변환할 경우:</p>
+<p>$$
+s = \frac{255}{\alpha - \beta}, \quad
+z = -\text{round}(\beta \cdot s - 128)
+$$</p>
+<p>이와 같이 계산합니다.</p>
+<p><img decoding="async" loading="lazy" alt="affine quantization" src="/assets/images/affine-quantization-90237f5014e90522eb44958c5ff88702.png" width="376" height="250" class="img_ev3q"></p>
+<p>정의역 $[\beta, \alpha]$는 실수값을 정수로 변환할 때 기준이 되는 **클리핑 범위(Clipping Range)**입니다. 이 범위 내의 실수는 정수로 매핑되며, 범위를 벗어난 값은 $\beta$ 또는 $\alpha$로 **절단(clipping)**됩니다.</p>
+<p>양자화 방식은 다음과 같이 구분됩니다:</p>
+<ul>
+<li class=""><strong>Asymmetric Quantization (비대칭 양자화)</strong>: $\alpha \neq -\beta$일 때</li>
+<li class=""><strong>Symmetric Quantization (대칭 양자화)</strong>: $\alpha = -\beta$로 설정하여 범위를 0을 중심으로 대칭화한 경우</li>
+</ul>
+<p>양자화의 정밀도는 이 클리핑 범위 [$\beta$, $\alpha$]의 선택에 크게 의존합니다.<br>
+범위가 지나치게 좁으면 <strong>중요한 정보가 클리핑되어 정확도가 급격히 하락</strong>할 수 있고,<br>
+반대로 범위가 너무 넓으면 <strong>양자화 해상도(precision)가 떨어져 미세한 차이를 표현하지 못하게 됩니다.</strong></p>
+<p>따라서 적절한 범위를 선택하는 것이 <strong>정확한 추론을 위한 양자화의 핵심 요소</strong>입니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-granularity">Quantization Granularity<a href="#quantization-granularity" class="hash-link" aria-label="Direct link to Quantization Granularity" title="Direct link to Quantization Granularity" translate="no">​</a></h2>
+<p>양자화는 정적 요소인 **모델의 가중치(Weights)**와 실행 시 동적으로 주어지는 **입력 활성화값(Activations)**에 적용됩니다.</p>
+<p>특히 <strong>가중치에 대한 양자화 파라미터</strong>(예: $\alpha$, $\beta$, scale, zero-point 등)는 다음과 같은 수준에서 공유될 수 있습니다:</p>
+<ul>
+<li class=""><strong>Layerwise Quantization</strong>: 하나의 레이어 전체에 대해 동일한 파라미터를 적용합니다.</li>
+<li class=""><strong>Channelwise Quantization</strong>: 각 채널(예: convolution filter)마다 독립적인 파라미터를 사용합니다.</li>
+<li class=""><strong>Sub-channelwise Quantization</strong>: 채널 내에서도 여러 파라미터 그룹을 정의하여 더욱 세밀하게 범위를 조정합니다.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="granularity" src="/assets/images/granularity-b638488a06bfb261bf055e5469ce8a51.png" width="794" height="492" class="img_ev3q"></p>
+<p>특히 CNN에서는 <strong>channelwise quantization이 정확도와 계산 효율 간의 균형</strong> 측면에서 가장 널리 사용되고 있으며, 실험적으로도 안정적인 성능을 보입니다.</p>
+<p>한편, <strong>Activation에 대한 양자화</strong> 역시 다양한 수준에서 설정할 수 있으나, 다음과 같은 이유로 일반적으로 <strong>per-tensor granularity</strong>가 사용됩니다:</p>
+<ul>
+<li class="">Activation은 <strong>실행 시간 중 입력에 따라 변화</strong>하므로, 레이어 단위나 채널 단위로 동적으로 양자화 범위를 조정하는 데 비용이 큽니다.</li>
+<li class="">특히 배치 간 shape이 달라지거나 순서를 고려해야 하는 경우, per-channel 방식은 실시간 추론에서 부적절할 수 있습니다.</li>
+</ul>
+<p>따라서 대부분의 양자화 프레임워크에서는 activation에 대해 <strong>단일 scale과 zero-point를 공유하는 per-tensor quantization</strong>을 적용하여 <strong>속도와 단순성</strong>을 확보합니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-challenges">Quantization Challenges<a href="#quantization-challenges" class="hash-link" aria-label="Direct link to Quantization Challenges" title="Direct link to Quantization Challenges" translate="no">​</a></h2>
+<p>일부 모델은 <strong>activation의 outlier</strong>나 <strong>극단적인 weight 분포</strong>로 인해 양자화에 매우 민감하게 반응합니다. 이러한 경우, 양자화 적용 시 <strong>정확도 저하</strong>가 발생하기 쉽습니다.</p>
+<p>대표적인 대응 기법으로 다음이 있습니다.</p>
+<ul>
+<li class="">
+<p><strong>SmoothQuant</strong><br>
+실행 시 등장하는 outlier activation을 대응하기 위해, 해당 값을 weight에 정렬시키는 방식입니다. 이를 통해 activation의 분포를 정규화하여   양자화 오차를 줄이고, clipping에 의한 정보 손실을 감소시킬 수 있습니다.</p>
+</li>
+<li class="">
+<p><strong>BF16 (BFloat16)</strong><br>
+FP16보다 더 넓은 **동적 범위(dynamic range)**를 제공함으로써 outlier에 보다 강인하게 작동합니다. 다만 일부 연산에서 정확도 손실이 발생할 수 있으며, 일반적으로는 acceptable한 수준으로 평가됩니다.</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="bf16" src="/assets/images/bf16-61f9e86a65db6c0ee1a567f55137e663.png" width="520" height="292" class="img_ev3q"></p>
+<ul>
+<li class=""><strong>FP16 표현 범위</strong>: 약 $5.96 \times 10^{-8}$ ~ $65504$</li>
+<li class=""><strong>BF16 표현 범위</strong>: 약 $1 \times 10^{-34}$ ~ $3.39 \times 10^{38}$</li>
+</ul>
+<p>BF16은 <strong>정밀도는 낮지만 표현 범위가 넓기 때문에</strong>, 큰 값 혹은 작은 값을 포함하는 모델에서도 양자화 오차를 완화하는 데 유리합니다. 특히 대규모 언어 모델(LLM)이나 transformer 계열 구조에서는 BF16이 널리 활용되고 있습니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-methodologies">Quantization Methodologies<a href="#quantization-methodologies" class="hash-link" aria-label="Direct link to Quantization Methodologies" title="Direct link to Quantization Methodologies" translate="no">​</a></h2>
+<p>양자화는 적용 시점과 방식에 따라 크게 두 가지 접근으로 나뉩니다:</p>
+<ul>
+<li class="">
+<p><strong>Post-Training Quantization (PTQ)</strong><br>
+사전 학습이 완료된 모델에 대해 추가 학습 없이 양자화를 적용하는 방식입니다.<br>
+대표적인 입력 데이터를 활용해 **activation의 분포를 보정(calibration)**하지만, <strong>가중치는 변경되지 않습니다.</strong><br>
+간단하고 빠르며, 소량의 데이터로도 적용할 수 있습니다.</p>
+</li>
+<li class="">
+<p><strong>Quantization-Aware Training (QAT)</strong><br>
+학습 과  정에서 양자화 효과를 **시뮬레이션(faked quantization)**하여, 모델이 양자화 오차를 학습 중에 보정할 수 있도록 하는 방식입니다.<br>
+<strong>가중치와 활성화 모두 정수 표현을 모방하며 학습되기 때문에</strong>, PTQ보다 일반적으로 <strong>더 높은 정확도 유지</strong>가 가능합니다.<br>
+다만 전체 또는 일부 학습을 다시 수행해야 하므로 <strong>비용이 더 크고, 레이블된 데이터가 필요</strong>하다는 단점이 있습니다.</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="method" src="/assets/images/quantization-methods-769b657d47563e058b6cf3079f6ae791.png" width="2974" height="980" class="img_ev3q"></p>
+<p>두 방법은 정확도와 효율성 측면에서 상호 보완적으로 활용될 수 있습니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="post-training-quantization-ptq">Post-Training Quantization (PTQ)<a href="#post-training-quantization-ptq" class="hash-link" aria-label="Direct link to Post-Training Quantization (PTQ)" title="Direct link to Post-Training Quantization (PTQ)" translate="no">​</a></h3>
+<p><strong>Post-Training Quantization</strong>은 추가 학습 없이, 이미 학습된 모델에 양자화를 적용하는 방식입니다.<br>
+가중치는 그대로 유지되며, 대표적인 입력 데이터를 활용하여 <strong>activation의 분포를 기반으로 스케일(scale)과 제로포인트(zero-point)를 추정</strong>합니다.</p>
+<p><img decoding="async" loading="lazy" alt="histogram" src="/assets/images/histogram-974b4899bbe473c33fdc4524c734006a.png" width="589" height="256" class="img_ev3q"></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="calibration-알고리즘">Calibration 알고리즘<a href="#calibration-알고리즘" class="hash-link" aria-label="Direct link to Calibration 알고리즘" title="Direct link to Calibration 알고리즘" translate="no">​</a></h4>
+<p>양자화에서 **클리핑 범위 [$\alpha$, $\beta$]**를 결정하기 위한 대표적인 알고리즘은 다음과 같습니다:</p>
+<ul>
+<li class=""><strong>Max</strong>: 활성화의 최대 절댓값을 기준으로 범위를 설정 (단순하지만 outlier에 민감)</li>
+<li class=""><strong>Entropy</strong>: 양자화 전후의 분포 간 <strong>KL divergence</strong>를 최소화하여 정보 손실을 줄이는 방식</li>
+<li class=""><strong>Percentile</strong>: 분포의 상위 백분위(예: 99.9%)를 기준으로 하여 <strong>outlier의 영향 최소화</strong></li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-and-activation-functions">Quantization and Activation Functions<a href="#quantization-and-activation-functions" class="hash-link" aria-label="Direct link to Quantization and Activation Functions" title="Direct link to Quantization and Activation Functions" translate="no">​</a></h4>
+<p>양자화 정확도는 <strong>활성화 함수의 출력 분포</strong>에도 크게 영향을 받습니다.<br>
+특히 <strong>Swish</strong>, <strong>GELU</strong>와 같은 smooth activation function은 <strong>작고 제한된 음수 영역</strong>을 갖고 있으며, 다음과 같은 특성을 가집니다:</p>
+<ul>
+<li class=""><strong>Swish</strong> 출력 범위: [−0.2785, ∞]</li>
+<li class=""><strong>GELU</strong> 출력 범위: [−0.1700, ∞]</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="gelu" src="/assets/images/gelu-31f180f08d6caad954e0448e64cb8a93.png" width="728" height="232" class="img_ev3q"></p>
+<p>이러한 범위는 대칭 양자화(symmetric quantization)에서 <strong>작은 음수와 큰 양수를 동시에 표현해야 하므로 정밀도 손실이 발생</strong>합니다.<br>
+예를 들어, GELU 출력을 [−50, 50]으로 양자화할 경우, 대부분의 음수 출력은 0으로 반올림되며 손실됩니다.<br>
+하지만 이를 [−10, 10]으로 제한하면 <strong>두 개 이상의 음수 구간을 표현할 수 있어 정확도가 향상</strong>됩니다.</p>
+<p>이러한 현상 은 BERT Large 모델에서 실험적으로 확인되었습니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Calibration 방식</th><th>정확도 (F1)</th></tr></thead><tbody><tr><td>FP32 (baseline)</td><td>91.01</td></tr><tr><td>Max</td><td>85.92</td></tr><tr><td>Entropy</td><td>37.40</td></tr><tr><td>99.9%</td><td>26.18</td></tr><tr><td>99.99%</td><td>89.59</td></tr><tr><td>99.999%</td><td>90.20</td></tr><tr><td>99.9999%</td><td>90.10</td></tr><tr><td><strong>Max + GELU10</strong></td><td><strong>90.66</strong></td></tr></tbody></table>
+<blockquote>
+<p>※ &quot;GELU10&quot;은 GELU activation의 출력을 $[-10, 10]$으로 제한한 경우입니다.</p>
+</blockquote>
+<p>이 결과는 다음을 시사합니다:</p>
+<ul>
+<li class="">복잡한 entropy 기반 보정보다 <strong>단순한 Max calibration과 적절한 출력 클리핑</strong>이 더 나은 결과를 낼 수 있습니다.</li>
+<li class=""><strong>GELU10 + Max calibration은 QAT에서 얻은 최고 성능(90.67)에 거의 근접</strong>합니다.</li>
+<li class="">즉, <strong>activation 출력의 클리핑 범위를 정제하는 것만으로도 PTQ의 성능을 크게 개선</strong>할 수 있습니다.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quantization-aware-training-qat">Quantization-Aware Training (QAT)<a href="#quantization-aware-training-qat" class="hash-link" aria-label="Direct link to Quantization-Aware Training (QAT)" title="Direct link to Quantization-Aware Training (QAT)" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="qat" src="/assets/images/fakequant-f1f22ea8f1a830ccdda5d3f82b01857b.png" width="402" height="288" class="img_ev3q"></p>
+<p>**Quantization-Aware Training(QAT)**은 학습 중에 양자화 효과를 시뮬레이션하여, 모델이 양자화 오차를 <strong>내재적으로 학습하도록 만드는 방식</strong>입니다.<br>
+즉, 학습 과정에서 실수 표현을 유지하되, 순전파 시 양자화된 값을 사용하는 <strong>&quot;Fake Quantization&quot; 연산자</strong>를 삽입하여 양자화가 모델 성능에 미치는 영향을 반영합니다.</p>
+<p>이로 인해 모델은 정수 연산의 부정확성을 보정하는 방향으로 파라미터를 조정하게 되며, <strong>추론 시 양자화된 연산으로도 높은 정확도를 유지할 수 있습니다.</strong></p>
+<p><img decoding="async" loading="lazy" alt="flow" src="/assets/images/qat-flow-2ce55ebce83a5a01d83467f88b80a35b.png" width="1134" height="466" class="img_ev3q"></p>
+<p>양자화 연산은 <strong>불연속적이고 미분 불가능</strong>하기 때문에, 일반적인 역전파에서는 gradient 계산이 불가능합니다.<br>
+이를 해결하기 위해 <strong>Straight-Through Estimator(STE)</strong> 기법이 사용됩니다:</p>
+<ul>
+<li class="">순전파: <code>round()</code> 또는 <code>clamp()</code>와 같은 양자화 연산을 적용하여 <strong>양자화 효과를 시뮬레이션</strong></li>
+<li class="">역전파: <code>identity</code> 함수로 간주하여 <strong>양자화 연산의 gradient를 무시하고 실수값의 gradient를 그대로 전달</strong></li>
+</ul>
+<p>이 방식은 실제 TensorFlow Lite 및 PyTorch QAT 구현에서도 동일한 방식으로 작동합니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="comparison-between-ptq-and-qat">Comparison Between PTQ and QAT<a href="#comparison-between-ptq-and-qat" class="hash-link" aria-label="Direct link to Comparison Between PTQ and QAT" title="Direct link to Comparison Between PTQ and QAT" translate="no">​</a></h3>
+<p>양자화는 적용 시점과 방식에 따라 크게 두 가지 접근 방식으로 구분됩니다: **Post-Training Quantization(PTQ)**과 <strong>Quantization-Aware Training(QAT)</strong>. 이 두 방식은 정확도, 구현 복잡도, 데이터 요구량 측면에서 명확한 차이를 가집니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>PTQ</th><th>QAT</th></tr></thead><tbody><tr><td>재학습 여 부</td><td>필요 없음</td><td>필요함</td></tr><tr><td>정밀도 유지</td><td>일부 모델에서 큰 정확도 저하 발생 가능</td><td>대부분의 경우 높은 정확도 유지</td></tr><tr><td>구현 난이도</td><td>간단, 빠름</td><td>복잡, 학습 파이프라인 수정 필요</td></tr><tr><td>데이터 요구</td><td>소량의 unlabeled 데이터로 가능</td><td>레이블된 학습 데이터 필요</td></tr><tr><td>적용 시점</td><td>모델 학습 후 적용</td><td>모델 학습 중 적용</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="ptq의-장점과-한계">PTQ의 장점과 한계<a href="#ptq의-장점과-한계" class="hash-link" aria-label="Direct link to PTQ의 장점과 한계" title="Direct link to PTQ의 장점과 한계" translate="no">​</a></h4>
+<ul>
+<li class="">
+<p><strong>장점</strong>:</p>
+<ul>
+<li class="">이미 학습된 모델에 대해 <strong>빠르고 간단하게 적용</strong> 가능</li>
+<li class="">소량의 대표 입력 데이터만 있으면 적용 가능 (레이블 불필요)</li>
+<li class="">하드웨어 테스트 및 배포 전에 빠른 프로토타이핑 가능</li>
+</ul>
+</li>
+<li class="">
+<p><strong>한계</strong>:</p>
+<ul>
+<li class="">일부 구조 (예: BERT, EfficientNet, GeLU/Switch activation 포함 모델 등)에서는 <strong>정확도 손실이 크며</strong>,<br>
+이는 activation 분포가 양자화에 적합하지 않거나 weight range가 불균형할 때 발생함</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="qat의-장점과-한계">QAT의 장점과 한계<a href="#qat의-장점과-한계" class="hash-link" aria-label="Direct link to QAT의 장점과 한계" title="Direct link to QAT의 장점과 한계" translate="no">​</a></h4>
+<ul>
+<li class="">
+<p><strong>장점</strong>:</p>
+<ul>
+<li class="">학습 중 양자화 효과를 시뮬레이션하여, 모델이 이를 <strong>내재적으로 보정</strong>할 수 있음</li>
+<li class="">대부분의 모델에서 <strong>FP32에 가까운 정확도</strong>를 유지할 수 있음</li>
+<li class="">최근 연구들에서는 QAT가 <strong>fine-tuning 5~10 epoch만으로도 PTQ보다 우수한 결과</strong>를 달성함 [[30]]</li>
+</ul>
+</li>
+<li class="">
+<p><strong>한계</strong>:</p>
+<ul>
+<li class="">기존 학습 파이프라인에 fake quantization 연산자 삽입 등 <strong>추가 구현 필요</strong></li>
+<li class=""><strong>레이블된 데이터가 필요</strong>하고, 적어도 일부 학습을 다시 수행해야 함</li>
+<li class="">Hyperparameter tuning 없이 그대로 QAT를 적용하면 <strong>오히려 정확도가 하락</strong>할 수도 있음</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-quantization-workflow">Recommended Quantization Workflow<a href="#recommended-quantization-workflow" class="hash-link" aria-label="Direct link to Recommended Quantization Workflow" title="Direct link to Recommended Quantization Workflow" translate="no">​</a></h2>
+<p>양자화 기법은 <strong>정확도</strong>, <strong>추론 속도</strong>, <strong>개발 비용</strong> 간의 균형을 고려해야 하는 실무 환경에서, 다음과 같은 단계적 전략으로 적용하는 것이 효과적입니다.</p>
+<ul>
+<li class=""><strong>PTQ</strong>는 효율적이며 대부분의 모델에 빠르게 적용 가능합니다.</li>
+<li class="">반면, <strong>QAT</strong>는 정확도에 민감한 모델에서 성능을 보장하기 위해 활용됩니다.</li>
+</ul>
+<p>일반적으로 다음과 같은 <strong>단계적 양자화 워크플로우</strong>를 따릅니다:</p>
+<blockquote>
+<p><strong>PTQ로 baseline 구성 → 민감 레이어 분석 및 부분 양자화 → 성능 부족 시 QAT 적용</strong></p>
+</blockquote>
+<p>이러한 방식은 정확도를 유지하면서도 양자화의 효율을 최대한 활용할 수 있는 실용적인 전략입니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="단계별-양자화-절차">단  계별 양자화 절차<a href="#단계별-양자화-절차" class="hash-link" aria-label="Direct link to 단계별 양자화 절차" title="Direct link to 단계별 양자화 절차" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p><strong>Post-Training Quantization (PTQ)</strong></p>
+<ul>
+<li class="">연산량이 큰 레이어 전체에 양자화를 적용하여 baseline 모델 구성</li>
+<li class="">Calibration은 다양한 방법(Max, Entropy, 99.99%, 99.999% percentile 등)을 시도하여 최적값 탐색</li>
+<li class="">실험적으로 <strong>activation 분포 clipping 범위</strong>에 따라 성능 차이가 크므로, 다양한 분포 기반 범위 조정이 중요</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Partial Quantization</strong></p>
+<ul>
+<li class="">민감도 분석(sensitivity analysis)을 통해 <strong>정확도에 큰 영향을 미치는 레이어</strong>를 식별</li>
+<li class="">해당 레이어는 FP32 혹은 FP16으로 유지하고, 나머지는 INT8로 양자화하여 성능과 정확도의 절충점을 확보</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Quantization-Aware Training (QAT)</strong></p>
+<ul>
+<li class="">QAT는 전체 재학습이 아닌 **일부 미세조정(fine-tuning)**으로도 효과를 볼 수 있습니다.</li>
+<li class="">일반적으로 기존 학습 스케줄의 <strong>10% 이내 범위</strong>에서 fine-tuning을 수행하며,</li>
+<li class="">학습률은 초기의 <strong>1% 수준에서 시작</strong>하여 <strong>annealing 방식</strong>으로 점차 감소시키는 것이 권장</li>
+</ul>
+</li>
+</ol>
+<p>이러한 단계적 접근은 빠른 프로토타이핑, 정밀한 튜닝, 정확도 보존을 모두 충족시킬 수 있어, <strong>대부분의 모델에 안정적이고 효과적인 양자화 전략</strong>으로 자리잡고 있습니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusion">Conclusion<a href="#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion" translate="no">​</a></h2>
+<ul>
+<li class="">양자화의 효과는 <strong>네트워크 아키텍처의 구조와 특성</strong>에 따라 크게 달라집니다.</li>
+<li class=""><strong>PTQ와 QAT는 각각의 정확도 요구 수준과 시스템 제약 조건</strong>에 따라 적절히 선택해야 합니다.</li>
+<li class="">특히 실무 환경에서는, 모델과 하드웨어에 따라 다양한 조합이 존재하므로,<br>
+<strong>실험 기반의 튜닝 과정이 정확도 손실 없는 양자화 추론을 달성하는 데 핵심적인 역할</strong>을 합니다.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class="">A Survey of Quantization Methods for Efficient Neural Network Inference</li>
+<li class="">Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference</li>
+<li class="">Integer Quantization for Deep Learning Inference: Principles and Empirical Evaluation</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/machine-learning">machine-learning</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/deep-learning">deep-learning</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/optimization">optimization</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/jwher/jwher.github.io/tree/main/docs/machine-learning/deep-learning/quantization/index.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/machine-learning/deep-learning/embedded-deep-learning"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">임베디드 딥러닝</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/machine-learning/deep-learning/risc-for-ml/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">RISC 컴퓨터를 위한 사례</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#신경망-경량화-기법" class="table-of-contents__link toc-highlight">신경망 경량화 기법</a><ul><li><a href="#효율적인-nn-아키텍처-설계" class="table-of-contents__link toc-highlight">효율적인 NN 아키텍처 설계</a></li><li><a href="#nn-아키텍처와-하드웨어의-공동-설계" class="table-of-contents__link toc-highlight">NN 아키텍처와 하드웨어의 공동 설계</a></li><li><a href="#프루닝" class="table-of-contents__link toc-highlight">프루닝</a></li><li><a href="#knowledge-distillation" class="table-of-contents__link toc-highlight">Knowledge Distillation</a></li><li><a href="#양자화" class="table-of-contents__link toc-highlight">양자화</a></li></ul></li><li><a href="#양자화의-이점" class="table-of-contents__link toc-highlight">양자화의 이점</a></li><li><a href="#quantization-fundamentals" class="table-of-contents__link toc-highlight">Quantization Fundamentals</a></li><li><a href="#quantization-granularity" class="table-of-contents__link toc-highlight">Quantization Granularity</a></li><li><a href="#quantization-challenges" class="table-of-contents__link toc-highlight">Quantization Challenges</a></li><li><a href="#quantization-methodologies" class="table-of-contents__link toc-highlight">Quantization Methodologies</a><ul><li><a href="#post-training-quantization-ptq" class="table-of-contents__link toc-highlight">Post-Training Quantization (PTQ)</a></li><li><a href="#quantization-aware-training-qat" class="table-of-contents__link toc-highlight">Quantization-Aware Training (QAT)</a></li><li><a href="#comparison-between-ptq-and-qat" class="table-of-contents__link toc-highlight">Comparison Between PTQ and QAT</a></li></ul></li><li><a href="#recommended-quantization-workflow" class="table-of-contents__link toc-highlight">Recommended Quantization Workflow</a><ul><li><a href="#단계별-양자화-절차" class="table-of-contents__link toc-highlight">단계별 양자화 절차</a></li></ul></li><li><a href="#conclusion" class="table-of-contents__link toc-highlight">Conclusion</a></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">
+        <div class="copyright">
+          Copyright &copy; 2021 &ndash; 2026, JeongWon Her.<span class="heart-icon"></span>
+        </div>
+        </div></div></div></footer></div>
+</body>
+</html>

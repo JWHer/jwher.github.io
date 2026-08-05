@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jwher.github.io/</id>
+    <title>JWHer Tech Blog</title>
+    <updated>2026-02-18T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jwher.github.io/"/>
+    <subtitle>허정원 기술블로그 — docs + blog 전체 글</subtitle>
+    <logo>https://jwher.github.io/img/bamboo-road.webp</logo>
+    <icon>https://jwher.github.io/img/logo.svg</icon>
+    <rights>Copyright © 2021 – 2026, JeongWon Her</rights>
+    <entry>
+        <title type="html"><![CDATA[시간차 학습]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/temporal-difference-learning</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/temporal-difference-learning"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Temporal-Difference Learning]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[강화학습]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Reinforcement Learning]]></summary>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[정책 기울기 방법들]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/policy-gradient-methods</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/policy-gradient-methods"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Policy Gradient Methods]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+        <category label="reinforcement"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[테이블 방법을 통한 계획과 학습]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/planning-and-learning-tabular-methods</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/planning-and-learning-tabular-methods"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Planning and Learning with Tabular Methods]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[근사를 통한 on-policy 예측]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-prediction-with-approximation</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-prediction-with-approximation"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[On-policy Prediction with Approximation]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[근사를 통한 on-policy 제어]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-control-with-approximation</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/on-policy-control-with-approximation"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[On-policy Control with Approximation]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[n-단계 부트스트래핑]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/n-step-bootstrapping</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/n-step-bootstrapping"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[n-step Bootstrapping]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[여러대의 슬롯머신]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/multi-armed-bandits</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/multi-armed-bandits"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Multi-armed Bandits]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[몬테 카를로 방법]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/monte-carlo-methods</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/monte-carlo-methods"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Monte Carlo Methods]]></summary>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[마르코프 결정 과정]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/markov-decision-process</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/markov-decision-process"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Markov Decision Process]]></summary>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[적격자 추적]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/eligibility-trace</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/eligibility-trace"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eligibility Traces]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+        <category label="reinforcement"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[다이나믹 프로그래밍]]></title>
+        <id>https://jwher.github.io/docs/ml/reinforcement-learning/dynamic-programming</id>
+        <link href="https://jwher.github.io/docs/ml/reinforcement-learning/dynamic-programming"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Dynamic Programming]]></summary>
+        <category label="ml"/>
+        <category label="rl"/>
+        <category label="reinforcement"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[확률]]></title>
+        <id>https://jwher.github.io/docs/ml/machine-learning/probability</id>
+        <link href="https://jwher.github.io/docs/ml/machine-learning/probability"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[기본적인 확률 이론에 대해서]]></summary>
+        <category label="math"/>
+        <category label="machine learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gradient]]></title>
+        <id>https://jwher.github.io/docs/ml/general/gradient</id>
+        <link href="https://jwher.github.io/docs/ml/general/gradient"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Gradient]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[평가 지표]]></title>
+        <id>https://jwher.github.io/docs/ml/general/evaluation-metric</id>
+        <link href="https://jwher.github.io/docs/ml/general/evaluation-metric"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Evaluation Metric]]></summary>
+        <category label="general"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[근사를 통한 가속]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning/software/approximation</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning/software/approximation"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Acceleration By Approximation]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[You Only Look Once]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/yolo</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/yolo"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[You Only Look Once]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Single Shot Detector]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/ssd</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/ssd"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Single Shot Detector]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Low-power Image Recognition Challenge]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/lpirc</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/lpirc"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[LPIRC에서 우승하는 방법]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Faster R-CNN]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/faster-rcnn</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning/object-detection-networks/faster-rcnn"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Faster R-CNN]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[임베디드 딥러닝]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[임베디드 딥러닝 강의 노트]]></summary>
+        <category label="ml"/>
+        <category label="embedded"/>
+        <category label="deep-learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[임베디드 딥러닝]]></title>
+        <id>https://jwher.github.io/docs/ml/embedded-deep-learning/hardware</id>
+        <link href="https://jwher.github.io/docs/ml/embedded-deep-learning/hardware"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[하드웨어 가속 기술]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[실시간시스템]]></title>
+        <id>https://jwher.github.io/docs/cs/real-time-system/aperiodic</id>
+        <link href="https://jwher.github.io/docs/cs/real-time-system/aperiodic"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[실시간 시스템 - 우선순의 기반 시스템에서 비주기적 스케줄링]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[실시간시스템]]></title>
+        <id>https://jwher.github.io/docs/cs/real-time-system/worst-case-execution-time</id>
+        <link href="https://jwher.github.io/docs/cs/real-time-system/worst-case-execution-time"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[실시간 시스템 - 최악 실행 시간 분석]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[실시간시스템]]></title>
+        <id>https://jwher.github.io/docs/cs/real-time-system/thread</id>
+        <link href="https://jwher.github.io/docs/cs/real-time-system/thread"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[실시간 시스템 - 스레드]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[실시간시스템]]></title>
+        <id>https://jwher.github.io/docs/cs/real-time-system/fixed-priority1</id>
+        <link href="https://jwher.github.io/docs/cs/real-time-system/fixed-priority1"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[실시간 시스템 - 고정된 우선순위]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[실시간시스템]]></title>
+        <id>https://jwher.github.io/docs/cs/real-time-system/definition</id>
+        <link href="https://jwher.github.io/docs/cs/real-time-system/definition"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[실시간 시스템 - 정의]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[확장형 고성능 컴퓨팅 소개]]></title>
+        <id>https://jwher.github.io/docs/cs/high-performance-computing/introduction</id>
+        <link href="https://jwher.github.io/docs/cs/high-performance-computing/introduction"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[확장가능한 프로그래밍]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[통합설계]]></title>
+        <id>https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim</id>
+        <link href="https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[디지털 시스템 설계방법론 - 통합설계]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[소개]]></title>
+        <id>https://jwher.github.io/docs/cs/digital-system-design-methodology/intro</id>
+        <link href="https://jwher.github.io/docs/cs/digital-system-design-methodology/intro"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[디지털 시스템 설계방법론 - 소개]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[가상 메모리 디자인]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/virtual-memory-design</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/virtual-memory-design"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Virtual Memory Design]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[쓰레드 수준 병렬화]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/thread-level-parallelism</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/thread-level-parallelism"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Thread Level Parallelism]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[가속기 디자인]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/roofline-visual-performance-model</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/roofline-visual-performance-model"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[가속기]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[메모리 계층 디자인]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/memory-hierarchy-design</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/memory-hierarchy-design"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Memory Hierarchy Design]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[명령어 수준 병렬화]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/instruction-level-parallelism</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/instruction-level-parallelism"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Instruction Level Parallelism]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[컴퓨터 구조]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[컴퓨터 구조 강의 노트]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[구글 TPU]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/google-tpu-v1</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/google-tpu-v1"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[하드웨어 레벨의 병렬화]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[도메인에 맞는 아키텍처]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/domain-specific-architecture</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/domain-specific-architecture"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[asic]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[데이터 수준 병렬화]]></title>
+        <id>https://jwher.github.io/docs/cs/computer-architecture/data-level-parallelism</id>
+        <link href="https://jwher.github.io/docs/cs/computer-architecture/data-level-parallelism"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Data Level Parallelism]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[데이터 스트리밍 알고리즘]]></title>
+        <id>https://jwher.github.io/docs/algorithms/data_streaming</id>
+        <link href="https://jwher.github.io/docs/algorithms/data_streaming"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[대규모 데이터 처리를 위한 스트리밍 모델과 알고리즘]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[정확한 추론을 위한 양자화 기법]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/deep-learning/quantization</id>
+        <link href="https://jwher.github.io/docs/machine-learning/deep-learning/quantization"/>
+        <updated>2025-04-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[양자화를 통한 딥러닝 모델 경량화]]></summary>
+        <category label="machine-learning"/>
+        <category label="deep-learning"/>
+        <category label="optimization"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[도커 네트워킹]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/containerization/docker-networking</id>
+        <link href="https://jwher.github.io/docs/infrastructure/containerization/docker-networking"/>
+        <updated>2025-04-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[도커 딥 다이브]]></summary>
+        <category label="docker"/>
+        <category label="containerization"/>
+        <category label="networking"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[임베디드 딥러닝]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/deep-learning/embedded-deep-learning</id>
+        <link href="https://jwher.github.io/docs/machine-learning/deep-learning/embedded-deep-learning"/>
+        <updated>2023-11-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[하드웨어 소프트웨어 통합 설계와 병렬 처리]]></summary>
+        <category label="cs"/>
+        <category label="ml"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[RISC 컴퓨터를 위한 사례]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/deep-learning/risc-for-ml</id>
+        <link href="https://jwher.github.io/docs/machine-learning/deep-learning/risc-for-ml"/>
+        <updated>2023-11-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The Case for the Reduced Instruction Set Computer]]></summary>
+        <category label="machine-learning"/>
+        <category label="hardware"/>
+        <category label="architecture"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[LLaMa 공개된 효율적인 언어 모델]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/research-papers/llama-foundation-models</id>
+        <link href="https://jwher.github.io/docs/machine-learning/research-papers/llama-foundation-models"/>
+        <updated>2023-09-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[LLaMA: Open and Efficient Foundation Language Models]]></summary>
+        <category label="machine-learning"/>
+        <category label="deep-learning"/>
+        <category label="llm"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[RISC V 명령어 셋 아키텍처]]></title>
+        <id>https://jwher.github.io/docs/foundations/computer-architecture/risc-v-isa</id>
+        <link href="https://jwher.github.io/docs/foundations/computer-architecture/risc-v-isa"/>
+        <updated>2023-09-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[RISC V Instruction Set Architecture]]></summary>
+        <category label="cs"/>
+        <category label="computer architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[다시보는 컴퓨터구조1]]></title>
+        <id>https://jwher.github.io/docs/foundations/computer-architecture</id>
+        <link href="https://jwher.github.io/docs/foundations/computer-architecture"/>
+        <updated>2023-09-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[컴퓨터의 작동원리]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[유클리드 호제법]]></title>
+        <id>https://jwher.github.io/docs/foundations/mathematics/euclidean-algorithm</id>
+        <link href="https://jwher.github.io/docs/foundations/mathematics/euclidean-algorithm"/>
+        <updated>2023-05-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[최대공약수와 최소공배수를 구하는 방법]]></summary>
+        <category label="mathematics"/>
+        <category label="algorithms"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ChatGPT: 부와 신앙의 이중성에 대해]]></title>
+        <id>https://jwher.github.io/blog/chatgpt-duality-of-wealth-and-faith</id>
+        <link href="https://jwher.github.io/blog/chatgpt-duality-of-wealth-and-faith"/>
+        <updated>2023-05-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Zior Park 크리스쳔 가사에 대한 고찰]]></summary>
+        <category label="tech"/>
+        <category label="theology"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[코딩 기초 트레이닝2]]></title>
+        <id>https://jwher.github.io/docs/development/languages/cpp-coding-basic2</id>
+        <link href="https://jwher.github.io/docs/development/languages/cpp-coding-basic2"/>
+        <updated>2023-05-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[C/C++ 재활 훈련]]></summary>
+        <category label="cpp"/>
+        <category label="c++"/>
+        <category label="tutorial"/>
+        <category label="basics"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[코딩 기초 트레이닝1]]></title>
+        <id>https://jwher.github.io/docs/development/languages/cpp-coding-basic1</id>
+        <link href="https://jwher.github.io/docs/development/languages/cpp-coding-basic1"/>
+        <updated>2023-05-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[C/C++ 재활 훈련]]></summary>
+        <category label="cpp"/>
+        <category label="c++"/>
+        <category label="tutorial"/>
+        <category label="basics"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[지도자의 부르심]]></title>
+        <id>https://jwher.github.io/blog/discipleship-training-1</id>
+        <link href="https://jwher.github.io/blog/discipleship-training-1"/>
+        <updated>2023-04-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[새싹목자훈련 1주차]]></summary>
+        <category label="theology"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[도커 엔진]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/containerization/the-docker-engine</id>
+        <link href="https://jwher.github.io/docs/infrastructure/containerization/the-docker-engine"/>
+        <updated>2023-03-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[도커 딥 다이브]]></summary>
+        <category label="docker"/>
+        <category label="containerization"/>
+        <category label="architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pathways를 이용한 언어모델 스케일링]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/research-papers/palm-scaling-language-modeling</id>
+        <link href="https://jwher.github.io/docs/machine-learning/research-papers/palm-scaling-language-modeling"/>
+        <updated>2023-02-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[PaLM: Scaling Language Modeling with Pathways]]></summary>
+        <category label="machine-learning"/>
+        <category label="deep-learning"/>
+        <category label="llm"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[대규모 병렬프로세서 프로그래밍(소개)]]></title>
+        <id>https://jwher.github.io/docs/development/languages/programming-massively-parallel-processors</id>
+        <link href="https://jwher.github.io/docs/development/languages/programming-massively-parallel-processors"/>
+        <updated>2023-02-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Programming Massively Parallel Processors - Chapter 1]]></summary>
+        <category label="cuda"/>
+        <category label="gpu"/>
+        <category label="parallel-computing"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Attention 다시보기]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/deep-learning/attention-is-all-you-need</id>
+        <link href="https://jwher.github.io/docs/machine-learning/deep-learning/attention-is-all-you-need"/>
+        <updated>2023-01-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Attention is all you need]]></summary>
+        <category label="machine-learning"/>
+        <category label="deep-learning"/>
+        <category label="transformers"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[운영체제의 개요]]></title>
+        <id>https://jwher.github.io/docs/foundations/linux/linux-overview</id>
+        <link href="https://jwher.github.io/docs/foundations/linux/linux-overview"/>
+        <updated>2023-01-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Linux overview]]></summary>
+        <category label="linux"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[요구사항에 사용하는 RFC 키워드]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/requirement-levels</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/requirement-levels"/>
+        <updated>2022-12-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Key words for use in RFCs to Indicate Requirement Levels]]></summary>
+        <category label="kubernetes"/>
+        <category label="best-practices"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[7가지 동시성 모델(스레드와 락) 거인의 어깨 위에서]]></title>
+        <id>https://jwher.github.io/docs/development/concurrency/concurrency-models-4</id>
+        <link href="https://jwher.github.io/docs/development/concurrency/concurrency-models-4"/>
+        <updated>2022-12-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter2 Day3]]></summary>
+        <category label="concurrency"/>
+        <category label="parallelism"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[7가지 동시성 모델(스레드와 락) 고유 락 개선하기]]></title>
+        <id>https://jwher.github.io/docs/development/concurrency/concurrency-models-3</id>
+        <link href="https://jwher.github.io/docs/development/concurrency/concurrency-models-3"/>
+        <updated>2022-12-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter2 Day2]]></summary>
+        <category label="concurrency"/>
+        <category label="parallelism"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[7가지 동시성 모델(스레드와 락) 상호 배제와 메모리 모델]]></title>
+        <id>https://jwher.github.io/docs/development/concurrency/concurrency-models-2</id>
+        <link href="https://jwher.github.io/docs/development/concurrency/concurrency-models-2"/>
+        <updated>2022-12-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter2 Day1]]></summary>
+        <category label="concurrency"/>
+        <category label="parallelism"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[머신러닝에 숨은 기술 부채]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/research-papers/hidden-technical-debt</id>
+        <link href="https://jwher.github.io/docs/machine-learning/research-papers/hidden-technical-debt"/>
+        <updated>2022-12-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hidden Technical Debt in Machine Learning Systems]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="best-practices"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[7가지 동시성 모델(소개)]]></title>
+        <id>https://jwher.github.io/docs/development/concurrency/concurrency-models-1</id>
+        <link href="https://jwher.github.io/docs/development/concurrency/concurrency-models-1"/>
+        <updated>2022-12-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Seven Concurrency Models in Seven Weeks - Chapter1]]></summary>
+        <category label="concurrency"/>
+        <category label="parallelism"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[다시보는 동시성프로그래밍]]></title>
+        <id>https://jwher.github.io/docs/development/concurrency/concurrent-programming</id>
+        <link href="https://jwher.github.io/docs/development/concurrency/concurrent-programming"/>
+        <updated>2022-12-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[분산처리시스템과 고성능 클러스터]]></summary>
+        <category label="cs"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[오래걸리는 API 설계]]></title>
+        <id>https://jwher.github.io/docs/development/web/api-design-for-long-jobs</id>
+        <link href="https://jwher.github.io/docs/development/web/api-design-for-long-jobs"/>
+        <updated>2022-09-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[오래걸리는 API 설계]]></summary>
+        <category label="api"/>
+        <category label="web"/>
+        <category label="architecture"/>
+        <category label="best-practices"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[학습에 중요한 데이터 찾기]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/research-papers/deep-learning-on-a-data-diet</id>
+        <link href="https://jwher.github.io/docs/machine-learning/research-papers/deep-learning-on-a-data-diet"/>
+        <updated>2022-09-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[학습에 중요한 데이터 찾기]]></summary>
+        <category label="machine-learning"/>
+        <category label="deep-learning"/>
+        <category label="data-efficiency"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[NGRX 반응형 웹을 위한 상태 관리]]></title>
+        <id>https://jwher.github.io/docs/development/web/ngrx</id>
+        <link href="https://jwher.github.io/docs/development/web/ngrx"/>
+        <updated>2022-08-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[NGRX]]></summary>
+        <category label="typescript"/>
+        <category label="web"/>
+        <category label="state-management"/>
+        <category label="angular"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GitHub Sponsors 시작하기]]></title>
+        <id>https://jwher.github.io/blog/github-sponsors</id>
+        <link href="https://jwher.github.io/blog/github-sponsors"/>
+        <updated>2022-07-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[GitHub Sponsors 시작하기 - 오픈소스 후원 문화]]></summary>
+        <category label="github"/>
+        <category label="opensource"/>
+        <category label="funding"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[다양한 급수]]></title>
+        <id>https://jwher.github.io/docs/foundations/mathematics/power-series</id>
+        <link href="https://jwher.github.io/docs/foundations/mathematics/power-series"/>
+        <updated>2022-07-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[다양한 급수]]></summary>
+        <category label="mathematics"/>
+        <category label="calculus"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nmap - 네트워크 스캐닝 도구 완전 가이드]]></title>
+        <id>https://jwher.github.io/blog/nmap</id>
+        <link href="https://jwher.github.io/blog/nmap"/>
+        <updated>2022-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nmap 네트워크 스캐너 사용법과 옵션 가이드]]></summary>
+        <category label="network"/>
+        <category label="security"/>
+        <category label="tools"/>
+        <category label="linux"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build OpenCV with Java]]></title>
+        <id>https://jwher.github.io/docs/development/languages/build-opencv-with-java</id>
+        <link href="https://jwher.github.io/docs/development/languages/build-opencv-with-java"/>
+        <updated>2022-06-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[OpenCV 자바로 빌드하기]]></summary>
+        <category label="java"/>
+        <category label="opencv"/>
+        <category label="computer-vision"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[이항정리 - π값을 구하는 법]]></title>
+        <id>https://jwher.github.io/docs/foundations/mathematics/binomial-theorem</id>
+        <link href="https://jwher.github.io/docs/foundations/mathematics/binomial-theorem"/>
+        <updated>2022-06-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Binomial Theorem]]></summary>
+        <category label="mathematics"/>
+        <category label="calculus"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nvidia GPU 아키텍처]]></title>
+        <id>https://jwher.github.io/docs/foundations/computer-architecture/nvidia-gpu-arch</id>
+        <link href="https://jwher.github.io/docs/foundations/computer-architecture/nvidia-gpu-arch"/>
+        <updated>2022-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nvidia GPU Architectures]]></summary>
+        <category label="hardware"/>
+        <category label="gpu"/>
+        <category label="architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[M1 Mac에서 PyTorch GPU 가속 활용하기]]></title>
+        <id>https://jwher.github.io/blog/pytorch-in-m1</id>
+        <link href="https://jwher.github.io/blog/pytorch-in-m1"/>
+        <updated>2022-06-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[M1 Mac에서 PyTorch GPU 가속 사용하기 - Metal Performance Shaders로 최대 500% 성능 향상]]></summary>
+        <category label="pytorch"/>
+        <category label="m1"/>
+        <category label="apple-silicon"/>
+        <category label="machine-learning"/>
+        <category label="gpu"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Agile]]></title>
+        <id>https://jwher.github.io/docs/development/practices/agile</id>
+        <link href="https://jwher.github.io/docs/development/practices/agile"/>
+        <updated>2022-06-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[애자일]]></summary>
+        <category label="methodology"/>
+        <category label="agile"/>
+        <category label="best-practices"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Variable Autoencoder]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder</id>
+        <link href="https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[VAE: Variable Auto Encoder]]></summary>
+        <category label="machine-learning"/>
+        <category label="deep-learning"/>
+        <category label="vae"/>
+        <category label="research"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome To Kubeflow]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/platforms/welcome-to-kubeflow</id>
+        <link href="https://jwher.github.io/docs/machine-learning/platforms/welcome-to-kubeflow"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[쿠브플로우: 머신러닝 자동화]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="kubeflow"/>
+        <category label="introduction"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sagemaker]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/platforms/sagemaker</id>
+        <link href="https://jwher.github.io/docs/machine-learning/platforms/sagemaker"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[아마존 세이지메이커: 머신러닝 자동화]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="aws"/>
+        <category label="sagemaker"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubeflow Visualization 2]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-2</id>
+        <link href="https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-2"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Kubeflow 시각화 개발 2편]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="kubeflow"/>
+        <category label="visualization"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubeflow Visualization 1]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-1</id>
+        <link href="https://jwher.github.io/docs/machine-learning/platforms/kubeflow-visualization-1"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Kubeflow 시각화 개발 1편]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="kubeflow"/>
+        <category label="visualization"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubeflow Guide]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/platforms/kubeflow-guide</id>
+        <link href="https://jwher.github.io/docs/machine-learning/platforms/kubeflow-guide"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[쿠브플로우 가이드]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="kubeflow"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[쿠브플로우를 설치하는 다양한 방법]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow</id>
+        <link href="https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Install Kubeflow]]></summary>
+        <category label="machine-learning"/>
+        <category label="mlops"/>
+        <category label="kubeflow"/>
+        <category label="installation"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Uncertainty Estimation]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/fundamentals/uncertainty-estimation</id>
+        <link href="https://jwher.github.io/docs/machine-learning/fundamentals/uncertainty-estimation"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Uncertainty Estimation]]></summary>
+        <category label="machine-learning"/>
+        <category label="uncertainty"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ensemble Methods]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/fundamentals/ensemble-methods</id>
+        <link href="https://jwher.github.io/docs/machine-learning/fundamentals/ensemble-methods"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ensemble Methods]]></summary>
+        <category label="machine-learning"/>
+        <category label="ensemble"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Intelligent Computer Vision 1]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/computer-vision/intelligent-cv-fundamentals</id>
+        <link href="https://jwher.github.io/docs/machine-learning/computer-vision/intelligent-cv-fundamentals"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Intelligent Computer Vision 1(개요)]]></summary>
+        <category label="machine-learning"/>
+        <category label="computer-vision"/>
+        <category label="lecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Alphapose 논문 리뷰와 사용]]></title>
+        <id>https://jwher.github.io/docs/machine-learning/computer-vision/alphapose</id>
+        <link href="https://jwher.github.io/docs/machine-learning/computer-vision/alphapose"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Alphapose 논문 리뷰와 사용]]></summary>
+        <category label="machine-learning"/>
+        <category label="computer-vision"/>
+        <category label="pose-estimation"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nuclio 개념과 아키텍처]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/tools/nuclio</id>
+        <link href="https://jwher.github.io/docs/infrastructure/tools/nuclio"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Automate the Data Science Pipeline with Serverless Functions]]></summary>
+        <category label="kubernetes"/>
+        <category label="serverless"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Minio]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/tools/minio</id>
+        <link href="https://jwher.github.io/docs/infrastructure/tools/minio"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[minIO 오브젝트 스토리지]]></summary>
+        <category label="kubernetes"/>
+        <category label="storage"/>
+        <category label="object-storage"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Install Helm]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/tools/install-helm</id>
+        <link href="https://jwher.github.io/docs/infrastructure/tools/install-helm"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Helm: 쿠버네티스 패키지 매니저]]></summary>
+        <category label="kubernetes"/>
+        <category label="helm"/>
+        <category label="installation"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Install Harbor]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/tools/install-harbor</id>
+        <link href="https://jwher.github.io/docs/infrastructure/tools/install-harbor"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[쿠버네티스에 Harbor 설치하기]]></summary>
+        <category label="kubernetes"/>
+        <category label="registry"/>
+        <category label="installation"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploying Ml Model On Kubernetes Nuclio]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/tools/deploying-ml-model-nuclio</id>
+        <link href="https://jwher.github.io/docs/infrastructure/tools/deploying-ml-model-nuclio"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[쿠버네티스 누클리오에 ML 모델 배포하기]]></summary>
+        <category label="kubernetes"/>
+        <category label="machine-learning"/>
+        <category label="serverless"/>
+        <category label="deployment"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[쿠버네티스 기본 개념과 필요성]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/welcome-to-kubernetes</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/welcome-to-kubernetes"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome To Kubernetes]]></summary>
+        <category label="kubernetes"/>
+        <category label="containerization"/>
+        <category label="introduction"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[K8S Tip Rollback]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/rollback</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/rollback"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[K8s tip: Rollback]]></summary>
+        <category label="kubernetes"/>
+        <category label="deployment"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[K8S Tip Pv Terminating]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/pv-terminating</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/pv-terminating"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[K8s tip: PersistentVolume terminating]]></summary>
+        <category label="kubernetes"/>
+        <category label="storage"/>
+        <category label="troubleshooting"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[K8S Tip Nodeselector]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/nodeselector</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/nodeselector"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[K8s tip: nodeSelector]]></summary>
+        <category label="kubernetes"/>
+        <category label="scheduling"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[자주쓰는 쿠버네티스 명령어]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-usage</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-usage"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Kubernetes Usage]]></summary>
+        <category label="kubernetes"/>
+        <category label="tutorial"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[쿠버네티스 아키텍처]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-architecture</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/kubernetes-architecture"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Kubernetes Architecture]]></summary>
+        <category label="kubernetes"/>
+        <category label="architecture"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Istio]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/istio</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/istio"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Istio: 서비스 메시]]></summary>
+        <category label="kubernetes"/>
+        <category label="service-mesh"/>
+        <category label="networking"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[나에게 필요한 쿠버네티스 설치하기]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/install-kubernetes</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/install-kubernetes"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Install Kubernetes]]></summary>
+        <category label="kubernetes"/>
+        <category label="installation"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[K8S Tip Expose Service]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/expose-service</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/expose-service"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[K8s tip: Expose Service]]></summary>
+        <category label="kubernetes"/>
+        <category label="networking"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Envoy]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/envoy</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/envoy"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Envoy proxy: 대규모 서비스를 위한 L7 프록시]]></summary>
+        <category label="kubernetes"/>
+        <category label="service-mesh"/>
+        <category label="networking"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Dex]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/dex</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/dex"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Dex: OpenID 커넥터]]></summary>
+        <category label="kubernetes"/>
+        <category label="security"/>
+        <category label="authentication"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[K8S Tip Configmap]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/kubernetes/configmap</id>
+        <link href="https://jwher.github.io/docs/infrastructure/kubernetes/configmap"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[K8s tip: ConfigMap]]></summary>
+        <category label="kubernetes"/>
+        <category label="configuration"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome To Docker]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/containerization/welcome-to-docker</id>
+        <link href="https://jwher.github.io/docs/infrastructure/containerization/welcome-to-docker"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[도커의 세계에 오신 걸 환영합니다!]]></summary>
+        <category label="docker"/>
+        <category label="containerization"/>
+        <category label="introduction"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[나에게 필요한 도커 설치하기]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/containerization/install-docker</id>
+        <link href="https://jwher.github.io/docs/infrastructure/containerization/install-docker"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Install Docker]]></summary>
+        <category label="docker"/>
+        <category label="containerization"/>
+        <category label="tutorial"/>
+        <category label="installation"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Docker Shared Volume]]></title>
+        <id>https://jwher.github.io/docs/infrastructure/containerization/docker-shared-volume</id>
+        <link href="https://jwher.github.io/docs/infrastructure/containerization/docker-shared-volume"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[도커 컨테이너와 공유 볼륨]]></summary>
+        <category label="docker"/>
+        <category label="containerization"/>
+        <category label="storage"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Information Theory]]></title>
+        <id>https://jwher.github.io/docs/foundations/mathematics/information-theory</id>
+        <link href="https://jwher.github.io/docs/foundations/mathematics/information-theory"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[정보 이론]]></summary>
+        <category label="mathematics"/>
+        <category label="information-theory"/>
+        <category label="theory"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GUI 없이 버추얼박스 사용하기]]></title>
+        <id>https://jwher.github.io/docs/foundations/linux/virtualbox-with-no-gui</id>
+        <link href="https://jwher.github.io/docs/foundations/linux/virtualbox-with-no-gui"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Virtualbox With No Gui]]></summary>
+        <category label="linux"/>
+        <category label="virtualization"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Uuid]]></title>
+        <id>https://jwher.github.io/docs/foundations/linux/uuid</id>
+        <link href="https://jwher.github.io/docs/foundations/linux/uuid"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[UUID 범용 고유 식별자]]></summary>
+        <category label="linux"/>
+        <category label="system"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux Disk Free]]></title>
+        <id>https://jwher.github.io/docs/foundations/linux/linux-disk-free</id>
+        <link href="https://jwher.github.io/docs/foundations/linux/linux-disk-free"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[리눅스 디스크 정리하기]]></summary>
+        <category label="linux"/>
+        <category label="disk-management"/>
+        <category label="quick-reference"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[타르(tar) 파일 설치하기]]></title>
+        <id>https://jwher.github.io/docs/foundations/linux/install-tar-gz</id>
+        <link href="https://jwher.github.io/docs/foundations/linux/install-tar-gz"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Install Tar.Gz]]></summary>
+        <category label="linux"/>
+        <category label="package-management"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Github Issue]]></title>
+        <id>https://jwher.github.io/docs/development/practices/github-issue</id>
+        <link href="https://jwher.github.io/docs/development/practices/github-issue"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[깃허브 이슈로 협업하기]]></summary>
+        <category label="git"/>
+        <category label="github"/>
+        <category label="workflow"/>
+        <category label="best-practices"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Golang Setup]]></title>
+        <id>https://jwher.github.io/docs/development/languages/golang-setup</id>
+        <link href="https://jwher.github.io/docs/development/languages/golang-setup"/>
+        <updated>2022-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[고(Golang) 개발환경 구축하기]]></summary>
+        <category label="go"/>
+        <category label="golang"/>
+        <category label="setup"/>
+        <category label="tutorial"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[First post with docusaurus]]></title>
+        <id>https://jwher.github.io/blog/first-post-with-docusaurus</id>
+        <link href="https://jwher.github.io/blog/first-post-with-docusaurus"/>
+        <updated>2022-05-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Jekyll에서 Docusaurus로 블로그 마이그레이션 - 더 나은 문서화를 위한 선택]]></summary>
+        <category label="blog"/>
+        <category label="docusaurus"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CNCF - 클라우드 네이티브 컴퓨팅 재단]]></title>
+        <id>https://jwher.github.io/blog/cncf</id>
+        <link href="https://jwher.github.io/blog/cncf"/>
+        <updated>2021-08-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[CNCF: Cloud Native Computing Foundation - 클라우드 네이티브 컴퓨팅 재단]]></summary>
+        <category label="kubernetes"/>
+        <category label="cloud-native"/>
+        <category label="opensource"/>
+        <category label="cncf"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blog Tech Map]]></title>
+        <id>https://jwher.github.io/blog/blog-tech-map</id>
+        <link href="https://jwher.github.io/blog/blog-tech-map"/>
+        <updated>2021-08-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[허정원 기술블로그]]></summary>
+        <category label="blog"/>
+        <category label="tech"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Free Wildcard Dns]]></title>
+        <id>https://jwher.github.io/blog/free-wildcard-dns</id>
+        <link href="https://jwher.github.io/blog/free-wildcard-dns"/>
+        <updated>2021-07-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[무료 와일드카드 DNS]]></summary>
+        <category label="dev"/>
+        <category label="short"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[기술 블로그 운영 회고 - 나에게 필요한 연재]]></title>
+        <id>https://jwher.github.io/blog/blog-essay</id>
+        <link href="https://jwher.github.io/blog/blog-essay"/>
+        <updated>2021-05-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[기술 블로그 운영 회고와 개선 방향]]></summary>
+        <category label="blog"/>
+        <category label="retrospective"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[지킬 블로그 업데이트]]></title>
+        <id>https://jwher.github.io/blog/update-blog</id>
+        <link href="https://jwher.github.io/blog/update-blog"/>
+        <updated>2021-05-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Update Blog]]></summary>
+        <category label="blog"/>
+        <category label="update"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Jekyll로 시작하는 첫 포스트]]></title>
+        <id>https://jwher.github.io/blog/first-post</id>
+        <link href="https://jwher.github.io/blog/first-post"/>
+        <updated>2021-04-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Jekyll로 시작하는 기술 블로그]]></summary>
+        <category label="blog"/>
+        <category label="jekyll"/>
+    </entry>
+</feed>

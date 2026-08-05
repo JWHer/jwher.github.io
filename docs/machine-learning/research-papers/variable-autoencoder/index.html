@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="kr" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-machine-learning/research-papers/variable-autoencoder/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Variable Autoencoder | JWHer Tech Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" property="og:url" content="https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder/"><meta data-rh="true" property="og:locale" content="kr"><meta data-rh="true" name="docusaurus_locale" content="kr"><meta data-rh="true" name="docsearch:language" content="kr"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="twitter:site" content="@jwher96"><meta data-rh="true" property="og:site_name" content="JWHer Tech Blog"><meta data-rh="true" property="og:type" content="website"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Variable Autoencoder | JWHer Tech Blog"><meta data-rh="true" name="description" content="VAE: Variable Auto Encoder"><meta data-rh="true" property="og:description" content="VAE: Variable Auto Encoder"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder/"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder/" hreflang="kr"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Variable Autoencoder","item":"https://jwher.github.io/docs/machine-learning/research-papers/variable-autoencoder/"}]}</script><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="JWHer Tech Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="JWHer Tech Blog Atom Feed">
+<script>!function(){try{"serif"===localStorage.getItem("typeface")&&(document.documentElement.dataset.typeface="serif")}catch(e){}}()</script>
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-XHBVCY40VB"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-XHBVCY40VB")</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9ca37fef.css">
+<script src="/assets/js/runtime~main.c2506c8b.js" defer="defer"></script>
+<script src="/assets/js/main.57dd7301.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">JWHer Tech Blog</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs">Docs</a><a class="navbar__item navbar__link" href="/art">Art</a><a class="navbar__item navbar__link icon-search" aria-label="검색" href="/search"></a><a href="https://github.com/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-github"></a><a href="https://www.linkedin.com/in/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-linkedin"></a><a href="https://www.instagram.com/jwher96" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-instagram"></a><a href="/rss.xml" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-rss" aria-label="RSS feed"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_BF9v"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="header_nO4s" style="background-image:url(/img/docs/category.webp)" data-hero="static"><div class="filter_ZZSb"></div><h2 class="presentation__title">Docs</h2><h6 class="presentation__subtitle">God shall bless us; and all the ends of the earth shall fear him.</h6></div><div class="docRoot_Rg9N"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span title="소개" class="linkLabel_WmDU">소개</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/algorithms/data_streaming"><span title="algorithms" class="categoryLinkLabel_W154">algorithms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cs/computer-architecture/"><span title="cs" class="categoryLinkLabel_W154">cs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/development/concurrency/concurrency-models-1/"><span title="development" class="categoryLinkLabel_W154">development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/foundations/computer-architecture/"><span title="foundations" class="categoryLinkLabel_W154">foundations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/infrastructure/containerization/docker-networking/"><span title="infrastructure" class="categoryLinkLabel_W154">infrastructure</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/machine-learning/computer-vision/alphapose/"><span title="machine-learning" class="categoryLinkLabel_W154">machine-learning</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/computer-vision/alphapose/"><span title="computer-vision" class="categoryLinkLabel_W154">computer-vision</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/deep-learning/attention-is-all-you-need/"><span title="deep-learning" class="categoryLinkLabel_W154">deep-learning</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/fundamentals/ensemble-methods/"><span title="fundamentals" class="categoryLinkLabel_W154">fundamentals</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/platforms/openvino"><span title="platforms" class="categoryLinkLabel_W154">platforms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/machine-learning/research-papers/deep-learning-on-a-data-diet/"><span title="research-papers" class="categoryLinkLabel_W154">research-papers</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/research-papers/deep-learning-on-a-data-diet/"><span title="학습에 중요한 데이터 찾기" class="linkLabel_WmDU">학습에 중요한 데이터 찾기</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/research-papers/hidden-technical-debt/"><span title="머신러닝에 숨은 기술 부채" class="linkLabel_WmDU">머신러닝에 숨은 기술 부채</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/research-papers/llama-foundation-models/"><span title="LLaMa 공개된 효율적인 언어 모델" class="linkLabel_WmDU">LLaMa 공개된 효율적인 언어 모델</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/research-papers/palm-scaling-language-modeling/"><span title="Pathways를 이용한 언어모델 스케일링" class="linkLabel_WmDU">Pathways를 이용한 언어모델 스케일링</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/machine-learning/research-papers/variable-autoencoder/"><span title="Variable Autoencoder" class="linkLabel_WmDU">Variable Autoencoder</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ml/embedded-deep-learning/"><span title="ml" class="categoryLinkLabel_W154">ml</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">machine-learning</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">research-papers</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Variable Autoencoder</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><p align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/vae.png" class="img_ev3q">
+</p>
+*생성 모델과 VAE, 수학적 의미까지*  
+<header><h1>목차</h1></header>
+<ul>
+<li class=""><a href="#%EC%83%9D%EC%84%B1%EB%AA%A8%EB%8D%B8" class="">생성모델</a></li>
+<li class=""><a href="#%EB%B0%B0%EA%B2%BD%EC%A7%80%EC%8B%9D" class="">배경지식</a></li>
+<li class=""><a href="#vae" class="">VAE</a></li>
+<li class=""><a href="#%EC%88%98%ED%95%99%EA%B3%BC-%EC%BD%94%EB%93%9C" class="">수학과 코드</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="생성모델">생성모델<a href="#생성모델" class="hash-link" aria-label="Direct link to 생성모델" title="Direct link to 생성모델" translate="no">​</a></h2>
+<p><em>Generative Model</em></p>
+<ul>
+<li class=""><strong>생성 모델</strong> 은 새로운 데이터 인스턴스를 만들어냅니다.</li>
+<li class=""><strong>판별 모델(Discriminative models)</strong> 은 다른 종류의 데이터 인스턴스를 분류합니다.</li>
+</ul>
+<p>예를 들어 사진 속에서 고양이를 찾는 것은 판별 모델,
+실제 고양이를 그리는 것은 생성 모델입니다.</p>
+<p>수학적으로 표현해봅시다🧮. 주어진 데이터 집합 X와 라벨(레이블) 집합 Y가 있습니다.</p>
+<ul>
+<li class=""><strong>생성 모델</strong> 은 결합 분포 <code>p(X,Y)</code>를 학습하거나, 라벨이 없으면 <code>p(X)</code> 분포만 학습합니다.</li>
+<li class=""><strong>판별 모델</strong> 은 X일때 Y일 확률, 즉 조건부 확률 <code>p(Y|X)</code>를 학습합니다.</li>
+</ul>
+<blockquote>
+<div align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/xandy-ybarx.png" class="img_ev3q">
+</div>
+<p>생성모델은 X에서 Y가 생성되게 학습해야 합니다. 즉, <code>X=Y=X∩Y</code>, <code>(X∩Y)ᶜ=∅</code>이 되어야 합니다.<br>
+판별 모델은 X가 Y에 포힘되도록 학습해야 합니다. 즉, <code>X∩Yᶜ=∅</code>이 되어야 합니다.</p>
+<br>
+</blockquote>
+<br>
+<p>눈치가 빠른 사람은 생성 모델이 판별 모델보다 어렵다는 것을 발견했을 겁니다.</p>
+<p>예를 들어 고양이를 찾는다면 주변과 구분되는 특징(꼬리...) 하나 이상만 찾으면 됩니다.
+하지만 고양이 그림을 그리려면, 고양이의 모든 특징(꼬리, 귀, 눈, 털...)을 정확히 알아야 합니다.</p>
+<blockquote>
+<div align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/x-is-y-y-include-x.png" class="img_ev3q"><br>
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/x-y-example.png" class="img_ev3q">
+</div>
+<p>생성 모델은 집합 X와 집합 Y를 최대한 일치시키는 방법을 찾아야 합니다.<br>
+반면에 판별 모델은 집합 Y에 속한 X만 찾으면 됩니다.<br>
+(X를 학습해야 하는 정보, Y를 고양이의 특징이라고 생각해 봅시다)</p>
+</blockquote>
+<p>생성 모델의 종류로는 VAE, GAN, HMM, Bayesian 등이 있습니다.
+판별 모델의 종류로는 k-NN, 로지스틱 회귀, SVM, 결정트리 등이 있습니다.
+이 글에서 함께 생성 모델인 VAE를 살펴봅시다.🤗</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="배경지식">배경지식<a href="#배경지식" class="hash-link" aria-label="Direct link to 배경지식" title="Direct link to 배경지식" translate="no">​</a></h2>
+<p>VAE를 살펴보기 전엔 <a href="#%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" class="">확률분포</a>,
+<a href="#%EB%B2%A0%EC%9D%B4%EC%A6%88-%EC%A0%95%EB%A6%AC" class="">베이즈 정리</a>,
+<a href="#%EC%BF%A8%EB%B0%B1-%EB%9D%BC%EC%9D%B4%EB%B8%94%EB%9F%AC-%EB%B0%9C%EC%82%B0" class="">쿨백-라이블러 발산</a> 배경지식이 필요합니다.
+전부 아신다고요? <a href="#vae" class="">다음 장</a> 으로 넘어가세요🎉</p>
+<p><del><em>저는 개념이 지겨워서 역순으로 코드 먼저 볼 때가 많습니다</em></del></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="확률분포">확률분포<a href="#확률분포" class="hash-link" aria-label="Direct link to 확률분포" title="Direct link to 확률분포" translate="no">​</a></h3>
+<p><em>probability distribution</em></p>
+<p>확률 분포는 확률변수(x)가 특정한 값을 가질 확률을 나타내는 함수(f(x))입니다.
+확률 분포는 <strong>이산확률분포(Discrete Probability Distribution)</strong> 와
+<strong>연속확률분포(Continuous Probability Distribution)</strong> 로 나뉘는데요,
+<strong>이산확률분포</strong>는 확률변수가 가질 수 있는 값이 <strong>가산집합</strong>인 확률분포를 말합니다.
+반면에, <strong>연속확률분포</strong>는 확률변수가 <strong>연속적</strong>이고 확률밀도함수로 표현할 수 있는 분포를 말합니다.</p>
+<p>통계학을 들으신 분이라면 이항분포의 특수한 형태인
+<a href="https://ko.wikipedia.org/wiki/%ED%91%B8%EC%95%84%EC%86%A1_%EB%B6%84%ED%8F%AC" target="_blank" rel="noopener noreferrer" class="">푸아송 분포</a>
+와 대표적인 연속확률분포인 정규분포가 어렴풋이 기억날겁니다.</p>
+<p>정규분포(Gaussian distribution)와 연속확률분포를 조금 더 자세히 볼까요?</p>
+<p align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/Gaussian_distribution.svg" class="img_ev3q">
+</p>
+<p>연속 확률 변수의 확률밀도함수(f(x))는 다음 두 조건을 만족합니다.</p>
+<ul>
+<li class="">모든 실수 x에 대해 f(x)≥0</li>
+<li class="">$\int_{\infty}^{-\infty}f(x)dx=1$</li>
+</ul>
+<p>정규분포 또한 연속확률분포로 확률밀도함수의 특징을 갖습니다.</p>
+<p>정규분포는 평균(μ, mu)과 표준편차(σ, sigma)로 분포를 표기합니다.</p>
+<ul>
+<li class="">$N(\mu, \sigma^2)$</li>
+</ul>
+<p>평균이 0이고 표준편차가 1인 정규분포 N(0,1)을 표준정규분포라 합니다.
+정규분포는 정규화를 통해 표준정규분포를 얻을 수 있습  니다.</p>
+<ul>
+<li class="">$Z=\frac{X-\mu}{\sigma}$</li>
+</ul>
+<p>각 사건이 벌어졌을 때의 이득과 확률을 곱한 값의 합을 <strong>기댓값</strong>이라고 하는데요,
+연속확률변수에서 기댓값은 다음과 같습니다.</p>
+<ul>
+<li class="">$E[X] = \int_{\infty}^{-\infty}xf(x)dx$</li>
+</ul>
+<p>정규분포에서 기댓값을 계산해 보면 모평균과 같습니다.</p>
+<ul>
+<li class="">$E[X]=μ$
+<br>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="베이즈-정리">베이즈 정리<a href="#베이즈-정리" class="hash-link" aria-label="Direct link to 베이즈 정리" title="Direct link to 베이즈 정리" translate="no">​</a></h3>
+<p><em>Bayes&#x27; theorem</em></p>
+<p>베이즈 정리는 두 확률변수의 <strong>사전확률</strong>과 <strong>사후확률</strong> 사이의 관계를 나타냅니다.<br>
+<em>A,B는 가측집합이고 P(B)&gt;0일 때,</em></p>
+<ul>
+<li class="">$P(A\mid B)=\frac{P(A)*P(B\mid A)}{P(B)}$</li>
+</ul>
+<p>조건부 확률을 통해 쉽게 증명할 수 있습니다.</p>
+<blockquote>
+<p>$P(A\mid B)=\frac{P(A \bigcap B)}{P(B)}$<br>
+ <br>
+<em>P(B)&gt;0임을 가정했으므로</em><br>
+$P(A\mid B)P(B)=P(A \bigcap B)=P(B \bigcap A)=P(B\mid A)P(A)$<br>
+ <br>
+<em>첫 식에 $P(A \bigcap B)=P(B\mid A)P(A)$ 를 이용하면</em><br>
+$P(A\mid B)=\frac{P(A)\cdot P(B\mid A)}{P(B)}$</p>
+</blockquote>
+<details markdown="1" class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>TMI</summary><div><div class="collapsibleContent_i85q">
+<!-- -->
+<p>부가적으로, 사건 A와 사건 B가 독립일 때 조건부 확률
+$P(A\mid B)=P(A)$<br>
+이므로<br>
+$P(A)P(B)=P(A \bigcap B)$<br>
+임을 알 수 있습니다.</p>
+</div></div></details>
+<br>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="쿨백-라이블러-발산">쿨백-라이블러 발산<a href="#쿨백-라이블러-발산" class="hash-link" aria-label="Direct link to 쿨백-라이블러 발산" title="Direct link to 쿨백-라이 블러 발산" translate="no">​</a></h3>
+<p><em>Kullback–Leibler Divergence</em></p>
+<p>쿨백-라이블러 발산은 두 확률분포의 차이를 계산하는 함수입니다.</p>
+<p>두 확률변수에 대한 확률분포 P, Q에 대해 쿨백-라이블러 발산은 다음과 같이 정의됩니다.</p>
+<ul>
+<li class="">이산확률분포: $D_{KL}(P\mid\mid Q)=\sum_iP(i)log\frac{P(i)}{Q(i)}$</li>
+<li class="">연속확률븐포: $D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\frac{p(x)}{q(x)}dx$<br>
+<em>(p,q는 각각 확률분포의 확률밀도함수입니다)</em></li>
+</ul>
+<p>연속일때 조금 더 풀어보면 다움과 같습니다</p>
+<ul>
+<li class="">$D_{KL}(P\mid\mid Q)=\int_{-\infty}^{\infty}p(x)log\ p(x)dx - \int_{-\infty}^{\infty}p(x)log\ q(x)dx$</li>
+</ul>
+<br>
+<p align="center">
+<iframe src="https://angeloyeo.github.io/p5/2020-10-27-KL_divergence/" height:="">
+</iframe>
+</p>
+<p><a href="https://angeloyeo.github.io/2020/10/27/KL_divergence.html" target="_blank" rel="noopener noreferrer" class="">KL divergence</a>
+눈으로 이해하기 쉬운 좋은 자료를 만들어 주셨습니다.</p>
+<p>쿨백-라이블러 발산의 중요한 특징은 다음과 같습니다.</p>
+<ul>
+<li class="">
+<p>$D_{KL}(p\mid\mid q) ≥ 0$</p>
+</li>
+<li class="">
+<p>$D_{KL}(p\mid\mid q) ≠ D_{KL}(q\mid\mid p)$</p>
+</li>
+</ul>
+<p><del>증명은 다음에 하겠습니다</del></p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="vae">VAE<a href="#vae" class="hash-link" aria-label="Direct link to VAE" title="Direct link to VAE" translate="no">​</a></h2>
+<p>생성 모델 구조를 봅시다.</p>
+<p align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/latent-vector.png" class="img_ev3q">
+</p>
+<p>$z\sim p(z)$의 확률변수가 주어졌을 때, 원하는 x값을 얻을 확률은 $p(x\mid z)$ 입니다.
+우리의 목적은 $p(x\mid z)$일 수도 있는 근사값 $p_\theta(x\mid z)$ 를 구하는 것입니다.</p>
+<p><em>주의! $p(x\mid z)$는 생성기(generator)가 아닌 확률분포입니다</em></p>
+<p>그렇다면 $p(x\mid z)$와 가장 비슷한 $p_\theta(x\mid z)$를 어떻게 구해야 할까요?
+둘 사이의 MSE(Mean Square Error)가 최소가 되는 분포를 찾으면 가장 비슷할까요?</p>
+<p align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/mle-example.png" class="img_ev3q">
+</p>
+<p>파란색 분포를 $p(x\mid z)$라고 합시다.
+주황색 분포는 변형이 존재하고, 회색 분포는 x축 이동을 했습니다.
+주황색과 회색 분포 중 무엇이 파란색 분포에 더 가까울까요?</p>
+<p>회색 분포는 단순히 이동을 했기 때문에 의미적으로 파란색과 동일합니다.
+하지만 파란색 분포와 다른 확률분포의 차이(MSE)를 계산하면, 오류가 있지만 더 가까이 있는 주황색 분포가 작습니다.</p>
+<p>즉, 사전 확률(prior probability, $p(z)$) 지표로 학습하면 올바르게 학습되지 않습니다.
+따라서 사후 확률(posterior probability, $p(z\mid x)$)과 근사값 $q_\lambda(z\mid x)$를 포함해
+<a href="https://ko.wikipedia.org/wiki/%EB%B3%80%EB%B6%84%EB%B2%95" target="_blank" rel="noopener noreferrer" class="">변분법(Calculus of Variational)</a>
+을 통해 학습합니다.</p>
+<p align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/latent-vector-learn.png" class="img_ev3q">
+</p>
+<p><del><em>왜 앞에있는게 사후확률이야</em></del><br>
+p(z)를 바로 학습하는 것이 아니라, 이미 존재하는 결과($p(z\mid x)$ 사후확률)로 z를 학습합니다.
+이때 근사함수 $q_\lambda(z\mid x), p_\theta(x\mid z)$를 각각 <code>encoder</code>, <code>decoder</code>로 부르겠습니다.<br>
+<em>(신경망은 각각 λ와 θ를 파라미터로 가집니다)</em></p>
+<p>자, 그럼 이제 변분법을 통해 참 사후조건인 $p(z\mid x)$를 찾으면 됩니다!
+왜 VAE인지 이제 알겠군요!😉<br>
+<br></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="elbo">ELBO<a href="#elbo" class="hash-link" aria-label="Direct link to ELBO" title="Direct link to ELBO" translate="no">​</a></h2>
+<p><em>Evidence Lower BOund</em></p>
+<p>생성해야할 x의 분포 p(x)의 확실한 최소 경계값을 추정하고 최댓값을 구해 유사한 분포를 만들 수 있습니다.</p>
+<p>이상적인 사후조건에 베이즈 정리를 적용해봅시다.</p>
+<blockquote>
+<p>$p(z\mid x) = \frac{ p(z) \cdot p(x\mid z) }{ p(x) }$<br>
+$p(x) = \frac{ p(z) \cdot p(x\mid z) }{ p(z\mid x) }$<br>
+ <br>
+<em>양변에 로그를 취합니다</em><br>
+$log\ p(x)=log\frac{p(z) \cdot p(x\mid z)}{p(z\mid x)}$<br>
+ <br>
+<em>로그의 성질에 따라</em><br>
+$\quad = log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x)$       -1)</p>
+<br>
+</blockquote>
+<p>우리가 알고있는 근사분포 $q_\lambda(z\mid x)$는 연속확률분포임으로</p>
+<blockquote>
+<p>$\int_{\infty}^{-\infty}q_\lambda(z\mid x)dz=1$</p>
+</blockquote>
+<p>입니다.
+<br></p>
+<p>1이 곱셈의 항등원이라는 점을 이용해 식을 변형해봅시다.</p>
+<blockquote>
+<p><em>log p(x) 양변에 1을 곱하면</em><br>
+$log\ p(x) \cdot 1=\int q_\lambda(z\mid x)log\ p(x)dz$<br>
+ <br>
+<em>식1)을 사용하여</em><br>
+$\quad = \int q_\lambda(z\mid x) \left [ log\ p(z)+log\ p(x\mid z)-log\ p(z\mid x) \right ] dz$<br>
+$\quad = \int q_\lambda(z\mid x)log\ p(z)dz + \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\ p(z\mid x)dz$</p>
+</blockquote>
+<p>0이 덧셈의 항등원이라는 점을 이용해 식을 변형합니다.
+양변에 $0=\int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz - \int q_\lambda(z\mid x)log\ q_\lambda(z\mid x)dz$ 을 더합니다.
+이때, 우리가 알아낼 수 있는 것($p(z), q_\lambda(z\mid x)$)을 생각해 짝지어 줍시다</p>
+<blockquote>
+<p><em>이전식에서 양변에 0을 더하면</em><br>
+$log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz + \int q_\lambda(z\mid x)log\frac{p(z)}{q_\lambda(z\mid x)}dz - \int q_\lambda(z\mid x)log\frac{p(z\mid x)}{q_\lambda(z\mid x)}dz$
+$log\ p(x)= \int q_\lambda(z\mid x)log\ p(x\mid z)dz - \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z)}dz + \int q_\lambda(z\mid x)log\frac{q_\lambda(z\mid x)}{p(z\mid x)}dz$<br>
+ <br>
+<em>몬테카를로 추정과 쿨백-라이블러 발산으로 변형하면</em><br>
+$log\ p(x)= E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z)) + D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x))$<br>
+ <br>
+<em>쿨백-라이블러 발산의 특징(≥0)을 이용하면</em><br>
+$log\ p(x) \geq E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z))$</p>
+<br>
+</blockquote>
+<p>자! 길었습니다.😅 여기에서 확실한 최소 경계
+$ELBO(\lambda)=E_{q_\lambda(z\mid x)}[log\ p(x\mid z)] - D_{KL}(q_\lambda(z\mid x)\mid\mid p(z))$
+가 ELBO 입니다!</p>
+<p>각 항의 의미는 다음과 같습니다.</p>
+<ul>
+<li class="">$E_{q_\lambda(z\mid x)}[log\ p(x\mid z)]$: 디코더 $log\ p(x\mid z)$의 기댓값으로 재생성 에러를 나타냅니다.</li>
+<li class="">$- D_{KL}(q_\lambda(z\mid x)\mid\mid p(z))$: 알수있는 파라미터로 분포를 정규화할수 있습니다.</li>
+<li class="">$D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x))$: 실제(참) 사후조건분포 $p(z\mid x)$는 계산할 수 없습니다.
+따라서 앞의 두 항을 최대화하는 방법을 사용합니다.
+<br>
+</li>
+</ul>
+<p>말로만 하면 어려우니 그림을 볼까요?</p>
+<p align="center">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/elbo.png" class="img_ev3q">
+<img decoding="async" loading="lazy" src="/assets/img/variable-autoencoder/elbo-draw.png" class="img_ev3q">
+</p>
+<p>$D_{KL}(q_\lambda(z\mid x)\mid\mid p(z\mid x)) \geq 0$에 따라
+확률분포 log p(x)와 ELBO(λ)는 0 이상의 차이(거리)가 있습니다.
+하지만 $p(z\mid x)$는 계산할 수 없으므로, ELBO를 최대화 하는 방법으로 학습합니다.<br>
+<em>(다른말로 디코더의 기댓값 최대화, 이상적인 인코더 생성을 목표로 합니다)</em>
+<br></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reparameterization-trick">Reparameterization Trick<a href="#reparameterization-trick" class="hash-link" aria-label="Direct link to Reparameterization Trick" title="Direct link to Reparameterization Trick" translate="no">​</a></h2>
+<p>backpropagation 문제를 해결합니다.</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="수학과-코드">수학과 코드<a href="#수학과-코드" class="hash-link" aria-label="Direct link to 수학과 코드" title="Direct link to 수학과 코드" translate="no">​</a></h2>
+<p><a href="https://github.com/magenta/magenta/blob/be6558f1a06984faff6d6949234f5fe9ad0ffdb5/magenta/models/music_vae/base_model.py#L210-L272" target="_blank" rel="noopener noreferrer" class="">Music VAE</a></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> tensorflow_probability </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> tfp</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># ds = tfp.distributions</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">.</span><span class="token punctuation" style="color:#393A34">.</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain"> 전략 </span><span class="token punctuation" style="color:#393A34">.</span><span class="token punctuation" style="color:#393A34">.</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">q_z </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> self</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">encode</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">input_sequence</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> x_length</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> control_sequence</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">z </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> q_z</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">sample</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Prior distribution.</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">p_z </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> ds</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">MultivariateNormalDiag</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    loc</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">[</span><span class="token number" style="color:#36acaa">0.</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> hparams</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">z_size</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> scale_diag</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">[</span><span class="token number" style="color:#36acaa">1.</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> hparams</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">z_size</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># KL Divergence (nats)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kl_div </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> ds</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">kl_divergence</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">q_z</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> p_z</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">r_loss</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> metric_map </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> self</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">decoder</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">reconstruction_loss</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    x_input</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> x_target</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> x_length</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> z</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> control_sequence</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">[</span><span class="token number" style="color:#36acaa">0</span><span class="token punctuation" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">2</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">free_nats </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> hparams</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">free_bits </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">math</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">2.0</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kl_cost </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">maximum</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">kl_div </span><span class="token operator" style="color:#393A34">-</span><span class="token plain"> free_nats</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">beta </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1.0</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token builtin">pow</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">hparams</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">beta_rate</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">to_float</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">self</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">global_step</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> hparams</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">max_beta</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">self</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">loss </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">reduce_mean</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">r_loss</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">+</span><span class="token plain"> beta </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">reduce_mean</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">kl_cost</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">scalars_to_summarize </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">&#x27;loss&#x27;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> self</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">loss</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">&#x27;losses/r_loss&#x27;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> r_loss</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">&#x27;losses/kl_loss&#x27;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> kl_cost</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">&#x27;losses/kl_bits&#x27;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> kl_div </span><span class="token operator" style="color:#393A34">/</span><span class="token plain"> tf</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">math</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">2.0</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">&#x27;losses/kl_beta&#x27;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> beta</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">return</span><span class="token plain"> metric_map</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> scalars_to_summarize</span><br></span></code></pre></div></div>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tips">Tips<a href="#tips" class="hash-link" aria-label="Direct link to Tips" title="Direct link to Tips" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reference">Reference<a href="#reference" class="hash-link" aria-label="Direct link to Reference" title="Direct link to Reference" translate="no">​</a></h3>
+<p><a href="https://developers.google.com/machine-learning/gan/generative" target="_blank" rel="noopener noreferrer" class="">What is a Generative Model?</a><br>
+<a href="https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EB%B6%84%ED%8F%AC" target="_blank" rel="noopener noreferrer" class="">[위키]확률 분포</a><br>
+<a href="https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%A6%88_%EC%A0%95%EB%A6%AC" target="_blank" rel="noopener noreferrer" class="">[위키]베이즈 정리</a><br>
+<a href="https://ko.wikipedia.org/wiki/%EC%BF%A8%EB%B0%B1-%EB%9D%BC%EC%9D%B4%EB%B8%94%EB%9F%AC_%EB%B0%9C%EC%82%B0" target="_blank" rel="noopener noreferrer" class="">[위키]쿨백-라이블러 발산</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/machine-learning">machine-learning</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/deep-learning">deep-learning</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/vae">vae</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/research">research</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/jwher/jwher.github.io/tree/main/docs/machine-learning/research-papers/variable-autoencoder/index.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/machine-learning/research-papers/palm-scaling-language-modeling/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Pathways를 이용한 언어모델 스케일링</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/ml/embedded-deep-learning/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">임베디드 딥러닝</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#생성모델" class="table-of-contents__link toc-highlight">생성모델</a></li><li><a href="#배경지식" class="table-of-contents__link toc-highlight">배경지식</a><ul><li><a href="#확률분포" class="table-of-contents__link toc-highlight">확률분포</a></li><li><a href="#베이즈-정리" class="table-of-contents__link toc-highlight">베이즈 정리</a></li><li><a href="#쿨백-라이블러-발산" class="table-of-contents__link toc-highlight">쿨백-라이블러 발산</a></li></ul></li><li><a href="#vae" class="table-of-contents__link toc-highlight">VAE</a></li><li><a href="#elbo" class="table-of-contents__link toc-highlight">ELBO</a></li><li><a href="#reparameterization-trick" class="table-of-contents__link toc-highlight">Reparameterization Trick</a></li><li><a href="#수학과-코드" class="table-of-contents__link toc-highlight">수학과 코드</a></li><li><a href="#tips" class="table-of-contents__link toc-highlight">Tips</a><ul><li><a href="#reference" class="table-of-contents__link toc-highlight">Reference</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">
+        <div class="copyright">
+          Copyright &copy; 2021 &ndash; 2026, JeongWon Her.<span class="heart-icon"></span>
+        </div>
+        </div></div></div></footer></div>
+</body>
+</html>

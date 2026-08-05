@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="kr" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-machine-learning/platforms/install-kubeflow/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">쿠브플로우를 설치하는 다양한 방법 | JWHer Tech Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" property="og:url" content="https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow/"><meta data-rh="true" property="og:locale" content="kr"><meta data-rh="true" name="docusaurus_locale" content="kr"><meta data-rh="true" name="docsearch:language" content="kr"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="twitter:site" content="@jwher96"><meta data-rh="true" property="og:site_name" content="JWHer Tech Blog"><meta data-rh="true" property="og:type" content="website"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="쿠브플로우를 설치하는 다양한 방법 | JWHer Tech Blog"><meta data-rh="true" name="description" content="Install Kubeflow"><meta data-rh="true" property="og:description" content="Install Kubeflow"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow/"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow/" hreflang="kr"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"쿠브플로우를 설치하는 다양한 방법","item":"https://jwher.github.io/docs/machine-learning/platforms/install-kubeflow/"}]}</script><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="JWHer Tech Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="JWHer Tech Blog Atom Feed">
+<script>!function(){try{"serif"===localStorage.getItem("typeface")&&(document.documentElement.dataset.typeface="serif")}catch(e){}}()</script>
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-XHBVCY40VB"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-XHBVCY40VB")</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9ca37fef.css">
+<script src="/assets/js/runtime~main.c2506c8b.js" defer="defer"></script>
+<script src="/assets/js/main.57dd7301.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">JWHer Tech Blog</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs">Docs</a><a class="navbar__item navbar__link" href="/art">Art</a><a class="navbar__item navbar__link icon-search" aria-label="검색" href="/search"></a><a href="https://github.com/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-github"></a><a href="https://www.linkedin.com/in/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-linkedin"></a><a href="https://www.instagram.com/jwher96" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-instagram"></a><a href="/rss.xml" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-rss" aria-label="RSS feed"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_BF9v"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="header_nO4s" style="background-image:url(/img/docs/category.webp)" data-hero="static"><div class="filter_ZZSb"></div><h2 class="presentation__title">Docs</h2><h6 class="presentation__subtitle">God shall bless us; and all the ends of the earth shall fear him.</h6></div><div class="docRoot_Rg9N"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span title="소개" class="linkLabel_WmDU">소개</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/algorithms/data_streaming"><span title="algorithms" class="categoryLinkLabel_W154">algorithms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/cs/computer-architecture/"><span title="cs" class="categoryLinkLabel_W154">cs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/development/concurrency/concurrency-models-1/"><span title="development" class="categoryLinkLabel_W154">development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/foundations/computer-architecture/"><span title="foundations" class="categoryLinkLabel_W154">foundations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/infrastructure/containerization/docker-networking/"><span title="infrastructure" class="categoryLinkLabel_W154">infrastructure</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/machine-learning/computer-vision/alphapose/"><span title="machine-learning" class="categoryLinkLabel_W154">machine-learning</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/computer-vision/alphapose/"><span title="computer-vision" class="categoryLinkLabel_W154">computer-vision</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/deep-learning/attention-is-all-you-need/"><span title="deep-learning" class="categoryLinkLabel_W154">deep-learning</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/fundamentals/ensemble-methods/"><span title="fundamentals" class="categoryLinkLabel_W154">fundamentals</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/machine-learning/platforms/openvino"><span title="platforms" class="categoryLinkLabel_W154">platforms</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/platforms/openvino"><span title="OpenVINO" class="linkLabel_WmDU">OpenVINO</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/machine-learning/platforms/install-kubeflow/"><span title="쿠브플로우를 설치하는 다양한 방법" class="linkLabel_WmDU">쿠브플로우를 설치하는 다양한 방법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/platforms/kubeflow-guide/"><span title="Kubeflow Guide" class="linkLabel_WmDU">Kubeflow Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/platforms/kubeflow-visualization-1/"><span title="Kubeflow Visualization 1" class="linkLabel_WmDU">Kubeflow Visualization 1</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/platforms/kubeflow-visualization-2/"><span title="Kubeflow Visualization 2" class="linkLabel_WmDU">Kubeflow Visualization 2</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/platforms/sagemaker/"><span title="Sagemaker" class="linkLabel_WmDU">Sagemaker</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/machine-learning/platforms/welcome-to-kubeflow/"><span title="Welcome To Kubeflow" class="linkLabel_WmDU">Welcome To Kubeflow</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/machine-learning/research-papers/deep-learning-on-a-data-diet/"><span title="research-papers" class="categoryLinkLabel_W154">research-papers</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ml/embedded-deep-learning/"><span title="ml" class="categoryLinkLabel_W154">ml</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">machine-learning</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">platforms</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">쿠브플로우를 설치하는 다양한 방법</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><p><img decoding="async" loading="lazy" alt="kubeflow" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNzYuOTMgMjc0LjU1Ij48dGl0bGU+bG9nbzwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48cGF0aCBkPSJNOTUuOSw2Mi4xNSwxMDAsMTY0LjI1bDczLjc1LTk0LjEyYTYuNzksNi43OSwwLDAsMSw5LjYtMS4xMWw0NiwzNi45Mi0xNS02NS42MVoiIGZpbGw9IiM0Mjc5ZjQiLz48cG9seWdvbiBwb2ludHM9IjEwMi41NSAxODIuOTggMTY3Ljk3IDE4Mi45OCAxMjcuOCAxNTAuNzUgMTAyLjU1IDE4Mi45OCIgZmlsbD0iIzAwMjhhYSIvPjxwb2x5Z29uIHBvaW50cz0iMTgwLjE4IDgzLjkyIDEzNi4xOCAxNDAuMDYgMTgzLjA2IDE3Ny42NyAyMjcuNTMgMTIxLjkxIDE4MC4xOCA4My45MiIgZmlsbD0iIzAxNGJkMSIvPjxwb2x5Z29uIHBvaW50cz0iODMuNTYgNTIuMyA4My41NyA1Mi4yOSAxMjIuMjYgMy43NyA1OS44NyAzMy44MiA0NC40NiAxMDEuMzMgODMuNTYgNTIuMyIgZmlsbD0iI2JlZGNmZiIvPjxwb2x5Z29uIHBvaW50cz0iNDUuMzIgMTIyLjA1IDg2Ljc2IDE3NC4wMSA4Mi44MSA3NS4wMyA0NS4zMiAxMjIuMDUiIGZpbGw9IiM2Y2ExZmYiLz48cG9seWdvbiBwb2ludHM9IjIwMi4zMSAyOC43MyAxNDIuNjUgMCAxMDUuNTIgNDYuNTYgMjAyLjMxIDI4LjczIiBmaWxsPSIjYTFjM2ZmIi8+PHBhdGggZD0iTTEuNiwyNzJWMjI3LjIySDcuMzR2MjMuNDFsMjAuNDgtMjMuNDFoNi40bC0xNy4zOSwxOS43LDE5LDI1LjA3SDI5LjFsLTE1LjkyLTIwLjgtNS44NCw2LjY1VjI3MloiIGZpbGw9IiM0Mjc5ZjQiIHN0cm9rZT0iIzQyNzlmNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjMuMiIvPjxwYXRoIGQ9Ik00MS42MiwyNjIuMjFWMjQwaDUuNDN2MjIuMzlhNC42Nyw0LjY3LDAsMCwwLDIuMzUsNC4xOSwxMSwxMSwwLDAsMCwxMSwwLDQuNjksNC42OSwwLDAsMCwyLjMzLTQuMTlWMjQwaDUuNDN2MjIuMTlhOS4wOCw5LjA4LDAsMCwxLTQuMSw3Ljg3LDE2LjIsMTYuMiwwLDAsMS0xOC4zNywwQTkuMDcsOS4wNywwLDAsMSw0MS42MiwyNjIuMjFaIiBmaWxsPSIjNDI3OWY0IiBzdHJva2U9IiM0Mjc5ZjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIzLjIiLz48cGF0aCBkPSJNNzcuNDYsMjcyVjIyNGg1LjQzdjE2LjgxYTI5LjI5LDI5LjI5LDAsMCwxLDkuMzItMS43MywxMy4xLDEzLjEsMCwwLDEsNi4yLDEuNDEsMTAuNzEsMTAuNzEsMCwwLDEsNC4xOCwzLjc0LDE4LjA3LDE4LjA3LDAsMCwxLDIuMjMsNS4wNiwyMS4yNiwyMS4yNiwwLDAsMSwuNzMsNS41OHEwLDguNDMtNC4zOCwxMi43OVQ4Ny4zNSwyNzJabTUuNDMtNC44N2g0LjU1cTYuNzcsMCw5LjcyLTIuOTV0My05LjUxYTE0LjIxLDE0LjIxLDAsMCwwLTItNy41Miw2LjU1LDYuNTUsMCwwLDAtNi0zLjIyLDI0LjczLDI0LjczLDAsMCwwLTkuMjUsMS41NFoiIGZpbGw9IiM0Mjc5ZjQiIHN0cm9rZT0iIzQyNzlmNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjMuMiIvPjxwYXRoIGQ9Ik0xMTIuMzYsMjU1Ljk0cTAtNy43MSw0LjA5LTEyLjNhMTMuNzUsMTMuNzUsMCwwLDEsMTAuOC00LjU5cTEzLjM1LDAsMTMuMzYsMTguODZIMTE3Ljc5YTEyLjMsMTIuMywwLDAsMCwyLjksNy4wN3EyLjU5LDMuMTEsNy45LDMuMWEyNC45MiwyNC45MiwwLDAsMCwxMC41NS0ydjVhMjcuNzQsMjcuNzQsMCwwLDEtOS44NiwxLjg3LDE5LjgzLDE5LjgzLDAsMCwxLTcuNy0xLjM3LDEzLjMxLDEzLjMxLDAsMCwxLTUuMjgtMy43NiwxNi4yMSwxNi4yMSwwLDAsMS0zLTUuMzhBMjAuODQsMjAuODQsMCwwLDEsMTEyLjM2LDI1NS45NFptNS42Mi0yLjEyaDE3LjI2YTE0LjkxLDE0LjkxLDAsMCwwLTIuMzctNy4xMiw2LjQ0LDYuNDQsMCwwLDAtNS42Mi0yLjc4LDguMiw4LjIsMCwwLDAtNi4yMSwyLjcyQTEyLjA3LDEyLjA3LDAsMCwwLDExOCwyNTMuODJaIiBmaWxsPSIjNDI3OWY0IiBzdHJva2U9IiM0Mjc5ZjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIzLjIiLz48cGF0aCBkPSJNMTQ3LjMyLDI0NC44OVYyNDBoNXYtNy41OWE4LjE0LDguMTQsMCwwLDEsMi4zMS02LjA1LDcuNzksNy43OSwwLDAsMSw1LjY5LTIuMjhoNy44NlYyMjloLTVjLTIuMjEsMC0zLjY3LjQ1LTQuMzcsMS4zNHMtMS4wNiwyLjU1LTEuMDYsNVYyNDBoOC40NnY0Ljg3aC04LjQ2VjI3MmgtNS40NHYtMjcuMVoiIGZpbGw9IiMwMDI4YWEiIHN0cm9rZT0iIzAwMjhhYSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjMuMiIvPjxwYXRoIGQ9Ik0xNzUuMjYsMjcyVjIyNGg1LjQzdjQ4WiIgZmlsbD0iIzAwMjhhYSIgc3Ryb2tlPSIjMDAyOGFhIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iMy4yIi8+PHBhdGggZD0iTTE5NC40MSwyNjguMDVhMTcuODYsMTcuODYsMCwxLDEsMTIuMzMsNC45QTE2LjU3LDE2LjU3LDAsMCwxLDE5NC40MSwyNjguMDVabTMuODQtMjAuNjVhMTMuMTYsMTMuMTYsMCwwLDAsMCwxNy4yLDEyLjA3LDEyLjA3LDAsMCwwLDE3LDAsMTMuMDksMTMuMDksMCwwLDAsMC0xNy4yLDEyLjA3LDEyLjA3LDAsMCwwLTE3LDBaIiBmaWxsPSIjMDAyOGFhIiBzdHJva2U9IiMwMDI4YWEiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIzLjIiLz48cGF0aCBkPSJNMjI4LjQ1LDI0MGg1Ljc1bDcuMywyNS4zMkwyNDguOTMsMjQwaDUuMzZsNy4zNCwyNS4zNEwyNjksMjQwaDUuNzRMMjY0LjcsMjcyaC02LjEybC02LjgzLTI0LjU4TDI0NSwyNzJoLTYuNDdaIiBmaWxsPSIjMDAyOGFhIiBzdHJva2U9IiMwMDI4YWEiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIzLjIiLz48L2c+PC9nPjwvc3ZnPg==" width="277" height="275" class="img_ev3q"></p>
+<p><em>쿠브플로우를 설치하는 다양한 방법</em></p>
+<header><h1>목차</h1></header>
+<ul>
+<li class=""><a href="#%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD" class="">요구사항</a></li>
+<li class=""><a href="#linux-machine" class="">Linux Machine</a></li>
+<li class=""><a href="#window-machine" class="">Window Machine</a></li>
+<li class=""><a href="#virtual-machine" class="">Virtual Machine</a></li>
+<li class=""><a href="#kind" class="">Kind</a></li>
+</ul>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="요구사항">요구사항<a href="#요구사항" class="hash-link" aria-label="Direct link to 요구사항" title="Direct link to 요구사항" translate="no">​</a></h2>
+<br>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="쿠브플로우에-대한-이해">쿠브플로우에 대한 이해<a href="#쿠브플로우에-대한-이해" class="hash-link" aria-label="Direct link to 쿠브플로우에 대한 이해" title="Direct link to 쿠브플로우에 대한 이해" translate="no">​</a></h3>
+<p>쿠브플로우 또는 쿠베플로우(kubeflow)라고도 불리는데요,
+<a class="" href="/docs/machine-learning/platforms/welcome-to-kubeflow">쿠브플로우 역할</a> 을 정확히 이해하고 목적에 맞는 배포판을 설치하는 것을 추천합니다.</p>
+<p>GCP, AWS에서 SaaS로 쿠버네티스-쿠브플로우를 사용할 수 있습니다.
+클라우드를 적극 활용중이거나 충분한 스펙의 하드웨어가 없다면 추천드립니다!<br>
+<a href="https://cloud.google.com/kubernetes-engine" target="_blank" rel="noopener noreferrer" class="">GKE</a> <a href="https://aws.amazon.com/ko/eks/" target="_blank" rel="noopener noreferrer" class="">EKS</a></p>
+<p>이 글에서는 다양한 쿠브플로우를 on-premise 환경에 직접 설치하는 방법을 설명합니다.</p>
+<p><del>사실, 쿠버네티스 클러스터만 갖추어져 있으면 설치방법은 대부분 동일합니다.</del><br>
+<a class="" href="/docs/infrastructure/kubernetes/install-kubernetes">나에게 필요한 쿠버네티스 설치하기</a></p>
+<p>진짜 아무것도 모르겠고, 더 공부하기도 싫다면 추천하는 방법입니다.<br>
+<a href="#%EB%B2%88%EC%99%B8-minikf" class="">miniKF</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="주의사항">주의사항<a href="#주의사항" class="hash-link" aria-label="Direct link to 주의사항" title="Direct link to 주의사항" translate="no">​</a></h3>
+<ul>
+<li class="">현재(2021.05.23) github release는 1.2 버전입니다. 하지만 공식 doc이 1.3 버전으로 바뀌었습니다.</li>
+<li class="">공식 문서가 굉장히 낡았고 업데이트가 잘 안 되어 있습니다. 1.3으로 버전을 바꾸고 오래된 항목을 삭제한듯 보입니다.</li>
+<li class="">본 글은 현재 최신인 1.2 버전의 설치를 다루고 있습니다. <a href="https://v1-2-branch.kubeflow.org/" target="_blank" rel="noopener noreferrer" class="">링크</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="최소사양">최소사양<a href="#최소사양" class="hash-link" aria-label="Direct link to 최소사양" title="Direct link to 최소사양" translate="no">​</a></h3>
+<p><em>아래 설치 방법들 중 최소 요구사항입니다</em></p>
+<ul>
+<li class="">kubernetes</li>
+<li class="">A minimum of 0.6 CPU in cluster</li>
+<li class="">10GB 이상의 노드 저장 공간</li>
+</ul>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-machine">Linux Machine<a href="#linux-machine" class="hash-link" aria-label="Direct link to Linux Machine" title="Direct link to Linux Machine" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="linux" src="/assets/images/linux-daaf1e0a5d7c5ad620d5a28efca1434f.svg" width="640" height="640" class="img_ev3q"></p>
+<p>가장 일반적인 구성방식입니다.
+다른 설치법의 기본이 되니 참고해주세요 😀</p>
+<p>kfctl과 kustomize를 이용한 설치 방법을 설명합니다.<br>
+여 기에선 다중 사용자의 인증기능을 제공하는 dex 버전을 사용했습니다.<br>
+<a href="https://v1-2-branch.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/" target="_blank" rel="noopener noreferrer" class="">[공식]istio</a><br>
+<a href="https://v1-2-branch.kubeflow.org/docs/started/k8s/kfctl-istio-dex/" target="_blank" rel="noopener noreferrer" class="">[공식]dex</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirments">requirments<a href="#requirments" class="hash-link" aria-label="Direct link to requirments" title="Direct link to requirments" translate="no">​</a></h3>
+<ul>
+<li class="">kubernetes master node</li>
+<li class="">4 CPU 이상</li>
+<li class="">50GB 이상 디스크</li>
+<li class="">12GB 이상 메모리</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="설치">설치<a href="#설치" class="hash-link" aria-label="Direct link to 설치" title="Direct link to 설치" translate="no">​</a></h3>
+<p>쿠버네티스가 없으신 분은 <a class="" href="/docs/infrastructure/kubernetes/install-kubernetes">이글</a> 설치법을 참고해주세요.<br>
+<em>호환되는 kubernetes 버전을 꼭 확인해주세요.</em> 😊</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>쿠버네티스 버전</th><th>쿠브플로우0.4</th><th>쿠브플로우0.5</th><th>쿠브플로우0.6</th><th>쿠브플로우0.7</th><th>쿠브플로우1.0</th><th>쿠브플로우1.1</th><th>쿠브플로우1.2</th></tr></thead><tbody><tr><td>1.11</td><td><strong>호환</strong></td><td><strong>호환</strong></td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td></tr><tr><td>1.12</td><td><strong>호환</strong></td><td><strong>호환</strong></td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td></tr><tr><td>1.13</td><td><strong>호환</strong></td><td><strong>호환</strong></td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td></tr><tr><td>1.14</td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td></tr><tr><td>1.15</td><td>호환 안됨</td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td></tr><tr><td>1.16</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td><strong>호환</strong></td><td><strong>호환</strong></td><td><strong>호환</strong></td></tr><tr><td>1.17</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td></tr><tr><td>1.18</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td></tr><tr><td>1.19</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td></tr><tr><td>1.20</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>호환 안됨</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td><td>알려진 문제 없음</td></tr></tbody></table>
+<p><a href="https://v1-2-branch.kubeflow.org/docs/started/k8s/overview/" target="_blank" rel="noopener noreferrer" class="">참조</a>
+<em>알려진 문제가 없다고 하지만 쿠버네티스1.2-쿠브플로우1.2 버전은 여러 오류가 발생합니다</em> 😓<br>
+<em>쿠버네티스 1.16 버전을 사용하는 것을 권장합니다</em></p>
+<p><em>쿠브플로우 0.6 이후 버전부터 kustomize를 사용합니다</em><br>
+<em>따라서 쿠브플로우 0.6 이상 버전을 권장합니다</em></p>
+<br>
+<ol>
+<li class="">필요한 파일을 받기 위해 wget을 설치합니다.(curl을 사용해도 됩니다)</li>
+</ol>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ apt-get update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ apt-get install wget</span><br></span></code></pre></div></div>
+<ol start="2">
+<li class="">kfctl을 설치합니다.</li>
+</ol>
+<p>kfctl은 쿠브플로우 컴포넌트를 배포하기 위한 커멘드라인 툴입니다.<br>
+쿠버네티스 커맨드라인 툴인 kubectl을 생각해보면 쉽겠죠?</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># https://github.com/kubeflow/kfctl/releases 에서 kfctl 최신 버전을 확인합니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ wget https://github.com/kubeflow/kfctl/releases/download/v1.2.0/kfctl_v1.2.0-0-gbc038f9_linux.tar.gz</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># tar 파일을 풀어줍니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ tar -xvf kfctl_{tag}_{platform}.tar.gz</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Export path</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ export PATH=$PATH:$PWD</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ export PATH=$PATH:{kfctl_path}</span><br></span></code></pre></div></div>
+<ol start="3">
+<li class="">쿠브플로우를 설치합니다</li>
+</ol>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 설치 yaml을 저장합니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ wget https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_istio_dex.v1.2.0.yaml</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ kfctl apply -V -f {config_file}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...생략...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">INFO[0285] Successfully applied application kfserving    filename=&quot;kustomize/kustomize.go:291&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">INFO[0285] Applied the configuration Successfully!       filename=&quot;cmd/apply.go:75&quot;</span><br></span></code></pre></div></div>
+<p>(가끔 pv를 직접 생성해 줘야 하는 문제가 있습니다. 나중에 작성하겠습니다.)</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="window-machine">Window Machine<a href="#window-machine" class="hash-link" aria-label="Direct link to Window Machine" title="Direct link to Window Machine" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="windows" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DTwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DTxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iODgiIHdpZHRoPSI4OCI+DTxwYXRoIHN0eWxlPSJmaWxsOiMwMGFkZWY7IiBkPSJtMCwxMi40MDIsMzUuNjg3LTQuODYwMiwwLjAxNTYsMzQuNDIzLTM1LjY3LDAuMjAzMTN6bTM1LjY3LDMzLjUyOSwwLjAyNzcsMzQuNDUzLTM1LjY3LTQuOTA0MS0wLjAwMi0yOS43OHptNC4zMjYxLTM5LjAyNSw0Ny4zMTgtNi45MDYsMCw0MS41MjctNDcuMzE4LDAuMzc1NjV6bTQ3LjMyOSwzOS4zNDktMC4wMTExLDQxLjM0LTQ3LjMxOC02LjY3ODQtMC4wNjYzLTM0LjczOXoiLz4NPC9zdmc+" width="88" height="88" class="img_ev3q"></p>
+<p>고사양의 개인 PC가 있고, 쿠브플로우를 체험해 보고 싶다면 추천합니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirments-1">requirments<a href="#requirments-1" class="hash-link" aria-label="Direct link to requirments" title="Direct link to requirments" translate="no">​</a></h3>
+<ul>
+<li class="">docker desktop</li>
+<li class="">kubernetes</li>
+</ul>
+<p>kubernetes 저사양 node 등에 맞춰 다양한 버전이 있습니다. <a class="" href="/docs/infrastructure/kubernetes/install-kubernetes">이글</a>
+에서 여러 kubernetes에 차이점을 잘 설명하고 있습니다.
+<a href="https://jwher.github.io/2021-04-13-install-docker/#windows-docker-%EC%84%A4%EC%B9%98" target="_blank" rel="noopener noreferrer" class="">Docker desktop</a>에
+kubernetes를 활성화 시킵니다. (현재 micro k8s를 사용합니다)</p>
+<p>쿠버네티스 클러스터를 구성하셨다면 kfctl을 사용해 linux 버전과 같은 방법으로 설치합니다.</p>
+<p>(커맨드라인 입력 자료가 없어져 요청주시면 다시 작성하겠습니다.)</p>
+<p>configuration을 환경에 맞게 수정해 주어야 합니다. 다음 <a href="https://sidepun.ch/entry/Kubeflow-%EC%84%A4%EC%B9%98-WSL2-Ubuntu-Docker-Desktop" target="_blank" rel="noopener noreferrer" class="">블로그</a>
+에서 잘 설명해 주셔서 참고 부탁드립니다 😓</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="virtual-machine">Virtual Machine<a href="#virtual-machine" class="hash-link" aria-label="Direct link to Virtual Machine" title="Direct link to Virtual Machine" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="virtualbox" src="/assets/images/virtualbox-37b5b45eadbe54fd9993250bdfc84d2c.svg" width="512" height="512" class="img_ev3q"></p>
+<p>Virtual Machine을 호스팅 할 수 있는 고사양의 PC/Server가 있고
+다른 애플리케이션과 충돌, 쿠버네티스 버전 관리, 테스트 서버 운영이 필요하다면 추천합니다.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirements">requirements<a href="#requirements" class="hash-link" aria-label="Direct link to requirements" title="Direct link to requirements" translate="no">​</a></h3>
+<ul>
+<li class="">kubernetes 구성 능력</li>
+</ul>
+<p>VM 또한 쿠버네티스의 노드로 구성 가능합니다. VM을 통해 kubernetes cluster를 구성한다면
+Linux에서 kfctl을 사용한 쿠브플로우 설치 방법과 같습니다.</p>
+<p>클러스터간 통신이 되게 네트워크를 구성만 유의해 줍시다. 😉<br>
+<a href="https://jwher.github.io/2021-04-15-Install-Virtualbox-with-no-GUI/" target="_blank" rel="noopener noreferrer" class="">virtualbox vm 생성</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="번외-minikf">번외: miniKF<a href="#번외-minikf" class="hash-link" aria-label="Direct link to 번외: miniKF" title="Direct link to 번외: miniKF" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="minikf" src="/assets/images/minikf-f9132f76c81bd09e9c0537f3cc5b1cd8.svg" width="1277" height="473" class="img_ev3q"></p>
+<p>miniKF를 통해 간편히 설치할 수 있습니다.
+한개의 VM 단일 노드 쿠버네티스에서 작동하는 쿠브플로우로
+그나마 일반적인 PC에서 쿠브플로우를 학습용으로 사용해 볼 수 있습니다.<br>
+<a href="https://www.kubeflow.org/docs/distributions/minikf/minikf-vagrant/" target="_blank" rel="noopener noreferrer" class="">공식 문서</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirements-1">requirements<a href="#requirements-1" class="hash-link" aria-label="Direct link to requirements" title="Direct link to requirements" translate="no">​</a></h3>
+<ul>
+<li class="">12GB RAM</li>
+<li class="">2 CPUs</li>
+<li class="">50GB disk space</li>
+<li class="">Linux, macOS, Windows</li>
+<li class="">Virtualbox/Vagrant</li>
+</ul>
+<p>Virtualbox/Vagrant를 사용하여 잘 구성된 kubeflow 클러스터 vm을 실행시킵니다.
+편하고, 잘 동작하는 쿠브플로우를 빠르게 구성할 수 있는 장점이 있으나
+VM 환경이 같는 한계, 현재 지원이 종료된 문제가 있습니다.</p>
+<ol>
+<li class="">
+<p>virtualbox/vagrant가 설치된 환경을 준비합니다</p>
+</li>
+<li class="">
+<p>vagrant를 사용하여 arrikto/minikf VM을 구동시킵니다.</p>
+</li>
+</ol>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">&gt; vagrant init arrikto/minikf</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&gt; vagrant up</span><br></span></code></pre></div></div>
+<p>몇 번 종료될 때가 있습니다. 당황하지 말고 vagrant up을 다시 실행시키면 됩니다.<br>
+계속 실패할 경우 cache 파일을 전부 삭제하고 다시 시도합니다.</p>
+<p>설치가 완료되면 <a href="http://10.10.10.10%EC%97%90%EC%84%9C" target="_blank" rel="noopener noreferrer" class="">http://10.10.10.10에서</a> kubeflow를 사용할 수 있습니다.
+<em>참 쉽죠?</em></p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="kind">Kind<a href="#kind" class="hash-link" aria-label="Direct link to Kind" title="Direct link to Kind" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="kind" src="/assets/images/kind-a79de9a39747e0406c36d1da90e210aa.svg" width="985" height="594" class="img_ev3q"></p>
+<p>쿠버네티스의 한 버전인 Kubernetes in Docker를 사용하여 쿠브플로우를 설치합니다.
+Docker Image로 된 쿠버네티스로 단일 노드 쿠버네티스를 빠르게 구성하고자 하면 추천합니다.</p>
+<p>이 글에선 Windows 환경의 WSL2 ubuntu에서 설치하는 방법을 소개합니다.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirements-2">requirements<a href="#requirements-2" class="hash-link" aria-label="Direct link to requirements" title="Direct link to requirements" translate="no">​</a></h4>
+<ul>
+<li class="">docker가 설치된 컴퓨터</li>
+</ul>
+<ol>
+<li class="">Kind 설치</li>
+</ol>
+<p><a href="https://jwher.github.io/2021-04-13-install-kubernetes/#kind-%EC%84%A4%EC%B9%98" target="_blank" rel="noopener noreferrer" class="">Kind 설치</a> 를 참고해
+쿠버네티스 클러스터를 생성해 주세요.</p>
+<ol start="2">
+<li class="">Install kubeflow</li>
+</ol>
+<p>쿠브플로우를 설치하기 위해 kfctl과 kustomize를 이용합니다.
+linux에서 쿠브플로우를 설치하는 방법과 동일합니다.</p>
+<p>필  요한 파일을 받기 위해 wget을 설치합니다.(curl을 사용해도 됩니다)</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ apt-get update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ apt-get install wget</span><br></span></code></pre></div></div>
+<br>
+<p>kfctl을 설치합니다.</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># https://github.com/kubeflow/kfctl/releases 에서 kfctl 최신 버전을 확인합니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ wget https://github.com/kubeflow/kfctl/releases/download/v1.2.0/kfctl_v1.2.0-0-gbc038f9_linux.tar.gz</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># tar 파일을 풀어줍니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ tar -xvf kfctl_{tag}_{platform}.tar.gz</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Export path</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ export PATH=$PATH:$PWD</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ export PATH=$PATH:{kfctl_path}</span><br></span></code></pre></div></div>
+<br>
+<p>쿠브플로우를 설치합니다</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 설치 yaml을 저장합니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ wget https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_istio_dex.v1.2.0.yaml</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ kfctl apply -V -f {config_file}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...생략...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">INFO[0285] Successfully applied application kfserving    filename=&quot;kustomize/kustomize.go:291&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">INFO[0285] Applied the configuration Successfully!       filename=&quot;cmd/apply.go:75&quot;</span><br></span></code></pre></div></div>
+<br>  
+3. 설치 완료 후 쿠브플로우를 확인해 봅니다.
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ kubectl get ns</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">NAME                 STATUS   AGE</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">auth                 Active   101s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cert-manager         Active   6m17s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">default              Active   45m</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">istio-system         Active   6m16s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">knative-serving      Active   95s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kube-node-lease      Active   45m</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kube-public          Active   45m</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kube-system          Active   45m</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubeflow             Active   6m17s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">local-path-storage   Active   45m</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 볼륨도 맵핑이 잘 되었나 확인합니다</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ kubectl get pvc -A</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">NAMESPACE      NAME              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">istio-system   authservice-pvc   Bound    pvc-48952a53-882e-436b-8396-97cee94acf28   10Gi       RWO            standard       4m31s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubeflow       katib-mysql       Bound    pvc-9afd9ddf-3f1e-4b05-9fac-2cd56af6393a   10Gi       RWO            standard       4m28s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubeflow       metadata-mysql    Bound    pvc-0f0e907b-7786-42bb-bc40-1b784ac6cddb   10Gi       RWO            standard       4m28s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubeflow       minio-pvc         Bound    pvc-1d18caf0-08e6-44d8-b366-223e67dee1e5   20Gi       RWO            standard       4m28s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubeflow       mysql-pv-claim    Bound    pvc-c4dbe4b2-6a39-467f-a0be-5f54ff45054d   20Gi       RWO            standard       4m28s</span><br></span></code></pre></div></div>
+<p>설치 후 pod 생성까지 시간이 좀 걸리니 기다려야 합니다 :)</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tips">Tips<a href="#tips" class="hash-link" aria-label="Direct link to Tips" title="Direct link to Tips" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="삭제">삭제<a href="#삭제" class="hash-link" aria-label="Direct link to 삭제" title="Direct link to 삭제" translate="no">​</a></h3>
+<p>쿠브플로우 설치시 종종 파드가 crash나 pending 상태에서 멈춥니다. 😭<br>
+일반적인 오류가 아닐 때 재설치를 위해 삭제해야 합니다.</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ kfctl delete -f ${CONFIG_FILE}</span><br></span></code></pre></div></div>
+<p>하지만 모든 쿠브플로우 리소스가 쿠버네티스에서 삭제되지 않습니다.
+여러가지 CRD: Custom Resource Define이 남아있죠.</p>
+<p>쿠버네티스에 대한 이해가 부족하시다면
+가장 효과적인 방법은 쿠버네티스 클러스터의 재설치입니다...<br>
+<a href="https://jwher.github.io/2021-05-28-kubernetes-usage/" target="_blank" rel="noopener noreferrer" class="">쿠버네티스 사용하기</a></p>
+<p>이전에 당근마켓 기술블로그에서 쿠브플로우 애로 관련 글을 봤었는데 없어진 듯 하네요...
+<a href="https://medium.com/daangn/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-in-production-fa623877e56a" target="_blank" rel="noopener noreferrer" class="">당근</a><br>
+쿠버네티스를 다루는 회사
+<a href="https://github.com/mojokb/kubeflow-book/blob/master/uninstall/kubeflow-uninstall.txt" target="_blank" rel="noopener noreferrer" class="">두다지</a><br>
+여러 팀들이 동일하게 겪은 문제라 생각하니 마음이 한결 편해지는 것 같습니다:D</p>
+<br>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reference">Reference<a href="#reference" class="hash-link" aria-label="Direct link to Reference" title="Direct link to Reference" translate="no">​</a></h2>
+<p><a href="https://v1-2-branch.kubeflow.org/docs/" target="_blank" rel="noopener noreferrer" class="">[공식]Documentation</a><br>
+<a href="https://kind.sigs.k8s.io/" target="_blank" rel="noopener noreferrer" class="">[공식]Kind</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/machine-learning">machine-learning</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/mlops">mlops</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/kubeflow">kubeflow</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/installation">installation</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/tutorial">tutorial</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/jwher/jwher.github.io/tree/main/docs/machine-learning/platforms/install-kubeflow/index.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/machine-learning/platforms/openvino"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">OpenVINO</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/machine-learning/platforms/kubeflow-guide/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Kubeflow Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#요구사항" class="table-of-contents__link toc-highlight">요구사항</a><ul><li><a href="#쿠브플로우에-대한-이해" class="table-of-contents__link toc-highlight">쿠브플로우에 대한 이해</a></li><li><a href="#주의사항" class="table-of-contents__link toc-highlight">주의사항</a></li><li><a href="#최소사양" class="table-of-contents__link toc-highlight">최소사양</a></li></ul></li><li><a href="#linux-machine" class="table-of-contents__link toc-highlight">Linux Machine</a><ul><li><a href="#requirments" class="table-of-contents__link toc-highlight">requirments</a></li><li><a href="#설치" class="table-of-contents__link toc-highlight">설치</a></li></ul></li><li><a href="#window-machine" class="table-of-contents__link toc-highlight">Window Machine</a><ul><li><a href="#requirments-1" class="table-of-contents__link toc-highlight">requirments</a></li></ul></li><li><a href="#virtual-machine" class="table-of-contents__link toc-highlight">Virtual Machine</a><ul><li><a href="#requirements" class="table-of-contents__link toc-highlight">requirements</a></li></ul></li><li><a href="#번외-minikf" class="table-of-contents__link toc-highlight">번외: miniKF</a><ul><li><a href="#requirements-1" class="table-of-contents__link toc-highlight">requirements</a></li></ul></li><li><a href="#kind" class="table-of-contents__link toc-highlight">Kind</a></li><li><a href="#tips" class="table-of-contents__link toc-highlight">Tips</a><ul><li><a href="#삭제" class="table-of-contents__link toc-highlight">삭제</a></li></ul></li><li><a href="#reference" class="table-of-contents__link toc-highlight">Reference</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">
+        <div class="copyright">
+          Copyright &copy; 2021 &ndash; 2026, JeongWon Her.<span class="heart-icon"></span>
+        </div>
+        </div></div></div></footer></div>
+</body>
+</html>

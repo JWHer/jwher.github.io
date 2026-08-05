@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="kr" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cs/digital-system-design-methodology/cosim" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">통합설계 | JWHer Tech Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" name="twitter:image" content="https://jwher.github.io/img/bamboo-road.webp"><meta data-rh="true" property="og:url" content="https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim"><meta data-rh="true" property="og:locale" content="kr"><meta data-rh="true" name="docusaurus_locale" content="kr"><meta data-rh="true" name="docsearch:language" content="kr"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="twitter:site" content="@jwher96"><meta data-rh="true" property="og:site_name" content="JWHer Tech Blog"><meta data-rh="true" property="og:type" content="website"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="통합설계 | JWHer Tech Blog"><meta data-rh="true" name="description" content="디지털 시스템 설계방법론 - 통합설계"><meta data-rh="true" property="og:description" content="디지털 시스템 설계방법론 - 통합설계"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim" hreflang="kr"><link data-rh="true" rel="alternate" href="https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"통합설계","item":"https://jwher.github.io/docs/cs/digital-system-design-methodology/cosim"}]}</script><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="JWHer Tech Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="JWHer Tech Blog Atom Feed">
+<script>!function(){try{"serif"===localStorage.getItem("typeface")&&(document.documentElement.dataset.typeface="serif")}catch(e){}}()</script>
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-XHBVCY40VB"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-XHBVCY40VB")</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9ca37fef.css">
+<script src="/assets/js/runtime~main.c2506c8b.js" defer="defer"></script>
+<script src="/assets/js/main.57dd7301.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">JWHer Tech Blog</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs">Docs</a><a class="navbar__item navbar__link" href="/art">Art</a><a class="navbar__item navbar__link icon-search" aria-label="검색" href="/search"></a><a href="https://github.com/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-github"></a><a href="https://www.linkedin.com/in/jwher" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-linkedin"></a><a href="https://www.instagram.com/jwher96" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-instagram"></a><a href="/rss.xml" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link icon-rss" aria-label="RSS feed"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_BF9v"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="header_nO4s" style="background-image:url(/img/docs/category.webp)" data-hero="static"><div class="filter_ZZSb"></div><h2 class="presentation__title">Docs</h2><h6 class="presentation__subtitle">God shall bless us; and all the ends of the earth shall fear him.</h6></div><div class="docRoot_Rg9N"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/"><span title="소개" class="linkLabel_WmDU">소개</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/algorithms/data_streaming"><span title="algorithms" class="categoryLinkLabel_W154">algorithms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/cs/computer-architecture/"><span title="cs" class="categoryLinkLabel_W154">cs</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/cs/computer-architecture/"><span title="컴퓨터 구조" class="categoryLinkLabel_W154">컴퓨터 구조</span></a><button aria-label="Expand sidebar category &#x27;컴퓨터 구조&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/cs/digital-system-design-methodology/intro"><span title="digital-system-design-methodology" class="categoryLinkLabel_W154">digital-system-design-methodology</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cs/digital-system-design-methodology/intro"><span title="소개" class="linkLabel_WmDU">소개</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/cs/digital-system-design-methodology/cosim"><span title="통합설계" class="linkLabel_WmDU">통합설계</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/cs/high-performance-computing/introduction"><span title="high-performance-computing" class="categoryLinkLabel_W154">high-performance-computing</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/real-time-system"><span title="Real Time System" class="categoryLinkLabel_W154">Real Time System</span></a><button aria-label="Expand sidebar category &#x27;Real Time System&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/development/concurrency/concurrency-models-1/"><span title="development" class="categoryLinkLabel_W154">development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/foundations/computer-architecture/"><span title="foundations" class="categoryLinkLabel_W154">foundations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/infrastructure/containerization/docker-networking/"><span title="infrastructure" class="categoryLinkLabel_W154">infrastructure</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/machine-learning/computer-vision/alphapose/"><span title="machine-learning" class="categoryLinkLabel_W154">machine-learning</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/ml/embedded-deep-learning/"><span title="ml" class="categoryLinkLabel_W154">ml</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">cs</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">digital-system-design-methodology</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">통합설계</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><p><em>디지털 시스템 설계방법론 통합설계</em></p>
+<header><h1>통합설계</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="용어">용어<a href="#용어" class="hash-link" aria-label="Direct link to 용어" title="Direct link to 용어" translate="no">​</a></h2>
+<p>호스트와 타겟
+시뮬레이션 시간: 시뮬레이션 계산에 소모되는 시간
+시뮬레이션된 시간: 시뮬레이션 대상의 시간 소모</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="목표">목표<a href="#목표" class="hash-link" aria-label="Direct link to 목표" title="Direct link to 목표" translate="no">​</a></h2>
+<ul>
+<li class="">SW 개발을 위한 가상 프로토타이핑</li>
+<li class="">디자인 공간 탐색을 위한 시스템 성능 예측</li>
+<li class="">구현 전 시스템 검증</li>
+</ul>
+<p>=&gt; 어떻게 통합시뮬레이션으로 목표를 달성할 것인가?</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="문제">문제<a href="#문제" class="hash-link" aria-label="Direct link to 문제" title="Direct link to 문제" translate="no">​</a></h2>
+<ul>
+<li class="">어떻게 처리 요소(processing components)를 시뮬레이션 할 것인가?</li>
+<li class="">어떻게 하드웨어와 소프트웨어 사이에 모델이 통신할 것인가?</li>
+<li class="">어떻게 요소 시뮬레이터(component simulators)를 동기화 할 것인가?</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="프로세서-시뮬레이터">프로세서 시뮬레이터<a href="#프로세서-시뮬레이터" class="hash-link" aria-label="Direct link to 프로세서 시뮬레이터" title="Direct link to 프로세서 시뮬레이터" translate="no">​</a></h2>
+<p><em>Software</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="iss">ISS<a href="#iss" class="hash-link" aria-label="Direct link to ISS" title="Direct link to ISS" translate="no">​</a></h3>
+<p><em>Instruction Set Simulator</em></p>
+<ul>
+<li class="">
+<p>Interpretive ISS
+단점: 느리다</p>
+</li>
+<li class="">
+<p>Compiled ISS
+장점: 빠르다
+단점: 정적 코드만 지원(부트 로딩 코드x), 큰 메모리 공간 사용</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="하드웨어-통신-시뮬레이터">하드웨어 통신 시뮬레이터<a href="#하드웨어-통신-시뮬레이터" class="hash-link" aria-label="Direct link to 하드웨어 통신 시뮬레이터" title="Direct link to 하드웨어 통신 시뮬레이터" translate="no">​</a></h2>
+<ul>
+<li class="">RTL(Register Transfer Level)</li>
+<li class="">TLM(Transaction Level Model)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="동기화-방법">동기화 방법<a href="#동기화-방법" class="hash-link" aria-label="Direct link to 동기화 방법" title="Direct link to 동기화 방법" translate="no">​</a></h3>
+<ul>
+<li class="">Lock-step synchronization</li>
+<li class="">Conservative synchronization</li>
+<li class="">Optimistic synchronization</li>
+<li class="">Virtual synchronization</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="동기화-비용">동기화 비용<a href="#동기화-비용" class="hash-link" aria-label="Direct link to 동기화 비용" title="Direct link to 동기화 비용" translate="no">​</a></h3>
+<ul>
+<li class="">IPC: socket(), pipe()</li>
+<li class="">Thread context switch</li>
+<li class="">Function call</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="통합시뮬레이션">통합시뮬레이션<a href="#통합시뮬레이션" class="hash-link" aria-label="Direct link to 통합시뮬레이션" title="Direct link to 통합시뮬레이션" translate="no">​</a></h2>
+<p>통합-검증을 위한 통합시뮬레이션</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rtl">RTL<a href="#rtl" class="hash-link" aria-label="Direct link to RTL" title="Direct link to RTL" translate="no">​</a></h3>
+<p>바이너리 소프트웨어를 RTL 모델로 시뮬레이션: 너무 느림<br>
+검증을 위한 사이클 정확 통합시뮬레이션: 느림(ISS + RTL + Lock-step 동기화)</p>
+<ul>
+<li class="">페치 최적화</li>
+<li class="">데이터 접근 최적화</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tlm">TLM<a href="#tlm" class="hash-link" aria-label="Direct link to TLM" title="Direct link to TLM" translate="no">​</a></h3>
+<p>TLM은 연산에서 통신을 분리</p>
+<ul>
+<li class="">모듈: 연산(프로세스의 집합)</li>
+<li class="">채널: 통신</li>
+<li class="">포트: 모듈과 체널 서로 묶이는 통신 포트</li>
+</ul>
+<p>종류</p>
+<ul>
+<li class="">untimed: 기능적 검증</li>
+<li class="">approximate timed</li>
+<li class="">cycle-timed</li>
+</ul>
+<p>연산(Computation)과 통신(Communication) 정확도에 따라</p>
+<ul>
+<li class="">Timed Functional Model:  통신은 무시(연산은 추정)</li>
+<li class="">Cycle Approximate Model: 사이클 추정(연산/통신 둘다)</li>
+<li class="">Bus Functional Model:    정확한 통신 계산(연산은 추정)</li>
+<li class="">Cycle Accurate Computation Model: 정확한 연산 계산(통신은 추정)</li>
+<li class="">Pin Accurate(RTL): 둘다 정확히 계산</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="systemc">SystemC<a href="#systemc" class="hash-link" aria-label="Direct link to SystemC" title="Direct link to SystemC" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="동기">동기<a href="#동기" class="hash-link" aria-label="Direct link to 동기" title="Direct link to 동기" translate="no">​</a></h3>
+<ul>
+<li class="">SoC 디자인에서 하드웨어와 소프트웨어 다른 언어 사용</li>
+<li class="">높은 추상화된 시스템 레벨 디자인 언어</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="c에-추가된-것">C++에 추가된 것<a href="#c에-추가된-것" class="hash-link" aria-label="Direct link to C++에 추가된 것" title="Direct link to C++에 추가된 것" translate="no">​</a></h3>
+<ul>
+<li class="">Concurrency: SC_METHOD, SC_THREAD, SC_CTHREAD</li>
+<li class="">Timing: sc_clock</li>
+<li class="">Rich set of data types: 고정소수점</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="module">Module<a href="#module" class="hash-link" aria-label="Direct link to Module" title="Direct link to Module" translate="no">​</a></h3>
+<p>*computation
+?Timing: Time, Clock
+?Test Bench</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="channel">Channel<a href="#channel" class="hash-link" aria-label="Direct link to Channel" title="Direct link to Channel" translate="no">​</a></h3>
+<p>*communication</p>
+<ul>
+<li class="">primitive</li>
+<li class="">hierarchical</li>
+</ul>
+<p>sc_signal
+sc_fifo
+sc_mutex
+sc_semaphore</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tlm20">TLM2.0<a href="#tlm20" class="hash-link" aria-label="Direct link to TLM2.0" title="Direct link to TLM2.0" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="loosely-timed">loosely-timed<a href="#loosely-timed" class="hash-link" aria-label="Direct link to loosely-timed" title="Direct link to loosely-timed" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="approximately-timedat">approximately timed(AT)<a href="#approximately-timedat" class="hash-link" aria-label="Direct link to approximately timed(AT)" title="Direct link to approximately timed(AT)" translate="no"> ​</a></h3>
+<p>design space exploration
+non-blocking with four phases
+payload event queues</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="core-interfaces">Core Interfaces<a href="#core-interfaces" class="hash-link" aria-label="Direct link to Core Interfaces" title="Direct link to Core Interfaces" translate="no">​</a></h3>
+<ul>
+<li class="">transport
+b_transport
+nb_transport_fw
+nb_transport_bw
+=&gt; 채널의 높은 추상화 제공</li>
+<li class="">DMI</li>
+<li class="">Debug</li>
+</ul>
+<p>Socket =&gt; replace sc_signal, sc_fifo... etc</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="timing-synchronization-problem">Timing Synchronization Problem<a href="#timing-synchronization-problem" class="hash-link" aria-label="Direct link to Timing Synchronization Problem" title="Direct link to Timing Synchronization Problem" translate="no">​</a></h2>
+<p>Causality error
+로컬 클락은 하위 시뮬레이션 진행 이후로 나갈 수 없음
+=&gt; 병목의 주요 원인</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-problem-in-cosimulation">Performance Problem in Cosimulation<a href="#performance-problem-in-cosimulation" class="hash-link" aria-label="Direct link to Performance Problem in Cosimulation" title="Direct link to Performance Problem in Cosimulation" translate="no">​</a></h2>
+<p>프로세서 시뮬레이터는 빠르다
+하드웨어는 느리다</p>
+<p>모듈이 많아질수록 한 클락에 시뮬레이션 할 항목이 늘어남=&gt;느려짐</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="distributed-vs-serial-execution">Distributed vs. Serial Execution<a href="#distributed-vs-serial-execution" class="hash-link" aria-label="Direct link to Distributed vs. Serial Execution" title="Direct link to Distributed vs. Serial Execution" translate="no">​</a></h2>
+<p>a processing component is smaller than 10K-100K if lock-step synchronization is used
+커뮤니케이션 오버헤드가 시뮬레이션 보다 커서
+=&gt; 단일 머신/ 단일 코어에서 시뮬레이션 하는게 더 이점</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="통합시뮬레이션-성능">통합시뮬레이션 성능<a href="#통합시뮬레이션-성능" class="hash-link" aria-label="Direct link to 통합시뮬레이션 성능" title="Direct link to 통합시뮬레이션 성능" translate="no">​</a></h2>
+<p>$\sum_{\forall i} { T \times (st_i + sync) + tran_{num} \times st_{tran} }$</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tlm-통합시뮬레이션">TLM 통합시뮬레이션<a href="#tlm-통합시뮬레이션" class="hash-link" aria-label="Direct link to TLM 통합시뮬레이션" title="Direct link to TLM 통합시뮬레이션" translate="no">​</a></h3>
+<p>$st_i, st_{trans}$ 줄이기</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="하드웨어-에뮬레이션">하드웨어 에뮬레이션<a href="#하드웨어-에뮬레이션" class="hash-link" aria-label="Direct link to 하드웨어 에뮬레이션" title="Direct link to 하드웨어 에뮬레이션" translate="no">​</a></h3>
+<p>$st_i$ 줄이기</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="동기화-지점-줄이기">동기화 지점 줄이기<a href="#동기화-지점-줄이기" class="hash-link" aria-label="Direct link to 동기화 지점 줄이기" title="Direct link to 동기화 지점 줄이기" translate="no">​</a></h3>
+<p>$T$를 $sync \times T$로 줄이기</p>
+<p>=&gt; 동기화를 매 사이클에 하는건, 언제 올지 몰라서. 보수적으로 다음 이벤트를 예측
+=&gt; 최적optimistic 방법, 동기화 무시, causality 에러 발생시 다시</p>
+<ul>
+<li class="">보수적 접근(Conservative approach)
+인과 에러가 없는 미래 지점</li>
+</ul>
+<p>위스콘신방법
+-사용자 정한대로(100, 1000 cycle) 동기화
+=&gt; causality error 허용</p>
+<ul>
+<li class="">최적 방법(Optimistic approach)
+인과 에러가 감지된 지점</li>
+</ul>
+<p>장점: 다음 시간 예측 필요 없음
+단점: 체크포인트, 상태 회복 오버헤드 / 시뮬레이터 지원 필요(ISS는 지원 x)
+=&gt; not feasible cosim?</p>
+<ul>
+<li class="">
+<p>트레이스 기반 시뮬레이션</p>
+</li>
+<li class="">
+<p>다른 방법<br>
+= 명령어 페치 최적화<br>
+= 동기화 비용을 가볍게</p>
+</li>
+</ul>
+<h1>병렬 통합시뮬레이션</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="분산-이벤트-기반-시뮬레이션">분산 이벤트 기반 시뮬레이션<a href="#분산-이벤트-기반-시뮬레이션" class="hash-link" aria-label="Direct link to 분산 이벤트 기반 시뮬레이션" title="Direct link to 분산 이벤트 기반 시뮬레이션" translate="no">​</a></h2>
+<p>-로컬 클락(LCK)를 가짐, pair-wise sync만 필요함(전체 동기화 필요x)
+-데드락 문제</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="어떻게-데드락을-해결할-것인가">어떻게 데드락을 해결할 것인가?<a href="#어떻게-데드락을-해결할-것인가" class="hash-link" aria-label="Direct link to 어떻게 데드락을 해결할 것인가?" title="Direct link to 어떻게 데드락을 해결할 것인가?" translate="no">​</a></h2>
+<p>-null message
+-deadlock detection and recovery(chandy and misra)
+= 매니저가 데드락 감지 후 강제로 실행</p>
+<p>*HSIM: Parallel Simulator Structure
+ISS에서 시뮬레이션, Backplane에서 동기화.
+LCK는 어떤 Global 클락 정보를 가지고 있지 않음(단순 카운터)</p>
+<p>일정 간격을 두고 null 메시지를 보냄(시간 정보 교환)</p>
+<p>실제 구현 관점으로 살펴보면-
+시뮬레이터가 메모리에 데이터를 보내고, 모든 시뮬레이터가 데이터를 보낼때까지 블락됨
+시뮬레이터마다 wrapper를 두고 null 메시지(시간)를 다른 시뮬레이터와 교환</p>
+<p>최적의 시간 주기?
+-짧으면 오버헤드
+-길면 동기화 시간</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="perioidic-notification">perioidic notification<a href="#perioidic-notification" class="hash-link" aria-label="Direct link to perioidic notification" title="Direct link to perioidic notification" translate="no">​</a></h3>
+<p>parallel distributed event simulator PDES</p>
+<ul>
+<li class="">async communication</li>
+<li class="">simular to null message transfer</li>
+</ul>
+<p>solicied: 커널이 ISS에 요청하는가?</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="interrupt-modeling">Interrupt Modeling<a href="#interrupt-modeling" class="hash-link" aria-label="Direct link to Interrupt Modeling" title="Direct link to Interrupt Modeling" translate="no">​</a></h3>
+<p>*인터럽트를 통신 수단으로</p>
+<p>인터럽트 도착은 예측 불가</p>
+<ul>
+<li class="">언제나 발생 가능</li>
+<li class="">매변 확인? -&gt; 동기화 오버헤드</li>
+</ul>
+<p>해결책: 주기적으로 인터럽트 폴링</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hsim">HSIM<a href="#hsim" class="hash-link" aria-label="Direct link to HSIM" title="Direct link to HSIM" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="simulation-cache-and-message-grouping-techniques">Simulation cache and Message grouping techniques<a href="#simulation-cache-and-message-grouping-techniques" class="hash-link" aria-label="Direct link to Simulation cache and Message grouping techniques" title="Direct link to Simulation cache and Message grouping techniques" translate="no">​</a></h3>
+<p>reduce synchronous communication</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cache-coherence">Cache Coherence<a href="#cache-coherence" class="hash-link" aria-label="Direct link to Cache Coherence" title="Direct link to Cache Coherence" translate="no">​</a></h3>
+<ul>
+<li class="">Assuming the relaxed memory model</li>
+<li class="">Fork-join model</li>
+<li class="">Queue-based communication</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cache-configuration">Cache Configuration<a href="#cache-configuration" class="hash-link" aria-label="Direct link to Cache Configuration" title="Direct link to Cache Configuration" translate="no">​</a></h3>
+<p>1024 크기보다 크면 효율 비슷(compulsory miss)</p>
+<ol>
+<li class="">Compare the SW simulation techniques in terms of speed, accuracy, and  applicability</li>
+</ol>
+<p>ISS, compiled/interprete,</p>
+<ol start="2">
+<li class="">Explain how the following technique can improve the simulation performance.</li>
+</ol>
+<p>a) TLM: Higher level abstraction
+b) Optimistic cosimulation: checkpoint / low level =&gt; usally not supported commercial
+c) hardware emulation</p>
+<ol start="3">
+<li class="">For the parallel co-simulation technique (HSIM), answer the followings:</li>
+</ol>
+<p>a) idea =&gt; local clock
+b) periodic update =&gt; null message(timing information)
+c) interrupts =&gt; internal/external
+d) cache boost =&gt; prefetch whole data</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/cs">cs</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/jwher/jwher.github.io/tree/main/docs/cs/digital-system-design-methodology/2.cosim.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/cs/digital-system-design-methodology/intro"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">소개</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/cs/high-performance-computing/introduction"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">확장형 고성능 컴퓨팅 소개</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#용어" class="table-of-contents__link toc-highlight">용어</a></li><li><a href="#목표" class="table-of-contents__link toc-highlight">목표</a></li><li><a href="#문제" class="table-of-contents__link toc-highlight">문제</a></li><li><a href="#프로세서-시뮬레이터" class="table-of-contents__link toc-highlight">프로세서 시뮬레이터</a><ul><li><a href="#iss" class="table-of-contents__link toc-highlight">ISS</a></li></ul></li><li><a href="#하드웨어-통신-시뮬레이터" class="table-of-contents__link toc-highlight">하드웨어 통신 시뮬레이터</a><ul><li><a href="#동기화-방법" class="table-of-contents__link toc-highlight">동기화 방법</a></li><li><a href="#동기화-비용" class="table-of-contents__link toc-highlight">동기화 비용</a></li></ul></li><li><a href="#통합시뮬레이션" class="table-of-contents__link toc-highlight">통합시뮬레이션</a><ul><li><a href="#rtl" class="table-of-contents__link toc-highlight">RTL</a></li><li><a href="#tlm" class="table-of-contents__link toc-highlight">TLM</a></li></ul></li><li><a href="#systemc" class="table-of-contents__link toc-highlight">SystemC</a><ul><li><a href="#동기" class="table-of-contents__link toc-highlight">동기</a></li><li><a href="#c에-추가된-것" class="table-of-contents__link toc-highlight">C++에 추가된 것</a></li><li><a href="#module" class="table-of-contents__link toc-highlight">Module</a></li><li><a href="#channel" class="table-of-contents__link toc-highlight">Channel</a></li></ul></li><li><a href="#tlm20" class="table-of-contents__link toc-highlight">TLM2.0</a><ul><li><a href="#loosely-timed" class="table-of-contents__link toc-highlight">loosely-timed</a></li><li><a href="#approximately-timedat" class="table-of-contents__link toc-highlight">approximately timed(AT)</a></li><li><a href="#core-interfaces" class="table-of-contents__link toc-highlight">Core Interfaces</a></li></ul></li><li><a href="#timing-synchronization-problem" class="table-of-contents__link toc-highlight">Timing Synchronization Problem</a></li><li><a href="#performance-problem-in-cosimulation" class="table-of-contents__link toc-highlight">Performance Problem in Cosimulation</a></li><li><a href="#distributed-vs-serial-execution" class="table-of-contents__link toc-highlight">Distributed vs. Serial Execution</a></li><li><a href="#통합시뮬레이션-성능" class="table-of-contents__link toc-highlight">통합시뮬레이션 성능</a><ul><li><a href="#tlm-통합시뮬레이션" class="table-of-contents__link toc-highlight">TLM 통합시뮬레이션</a></li><li><a href="#하드웨어-에뮬레이션" class="table-of-contents__link toc-highlight">하드웨어 에뮬레이션</a></li><li><a href="#동기화-지점-줄이기" class="table-of-contents__link toc-highlight">동기화 지점 줄이기</a></li></ul></li><li><a href="#분산-이벤트-기반-시뮬레이션" class="table-of-contents__link toc-highlight">분산 이벤트 기반 시뮬레이션</a></li><li><a href="#어떻게-데드락을-해결할-것인가" class="table-of-contents__link toc-highlight">어떻게 데드락을 해결할 것인가?</a><ul><li><a href="#perioidic-notification" class="table-of-contents__link toc-highlight">perioidic notification</a></li><li><a href="#interrupt-modeling" class="table-of-contents__link toc-highlight">Interrupt Modeling</a></li></ul></li><li><a href="#hsim" class="table-of-contents__link toc-highlight">HSIM</a><ul><li><a href="#simulation-cache-and-message-grouping-techniques" class="table-of-contents__link toc-highlight">Simulation cache and Message grouping techniques</a></li><li><a href="#cache-coherence" class="table-of-contents__link toc-highlight">Cache Coherence</a></li><li><a href="#cache-configuration" class="table-of-contents__link toc-highlight">Cache Configuration</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">
+        <div class="copyright">
+          Copyright &copy; 2021 &ndash; 2026, JeongWon Her.<span class="heart-icon"></span>
+        </div>
+        </div></div></div></footer></div>
+</body>
+</html>
