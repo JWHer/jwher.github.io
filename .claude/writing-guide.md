@@ -59,9 +59,17 @@ draft: true          # 완성 전까지 유지, 발행 시 삭제
 ---
 title: 'HyperLogLog: 메모리 한 줌으로 10억 개 세기'
 sidebar_position: 3    # 사이드바 순서 (선택)
-draft: true            # 검증 전까지 유지 (선택)
+authors:               # 작성자 (선택 — blog/authors.yml 키)
+  - jwher
+description: 한 줄 요약  # 선택
+tags:                  # 선택 — 기존 태그 재사용 우선
+  - cs
+date: 'YYYY-MM-DD'     # 선택 — 정렬·기록 용도
 ---
 ```
+
+`draft: true`는 내용이 미완성이거나 검증 전일 때만 추가하며, 발행 시 삭제한다.
+`slug`는 URL을 바꾸지 않을 경우 생략한다.
 
 문서는 `docs/<주제>/` 아래에 둔다 (`ml/`, `cs/`, `algorithms/`,
 `infrastructure/`, `development/` 등).
@@ -82,6 +90,29 @@ draft: true            # 검증 전까지 유지 (선택)
 - **이미지에는 alt 텍스트.** 원본 크기로 업로드하고 모양은 CSS로 조정한다
   (재업로드 방지 — styling-guide 참고).
 - **표**는 비교·스펙에만. 서술로 충분하면 표로 만들지 않는다.
+- **문자 집합: ASCII + 한글(`[가-힣]`)만.** 유니코드 수학 기호(𝑋 𝑛 𝑚 𝐄 𝐏 μ ε δ 등)는
+  폰트·렌더러마다 깨지므로 쓰지 않는다. 수식이 필요하면 KaTeX를 쓴다.
+
+### 수식 — KaTeX
+
+사이트에 `remark-math` + `rehype-katex`가 설치돼 있다. 유니코드 수학 기호 대신
+KaTeX 문법을 사용한다.
+
+| 용도 | 문법 | 예시 |
+|------|------|------|
+| 인라인 수식 | `$...$` | `$O(\varepsilon^{-2} \log n)$` |
+| 블록 수식 | `$$...$$` | `$$\Pr[X \ge a] \le \frac{\mathbb{E}[X]}{a}$$` |
+
+자주 쓰는 KaTeX 기호:
+
+```
+변수·집합    n, m, D, S, X              → 그냥 $n$, $m$ 등
+확률         \Pr, \mathbb{E}            → $\Pr[X \ge a]$, $\mathbb{E}[X]$
+그리스 문자  \varepsilon, \delta, \mu   → $\varepsilon$, $\delta$
+부등호       \le, \ge, \ll, \gg        → $\le$, $\ge$
+지수·로그    ^, \log, \exp             → $2^k$, $\log n$
+Big-O        O(\cdot)                  → $O(\varepsilon^{-2} \log n)$
+```
 
 ---
 
