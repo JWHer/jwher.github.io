@@ -10,11 +10,13 @@ Word ids are frequency order (cc.ko.300.vec is sorted by corpus frequency).
 Vectors are per-word symmetric int8 quantized (q = round(v / (max|v| / 127))).
 No scale is stored: cosine similarity is invariant under per-vector positive scaling.
 
-The guessable vocabulary is broad (Hangul tokens including particle-attached
-forms and verbs) but pruned of crawl noise via kiwipiepy: tokens absent from
-its dictionary (glued scraping fragments like "보기힐튼", "트립어드바이저") and
-obscure proper nouns (single-token NNP ranked below the frequent band, e.g.
-"박연차" — while common ones like "미국"/"서울" stay) are dropped. Daily secrets
+The guessable vocabulary is limited to clean dictionary headwords: kiwipiepy
+must analyze the token as a SINGLE registered morpheme of a contentful POS
+(noun/proper-noun/adverb/root/numeral). This drops crawl noise wholesale —
+glued fragments and particle/inflection tails ("인증별도의", "게시되면",
+"호텔스닷컴"), dictionary misses ("보기힐튼", "트립어드바이저"), and bare
+function words. Obscure proper nouns are further pruned by frequency rank
+(--nnp-cutoff): "박연차"/"손흥민" go, common ones like "미국"/"서울" stay. Daily secrets
 are restricted to clean common nouns, curated via scripts/secret-words.txt (one
 word per line, committed): when that file exists it IS the secret pool
 (whitelist); when it doesn't, an automatic pick (kiwipiepy: single NNG morpheme
@@ -49,10 +51,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_VEC = os.path.join(ROOT, 'scripts', 'word-source', 'cc.ko.300.vec')
 OUT_DIR = os.path.join(ROOT, 'static', 'word-questions')
 WHITELIST = os.path.join(ROOT, 'scripts', 'secret-words.txt')
-# Curated list of glued scraping fragments to drop (LLM-reviewed noun compounds
-# that OOV/NNP rules can't catch, e.g. "호텔스닷컴", "일반지도위성지도"), one word
-# per line. Optional: absent = no extra pruning.
-BLOCKLIST = os.path.join(ROOT, 'scripts', 'vocab-blocklist.txt')
 DIMS = 300
 HANGUL_RE = re.compile(r'[가-힣]{2,}')
 PROBE_WORDS = ['학교', '바다', '축구', '행복']
@@ -89,48 +87,48 @@ def parse_vec(path, vocab_size):
 KIWI_UNK_ID = 2
 
 
-def load_blocklist():
-    """Curated glued-fragment words to drop (see BLOCKLIST); empty set if absent."""
-    if not os.path.exists(BLOCKLIST):
-        return set()
-    with open(BLOCKLIST, encoding='utf-8') as f:
-        block = {unicodedata.normalize('NFC', line.strip()) for line in f
-                 if line.strip() and not line.startswith('#')}
-    print(f'blocklist: {len(block):,} words from {BLOCKLIST}')
-    return block
+# Contentful single-morpheme POS kept as guessable headwords: common noun,
+# proper noun, general adverb, noun-root, numeral.
+CLEAN_POS = {'NNG', 'NNP', 'MAG', 'XR', 'NR'}
 
 
-def semantic_filter(words, vecs_f32, nnp_cutoff, blocklist):
-    """Drop crawl noise, keeping the original frequency order (dense reindex).
+def semantic_filter(words, vecs_f32, nnp_cutoff):
+    """Keep only clean dictionary headwords, preserving frequency order.
 
-    Signals:
-      - OOV: any morpheme is KIWI_UNK_ID (dictionary miss) -> glued scraping
-        fragments ("보기힐튼", "트립어드바이저"), regardless of crawl frequency.
-      - obscure proper noun: a single-token NNP whose frequency rank (index in
-        `words`; cc.ko.300.vec is frequency-sorted) is >= nnp_cutoff -> names /
-        brands like "박연차", "손흥민". Common NNPs ("미국", "서울") rank above
-        the cutoff and stay.
-      - blocklist: LLM-reviewed glued noun compounds that the above miss because
-        every sub-morpheme is a real word ("호텔스닷컴", "일반지도위성지도").
+    A word survives iff kiwipiepy analyzes it as a SINGLE dictionary-registered
+    morpheme (id != KIWI_UNK_ID) of a contentful POS (CLEAN_POS). This drops in
+    one rule every class of crawl noise the vocabulary carried:
+      - multi-token junk: glued fragments and particle/inflection tails
+        ("인증별도의", "게시되면", "교직원수", "호텔스닷컴", "보기컴포트")
+      - OOV single tokens: dictionary misses ("보기힐튼", "트립어드바이저")
+      - non-content single tokens: bare particles, endings, determiners
+    Obscure proper nouns still slip through as single NNPs, so a rank cutoff
+    also drops any NNP at/after nnp_cutoff ("박연차"/"손흥민" go; "미국"/"서울"
+    rank above and stay). Rank = index in `words` (frequency-sorted source).
     """
     from kiwipiepy import Kiwi
 
     kiwi = Kiwi()
     keep = []
-    n_oov = n_nnp = n_block = 0
+    n_multi = n_oov = n_pos = n_nnp = 0
     for rank, (word, tokens) in enumerate(zip(words, kiwi.tokenize(words))):
-        if word in blocklist:
-            n_block += 1
+        if len(tokens) != 1:
+            n_multi += 1
             continue
-        if any(t.id == KIWI_UNK_ID for t in tokens):
+        tag = tokens[0].tag
+        if tokens[0].id == KIWI_UNK_ID:
             n_oov += 1
             continue
-        if len(tokens) == 1 and tokens[0].tag == 'NNP' and rank >= nnp_cutoff:
+        if tag not in CLEAN_POS:
+            n_pos += 1
+            continue
+        if tag == 'NNP' and rank >= nnp_cutoff:
             n_nnp += 1
             continue
         keep.append(rank)
-    print(f'semantic filter: removed {n_oov:,} OOV + {n_nnp:,} rare NNP '
-          f'(cutoff {nnp_cutoff:,}) + {n_block:,} blocklist; kept {len(keep):,}')
+    print(f'semantic filter: dropped {n_multi:,} multi-token + {n_oov:,} OOV + '
+          f'{n_pos:,} non-content + {n_nnp:,} rare NNP (cutoff {nnp_cutoff:,}); '
+          f'kept {len(keep):,}')
     return [words[i] for i in keep], vecs_f32[np.array(keep)]
 
 
@@ -257,7 +255,7 @@ def main():
         sys.exit(f'source not found: {args.vec}\nsee usage in the header of this script')
 
     words, vecs_f32 = parse_vec(args.vec, args.vocab)
-    words, vecs_f32 = semantic_filter(words, vecs_f32, args.nnp_cutoff, load_blocklist())
+    words, vecs_f32 = semantic_filter(words, vecs_f32, args.nnp_cutoff)
     q = quantize(vecs_f32)
     secrets = load_or_pick_secrets(words, args.secret_band)
 

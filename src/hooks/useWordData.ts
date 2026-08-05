@@ -14,8 +14,8 @@ const DIMS = 300;
 // Internal Cache Storage bucket. Bump this (NOT the public -v1 filenames) when
 // words/vecs are regenerated, so revisitors re-download instead of serving a
 // stale vector set that no longer matches the freshly-fetched secrets.
-const CACHE_NAME = 'wq-v2';
-const STALE_CACHES = ['wq-v1'];
+const CACHE_NAME = 'wq-v1';
+const STALE_CACHES = ['wq-v2', 'wq-v3'];
 const WORDS_URL = '/word-questions/words-v1.json';
 const VECS_URL = '/word-questions/vecs-v1.bin';
 const SECRETS_URL = '/word-questions/secrets-v1.json';
