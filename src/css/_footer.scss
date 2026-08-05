@@ -1,0 +1,69 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgb(0 0 0 / 10%);
+
+  --ifm-footer-color: var(--ifm-font-color-base);
+  --ifm-footer-link-color: var(--ifm-font-color-base);
+  --ifm-footer-title-color: var(--ifm-font-color-base);
+  color: var(--ifm-font-color-base);
+
+  &.footer--dark,
+  &.footer--light {
+    background: transparent;
+  }
+}
+
+// Landing page: :has([data-hero="fixed"]) = only page with fixed hero
+html:has([data-hero="fixed"]) .footer {
+  border-top-color: rgb(255 255 255 / 25%);
+
+  --ifm-footer-color: var(--header-text-color);
+  --ifm-footer-link-color: var(--header-text-color);
+  --ifm-footer-title-color: var(--header-text-color);
+  color: var(--header-text-color);
+}
+
+// Heart animation
+@keyframes heathing {
+  0% {
+    font-size: 0.75em;
+  }
+
+  20% {
+    font-size: 1em;
+  }
+
+  40% {
+    font-size: 0.75em;
+  }
+
+  60% {
+    font-size: 1em;
+  }
+
+  80% {
+    font-size: 0.75em;
+  }
+
+  100% {
+    font-size: 0.75em;
+  }
+}
+
+.heart-icon {
+  position: absolute;
+
+  &::after {
+    color: #f00;
+    content: '♥';
+    animation: 1s infinite heathing;
+  }
+}
+
+.copyright {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: inherit;
+}

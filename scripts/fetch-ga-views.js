@@ -1,0 +1,150 @@
+#!/usr/bin/env node
+/**
+ * fetch-ga-views.js
+ *
+ * Fetches top pages from GA4 Data API and writes src/data/ga-views.ts.
+ * Used in CI before `npm run build` to populate the landing page's "인기 글" column.
+ *
+ * Required env vars:
+ *   GA_PROPERTY_ID         — numeric GA4 property ID (e.g. 123456789)
+ *   GA_SERVICE_ACCOUNT_KEY — base64-encoded service account JSON key
+ *                            (base64 of the JSON file downloaded from GCP console)
+ *
+ * If either env var is missing, writes an empty array and exits 0 (graceful degradation).
+ *
+ * Usage:
+ *   GA_PROPERTY_ID=xxx GA_SERVICE_ACCOUNT_KEY=$(base64 < key.json) node scripts/fetch-ga-views.js
+ */
+
+const crypto = require('crypto');
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+
+const OUTPUT = path.join(__dirname, '..', 'src', 'data', 'ga-views.ts');
+const TOP_N = 30; // fetch top 30 to have enough after filtering nav pages
+
+// ── Graceful exit if not configured ──────────────────────────────────────────
+const { GA_PROPERTY_ID, GA_SERVICE_ACCOUNT_KEY } = process.env;
+if (!GA_PROPERTY_ID || !GA_SERVICE_ACCOUNT_KEY) {
+  console.log('[fetch-ga-views] GA_PROPERTY_ID or GA_SERVICE_ACCOUNT_KEY not set — writing empty array.');
+  writeOutput([]);
+  process.exit(0);
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+(async () => {
+  try {
+    const key = JSON.parse(Buffer.from(GA_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'));
+    const jwt = createJWT(key.private_key, key.client_email);
+    const accessToken = await getAccessToken(jwt);
+
+    // Progressively widen the date range until we have at least 5 content pages
+    const DATE_RANGES = ['90daysAgo', '180daysAgo', '365daysAgo', '2020-01-01'];
+    const MIN_RESULTS = 5;
+    let views = [];
+
+    for (const startDate of DATE_RANGES) {
+      const rows = await fetchTopPages(accessToken, GA_PROPERTY_ID, startDate);
+      views = rows
+        .map(row => ({
+          path: row.dimensionValues[0].value,
+          views: parseInt(row.metricValues[0].value, 10),
+        }))
+        .filter(v =>
+        (v.path.startsWith('/blog/') || v.path.startsWith('/docs/')) &&
+        !v.path.includes('/tags')
+      );
+      console.log(`[fetch-ga-views] ${startDate}: found ${views.length} content pages`);
+      if (views.length >= MIN_RESULTS) break;
+    }
+
+    writeOutput(views);
+    console.log(`[fetch-ga-views] Wrote ${views.length} entries to ga-views.ts`);
+  } catch (err) {
+    console.error('[fetch-ga-views] Error:', err.message);
+    console.log('[fetch-ga-views] Writing empty array as fallback.');
+    writeOutput([]);
+  }
+})();
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function createJWT(privateKey, clientEmail) {
+  const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
+  const now = Math.floor(Date.now() / 1000);
+  const payload = Buffer.from(JSON.stringify({
+    iss: clientEmail,
+    scope: 'https://www.googleapis.com/auth/analytics.readonly',
+    aud: 'https://oauth2.googleapis.com/token',
+    iat: now,
+    exp: now + 3600,
+  })).toString('base64url');
+  const toSign = `${header}.${payload}`;
+  const signature = crypto.createSign('RSA-SHA256').update(toSign).sign(privateKey, 'base64url');
+  return `${toSign}.${signature}`;
+}
+
+function post(hostname, path, headers, body) {
+  return new Promise((resolve, reject) => {
+    const buf = Buffer.from(body);
+    const req = https.request(
+      { hostname, path, method: 'POST', headers: { ...headers, 'Content-Length': buf.length } },
+      res => {
+        let data = '';
+        res.on('data', c => (data += c));
+        res.on('end', () => resolve(JSON.parse(data)));
+      },
+    );
+    req.on('error', reject);
+    req.write(buf);
+    req.end();
+  });
+}
+
+async function getAccessToken(jwt) {
+  const body = `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`;
+  const json = await post('oauth2.googleapis.com', '/token', { 'Content-Type': 'application/x-www-form-urlencoded' }, body);
+  if (!json.access_token) throw new Error(`Token exchange failed: ${JSON.stringify(json)}`);
+  return json.access_token;
+}
+
+async function fetchTopPages(accessToken, propertyId, startDate) {
+  const body = JSON.stringify({
+    dimensions: [{ name: 'pagePath' }],
+    metrics: [{ name: 'screenPageViews' }],
+    dateRanges: [{ startDate, endDate: 'today' }],
+    limit: TOP_N,
+    orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
+  });
+  const json = await post(
+    'analyticsdata.googleapis.com',
+    `/v1beta/properties/${propertyId}:runReport`,
+    { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+    body,
+  );
+  if (!json.rows) throw new Error(`GA4 API error: ${JSON.stringify(json)}`);
+  return json.rows;
+}
+
+function writeOutput(views) {
+  const d = new Date();
+  const updatedAt = views.length > 0
+    ? `${d.getFullYear()}. ${String(d.getMonth() + 1).padStart(2, '0')}`
+    : '';
+  const content = `// AUTO-GENERATED by scripts/fetch-ga-views.js
+// Run \`node scripts/fetch-ga-views.js\` locally or configure CI secrets to update.
+// Empty array = GA4 not configured; landing page falls back to recent posts.
+
+export type GaView = {
+  path: string;
+  views: number;
+};
+
+export const GA_VIEWS: GaView[] = ${JSON.stringify(views, null, 2)};
+
+// Format: 'YYYY. MM' (e.g. '2026. 06'), empty string if GA4 not configured
+export const GA_UPDATED_AT: string = '${updatedAt}';
+`;
+  fs.writeFileSync(OUTPUT, content, 'utf8');
+}

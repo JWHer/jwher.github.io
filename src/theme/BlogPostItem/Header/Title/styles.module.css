@@ -1,12 +1,8 @@
+/* Post page renders h1, list view renders h2 — both display at h1 scale
+   (semantic h2 in lists is kept for SEO/outline; only the size is unified) */
 .title {
-  font-size: 3rem;
-}
-
-/**
-  Blog post title should be smaller on smaller devices
-**/
-@media (max-width: 576px) {
-  .title {
-    font-size: 2rem;
-  }
+  font-size: var(--jw-h1-size);
+  letter-spacing: var(--jw-heading-tracking);
+  text-transform: var(--jw-heading-transform);
+  font-variant-caps: var(--jw-heading-caps);
 }

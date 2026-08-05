@@ -1,0 +1,60 @@
+@use '../../css/variables' as *;
+
+.form {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  border: var(--jw-border-w) solid var(--ifm-color-emphasis-300);
+  border-radius: 0;
+
+  &::placeholder {
+    color: var(--ifm-color-emphasis-500);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--ifm-color-primary);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.submit {
+  padding: 0.7rem 1.6rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ifm-background-color);
+  background: var(--ifm-color-primary);
+  border: var(--jw-border-w) solid var(--ifm-color-primary);
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: var(--ifm-color-primary-dark);
+    border-color: var(--ifm-color-primary-dark);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .form {
+    gap: 0.6rem;
+  }
+
+  .submit {
+    padding: 0.7rem 1rem;
+  }
+}

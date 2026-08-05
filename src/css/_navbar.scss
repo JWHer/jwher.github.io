@@ -1,0 +1,88 @@
+// Mobile sidebar backdrop is always in DOM (position:fixed, covers viewport).
+// visibility:hidden blocks cursor in some browsers — disable pointer events entirely.
+.navbar-sidebar__backdrop {
+  pointer-events: none;
+}
+
+// Navbar: transparent over hero, solid when content scrolls past
+.navbar {
+  background-color: var(--navbar-bg-color);
+  transition: background-color 0.3s;
+  box-shadow: none;
+
+  .navbar__inner .navbar__title,
+  .navbar__items,
+  .navbar__item {
+    color: var(--navbar-text-color);
+  }
+
+  .navbar__brand,
+  .navbar__link {
+    cursor: pointer;
+  }
+
+  button.clean-btn:hover {
+    background: transparent;
+  }
+}
+
+// Logo visibility:
+// Default (scrolled, light mode): teal logo on cream bg → natural color
+.navbar__logo img {
+  filter: none;
+  transition: filter 0.3s;
+}
+
+// Dark mode (solid navbar): dark bg → invert logo to white
+[data-theme='dark'] .navbar__logo img {
+  filter: brightness(0) invert(1);
+}
+
+// Over hero (transparent navbar): always white logo regardless of theme
+.navbar--over-hero .navbar__logo img {
+  filter: brightness(0) invert(1);
+}
+
+// Social icon styles using mask for proper color inheritance
+%icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: inherit;
+  content: '';
+  cursor: pointer;
+  background-color: currentcolor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+}
+
+.icon-github::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/github-brands.svg');
+}
+
+.icon-linkedin::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/linkedin-brands.svg');
+}
+
+.icon-instagram::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/instagram-brands.svg');
+}
+
+.icon-search::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/search-icon.svg');
+}
+
+.icon-rss::after {
+  @extend %icon;
+
+  mask-image: url('/static/img/rss-icon.svg');
+}

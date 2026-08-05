@@ -1,0 +1,8 @@
+{
+  "label": "Deep Learning Papers",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "딥러닝의 역사를 바꾼 핵심 논문들 정리 — Transformer, BERT, GPT, ViT, VAE, GAN, Diffusion, LoRA, PEFT, RAG"
+  }
+}

@@ -1,0 +1,234 @@
+// ── Typography mode tokens ────────────────────────────────────────────────────
+//
+// Two site-wide typography modes, switched by `data-typeface` on <html>.
+// localStorage['typeface'] is the single source of truth (see src/utils/typeface.ts).
+//
+//   sans  (default)  — rules from The Monospace Web
+//                      https://owickstrom.github.io/the-monospace-web/
+//                      font: Noto Sans Mono + Nanum Gothic Coding for Hangul
+//                      (JetBrains Mono in the original)
+//   serif (toggled)  — rules from The Proportional Web
+//                      https://owickstrom.github.io/the-proportional-web/
+//                      font: Noto Serif KR (Alegreya in the original)
+//
+// Korean adjustments (ref: https://github.com/DaleStudy/daleui):
+//   - rhythm unit 1.6rem instead of the original 1.2rem (Hangul needs looser leading)
+//   - `word-break: keep-all` on prose
+//
+// Orthogonal to color mode: `data-theme` handles colors (_variables.scss),
+// `data-typeface` handles typography. They compose freely.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Layer A: mode tokens / Layer B: Infima bridge ─────────────────────────────
+
+:root {
+  // sans mode (default) — The Monospace Web
+  --jw-font-body: 'Noto Sans Mono', 'Nanum Gothic Coding', monospace;
+  --jw-font-mono: 'Noto Sans Mono', 'Nanum Gothic Coding', monospace;
+  --jw-rhythm: 1.6rem; // vertical grid unit (original: 1.2rem)
+  --jw-measure: 80ch;
+  --jw-page-pad: 2ch;
+  --jw-text-align: left;
+  --jw-hyphens: manual;
+  --jw-para-indent: 0;
+  --jw-para-gap: var(--jw-rhythm);
+  --jw-heading-caps: normal;
+  --jw-heading-transform: uppercase;
+  --jw-heading-tracking: 0;
+  --jw-h1-size: 2rem; // heading scale unified across modes (원본 mono 값; serif 원본은 1.25rem이나 한글 위계를 위해 통일)
+  --jw-h2-size: 2rem; // body h2 is the de-facto top level (the post title h1 lives outside .markdown); 2rem = exactly 2 grid lines
+  --jw-h3-style: normal;
+  --jw-ul-marker: square;
+  --jw-numeric: tabular-nums lining-nums;
+  --jw-border-w: 2px;
+  --jw-quote-style: normal;
+
+  // Infima bridge — one attribute flip propagates through every Docusaurus component
+  --ifm-font-family-base: var(--jw-font-body);
+  --ifm-font-family-monospace: var(--jw-font-mono);
+  --ifm-heading-font-family: var(--jw-font-body);
+  --ifm-global-border-width: var(--jw-border-w);
+}
+
+html[data-typeface='serif'] {
+  // serif mode — The Proportional Web
+  --jw-font-body: 'Noto Serif KR', georgia, serif;
+  --jw-measure: 66ch;
+  --jw-page-pad: 3ch;
+  --jw-text-align: justify;
+  --jw-hyphens: auto;
+  --jw-para-indent: 3ch;
+  --jw-para-gap: 0;
+  --jw-heading-caps: small-caps;
+  --jw-heading-transform: none;
+  --jw-heading-tracking: 0.05em;
+  --jw-h3-style: italic; // proportional-web: h3 is italic
+  --jw-ul-marker: disc;
+  --jw-numeric: oldstyle-nums;
+  --jw-border-w: 1.5px;
+  --jw-quote-style: italic;
+}
+
+// ── Layer C: prose element rules ──────────────────────────────────────────────
+// Scope: rendered markdown bodies. Docusaurus wraps MDX output (blog posts,
+// docs) in `.markdown`.
+
+.markdown {
+  max-width: var(--jw-measure);
+  line-height: var(--jw-rhythm); // fixed unit keeps the vertical grid; Infima headings set their own
+  font-variant-numeric: var(--jw-numeric);
+
+  p {
+    margin-bottom: var(--jw-para-gap);
+    text-align: var(--jw-text-align);
+    word-break: keep-all; // Hangul: never break inside words (ref: daleui)
+    overflow-wrap: break-word;
+    hyphens: var(--jw-hyphens);
+  }
+
+  // Successive paragraphs: indent instead of gap in serif mode
+  p + p {
+    margin-top: 0;
+    text-indent: var(--jw-para-indent);
+  }
+
+  // Headings sit on the grid: 2 lines above (a heading belongs to the section
+  // below it, so the larger gap goes on top), 1 line below.
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: calc(var(--jw-rhythm) * 2) 0 var(--jw-rhythm);
+    text-transform: var(--jw-heading-transform);
+    letter-spacing: var(--jw-heading-tracking);
+    font-variant-caps: var(--jw-heading-caps);
+  }
+
+  blockquote {
+    margin-inline: var(--jw-page-pad); // originals indent quotes by the page margin unit (3ch serif / 2ch sans)
+    font-style: var(--jw-quote-style);
+  }
+
+  h1 {
+    font-size: var(--jw-h1-size);
+
+    // § (section sign) marks the rare in-body h1 (the post title h1 lives
+    // outside .markdown) as a special top-level division — h1 vs h2 would
+    // otherwise be indistinguishable at the same 2rem size.
+    &::before {
+      content: '§ ';
+    }
+  }
+
+  h1,
+  h2 {
+    line-height: calc(var(--jw-rhythm) * 2); // 2rem glyphs need exactly 2 grid lines (no fractional rows)
+  }
+
+  h2 {
+    font-size: var(--jw-h2-size);
+  }
+
+  // Originals keep h3+ at body size; hierarchy comes from style, not scale
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem;
+    font-style: var(--jw-h3-style);
+  }
+
+  ul {
+    list-style-type: var(--jw-ul-marker); // square ≈ terminal block glyph (mono aesthetic)
+  }
+
+  // Block elements land on the grid: bottom margin = one rhythm line.
+  // (Conservative subset of the originals' `* + *` rule — applying it to
+  // everything would break Docusaurus components like admonitions/tabs.)
+  pre,
+  ul,
+  ol,
+  blockquote {
+    margin-bottom: var(--jw-rhythm);
+  }
+
+  // Tables: rows occupy whole grid lines (padding = half a line above/below),
+  // columns snap to the 12-column grid — `table-layout: fixed` divides the
+  // full measure equally by column count (2 cols → 6/6, 3 → 4/4/4, 4 → 3×4).
+  table {
+    display: table; // Infima sets block + scroll; grid-fit needs a real table
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-bottom: var(--jw-rhythm);
+  }
+
+  th,
+  td {
+    padding: calc(var(--jw-rhythm) / 2) 1ch;
+    line-height: var(--jw-rhythm);
+    vertical-align: top;
+    text-align: left;
+    overflow-wrap: break-word; // fixed layout wraps long content instead of scrolling
+
+    // Full cell borders mimic box-drawing characters (mono aesthetic);
+    // serif mode strips these below
+    border: var(--jw-border-w) solid var(--ifm-font-color-base);
+  }
+
+  th {
+    font-variant-caps: var(--jw-heading-caps);
+  }
+
+  // hr: a single thin rule centered in one grid row. (The mono original uses a
+  // heavy double rule — dropped by choice: `---` appears often in real posts
+  // and the double line reads too loud. Color/weight match the site's other
+  // dividers, --ifm-hr-border-color, rather than full ink.)
+  hr {
+    position: relative;
+    height: var(--jw-rhythm);
+    margin: calc(var(--jw-rhythm) * 1.5) 0;
+    border: none;
+    background: none; // Infima paints hr as a full-height background band — clear it
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(var(--jw-rhythm) / 2);
+      left: 0;
+      width: 100%;
+      border-top: 1px solid var(--ifm-hr-border-color);
+    }
+  }
+
+  // Code is always monospace: never justified, never indented
+  code,
+  pre,
+  kbd {
+    text-align: left;
+    text-indent: 0;
+    hyphens: none;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+}
+
+// Serif-mode overrides where the *structure* differs, not just a token value.
+// Book tables (Bringhurst): no vertical rules — a single rule under the header
+// row carries the structure; vertical lines are visual noise on a page.
+html[data-typeface='serif'] .markdown {
+  th,
+  td {
+    padding: calc(var(--jw-rhythm) / 2) 0.5ch;
+    border: none;
+  }
+
+  th {
+    letter-spacing: 0.075em;
+  }
+
+  thead tr:last-child th {
+    border-bottom: var(--jw-border-w) solid var(--ifm-font-color-base);
+  }
+}

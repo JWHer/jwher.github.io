@@ -1,167 +1,470 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
- :root{
-   --header-text-color: #e3e3e3;
-   --header-text-dark-color: #9A9A9A;
- }
+@import '../css/variables';
+@import '../css/mixins';
 
- .title__header {
-  background: url('/static/img/bamboo-road.jpg');
-  background-position: center center;
-  background-size: cover;
-  min-height: 100vh;
-  max-height: 999px;
-  overflow: hidden;
+// ── Layout ────────────────────────────────────────────────────────────────────
+
+// Applied to <html> only while the home page is mounted (see index.tsx). Gentle
+// `proximity` snap — guides the first page-down from the hero to the newsroom
+// without trapping the scroll. scroll-padding-top keeps the newsroom's top clear
+// of the fixed navbar when it snaps into place.
+.snapRoot {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--ifm-navbar-height);
+}
+
+.page {
   position: relative;
-  width: 100%;
   z-index: 1;
+  background: var(--ifm-background-color);
+
+  // Push content below the fixed full-viewport hero (hero = 100vh, but visible hero
+  // area below navbar = 100vh - navbar-height, so content starts at that offset)
+  margin-top: calc(100vh - var(--ifm-navbar-height));
+  padding: calc(var(--jw-rhythm) * 2) 0 var(--jw-rhythm);
+
+  // Fill at least one screen (below the navbar) so the newsroom reads as a full
+  // panel; grows past it when content is taller — no clipping. Its top edge is a
+  // snap point (see .snapRoot) so the first page-down settles here.
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  scroll-snap-align: start;
+}
+
+.col {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 7ch; // horizontal spacing in character units (≈ previous 70px)
+
+  @media (max-width: $bp-mobile) {
+    padding: 0 2ch;
+  }
+}
+
+// ── Shared ────────────────────────────────────────────────────────────────────
+
+.category {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-size: 0.72rem;
+  color: var(--ifm-color-content-secondary);
+  letter-spacing: 0.02em;
+  font-variant-numeric: var(--jw-numeric);
+}
+
+.readMore {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ── Card 1: Featured ─────────────────────────────────────────────────────────
+
+.featured {
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+  padding-bottom: var(--jw-rhythm);
+  margin-bottom: var(--jw-rhythm);
+}
+
+.featuredTitle {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+
+  a {
+    @include title-link;
+  }
+}
+
+.featuredDesc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ifm-color-content-secondary);
+  max-width: var(--jw-measure);
+  margin: 0 0 1rem;
+}
+
+.featuredMeta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  -ms-flex-pack: center;
-  .filter::after {
-    background-color: rgba(0, 0, 0, .5);
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
+  gap: 1.5rem;
 }
-.title__center {
-  z-index: 1;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 
-  display: block;
-}
-.title__brand {
-  max-width: 730px;
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
-  color: inherit;
-  display: block;
-  z-index: 2;
-  &:hover {
-    filter: brightness(1.2);
+// ── Card 2: Secondary ─────────────────────────────────────────────────────────
+
+.secondary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+  padding-bottom: var(--jw-rhythm);
+  margin-bottom: 0;
+
+  @media (max-width: $bp-mobile) {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
-.title__presentation__title {
-  font-size: 8em;
+
+.secondaryMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.secondaryTitle {
+  font-size: 1.2rem;
   font-weight: 700;
+  line-height: 1.3;
+  margin: 0.25rem 0 0.4rem;
+
+  a {
+    @include title-link;
+  }
+}
+
+.secondaryDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content-secondary);
   margin: 0;
-  padding: 15px;
-  color: var(--header-text-color);
-  /* -webkit-background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
-}
-@media only screen and (max-width: 767px){
-  .title__presentation__title {
-    font-size: 4em;
-  }
-}
-.title__presentation__subtitle {
-  font-size: 1.7em;
-  color: var(--header-text-color);
-  text-align: center;
-
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  /* font-family: $font-family-sans-serif; */
-  font-weight: 300;
-}
-.title__presentation__copyright {
-  font-size: 1em;
-  color: var(--header-text-dark-color);
-  text-align: center;
-}
-.title__moving__clouds{
-  background-image: url('/static/img/clouds.png');
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  width: 250.625em;
-  height: 43.75em;
-  -webkit-animation: cloudLoop 80s linear infinite;
-  animation: cloudLoop 80s linear infinite;
-}
-@keyframes cloudLoop{
-  0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-  100%{-webkit-transform:translate3d(-50%,0,0);
-  transform:translate3d(-50%,0,0)}
 }
 
-.arrowup{
-  text-align: center;
-  font-size: 4em;
+.secondaryDate {
+  flex-shrink: 0;
+  padding-top: 0.25rem;
+}
+
+// ── Divider ───────────────────────────────────────────────────────────────────
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--ifm-hr-border-color);
+  margin: var(--jw-rhythm) 0;
+}
+
+// ── Section head ──────────────────────────────────────────────────────────────
+
+.sectionHead {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.25rem;
+}
+
+.sectionMeta {
   font-weight: 400;
-  cursor: pointer;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-left: 0.5rem;
+  opacity: 0.7;
+}
+
+// ── Card 3: Bottom grid ───────────────────────────────────────────────────────
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Blog card (Card 3a) ───────────────────────────────────────────────────────
+
+.blogCard {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.875rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+}
+
+.blogCardNoImage {
+  grid-template-columns: 1fr;
+}
+
+.blogCardThumb {
+  display: block;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 3px;
+    background: var(--ifm-color-emphasis-100);
+  }
+}
+
+.blogCardBody {
+  min-width: 0;
+}
+
+.blogCardTitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.3rem;
+
+  a {
+    @include title-link;
+  }
+}
+
+.blogCardDesc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 0.3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ── Top reads (Card 3b) ───────────────────────────────────────────────────────
+
+.topReads {
+  border-left: 1px solid var(--ifm-hr-border-color);
+  padding-left: 1.5rem;
+
+  @media (max-width: $bp-mobile) {
+    border-left: none;
+    border-top: 1px solid var(--ifm-hr-border-color);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+}
+
+.topReadItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.topReadRank {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-300);
+  min-width: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.topReadBody {
+  min-width: 0;
+}
+
+.topReadTitle {
+  @include title-link;
+
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+}
+
+.topReadDesc {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--ifm-color-content-secondary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ── Footer nav ────────────────────────────────────────────────────────────────
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--ifm-hr-border-color);
+  margin-top: var(--jw-rhythm);
+
+  @media (max-width: $bp-mobile) {
+    gap: 1rem;
+  }
+}
+
+.navLink {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--ifm-font-color-base);
+    text-decoration: none;
+  }
+}
+
+// ── Intro section ─────────────────────────────────────────────────────────────
+
+.introWrap {
+  position: relative;
   z-index: 1;
-  animation: arrowLoop 0.5s ease-in-out infinite alternate;
-}
-@keyframes arrowLoop{
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-5px);
+  background: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-hr-border-color);
+  padding: calc(var(--jw-rhythm) * 3) 0 calc(var(--jw-rhythm) * 4);
+
+  @media (max-width: $bp-mobile) {
+    padding: calc(var(--jw-rhythm) * 2) 0 calc(var(--jw-rhythm) * 3);
   }
 }
 
-.rainbow{
-  background-image: url('/static/img/about-me/sea-cave.jpg');
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  margin-top:0;
-  height: calc(100vh - 120px);
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
 
-  &__title, &__text {
-    position: absolute;
-    height: inherit;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
+  // (1) Fixed section height — never grows, even when the bio wraps taller.
+  height: 12rem;
 
-    font-size: 3rem;
-    font-weight: bold;
-    color: #E3E3E3;
-    mix-blend-mode: hard-light;
-  }
-  &__title {
-    transition: transform 1s ease-in-out, color 1s ease-in-out;
-  }
-  &__text {
-    opacity: 0;
-    font-size: 2rem;
-    font-weight: normal;
-    transition: opacity 1s ease-in-out, color 1s ease-in-out;
-  }
-
-  &:hover &__title{
-    transform: translateY(-30%);
-    color: #FFF;
-  }
-  &:hover &__text{
-    opacity: 1;
-    color: #FFF;
+  @media (max-width: $bp-mobile) {
+    height: auto;
   }
 }
-@media (max-width: 810px) {
-  .rainbow__title, .rainbow__text {
-    font-size: 3.5vh;
+
+.introBio {
+  flex: 1;
+  min-width: 0;
+
+  // (2) Content-driven height — align-self keeps it from stretching to the fixed
+  // section, so the bio grows with its rows (name / text / links / cave-link)
+  // instead of clipping. A simple gap spaces the rows.
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  @media (max-width: $bp-mobile) {
+    gap: 1.25rem;
+  }
+}
+
+.introIllustration {
+  flex: 0 0 33%;
+  max-width: 33%;
+
+  // Centre the photo in the fixed-height column via flexbox — no absolute
+  // positioning, so there are no top/transform offsets to reason about.
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  img {
+    // (3) Bounded by the 1/3 column width and (4) capped at 20rem tall; the
+    // photo scales to the tighter of the two, keeping its aspect ratio. Taller
+    // than the 12rem bio row, so it overflows into the .introWrap padding —
+    // the bio stays compact while the photo reads large.
+    max-width: 100%;
+    max-height: 18rem;
+    border-radius: 3px;
+  }
+
+  @media (max-width: $bp-mobile) {
+    display: none;
+  }
+}
+
+.introName {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ifm-font-color-base);
+  margin: 0;
+}
+
+.introText {
+  font-size: 1.05rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 540px;
+
+  // Mobile: the photo is hidden, so let the text run to the full width instead
+  // of leaving the 540px cap's right-hand gap.
+  @media (max-width: $bp-mobile) {
+    max-width: none;
+  }
+}
+
+.introLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.introSocialLink {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  transition: color 0.2s;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:hover {
+    color: var(--ifm-font-color-base);
+    text-decoration: none;
+  }
+}
+
+// Quiet confession link to the /cave story — a `>` prompt marker in keeping
+// with the terminal aesthetic.
+.introCave {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
   }
 }

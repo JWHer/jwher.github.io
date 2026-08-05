@@ -1,0 +1,211 @@
+@use '../../../css/variables' as *;
+
+.wrap {
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+// ── 네비바 + 에뮬레이터 = 100vh ──────────────────────────
+.playArea {
+  position: relative;
+  height: calc(100vh - var(--ifm-navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+// 4:3 래퍼: 높이에 맞추되 폭을 넘으면 폭에 맞춤(양옆/상하는 페이지 배경). 박스(테두리) 없음.
+// EmulatorJS 캔버스가 폭을 강제하지 못하도록 래퍼로 분리 → aspect-ratio 유지.
+.frame {
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+  background: #000; // 4:3 안에서 세로 게임 등은 레터박스
+  overflow: hidden;
+}
+
+// EJS 메뉴바: 기본 숨김(레이아웃/측정 유지) → showBar 일 때만 표시
+// stylelint-disable selector-pseudo-class-no-unknown -- :global 은 CSS 모듈 문법
+.game :global(.ejs_menu_bar) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.showBar .game :global(.ejs_menu_bar) {
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+// stylelint-enable selector-pseudo-class-no-unknown
+
+// ── 컨트롤 오버레이 (프레임 위, 높이 차지 안 함) ─────────
+.controls {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none; // 컨테이너는 통과, 버튼만 클릭
+}
+
+.spacer { flex: 1; }
+
+.back,
+.toggle {
+  pointer-events: auto;
+  font: inherit;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: color-mix(in srgb, var(--ifm-background-surface-color) 82%, transparent);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    border-color: var(--ifm-color-primary);
+    text-decoration: none;
+  }
+}
+
+.back { color: var(--ifm-color-primary); }
+
+.toggle.on {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 18%, var(--ifm-background-surface-color));
+}
+
+// ── 아래 섹션: 게임 소개/팁 → 공용 조작키 ────────────────
+.below {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 6vw 4rem;
+}
+
+.about {
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+  padding-bottom: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.gameTitle {
+  font-size: var(--ifm-h2-font-size);
+  margin: 0 0 0.5rem;
+}
+
+.aboutMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.dot { opacity: 0.5; }
+
+.blurb {
+  margin: 0 0 0.6rem;
+  line-height: 1.7;
+}
+
+// 플레이 팁 — ASCII 대시(-) 불릿 3줄
+.tips {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ifm-color-content-secondary);
+
+  li {
+    line-height: 1.7;
+    padding-left: 1.1em;
+    text-indent: -1.1em;
+  }
+
+  li::before {
+    content: '- ';
+  }
+}
+
+.guideTitle {
+  font-size: var(--ifm-h4-font-size);
+  margin: 0 0 1rem;
+}
+
+.cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+}
+
+.colHead {
+  font-size: 0.95rem;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.4rem;
+}
+
+.keys {
+  border-collapse: collapse;
+  font-size: 0.9rem;
+
+  td {
+    padding: 0.2rem 0;
+    vertical-align: top;
+    color: var(--ifm-color-content-secondary);
+  }
+
+  .k {
+    white-space: nowrap;
+    padding-right: 1rem;
+    color: var(--ifm-font-color-base);
+  }
+
+  kbd {
+    background: var(--ifm-color-emphasis-200);
+    border: 1px solid var(--ifm-color-emphasis-400);
+    border-radius: 4px;
+    padding: 0 0.35rem;
+    font-size: 0.85em;
+  }
+}
+
+.note {
+  margin: 1.4rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--ifm-color-content-secondary);
+}
+
+@media (max-width: $bp-mobile) {
+  .playArea { padding: 10px 10px 12px; }
+
+  .controls {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    gap: 0.4rem;
+  }
+
+  .back,
+  .toggle {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.55rem;
+  }
+
+  .below { padding: 2rem 5vw 3rem; }
+  .cols { gap: 1.6rem; }
+}

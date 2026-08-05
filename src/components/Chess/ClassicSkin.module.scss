@@ -1,0 +1,77 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid #5a3e28;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 40%);
+  user-select: none;
+}
+
+.square {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.light {
+    background-color: #f0d9b5;
+  }
+
+  &.dark {
+    background-color: #b58863;
+  }
+
+  &.lastMoveFrom,
+  &.lastMoveTo {
+    &.light { background-color: #cdd16e; }
+    &.dark  { background-color: #aaa23a; }
+  }
+
+  // Checkmate highlights — applied after lastMove so they win at equal specificity.
+  // king and attacker use &.light/&.dark to match lastMove specificity and override it.
+  &.checkRay {
+    &.light { background-color: #e8b0b0; }
+    &.dark  { background-color: #c47878; }
+  }
+
+  &.checkAttacker {
+    &.light { background-color: #e05c5c; }
+    &.dark  { background-color: #c44040; }
+  }
+
+  &.checkKing {
+    &.light { background-color: #c83232; }
+    &.dark  { background-color: #a82828; }
+  }
+}
+
+.piece {
+  width: 85%;
+  height: 85%;
+  pointer-events: none;
+
+  // Instant redraw (canvas-anim skin handles sliding)
+}
+
+.coords {
+  position: absolute;
+  font-size: 0.55rem;
+  font-weight: 600;
+  opacity: 0.6;
+  line-height: 1;
+
+  &.file {
+    bottom: 2px;
+    right: 3px;
+  }
+
+  &.rank {
+    top: 2px;
+    left: 3px;
+  }
+
+  .light & { color: #b58863; }
+  .dark &  { color: #f0d9b5; }
+}
