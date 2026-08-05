@@ -75,6 +75,16 @@ export const ARTWORKS: Artwork[] = [
     imageDark: '/img/art/wq-og-dark.png',
     published: true,
   },
+  {
+    id: 'arcade',
+    title: '아케이드',
+    titleEn: 'Arcade',
+    year: 2026,
+    description: 'EmulatorJS(WASM)로 바로 즐기는 클래식 아케이드 12선.',
+    gradient: 'linear-gradient(135deg, #1d1e20 0%, #205d3b 50%, #25c2a0 100%)',
+    image: '/img/art/arcade-og.webp',
+    published: true,
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
