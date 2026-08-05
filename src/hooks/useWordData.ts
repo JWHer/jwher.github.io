@@ -116,17 +116,28 @@ async function cachedFetch(
   if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
 
   let buffer: ArrayBuffer;
+  // Content-Length is the COMPRESSED size when the server gzips the response
+  // (GitHub Pages does), but the reader yields decoded bytes. So accumulate
+  // chunks and size the buffer from the actual decoded length — never
+  // preallocate to Content-Length (that overflows under gzip). Content-Length
+  // is still a fine progress denominator (may briefly exceed 100%; clamped).
   const total = Number(res.headers.get('Content-Length')) || 0;
   if (onProgress && total > 0 && res.body) {
-    const bytes = new Uint8Array(total);
     const reader = res.body.getReader();
+    const chunks: Uint8Array[] = [];
     let loaded = 0;
     for (;;) {
       const { done, value } = await reader.read();
       if (done) break;
-      bytes.set(value, loaded);
+      chunks.push(value);
       loaded += value.length;
       onProgress(loaded, total);
+    }
+    const bytes = new Uint8Array(loaded);
+    let offset = 0;
+    for (const chunk of chunks) {
+      bytes.set(chunk, offset);
+      offset += chunk.length;
     }
     buffer = bytes.buffer;
   } else {
@@ -185,14 +196,15 @@ async function startLoad(): Promise<void> {
     const words = JSON.parse(new TextDecoder().decode(wordsBuf)) as string[];
     const secretIds = JSON.parse(new TextDecoder().decode(secretsBuf)) as number[];
     const vecsBuf = await cachedFetch(VECS_URL, (loaded, total) => {
-      setState({ progress: Math.round((loaded / total) * 100) });
+      setState({ progress: Math.min(100, Math.round((loaded / total) * 100)) });
     });
     setState({
       status: 'ready',
       progress: 100,
       data: buildWordData(words, secretIds, new Int8Array(vecsBuf)),
     });
-  } catch {
+  } catch (e) {
+    console.error('[wq] word data load failed:', e);
     setState({ status: 'error' });
   }
 }
