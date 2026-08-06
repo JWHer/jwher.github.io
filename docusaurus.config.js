@@ -80,6 +80,12 @@ const config = {
 
   headTags: [
     {
+      // coi-serviceworker: enables SharedArrayBuffer on GitHub Pages (needed for sql.js-httpvfs).
+      // Adds COOP/COEP headers via a service worker so the chess DB can load.
+      tagName: 'script',
+      attributes: { src: '/coi-serviceworker.js' },
+    },
+    {
       // Feed autodiscovery for the site-wide feed (see scripts/site-feed-plugin.js).
       tagName: 'link',
       attributes: {
