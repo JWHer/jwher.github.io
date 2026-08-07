@@ -19,6 +19,7 @@ export interface BoardSkinProps {
   selectedSquare?: string | null;
   destinationSquares?: string[];
   onSquareClick?: (square: string) => void;
+  onSquareDrop?: (from: string, to: string) => void;
 }
 
 export type BoardSkinType = 'classic' | 'canvas-anim';

@@ -362,6 +362,18 @@ export default function ChessExplorer() {
     }
   };
 
+  // Commit a move from `from` to `to`, routing pawn promotions through the
+  // picker. Shared by click destination and drag drop.
+  const tryMove = (from: string, to: string) => {
+    const moving = boardChess.get(from as Square);
+    if (moving?.type === 'p' && (to[1] === '8' || to[1] === '1')) {
+      setPendingPromotion({ from, to });
+    } else {
+      playMove(from, to);
+    }
+    setSelectedSquare(null);
+  };
+
   const handleSquareClick = (square: string) => {
     if (gameOver) return;
     if (pendingPromotion) {
@@ -370,16 +382,19 @@ export default function ChessExplorer() {
     }
     const piece = boardChess.get(square as Square);
     if (selectedSquare && destinationSquares.includes(square)) {
-      const moving = boardChess.get(selectedSquare as Square);
-      if (moving?.type === 'p' && (square[1] === '8' || square[1] === '1')) {
-        setPendingPromotion({ from: selectedSquare, to: square });
-      } else {
-        playMove(selectedSquare, square);
-      }
-      setSelectedSquare(null);
+      tryMove(selectedSquare, square);
       return;
     }
     setSelectedSquare(piece && piece.color === boardChess.turn() ? square : null);
+  };
+
+  const handleSquareDrop = (from: string, to: string) => {
+    if (gameOver || pendingPromotion) return;
+    const legal = boardChess
+      .moves({ square: from as Square, verbose: true })
+      .some((m) => m.to === to);
+    if (legal) tryMove(from, to);
+    else setSelectedSquare(null);
   };
 
   const confirmPromotion = (piece: 'q' | 'r' | 'b' | 'n') => {
@@ -402,10 +417,18 @@ export default function ChessExplorer() {
         })()
       : null;
 
+  // Keep the last matched opening visible after leaving the book;
+  // cleared when navigation returns to the start position.
+  const [stickyOpening, setStickyOpening] = useState<OpeningInfo | null>(null);
+  useEffect(() => {
+    if (moveHistory.length === 0) setStickyOpening(null);
+    else if (opening) setStickyOpening(opening);
+  }, [opening, moveHistory.length]);
+
   const openingDisplay: OpeningInfo | null =
-    isDeviated && game
-      ? { eco: '→', name: `${game.title} — 자유 탐색중` }
-      : opening;
+    opening ??
+    stickyOpening ??
+    (isDeviated && game ? { eco: '→', name: `${game.title} — 자유 탐색중` } : null);
 
   const ogImage = useBaseUrl('/img/art/chess-og.webp', { absolute: true });
 
@@ -447,6 +470,7 @@ export default function ChessExplorer() {
                     selectedSquare={selectedSquare}
                     destinationSquares={destinationSquares}
                     onSquareClick={handleSquareClick}
+                    onSquareDrop={handleSquareDrop}
                   />
                   {pendingPromotion && (() => {
                     const fileIdx = pendingPromotion.to.charCodeAt(0) - 97;

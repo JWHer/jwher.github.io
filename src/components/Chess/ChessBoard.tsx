@@ -15,6 +15,7 @@ interface ChessBoardProps {
   selectedSquare?: string | null;
   destinationSquares?: string[];
   onSquareClick?: (square: string) => void;
+  onSquareDrop?: (from: string, to: string) => void;
 }
 
 export default function ChessBoard({
@@ -28,6 +29,7 @@ export default function ChessBoard({
   selectedSquare,
   destinationSquares,
   onSquareClick,
+  onSquareDrop,
 }: ChessBoardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const props = {
@@ -41,6 +43,7 @@ export default function ChessBoard({
     selectedSquare,
     destinationSquares,
     onSquareClick,
+    onSquareDrop,
   };
 
   return (
