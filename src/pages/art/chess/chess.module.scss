@@ -74,12 +74,60 @@ $desktop: 799px;
 
 // Board scales to fit the center column; capped at 480px, square via aspect-ratio
 .boardWrapper {
+  display: flex;
+  gap: 8px;
   width: min(100%, calc(100vh - var(--ifm-navbar-height) - 80px));
-  max-width: 480px;
+  max-width: 502px; // 480px board + 14px eval bar + 8px gap
 
   @media (max-width: $desktop) {
     width: 100%;
     max-width: none;
+  }
+}
+
+.boardMain {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+// ── Pawn promotion picker (lichess-style vertical strip) ──
+.promoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: rgb(0 0 0 / 35%);
+}
+
+.promoStrip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 12.5%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 45%);
+}
+
+.promoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #ffe9a8;
+  }
+
+  img {
+    width: 85%;
+    height: 85%;
   }
 }
 

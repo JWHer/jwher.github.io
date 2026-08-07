@@ -25,7 +25,7 @@ export default function ArtGallery() {
             <Link key={art.id} to={`/art/${art.id}`} className={styles.card}>
               {art.image ? (
                 <div className={styles.cardThumb}>
-                  <img className={styles.thumbLight} src={art.image} alt="" loading="lazy" />
+                  <img className={art.imageDark ? styles.thumbLight : undefined} src={art.image} alt="" loading="lazy" />
                   {art.imageDark && (
                     <img className={styles.thumbDark} src={art.imageDark} alt="" loading="lazy" />
                   )}
