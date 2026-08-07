@@ -1,0 +1,17 @@
+.bar {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  align-self: stretch;
+  overflow: hidden;
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+
+.white {
+  position: absolute;
+  right: 0;
+  left: 0;
+  background: #f0f0f0;
+  transition: height 0.4s ease;
+}

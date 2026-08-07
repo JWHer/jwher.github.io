@@ -45,6 +45,33 @@
     &.light { background-color: #c83232; }
     &.dark  { background-color: #a82828; }
   }
+
+  &.selected {
+    &.light { background-color: #f5f07a; }
+    &.dark  { background-color: #d9c34a; }
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+// Legal-move markers (lichess-style): dot on empty squares, ring on captures.
+.destDot {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 22%);
+  pointer-events: none;
+}
+
+.destCapture {
+  position: absolute;
+  inset: 0;
+  border: 4px solid rgb(0 0 0 / 28%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .piece {
@@ -53,6 +80,18 @@
   pointer-events: none;
 
   // Instant redraw (canvas-anim skin handles sliding)
+}
+
+.annotationBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38%;
+  height: 38%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+  filter: drop-shadow(0 1px 3px rgb(0 0 0 / 60%));
 }
 
 .coords {
