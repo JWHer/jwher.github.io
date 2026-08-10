@@ -206,5 +206,13 @@
   {
     "from": "/posts/uuid",
     "to": "/docs/foundations/linux/uuid"
+  },
+  {
+    "from": "/posts/palm",
+    "to": "/docs/machine-learning/research-papers/palm-scaling-language-modeling"
+  },
+  {
+    "from": "/posts/install-tar.gz",
+    "to": "/docs/foundations/linux/install-tar-gz"
   }
 ]
